@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sinhala-orthography"
+version = "0.1.0"
+description = "Sinhala orthographic rules, letter inventory, phonetic romanization and disambiguation"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Srilal Siriwardhana" }]
+requires-python = ">=3.9"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: Sinhala",
+  "Programming Language :: Python :: 3",
+  "Topic :: Text Processing :: Linguistic",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sinhala_orthography = ["data/*.json"]

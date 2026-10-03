@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research, please cite it as below."
+title: "Sinhala Phonetic Orthography: a sourced rule set for Sinhala word construction and phonetic romanization"
+authors:
+  - family-names: Siriwardhana
+    given-names: Srilal
+version: 0.1.0
+date-released: 2026-10-03
+license: MIT
+repository-code: "https://github.com/SrilalS/sinhala-phonetic-orthography"
+keywords:
+  - Sinhala
+  - orthography
+  - phonetics
+  - romanization
+  - transliteration
+  - Unicode
+  - sandhi
