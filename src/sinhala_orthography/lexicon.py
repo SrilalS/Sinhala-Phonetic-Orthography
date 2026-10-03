@@ -32,12 +32,12 @@ NO_HAL = "ඟඦඬඳඹළ"
 
 # --- 1. normalisation of lexicon spellings -------------------------------------------
 
-_JOIN = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})([යර])")
+_JOIN = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=[යර])")   # lookahead: ය/ර may start the next join
 
 
 def normalize(word):
     """Restore the mandatory ZWJ in C ් ය / C ් ර (never after ර: G-HC-14, R-09)."""
-    return _JOIN.sub(lambda m: m.group(1) + HAL + (ZWJ if m.group(1) != "ර" else "") + m.group(2), word)
+    return _JOIN.sub(lambda m: m.group(1) + HAL + (ZWJ if m.group(1) != "ර" else ""), word)
 
 
 # --- 2. sound key ----------------------------------------------------------------------

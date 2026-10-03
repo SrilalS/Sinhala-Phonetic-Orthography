@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from sinhala_orthography import Lexicon, candidates  # noqa: E402
+from sinhala_orthography import Lexicon, candidates, normalize  # noqa: E402
 
 WORD_LIST = os.environ.get("SINHALA_WORD_LIST")
 
@@ -32,6 +32,18 @@ EXACT = [
 ]
 PARTIAL = [("kohom", "කොහොම"), ("lank", "ලංකා"), ("sinh", "සිංහල"), ("vidy", "විද්" + Z + "ය")]
 
+
+class NormalizeTest(unittest.TestCase):
+    def test_restores_zwj(self):
+        self.assertEqual(normalize("ක්රමය"), "ක්" + Z + "රමය")
+        self.assertEqual(normalize("විද්යාව"), "විද්" + Z + "යාව")
+        self.assertEqual(normalize("කාර්යය"), "කාර්යය")                        # never after ර (G-HC-14)
+        self.assertEqual(normalize("ක්" + Z + "රමය"), "ක්" + Z + "රමය")          # already joined
+
+    def test_overlapping_joins(self):
+        w = normalize("ක්ය්ය")
+        self.assertEqual(w, "ක්" + Z + "ය්" + Z + "ය")
+        self.assertEqual(normalize(w), w)
 
 
 @unittest.skipUnless(WORD_LIST, "set SINHALA_WORD_LIST to a word-frequency list")
