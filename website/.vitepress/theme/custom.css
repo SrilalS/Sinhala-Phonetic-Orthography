@@ -87,15 +87,6 @@
   .VPNavBarTitle .logo { height: 20px; margin-right: 6px; }
 }
 
-/* One flat background for the nav bar and sidebar, so the site title can't spill over a colour edge. */
-:root { --vp-sidebar-bg-color: var(--vp-c-bg); }
-@media (min-width: 960px) {
-  .VPSidebar { border-right: 1px solid var(--vp-c-divider); }
-  .VPNavBar.has-sidebar .title { border-bottom: 1px solid var(--vp-c-gutter); }
-}
-/* With the sidebar open, the title has only the sidebar's width (272px) until the layout widens:
-   let it wrap onto two lines instead of running past the sidebar edge. */
-@media (min-width: 960px) and (max-width: 1279px) {
-  .VPNavBar.has-sidebar .VPNavBarTitle .title { padding-right: 16px; }
-  .VPNavBar.has-sidebar .VPNavBarTitle .title span { white-space: normal; font-size: 15px; line-height: 1.2; }
-}
+/* The site title is wider than VitePress's default 272px sidebar, which the nav bar uses as the
+   width of the title area. Widen the sidebar so the title fits inside it at every width. */
+:root { --vp-sidebar-width: 312px; }
