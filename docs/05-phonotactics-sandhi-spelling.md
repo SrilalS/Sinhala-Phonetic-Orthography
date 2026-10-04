@@ -1,4 +1,4 @@
-# 05 — Phonotactics, Spelling Conventions and Sandhi
+# 05: Phonotactics, Spelling Conventions and Sandhi
 
 Scope: **which letter sequences are valid in written Sinhala, and why**. The file covers syllable structure and positional restrictions, sandhi (the spelling changes when morphemes join), letter-to-sound rules (when written inherent *a* is pronounced [ə]), prescriptive spelling rules and their controversies, loanword conventions, and punctuation, spacing and numbers. Unicode encoding details and the full letter inventory are covered elsewhere in this repository. A closing section draws out the consequences for romanization and transliteration.
 
@@ -18,20 +18,20 @@ Compiled October 2026.
 
 | Short name | Source |
 |---|---|
-| **WWG-G2P 2006** | Wasala, Weerasinghe & Gamage, "Sinhala Grapheme-to-Phoneme Conversion and Rules for Schwa Epenthesis", COLING/ACL 2006 Poster — https://aclanthology.org/P06-2114.pdf |
-| **WWG-SYL 2005** | Weerasinghe, Wasala & Gamage, "A Rule Based Syllabification Algorithm for Sinhala", IJCNLP 2005 — https://aclanthology.org/I05-1039.pdf |
-| **WASALA-SPELL 2010** | Wasala, Weerasinghe, Pushpananda, Liyanage & Jayalatharachchi, "A Data-Driven Approach to Checking and Correcting Spelling Errors in Sinhala", ICTer 3(1) 2010 — https://distantreader.org/stacks/journals/icter/icter-72.pdf. Appendix A gives prescriptive ණ/න, ළ/ල, ෂ/ශ rules drawn from Disanayaka (2007) and others. **The PDF's Sinhala text extracts with a legacy-font mapping error**, so examples were reconstructed (e.g. extracted `ශ` is really ළ and `඿` is really ස). |
-| **SINSPELL 2021** | Liyanapathirana, Gunasinghe & Dias, "SinSpell: A Comprehensive Spelling Checker for Sinhala" — https://arxiv.org/abs/2107.02983 |
-| **SI-WP-SANDHI** | Sinhala Wikipedia, සිංහල සන්ධි — https://si.wikipedia.org/wiki/සිංහල_සන්ධි, and සන්ධි — https://si.wikipedia.org/wiki/සන්ධි |
-| **PIRIVEN-SANDHI** | Piriven Sinhala Piyasa, "සන්ධි 10 සරලව" — http://piriven.blogspot.com/2021/05/10.html (education blog; matches the school syllabus list of 10 sandhi) |
-| **SI-WP-AV** | Sinhala Wikipedia, සිංහල අක්ෂර වින්‍යාසය — https://si.wikipedia.org/wiki/සිංහල_අක්ෂර_වින්‍යාසය |
-| **LETSLEARN** | "අපි නිවරදිව සිංහල ලියමු - අක්ෂර වින්‍යාසය" — http://letslearnsinhala.blogspot.com/2012/03/blog-post.html |
-| **EN-WP-SIN** | English Wikipedia, Sinhala language (phonology section) — https://en.wikipedia.org/wiki/Sinhala_language and https://en.wikipedia.org/wiki/Sinhala_phonology (lead only) |
-| **EN-WP-SCRIPT** | English Wikipedia, Sinhala script — https://en.wikipedia.org/wiki/Sinhala_script |
-| **ZYGIS 2010** | Żygis, "Typology of Consonantal Insertions", ZASPiL 52 (cites Smith 2001 for Sinhala) — https://zaspil.leibniz-zas.de/article/download/385/386 |
-| **KNAB 1989** | Institute of the Estonian Language, KNAB romanization of Sinhalese — https://arhiiv.eki.ee/knab/lat/kblsi2.pdf |
-| **UNICODE-ML 2016** | Unicode mailing list thread on SLS 1134 named sequences — https://unicode.org/mail-arch/unicode-ml/y2016-m10/0218.html |
-| **EN-WP-LOAN** | English Wikipedia, List of Sinhala words of English origin — https://en.wikipedia.org/wiki/List_of_Sinhala_words_of_English_origin |
+| **WWG-G2P 2006** | Wasala, Weerasinghe & Gamage, "Sinhala Grapheme-to-Phoneme Conversion and Rules for Schwa Epenthesis", COLING/ACL 2006 Poster: https://aclanthology.org/P06-2114.pdf |
+| **WWG-SYL 2005** | Weerasinghe, Wasala & Gamage, "A Rule Based Syllabification Algorithm for Sinhala", IJCNLP 2005: https://aclanthology.org/I05-1039.pdf |
+| **WASALA-SPELL 2010** | Wasala, Weerasinghe, Pushpananda, Liyanage & Jayalatharachchi, "A Data-Driven Approach to Checking and Correcting Spelling Errors in Sinhala", ICTer 3(1) 2010: https://distantreader.org/stacks/journals/icter/icter-72.pdf. Appendix A gives prescriptive ණ/න, ළ/ල, ෂ/ශ rules drawn from Disanayaka (2007) and others. **The PDF's Sinhala text extracts with a legacy-font mapping error**, so examples were reconstructed (e.g. extracted `ශ` is really ළ and `඿` is really ස). |
+| **SINSPELL 2021** | Liyanapathirana, Gunasinghe & Dias, "SinSpell: A Comprehensive Spelling Checker for Sinhala", https://arxiv.org/abs/2107.02983 |
+| **SI-WP-SANDHI** | Sinhala Wikipedia, සිංහල සන්ධි (https://si.wikipedia.org/wiki/සිංහල_සන්ධි, and සන්ධි) https://si.wikipedia.org/wiki/සන්ධි |
+| **PIRIVEN-SANDHI** | Piriven Sinhala Piyasa, "සන්ධි 10 සරලව": http://piriven.blogspot.com/2021/05/10.html (education blog; matches the school syllabus list of 10 sandhi) |
+| **SI-WP-AV** | Sinhala Wikipedia, සිංහල අක්ෂර වින්‍යාසය: https://si.wikipedia.org/wiki/සිංහල_අක්ෂර_වින්‍යාසය |
+| **LETSLEARN** | "අපි නිවරදිව සිංහල ලියමු - අක්ෂර වින්‍යාසය": http://letslearnsinhala.blogspot.com/2012/03/blog-post.html |
+| **EN-WP-SIN** | English Wikipedia, Sinhala language (phonology section): https://en.wikipedia.org/wiki/Sinhala_language and https://en.wikipedia.org/wiki/Sinhala_phonology (lead only) |
+| **EN-WP-SCRIPT** | English Wikipedia, Sinhala script: https://en.wikipedia.org/wiki/Sinhala_script |
+| **ZYGIS 2010** | Żygis, "Typology of Consonantal Insertions", ZASPiL 52 (cites Smith 2001 for Sinhala): https://zaspil.leibniz-zas.de/article/download/385/386 |
+| **KNAB 1989** | Institute of the Estonian Language, KNAB romanization of Sinhalese: https://arhiiv.eki.ee/knab/lat/kblsi2.pdf |
+| **UNICODE-ML 2016** | Unicode mailing list thread on SLS 1134 named sequences: https://unicode.org/mail-arch/unicode-ml/y2016-m10/0218.html |
+| **EN-WP-LOAN** | English Wikipedia, List of Sinhala words of English origin: https://en.wikipedia.org/wiki/List_of_Sinhala_words_of_English_origin |
 
 **Things I could not reach:** the e-Thaksalawa Grade 10 PDF "අක්ෂර හා අක්ෂර වින්‍යාසය" (https://e-thaksalawa.moe.gov.lk/moodle/pluginfile.php/10785/mod_resource/content/1/SG10_Sin_Act_Akshara_vinyasaya.pdf) redirects to a login page. No NIE textbook sandhi chapter and no Department of Official Languages spelling standard could be fetched online. Where a rule rests on these kinds of sources, it is marked `[UNVERIFIED]`.
 
@@ -39,7 +39,7 @@ Compiled October 2026.
 
 ## 1. Syllable structure and positional restrictions
 
-### PH-001 — Native syllable template is (C)V(C)
+### PH-001: Native syllable template is (C)V(C)
 - **Statement:** Native (*nishpanna*) words use only V, CV, VC and CVC syllables. Long vowels are allowed (V̄, CV̄(C)). Native words have no onset clusters.
 - **Examples:** අම්මා *am.maː*; ගස් *gas*; පොත *po.tə*; මල්ලී *mal.liː*.
 - **Exceptions:** Sanskrit and Pali (*tatsama/tadbhava*) and English loans allow up to (C)(C)(C)V(C)(C)(C): ප්‍රශ්නය *praś.nə.yə*; ස්ත්‍රී *strī*; ශාස්ත්‍රය.
@@ -47,7 +47,7 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** WWG-SYL 2005 §3.2.2–3.2.3; EN-WP-SIN.
 
-### PH-002 — Medial clusters split as VC.CV; three-consonant clusters are split by rule
+### PH-002: Medial clusters split as VC.CV; three-consonant clusters are split by rule
 - **Statement:** In native words, a VCCV sequence syllabifies as VC.CV. In loans, C+C+r/y splits before the stop+liquid/glide part (*sam.prēk.ṣə.nə*). A C+C+C cluster whose first two members are both stops splits after the first consonant. Any other C+C+C cluster splits after the second consonant.
 - **Examples:** මල්ලී *mal.liː*; සම්ප්‍රේෂණ *sam.prē.kṣa.ṇa* / *samp.rē…* (both syllabifications are acceptable); මත්ස්‍ය *mat.syə* ~ *mats.yə*.
 - **Exceptions:** Some Sanskrit words with C+r clusters may be pronounced with gemination: ක්‍රමක්‍රමයෙන් *kramak.kra…*; අප්‍රමාණ *ap.pramāṇa* ~ *ap.ramāṇa*.
@@ -55,7 +55,7 @@ Compiled October 2026.
 - **Confidence:** high for the algorithm. Its relevance to spelling is indirect.
 - **Sources:** WWG-SYL 2005 §3.2.3–3.2.4.
 
-### PH-003 — Prenasalized stops never begin a word and never end a syllable
+### PH-003: Prenasalized stops never begin a word and never end a syllable
 - **Statement:** ඟ ඬ ඳ ඹ (and the obsolete ඦ) occur only between vowels (intervocalically). They cannot be word-initial, cannot be word-final, cannot take `hal`, and cannot be geminated.
 - **Examples:** කඳ *kaⁿdə* "trunk" vs. කන්ද *kandə* "hill" vs. කද *kadə* "shoulder-pole"; අඹ *aᵐbə*; ගඟ *gaᵑgə*; කොළඹ *koḷaᵐbə*.
 - **Exceptions:** None in standard vocabulary. Before a consonant in compounds, the prenasal is replaced by ං or a hal nasal: ගඟ + වතුර → ගංවතුර; කොළඹ + තොට → කොළොම්තොට (see SN-007).
@@ -63,7 +63,7 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** EN-WP-SIN (prenasals are intervocalic only); WWG-SYL 2005; SI-WP-SANDHI (ගාත්‍රාක්ෂර ලෝප examples).
 
-### PH-004 — ඞ (`nga`) and ං do not begin a word
+### PH-004: ඞ (`nga`) and ං do not begin a word
 - **Statement:** The velar nasal /ŋ/ has no word-initial occurrence. ඞ is almost never written as a free letter. /ŋ/ is written as ං (*anusvara*), which in native words occurs word-finally and before velars.
 - **Examples:** ගං *gaŋ* "rivers"; අං *aŋ* "horns"; සිංහල *siŋhələ*; වාඞ්මය (rare Sanskrit spelling).
 - **Exceptions:** ඞ appears in a few Sanskrit spellings such as වාඞ්මය and older සඞ්ඝ (now usually සංඝ).
@@ -71,7 +71,7 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §2.2 (citing Disanayaka 1995); EN-WP-SIN; KNAB 1989 note 1 (ං generally substitutes for ඞ).
 
-### PH-005 — Other consonants: which ones can start a word
+### PH-005: Other consonants: which ones can start a word
 - **Statement:** Apart from /ŋ/ and the prenasals, all consonant letters can begin a word. Two letters need comment:
   - **ණ (`nna`)** occurs initially in a handful of words: ණය *ṇayə* "debt", plus some Sanskrit words.
   - **ළ (`lla`)** occurs initially in native words: ළමයා, ළඟ, ළිඳ, ළපටි, ළය, ළද, ළසෝ, ළහිරු. When it starts a word it never carries `hal`.
@@ -81,7 +81,7 @@ Compiled October 2026.
 - **Confidence:** high for ළ; medium for ණ (only a few words).
 - **Sources:** SI-WP-AV (ළ initial list); WWG-G2P 2006 §2.2; ණය from general dictionary knowledge `[UNVERIFIED]` against the Sinhala Shabdakoshaya.
 
-### PH-006 — Vowels: only ඎ never begins a word; ඏ ඐ are obsolete
+### PH-006: Vowels: only ඎ never begins a word; ඏ ඐ are obsolete
 - **Statement:** All independent vowel letters can begin a word except ඎ (*ruu*). ඌ, ඍ, ඓ, ඖ begin words only in Sanskrit loans. ඏ and ඐ (*ilu, iluu*) do not occur in contemporary Sinhala.
 - **Examples:** ඍතුව *rituvə* "season"; ඍණ *riṇə* "minus"; ඓතිහාසික *aitihāsika*; ඖෂධ *auṣadha*.
 - **Exceptions:** Inside a word, an independent vowel letter appears only at a compound boundary or in a place name (PH-009).
@@ -89,7 +89,7 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §2.2; EN-WP-SCRIPT; SI-WP (සිංහල හෝඩිය).
 
-### PH-007 — Word-final position: vowel, hal consonant, or ං
+### PH-007: Word-final position: vowel, hal consonant, or ං
 - **Statement:** Written native words end in one of three ways:
   - a vowel: inherent *a* pronounced [ə] (පොත), or an explicit vowel sign (පොතේ, ගුරු);
   - a hal consonant, commonly ත් ක් ස් ල් න් ම් (පොත්, මලක්, ගස්, මල්, ගම්, කන්); ට් and ර් occur mostly in loans (කාර්, නෝට්);
@@ -102,7 +102,7 @@ Compiled October 2026.
 - **Confidence:** high (the [ŋ] realisation); medium (the exact set of native final hal consonants).
 - **Sources:** EN-WP-SIN; WWG-G2P 2006 Rule #5; KNAB 1989.
 
-### PH-008 — Gemination: intervocalic only; never with prenasals, ŋ, f, h, ś
+### PH-008: Gemination: intervocalic only; never with prenasals, ŋ, f, h, ś
 - **Statement:** Any consonant can be doubled (C්C) between vowels except the prenasals, /ŋ/, /f/, /h/ and /ʃ/. Geminates are frequent and carry meaning: native plural vs. singular-definite forms, past tenses, and loan naturalisation.
 - **Examples:** අම්මා, අක්කා, ගත්තා *gattā*, මල්ලී, ගින්න (from ගිනි), නෝට්ටුව, කෝච්චිය.
 - **Exceptions:** Learned Sanskrit spellings do write ශ්ශ: නිශ්ශබ්ද, නිශ්ශංක. Here the spelling follows Sanskrit sandhi, not spoken phonotactics.
@@ -110,7 +110,7 @@ Compiled October 2026.
 - **Confidence:** high (spoken rule); medium (the ශ්ශ exceptions).
 - **Sources:** EN-WP-SIN; SI-WP-AV (නිශ්ශබ්ද).
 
-### PH-009 — Vowel hiatus is avoided; VV inside a word is very rare
+### PH-009: Vowel hiatus is avoided; VV inside a word is very rare
 - **Statement:** Native words almost never contain two adjacent vowels. At a root–suffix boundary, hiatus is always repaired:
   - **Nouns** insert a glide (SN-010).
   - **Verbs** usually delete one vowel. Glide insertion is the last resort.
@@ -120,7 +120,7 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** WWG-SYL 2005 Rule #3 (only 71 of 78,775 corpus syllables); ZYGIS 2010 (citing Smith 2001).
 
-### PH-010 — Diphthongs are written V + ය / V + ව in native words
+### PH-010: Diphthongs are written V + ය / V + ව in native words
 - **Statement:** Phonetic diphthongs [ai au ui ei æi oi iu eu æu ou] are written as a vowel followed by යි or වු. ඓ/ෛ and ඖ/ෞ are used only in Sanskrit words.
 - **Examples:**
   - Native: අයියා *aiyā* [ajjaː]; ළමයි [ḷamai]; අවුරුදු [auruḍu]; හයි, කැමතියි.
@@ -130,16 +130,16 @@ Compiled October 2026.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 Table 5 (diphthong mapping /a j i/ → /ai/, /a w u/ → /au/, etc.); EN-WP-LOAN.
 
-### PH-011 — Schwa /ə/ never starts a syllable (except in කර- forms)
+### PH-011: Schwa /ə/ never starts a syllable (except in කර- forms)
 - **Statement:** Phonemic /ə/ does not occur syllable-initially. The only exceptions are conjugated forms of the verb stem *kərə* "do". Word-initial /ə, əː/ occurs only in English loans, and is written with අ.
 - **Examples:** කරනවා *kərənəwā*. English *urgent* → written with අ (e.g. අර්ජන්ට්) `[UNVERIFIED example]`.
 - **Applies to:** a.
 - **Confidence:** medium (the source text is a little garbled).
 - **Sources:** WWG-G2P 2006 §2.1–2.2 (citing Karunatillake 2004).
 
-### PH-012 — Written ර + yansaya is not allowed; *rya* uses repaya + ය
+### PH-012: Written ර + yansaya is not allowed; *rya* uses repaya + ය
 - **Statement:** SLS 1134 says yansaya is not used after ර. The sequence /rya/ is written ර්‍ය (repaya + ය), not ර්‍ය with yansaya.
-- **Examples:** කාර්ය (correct per SLS 1134) — *not* කාර‍්‍ය; සූර්ය; වීර්ය; ආශ්චර්ය.
+- **Examples:** කාර්ය (correct per SLS 1134), *not* කාර‍්‍ය; සූර්ය; වීර්ය; ආශ්චර්ය.
 - **Exceptions:** Older printing wrote *rya* as ය්‍ය (e.g. කාය්‍ය, සූය්‍ය, ආචාය්‍ය). It is still seen in older texts. `[UNVERIFIED: historical convention, from general knowledge]`
 - **Applies to:** ra, ya, ZWJ, hal.
 - **Confidence:** high (SLS rule); medium (historical variant).
@@ -147,18 +147,18 @@ Compiled October 2026.
 
 ---
 
-## 2. Sandhi (සන්ධි) — spelling changes when morphemes join
+## 2. Sandhi (සන්ධි): spelling changes when morphemes join
 
 Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-SANDHI). Learned vocabulary also contains Sanskrit sandhi (දීර්ඝ, ගුණ, වෘද්ධි, යණ්, visarga), which is *frozen* into the spelling of many tatsama words.
 
-### SN-001 — ස්වර සන්ධිය (vowel joins a final hal consonant)
+### SN-001: ස්වර සන්ධිය (vowel joins a final hal consonant)
 - **Statement:** The `hal` of the first word's final consonant is dropped, and the second word's initial vowel becomes a vowel sign on that consonant.
 - **Example:** මල් + අසුන → මලසුන *mal + asuna → malasuna*.
 - **Applies to:** hal; all vowels.
 - **Confidence:** high.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI.
 
-### SN-002 — පූර්වස්වර ලෝප සන්ධිය (first word's final vowel drops)
+### SN-002: පූර්වස්වර ලෝප සන්ධිය (first word's final vowel drops)
 - **Examples:**
   - නැණ + ඇති → නැණැති
   - දකුණු + ඇස → දකුණැස
@@ -171,13 +171,13 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Confidence:** high.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI.
 
-### SN-003 — පරස්වර ලෝප සන්ධිය (second word's initial vowel drops)
+### SN-003: පරස්වර ලෝප සන්ධිය (second word's initial vowel drops)
 - **Examples:** ගුරු + උතුමා → ගුරුතුමා; මුනි + උතුමා → මුනිතුමා; යති + උතුමා → යතිතුමා.
 - **Applies to:** u, i.
 - **Confidence:** high.
 - **Sources:** SI-WP-SANDHI.
 
-### SN-004 — ස්වරාදේශ සන්ධිය (vowel substitution; mostly Sanskrit guṇa/vṛddhi)
+### SN-004: ස්වරාදේශ සන්ධිය (vowel substitution; mostly Sanskrit guṇa/vṛddhi)
 - **Statement:** Two vowels merge into a third vowel:
   - අ/ආ + ඉ/ඊ → එ/ඒ
   - අ/ආ + උ/ඌ → ඔ/ඕ
@@ -195,14 +195,14 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Confidence:** high for the native examples; medium for the Sanskrit guṇa/vṛddhi examples (standard Sanskrit sandhi, not checked in a Sinhala textbook) `[partly UNVERIFIED]`.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI (lists අ+ඉ→එ, අ+උ→ඔ/ඕ, එ+අ→ඈ). The Sanskrit rules come from general Sanskrit sandhi (dīrgha/guṇa/vṛddhi).
 
-### SN-005 — දීර්ඝ (savarṇa-dīrgha) sandhi in tatsama words
+### SN-005: දීර්ඝ (savarṇa-dīrgha) sandhi in tatsama words
 - **Statement:** Two like vowels merge into the long vowel: අ+අ→ආ, ඉ+ඉ→ඊ, උ+උ→ඌ.
 - **Examples:** ධර්ම + අශෝක → ධර්මාශෝක; කවි + ඉන්ද්‍ර → කවීන්ද්‍ර; ගුරු + උපදේශ → ගුරූපදේශ; විද්‍යා + ආලය → විද්‍යාලය.
 - **Applies to:** aa, ii, uu.
 - **Confidence:** medium `[UNVERIFIED in a Sinhala textbook]`.
 - **Sources:** general Sanskrit sandhi (search result summary of dīrgha sandhi).
 
-### SN-006 — යණ් sandhi: ඉ/උ before an unlike vowel → ්‍ය / ්ව
+### SN-006: යණ් sandhi: ඉ/උ before an unlike vowel → ්‍ය / ්ව
 - **Statement:** A final ඉ becomes ්‍ය (yansaya), and a final උ becomes ්ව, before a different vowel. **This is the source of most C + ්‍ය and C + ්ව clusters in learned words.**
 - **Examples:**
   - ඉති + ආදි → ඉත්‍යාදි
@@ -214,21 +214,21 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Confidence:** medium `[UNVERIFIED in a Sinhala textbook]`.
 - **Sources:** general Sanskrit sandhi.
 
-### SN-007 — ගාත්‍රාක්ෂර ලෝප සන්ධිය (prenasal loses its stop before a consonant)
+### SN-007: ගාත්‍රාක්ෂර ලෝප සන්ධිය (prenasal loses its stop before a consonant)
 - **Statement:** A prenasalized letter at the end of the first word sheds its stop component and becomes ං or a homorganic hal nasal.
 - **Examples:** ගඟ + වතුර → ගංවතුර; කොළඹ + තොට → කොළොම්තොට (note the vowel change too).
 - **Applies to:** nnga nndda nda mba nyja → anusvara / ma+hal / na+hal.
 - **Confidence:** high.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI.
 
-### SN-008 — ගාත්‍රාදේශ සන්ධිය (consonant substitution)
+### SN-008: ගාත්‍රාදේශ සන්ධිය (consonant substitution)
 - **Statement:** One consonant replaces another. Common substitutions are ක → ය/ව, බ් → ප්, ද් → ත්.
 - **Example:** ගිනි + කම් → ගිනියම්.
 - **Applies to:** ka, ya, va, ba, pa, da, ta.
 - **Confidence:** medium (one source lists the substitution set).
 - **Sources:** PIRIVEN-SANDHI.
 
-### SN-009 — පූර්වරූප / පරරූප / ද්විත්වරූප (assimilation and doubling)
+### SN-009: පූර්වරූප / පරරූප / ද්විත්වරූප (assimilation and doubling)
 - **Statement:** At the join, one consonant assimilates to the other and a geminate results.
   - *Pūrvarūpa*: the first consonant copies onto the second.
   - *Pararūpa*: the second consonant copies back onto the first.
@@ -241,7 +241,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Confidence:** high.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI.
 
-### SN-010 — ආගම සන්ධිය / glide insertion (යකාරාගම, වකාරාගම)
+### SN-010: ආගම සන්ධිය / glide insertion (යකාරාගම, වකාරාගම)
 - **Statement:** A new consonant (usually ය or ව, sometimes ර) is inserted between two vowels. In noun inflection this is automatic, and the glide depends on the root-final vowel:
   - **ය [j]** after front vowels: ඉ, ඊ, එ, ඒ, ඇ, ඈ.
   - **ව [w]** after back vowels and after ආ: උ, ඌ, ඔ, ඕ, ආ.
@@ -256,7 +256,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI (ආගම inserts ව, ය, ර); ZYGIS 2010 citing Smith 2001.
 - **Note:** The terms "යකාරාගම / වකාරාගම" returned no web hits. They seem to be informal labels. School grammar uses "ආගම සන්ධිය".
 
-### SN-011 — Visarga / *s*-final prefix sandhi (නිස්-, දුස්-, මනස්-) fixes ශ/ෂ/ර් spellings
+### SN-011: Visarga / *s*-final prefix sandhi (නිස්-, දුස්-, මනස්-) fixes ශ/ෂ/ර් spellings
 - **Statement:** Sanskrit prefixes ending in *-s/-ḥ* change form according to the next sound:
   - before ක/ප → ෂ්
   - before ච/ජ → ශ්
@@ -271,21 +271,21 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Confidence:** medium. The resulting spellings are confirmed by SI-WP-AV (ෂ before ක/ප; ශ before ච). The derivations are `[UNVERIFIED in a Sinhala textbook]`.
 - **Sources:** SI-WP-AV; LETSLEARN.
 
-### SN-012 — *-ika* (තද්ධිත) derivation lengthens the first vowel (vṛddhi)
+### SN-012: *-ika* (තද්ධිත) derivation lengthens the first vowel (vṛddhi)
 - **Statement:** Adding *-ika* (and similar suffixes) lengthens or strengthens the root's first vowel: අ→ආ, ඉ/එ→ඓ, උ/ඔ→ඖ.
 - **Examples:** පරිසර → පාරිසරික; පුද්ගල → පෞද්ගලික; දිනය → දෛනික; ලෝකය → ලෞකික; සමාජ → සාමාජික; ඉතිහාස → ඓතිහාසික.
 - **Applies to:** aa, ai, au.
 - **Confidence:** high.
 - **Sources:** LETSLEARN (පරිසර→පාරිසරික, පුද්ගල→පෞද්ගලික).
 
-### SN-013 — Umlaut in verb past forms (a→æ, o→e, u→i)
+### SN-013: Umlaut in verb past forms (a→æ, o→e, u→i)
 - **Statement:** Some suffixes front the root vowel: අ→ඇ, ඔ→එ, උ→ඉ.
 - **Examples:** බලනවා → බැලුවා; කපනවා → කැපුවා; අදිනවා → ඇද්දා; කොටනවා → කෙටුවා `[UNVERIFIED example]`.
 - **Applies to:** ae, aee, e, i.
 - **Confidence:** high (the process); medium (the specific forms).
 - **Sources:** EN-WP-SIN (phonology lead).
 
-### SN-014 — Noun singular/plural alternations create geminates and hal endings
+### SN-014: Noun singular/plural alternations create geminates and hal endings
 - **Statement:**
   - Inanimate nouns: the plural is often the bare hal root, and the singular-definite adds *-ය/-ව/-අ*.
   - Roots ending in ඉ/උ double their last consonant in the singular.
@@ -300,14 +300,14 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 
 Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərənəwaː] is romanized informally as *karanawa* or *keranawa*, not *kərənəwā*. WWG-G2P 2006 starts by giving *every* unmarked consonant /ə/ (schwa is the default), then applies ordered rules that change it to /a/. These rules are what a converter from informal romanization back to Sinhala script needs to reverse.
 
-### G2P-001 — Default: an unmarked consonant carries [ə]
+### G2P-001: Default: an unmarked consonant carries [ə]
 - **Statement:** An unmarked consonant (no vowel sign, no `hal`, not the first member of a ZWJ conjunct) carries [ə].
 - **Exceptions:** Rules G2P-002 to G2P-009 below.
 - **Applies to:** a.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §5.1.
 
-### G2P-002 — Rule 1: first syllable has [a]
+### G2P-002: Rule 1: first syllable has [a]
 - **Statement:** The first syllable's inherent vowel is [a]. Exceptions:
   - (a) after the onset /sv/: ස්වර *svərə*;
   - (b) words beginning with /kər/, i.e. forms of the verb කර-: කරනවා *kərənəwā*;
@@ -317,7 +317,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high. This rule alone is right for 22,766 of 30,000 test words.
 - **Sources:** WWG-G2P 2006 Rule #1, §6.
 
-### G2P-003 — Rule 2: after a C+ර cluster
+### G2P-003: Rule 2: after a C+ර cluster
 - **Statement:** Schwa vs [a] after *Cr* depends on what follows. Roughly:
   - before හ, or before a consonant cluster → [a]: ප්‍රහාර *prahārə*, ප්‍රශ්නය *praśnəyə*;
   - otherwise → [ə]: ප්‍රකාශ *prəkāśə*, ක්‍රමය *krəməyə*, ප්‍රති *prəti*.
@@ -326,47 +326,47 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** medium.
 - **Sources:** WWG-G2P 2006 Rule #2; WASALA-SPELL (ප්‍රකාශන /prəkāśənə/).
 
-### G2P-004 — Rule 3: [a] next to හ
+### G2P-004: Rule 3: [a] next to හ
 - **Statement:** A schwa after V+හ becomes [a]. Read as: a vowel in {a, e, æ, o, ə}, then හ, then a schwa that becomes [a].
 - **Examples:** මහත *mahatə*; පහන *pahanə*; වහල *wahalə*.
 - **Applies to:** ha.
 - **Confidence:** medium (the wording in the PDF is ambiguous).
 - **Sources:** WWG-G2P 2006 Rule #3.
 
-### G2P-005 — Rule 4: schwa before a consonant cluster becomes [a]
+### G2P-005: Rule 4: schwa before a consonant cluster becomes [a]
 - **Examples:** බලන්න *balannə*; කරන්න *kərannə*; ප්‍රශ්නය *praśnəyə*.
 - **Applies to:** hal clusters, geminates.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 Rule #4 (citing Karunatillake 2004).
 
-### G2P-006 — Rule 5: schwa before a word-final consonant becomes [a]
+### G2P-006: Rule 5: schwa before a word-final consonant becomes [a]
 - **Statement:** Schwa before a word-final (hal) consonant becomes [a], except before a final /r/, /b/ and two further consonants that are illegible in the PDF (probably retroflex stops).
 - **Examples:** මලක් *malak*; ගමන් *gaman*.
 - **Applies to:** hal.
 - **Confidence:** medium (the exceptions are unreadable).
 - **Sources:** WWG-G2P 2006 Rule #5.
 
-### G2P-007 — Rule 6: schwa before word-final *-yi* becomes [a]
+### G2P-007: Rule 6: schwa before word-final *-yi* becomes [a]
 - **Statement:** The result is pronounced as the diphthong [ai].
 - **Examples:** ළමයි *ḷamayi* [ḷamai]; කරයි *kərayi*.
 - **Applies to:** ya, i.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 Rule #6 and Table 5.
 
-### G2P-008 — Rule 7: /kə/ before *ru/lu* becomes /ka/
+### G2P-008: Rule 7: /kə/ before *ru/lu* becomes /ka/
 - **Examples:** කරුණාව *karuṇāwə*; කළු *kaḷu*.
 - **Applies to:** ka, ra, la, lla, u.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 Rule #7.
 
-### G2P-009 — Rule 8: the කල/කළ family reverts to [kə]
+### G2P-009: Rule 8: the කල/කළ family reverts to [kə]
 - **Statement:** In forms such as /kalaːy/, /kaleː…/ and the word /kalə/, the first [a] reverts to [ə]. This covers the verb forms කළ, කළා, කළේ *kəḷə, kəḷā, kəḷē* ("did").
 - **Note:** This creates real homographs: කල *kalə* "time" vs. කළ *kəḷə* "did". In some writing both are spelled කල. The same goes for කර *karə* "shoulder" vs. *kərə* "do", and වන *vanə* vs. *vənə*.
 - **Applies to:** ka, la, lla.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 Rule #8, §6.
 
-### G2P-010 — Letters that sound the same in modern speech
+### G2P-010: Letters that sound the same in modern speech
 - **Statement:** In modern speech these letters are pronounced identically:
   - aspirates sound like the plain consonant: ඛ=ක, ඝ=ග, ඡ=ච, ඣ=ජ, ඨ=ට, ඪ=ඩ, ථ=ත, ධ=ද, ඵ=ප, භ=බ;
   - ණ = න; ළ = ල;
@@ -377,24 +377,24 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §2.2 (citing Karunatillake 2004); WASALA-SPELL 2010 §III-A; KNAB 1989 (ඥ [gnʲ]).
 
-### G2P-011 — ෘ (*ru*) is usually [ru], but [ri] word-initially and [ur] in a few words
+### G2P-011: ෘ (*ru*) is usually [ru], but [ri] word-initially and [ur] in a few words
 - **Statement:** The vowel sign ෘ is normally pronounced [ru]. As a word-initial independent vowel (ඍ) it is [ri]. In about 13 words it is [ur].
 - **Examples:**
   - [ru]: කෘති *kruti*; පෘෂ්ඨය *pruṣṭhəyə*; උත්කෘෂ්ට *utkruṣṭə*
   - [ri] initial: ඍණ *riṇə*
   - [ur]: ප්‍රවෘත්ති *pravurtti*; සමෘද්ධි *samurddhi*; විවෘත *vivurtə*
-- **Confusion risk:** Romanized *kru* can mean either කෘ or ක්‍රු. Both are read [kru], and C + ෘ/ෲ is the usual written form even where the etymology has r + u: *krūra* "cruel" is mostly written කෲර, rarely ක්‍රූර (02:VS-034). Compare කෘෂි *kruṣi*. The paper also says a few words use the ු/ූ signs where one would expect [ru]. Its examples are illegible in the PDF.
+- **Confusion risk:** Romanized *kru* can mean either කෘ or ක්‍රු. Both are read [kru], and C + ෘ/ෲ is the usual written form even where the etymology has r + u: *krūra* "cruel" is mostly written කෲර, rarely ක්‍රූර (02:VS-035). Compare කෘෂි *kruṣi*. The paper also says a few words use the ු/ූ signs where one would expect [ru]. Its examples are illegible in the PDF.
 - **Applies to:** ru, ruu, ra.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §6 (error analysis, citing Disanayaka 2000).
 
-### G2P-012 — Short spellings of kinship words pronounced long
+### G2P-012: Short spellings of kinship words pronounced long
 - **Statement:** Some words are written without ා but said with [aː]. These are informal spellings: අම්ම *ammā*, අක්ක *akkā*, ගත්ත *gattā*. The standard written forms are අම්මා, අක්කා, ගත්තා.
 - **Applies to:** aa.
 - **Confidence:** medium.
 - **Sources:** WWG-G2P 2006 §6.
 
-### G2P-013 — Word stress
+### G2P-013: Word stress
 - **Statement:** Stress falls on the first syllable (except කරනවා-type forms). Long vowels are always stressed, and an unstressed short *a* reduces to [ə]. Word-final long vowels may shorten after a heavy syllable in speech, but spelling keeps them long.
 - **Applies to:** a, aa, long vowels.
 - **Confidence:** medium.
@@ -404,14 +404,14 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 
 ## 4. Official spelling conventions and controversies
 
-### SP-001 — Who sets the standard
+### SP-001: Who sets the standard
 - **Statement:** There is no single online statutory spelling code.
   - **De facto authorities:** NIE / Educational Publications Department school textbooks; the *Sinhala Shabdakoshaya* (Sinhala Dictionary Office); Department of Official Languages technical glossaries (පාරිභාෂික ශබ්ද මාලා), which standardise terms rather than spelling rules; SLS 1134 for encoding and rendering.
   - **Hela Havula** (Kumaratunga Munidasa, founded 1941) promotes "pure" Sinhala vocabulary and classical grammar. It prefers the śuddha (Eḷu) alphabet and native forms over Sanskrit tatsama forms. Its specific letter rules are `[UNVERIFIED]`; the English Wikipedia article gives no detail.
 - **Confidence:** medium.
 - **Sources:** Department of Official Languages performance reports (parliament.lk, e.g. https://www.parliament.lk/uploads/documents/paperspresented/performance-report-official-language-department-2015-si.pdf); https://en.wikipedia.org/wiki/Hela_Havula; EN-WP-SCRIPT (śuddha vs miśra).
 
-### SP-002 — Śuddha vs miśra letters
+### SP-002: Śuddha vs miśra letters
 - **Statement:**
   - **Śuddha** (native, Eḷu) letters are enough for native words: plain stops, ණ, ළ, the prenasals, ස, හ, ය, ර, ල, ව, ං.
   - **Miśra** letters are used for Sanskrit, Pali and English loans: aspirates, ශ, ෂ, ඤ, ඥ, ඞ, ඦ, ෆ, ඃ, ඍ, ඎ, ඏ, ඐ, ඓ, ඖ.
@@ -421,7 +421,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-SCRIPT; SI-WP (සිංහල හෝඩිය).
 
-### SP-003 — ණ vs න (මූර්ධජ / දන්තජ) — the "na-Ṇa-la-Ḷa" problem
+### SP-003: ණ vs න (මූර්ධජ / දන්තජ): the "na-Ṇa-la-Ḷa" problem
 - **Background:** The commonest Sinhala spelling error. Clear guidelines reportedly existed until about the 13th century and were then lost.
 - **Use ණ:**
   1. after ර, ෂ, ඍ/ෘ in nouns and adjectives, including rakaransaya/repaya: තරුණ, වර්ණ, කාරණය, මරණය, දෙරණ, සරණ, ශ්‍රේණිය, ආමන්ත්‍රණ, විෂ්ණු, තෘෂ්ණා, ගවේෂණ, දක්ෂිණ;
@@ -445,7 +445,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Sources:** WASALA-SPELL 2010 App. A §1–2; SI-WP-AV; LETSLEARN.
 - **Conflict:** SI-WP-AV says ර is "always" followed by ණ in native words. WASALA lists many exceptions (verbs, compounds, ර-final roots). Treat the "always" as applying to nouns only.
 
-### SP-004 — ළ vs ල
+### SP-004: ළ vs ල
 - **Use ළ:**
   1. the prefix පිළි- (from Sanskrit prati-): පිළිතුර, පිළිබඳ, පිළිගන්නවා, පිළිවෙළ, පිළිමය;
   2. past and participle forms of ර-final verb roots: කර → කළ/කළේ; මර → මළ; හදාර → හදාළේය;
@@ -462,7 +462,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** WASALA-SPELL 2010 App. A §3–4; SI-WP-AV; LETSLEARN.
 
-### SP-005 — ශ vs ෂ vs ස
+### SP-005: ශ vs ෂ vs ස
 - **Use ෂ:**
   1. after a hal ක, i.e. the cluster ක්ෂ: අක්ෂර, දක්ෂ, භික්ෂු, පරීක්ෂණ, තීක්ෂණ;
   2. as hal before ට/ඨ: දෘෂ්ටි, දුෂ්ට, ශිෂ්ට, අධිෂ්ඨාන, ජ්‍යෙෂ්ඨ, ශ්‍රේෂ්ඨ, කනිෂ්ඨ;
@@ -478,10 +478,10 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Use ස:** native words and most tadbhava forms: සිසු (vs tatsama ශිෂ්‍ය), සත (vs ශත).
 - **Registers:** Sanskrit and native spellings often coexist with the same meaning: ශිෂ්‍ය/සිසු, දේශය/දෙස `[UNVERIFIED pair]`.
 - **Applies to:** sha, ssa, sa.
-- **Confidence:** high (rules); medium (completeness — the rules do not cover every word).
+- **Confidence:** high (rules); medium (completeness, the rules do not cover every word).
 - **Sources:** SI-WP-AV; WASALA-SPELL 2010 App. A §5–6; LETSLEARN.
 
-### SP-006 — Aspirate vs plain letters (මහාප්‍රාණ / අල්පප්‍රාණ)
+### SP-006: Aspirate vs plain letters (මහාප්‍රාණ / අල්පප්‍රාණ)
 - **Statement:** Aspirates occur only in Sanskrit/Pali words and are pronounced like plain letters (G2P-010). ඣ, ඡ and ඵ are rare. Aspirates can appear at the start, middle or end of a word, so there are **no reliable rules** for them. They must be learned per word.
 - **Examples:** ධර්ම, භාෂාව, ඛේදය, ඝෝෂා, ථේර, කථාව/කතාව.
 - **Variants:** Some words exist in both aspirated (tatsama) and plain (tadbhava) spellings, both accepted: කථා/කතා, නාථ/නාත `[second pair UNVERIFIED]`.
@@ -489,7 +489,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** WASALA-SPELL 2010 §III-A-1.
 
-### SP-007 — Short vs long vowels — the most frequent error class
+### SP-007: Short vs long vowels: the most frequent error class
 - **Statement:** SinSpell found vowel-length errors and similar-sounding-letter errors to be the most common in a real corpus. Prescriptive points:
   - The verbal noun suffix is long -ීම: කිරීම, බැලීම, ලිවීම. Writing *කිරිම* is an error.
   - Long ඊ/ඌ/ඒ/ඕ in Sanskrit roots: ශ්‍රී, ගීතය, රූපය.
@@ -498,14 +498,14 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high (that length is the top error); medium (the specific suffix rules).
 - **Sources:** SINSPELL 2021; WASALA-SPELL 2010.
 
-### SP-008 — Gemination controversy: තත්ත්වය vs තත්වය
+### SP-008: Gemination controversy: තත්ත්වය vs තත්වය
 - **Statement:** Etymologically the word is *tat + tva*, so the strict spelling is තත්ත්වය, with the same pattern in සත්ත්වයා and මහත්ත්වය. Prescriptive teachers and exam guides favour the triple-consonant form. Everyday print and many dictionaries online use තත්වය, සත්වයා.
 - **Status:** `[UNVERIFIED: no authoritative online ruling found]`. A Glosbe dictionary entry uses තත්වය (https://glosbe.com/si/en/තත්වය).
 - **Applies to:** ta, va, hal.
 - **Confidence:** low.
 - **Recommendation:** Treat both spellings as acceptable; the conservative (etymological) form is a valid alternative.
 
-### SP-009 — ං vs hal nasal before a consonant
+### SP-009: ං vs hal nasal before a consonant
 - **Statement:**
   - ං is used before හ, ල, ර, ස, ශ, ෂ, ව, ය (KNAB). It also replaces ඞ before velars: සිංහල, සංස්කෘත, සංවිධානය, හංසයා, අංකය, සංගීතය.
   - Otherwise, learned words use the homorganic hal nasal: ම් before labials (සම්බන්ධ, කම්පනය), න් before dentals (සන්ධි, චින්තන), ණ් before retroflexes (කාණ්ඩ).
@@ -515,7 +515,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** medium-high.
 - **Sources:** KNAB 1989 notes 1 & E; WASALA-SPELL App. A §2.7, §2.9.
 
-### SP-010 — Prenasal letter vs nasal + stop cluster is meaningful
+### SP-010: Prenasal letter vs nasal + stop cluster is meaningful
 - **Statement:** The two are written differently and mean different things. The prenasal letter is a single short sound; the cluster is a hal nasal plus a full stop.
 - **Examples:** කඳ *kaⁿdə* "trunk" ≠ කන්ද *kandə* "hill"; අඹ *aᵐbə* "mango" vs. අම්බ (not a common word).
 - **Note:** The ligature forms (ඬ, ඳ) and the ZWJ conjunct forms (න්‍ද) look alike in some fonts.
@@ -523,13 +523,13 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-SIN (minimal set); KNAB 1989.
 
-### SP-011 — ක්ෂ (with or without ZWJ) is one spelling
+### SP-011: ක්ෂ (with or without ZWJ) is one spelling
 - **Statement:** ක්ෂ and ක්‍ෂ (with ZWJ) are the same letters, ka + hal + ssa. The ZWJ only asks for the conjoined glyph. The same holds for other "touching" or bandi conjuncts (න්ද, ද්ධ…).
 - **Applies to:** ka, ssa, ZWJ.
 - **Confidence:** high.
 - **Sources:** KNAB 1989 note 5; EN-WP-SCRIPT.
 
-### SP-012 — Yansaya / rakaransaya / repaya mark real clusters
+### SP-012: Yansaya / rakaransaya / repaya mark real clusters
 - **Statement:**
   - Yansaya (C + ් + ZWJ + ය) writes a C+y cluster: විද්‍යාව, ශිෂ්‍ය, ව්‍යාපාරය, ක්‍යා.
   - Rakaransaya (C + ් + ZWJ + ර) writes a C+r cluster: ප්‍රශ්නය, ක්‍රමය, ශ්‍රී, ග්‍රාමය.
@@ -539,17 +539,17 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** UNICODE-ML 2016; EN-WP-SCRIPT.
 
-### SP-013 — ඥ vs ඤ
+### SP-013: ඥ vs ඤ
 - **Statement:** ඥ (*jña*) appears in Sanskrit words: ඥාති, ඥානය, විඥාන, ප්‍රඥා, විශේෂඥ. ඤ appears in Pali and native words: ඤාණ, පඤ්ච, කුඤ්ඤම `[examples UNVERIFIED]`. In speech they merge, with ඥ often pronounced "gny-".
 - **Applies to:** jnya, nya.
 - **Confidence:** medium.
 - **Sources:** KNAB 1989; WASALA-SPELL (similar-sound group {ඥ, ඤ}).
 
-### SP-014 — Spoken vs written Sinhala (diglossia)
+### SP-014: Spoken vs written Sinhala (diglossia)
 - **Statement:** Written and spoken Sinhala differ in morphology. Many colloquial words have no "standard" literary spelling, yet colloquial words are written all the same.
 - **Examples:** spoken *kiyanawā* / literary *kiyayi*; spoken *eka* (English-loan classifier: බස් එක, කාර් එක) vs. literary බසය.
 - **Implication:** Tools that process Sinhala text (transliterators, spelling checkers) must handle both registers.
-- **Applies to:** —
+- **Applies to:** none
 - **Confidence:** high.
 - **Sources:** WASALA-SPELL 2010 §III (Sinhala is diglossic); Gamage & Dilani 2024, TPLS 14(2) (https://doi.org/10.17507/tpls.1402.02).
 
@@ -557,7 +557,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 
 ## 5. Loanword conventions
 
-### LW-001 — English /f/ → ෆ (modern); older loans → ප
+### LW-001: English /f/ → ෆ (modern); older loans → ප
 - **Statement:** Modern loans use ෆ. Older loans used ප, and some still do.
 - **Examples:**
   - ෆ: ෆෝන් *fōn*, ෆයිල්, ෆැෂන්, ෆැක්ස්, ෆේස්බුක්, ෆෑන්
@@ -566,14 +566,14 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-SCRIPT; EN-WP-SIN (/f/ often replaced by /p/ or /s/ in speech).
 
-### LW-002 — English /v/ and /w/ → ව
+### LW-002: English /v/ and /w/ → ව
 - **Statement:** Both sounds are written ව. It is pronounced [ʋ]/[w], or [v] before *i* (KNAB).
 - **Examples:** වෑන් *vǣn* "van"; වෝටර් "water"; වීඩියෝ "video".
 - **Applies to:** va.
 - **Confidence:** high.
 - **Sources:** KNAB 1989; EN-WP-LOAN.
 
-### LW-003 — English /æ/ → ඇ / ඈ
+### LW-003: English /æ/ → ඇ / ඈ
 - **Statement:** English /æ/ is written ඇ or ඈ. Monosyllables (and stressed open-sounding vowels) tend to take long ඈ; polysyllables tend to take short ඇ.
 - **Examples:**
   - ඈ: ෆෑන්, බෑග්, වෑන්, පෑන "pen"
@@ -583,7 +583,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** medium (a tendency, not a rule).
 - **Sources:** EN-WP-LOAN (*pǣna, gæs, kæbinaṭ, læpṭop, blækmēl*); EN-WP-SCRIPT.
 
-### LW-004 — English vowels /ɒ/, /əʊ/, /ɔː/
+### LW-004: English vowels /ɒ/, /əʊ/, /ɔː/
 - **Statement:** /ɒ/ → ඔ; /əʊ/ and /ɔː/ → ඕ.
 - **Examples:**
   - ඔ: ලොරිය, කොම්පියුටර්, ලැප්ටොප්
@@ -592,14 +592,14 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN.
 
-### LW-005 — English schwa and /ɜː/ → අ (often with ර්)
+### LW-005: English schwa and /ɜː/ → අ (often with ර්)
 - **Statement:** English schwa and /ɜː/ are written with අ; the *-er/-or* ending is written -අර් (hal ර).
 - **Examples:** පෝස්ටර්, හෙලිකොප්ටර්, කොම්පියුටර්, බටර් *baṭar*; නර්ස්; ඇම්ප්ලිෆයර්.
 - **Applies to:** a, ra+hal.
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN; WWG-G2P §2.2 (/ə, əː/ in English loans are written අ).
 
-### LW-006 — English /z/ → ස; /ʒ/ → ජ
+### LW-006: English /z/ → ස; /ʒ/ → ජ
 - **Statement:** English /z/ is written ස; English /ʒ/ is written ජ.
 - **Examples:** සූ "zoo", සීරෝ "zero", සිප් "zip" `[UNVERIFIED]`; ගරාජ් "garage".
 - **Note:** There is no dedicated letter for /z/. Writing /z/ with ශ is not standard `[UNVERIFIED]`.
@@ -607,7 +607,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** medium.
 - **Sources:** EN-WP-LOAN (*garāj*).
 
-### LW-007 — English /ʃ/ → ෂ (popular) or ශ; older loans → ස
+### LW-007: English /ʃ/ → ෂ (popular) or ශ; older loans → ස
 - **Statement:** Modern popular spelling for English /ʃ/ is mostly ෂ. Learned spelling sometimes uses ශ. Older loans used ස.
 - **Examples:**
   - ෂ: ෂර්ට් "shirt", ෆැෂන්, ස්ටේෂන් "station" (-tion → -ෂන්), බ්‍රෂ්
@@ -616,27 +616,27 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** medium. Popular usage is clear; no prescriptive rule was found.
 - **Sources:** EN-WP-LOAN (*dīsiya*).
 
-### LW-008 — English /θ/ → ත; /ð/ → ද
+### LW-008: English /θ/ → ත; /ð/ → ද
 - **Statement:** English "th" in names is written ත.
 - **Examples:** තෝමස් "Thomas", එලිසබෙත් "Elizabeth", තර්ස්ටන් "Thurstan" `[UNVERIFIED examples]`.
 - **Applies to:** ta, da (not tha/dha).
 - **Confidence:** medium.
 - **Sources:** General practice; EN-WP-SIN (speakers substitute stops).
 
-### LW-009 — English *x* → ක්ස් (never ක්ෂ)
+### LW-009: English *x* → ක්ස් (never ක්ෂ)
 - **Statement:** The ක්ෂ cluster is reserved for Sanskrit *kṣ*.
 - **Examples:** ටැක්සි, ෆැක්ස්, එක්ස්-රේ, බොක්ස් `[UNVERIFIED last two]`.
 - **Applies to:** ka, sa, hal.
 - **Confidence:** medium-high.
 - **Sources:** General practice.
 
-### LW-010 — English /tʃ/ → ච; /dʒ/ → ජ; /k/ (cheque) → ක
+### LW-010: English /tʃ/ → ච; /dʒ/ → ජ; /k/ (cheque) → ක
 - **Examples:** චොක්ලට්, ජූස්, ජූරිය, ජෙනරාල්; චෙක්/චැක් "cheque" (EN-WP-LOAN gives *cæk*).
 - **Applies to:** ca, ja.
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN.
 
-### LW-011 — Final consonants and naturalisation suffixes
+### LW-011: Final consonants and naturalisation suffixes
 - **Statement:** Modern loans keep a final hal consonant: බස්, කාර්, ෆෝන්. Fully naturalised literary forms add -ය/-ව/-අ, often with gemination:
   - බෝලය "ball"; බයිබලය "Bible"; කේතලය "kettle"; ලොරිය; ජූරිය; කොම්පැනිය; පාර්ලිමේන්තුව
   - නෝට්ටුව "note"; කෝච්චිය "coach"; බැංකුව
@@ -646,7 +646,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN; Gamage & Dilani 2024.
 
-### LW-012 — Clusters in English loans are kept with hal or ZWJ
+### LW-012: Clusters in English loans are kept with hal or ZWJ
 - **Statement:** Most clusters are kept as written hal sequences. *-ng* is written ං (ඉංග්‍රීසි "English", ෂොපිං).
 - **Examples:** ස්ටේෂන්, ස්කූල්, ප්‍රින්ටර්, බ්ලැක්මේල්, ඉංග්‍රීසි.
 - **Exceptions:** Older loans broke clusters up with vowels: ඉස්කෝලය "school", ඉස්තෝප්පුව `[UNVERIFIED]`.
@@ -654,34 +654,34 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN.
 
-### LW-013 — Tamil and Arabic loans/names
+### LW-013: Tamil and Arabic loans/names
 - **Statement:** These follow the same sound substitutions:
   - Arabic f → ෆ (ෆාතිමා); z → ස; q/k → ක; kh → ක or ඛ.
   - Tamil retroflexes map to ට/ඩ/ණ/ළ.
   Spelling of Muslim and Tamil names varies widely, e.g. මොහොමඩ් / මුහම්මද්.
 - **Applies to:** fa, sa, ka, tta, dda, nna, lla.
-- **Confidence:** low `[UNVERIFIED — no source found]`.
+- **Confidence:** low `[UNVERIFIED, no source found]`.
 
 ---
 
 ## 6. Typography: case, punctuation, spacing, numbers
 
-### TY-001 — No letter case
+### TY-001: No letter case
 - **Statement:** Sinhala has no upper/lower case. Capitalisation in romanized text carries no Sinhala meaning.
 - **Confidence:** high.
 - **Sources:** EN-WP-SCRIPT.
 
-### TY-002 — Punctuation
+### TY-002: Punctuation
 - **Statement:** Modern Sinhala uses Western punctuation: . , ? ! : ; " ' ( ) -. The කුණ්ඩලිය ෴ (U+0DF4) was historically a full stop and is no longer in general use.
 - **Confidence:** high.
 - **Sources:** EN-WP-SCRIPT.
 
-### TY-003 — Numerals
+### TY-003: Numerals
 - **Statement:** Hindu-Arabic digits 0–9 are standard. Sinhala Lith digits (U+0DE6–0DEF) and archaic numerals (Sinhala Archaic Numbers block, U+111E1–111F4) exist only for historical and astrological use.
 - **Confidence:** high (usage); medium (code-point ranges, from memory).
 - **Sources:** EN-WP-SCRIPT.
 
-### TY-004 — Word spacing
+### TY-004: Word spacing
 - **Statement:** Words are space-delimited. Case suffixes, postpositional clitics and enclitic particles are written attached: ගෙදරට, ඔහුගේ, පොතෙන්, ඔහුත්, ඔහුද. Free postpositions and auxiliaries are written separately: ගැන, සමඟ, විසින්, කතා කරනවා, බලා සිටියි. Compound nouns are written solid: ගංවතුර, පිළිතුර.
 - **Note:** Spacing of compounds and of නම්/වත්/ද is inconsistent in practice.
 - **Confidence:** medium `[UNVERIFIED: no prescriptive spacing source found]`.

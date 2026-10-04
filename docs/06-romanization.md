@@ -1,6 +1,6 @@
-# 06 — Romanization of Sinhala
+# 06: Romanization of Sinhala
 
-This document surveys how Sinhala is written in Latin script. It covers (a) the formal romanization systems — ISO 15919 and its 7-bit ASCII form, the Sri Lanka national system, the UN 1972 table, ALA-LC and KNAB — and (b) informal romanized Sinhala ("Singlish") as people actually write it, measured from the Sinhala portion of the Dakshina corpus and described in the published research on Singlish back-transliteration. It closes with a per-letter comparison, a set of conventions (RS-xxx) and recommendations for a phonetic romanization of Sinhala.
+This document surveys how Sinhala is written in Latin script. It covers (a) the formal romanization systems (ISO 15919 and its 7-bit ASCII form, the Sri Lanka national system, the UN 1972 table, ALA-LC and KNAB) and (b) informal romanized Sinhala ("Singlish") as people actually write it, measured from the Sinhala portion of the Dakshina corpus and described in the published research on Singlish back-transliteration. It closes with a per-letter comparison, a set of conventions (RS-xxx) and recommendations for a phonetic romanization of Sinhala.
 
 Compiled October 2026.
 
@@ -11,7 +11,7 @@ Compiled October 2026.
 | ✅ | Taken from a primary source (the standard, an official report, or a published mapping table) |
 | 🧪 | Measured from a corpus (the Dakshina Sinhala data, §2a) |
 | ❓ | Unverified. The source says nothing, or the value is an inference. Don't treat it as a mapping |
-| — | No value recorded for this letter in the sources used here |
+| - | No value recorded for this letter in the sources used here |
 
 Confidence for each RS convention: **H** means several primary sources agree, **M** means one primary source or an inference, **L** means a guess.
 
@@ -177,83 +177,83 @@ The 2011 test strings use ă / â for ඇ / ඈ.
 Notes on the columns:
 - Consonants are shown without the inherent vowel (the national system and ALA-LC sources write it, e.g. **ṁa**, **ca**).
 - **ISO 7-bit:** the bracketed values from §1a. Where the ISO value is already plain ASCII, the 7-bit form is the same.
-- **Sri Lanka national** and **ALA-LC:** only the values the sources list (§1b, §1d). "—" means the source excerpt used here gives no value, not that the letter is absent.
+- **Sri Lanka national** and **ALA-LC:** only the values the sources list (§1b, §1d). "-" means the source excerpt used here gives no value, not that the letter is absent.
 - **Informal:** the top spelling in the Dakshina sentences (§2a) and its share. Where no share is given, the spelling comes from the per-letter summary without a published percentage. `n = …` marks very small counts.
 
 ### Consonants
 
 | ID | Sinhala | ISO 15919 | ISO 7-bit | Sri Lanka national | ALA-LC | Informal 🧪 |
 |---|---|---|---|---|---|---|
-| ka | ක | k | k | — | — | k 99% |
-| kha | ඛ | kh | kh | — | — | kh 69% |
-| ga | ග | g | g | — | — | g |
-| gha | ඝ | gh | gh | — | — | gh 70% |
-| nga | ඞ | ṅ | ;n | ṁ | — | — (no data) |
+| ka | ක | k | k | - | - | k 99% |
+| kha | ඛ | kh | kh | - | - | kh 69% |
+| ga | ග | g | g | - | - | g |
+| gha | ඝ | gh | gh | - | - | gh 70% |
+| nga | ඞ | ṅ | ;n | ṁ | - | - (no data) |
 | nnga | ඟ | n̆g | ^ng | n̆g | ṅg | ng 51% (g 48%) |
-| ca | ච | c | c | — | c | ch 95% |
-| cha | ඡ | ch | ch | — | ch | ch 98% |
-| ja | ජ | j | j | — | — | j 99% |
-| jha | ඣ | jh | jh | q | — | jh (n = 4) |
-| nya | ඤ | ñ | ~n | — | — | n 63% (gn 37%) |
-| jnya | ඥ | jñ ❓ | — | gn | — | gn 98% |
-| nyja | ඦ | n̆j | ^nj | n̆ǰ | ñj | — (no data) |
-| tta | ට | ṭ | .t | — | — | t 99% |
-| ttha | ඨ | ṭh | — | ṯ | — | t 92% |
-| dda | ඩ | ḍ | — | — | — | d 100% |
-| ddha | ඪ | ḍh | — | — | — | d 73% |
-| nna | ණ | ṇ | — | — | — | n 100% |
+| ca | ච | c | c | - | c | ch 95% |
+| cha | ඡ | ch | ch | - | ch | ch 98% |
+| ja | ජ | j | j | - | - | j 99% |
+| jha | ඣ | jh | jh | q | - | jh (n = 4) |
+| nya | ඤ | ñ | ~n | - | - | n 63% (gn 37%) |
+| jnya | ඥ | jñ ❓ | - | gn | - | gn 98% |
+| nyja | ඦ | n̆j | ^nj | n̆ǰ | ñj | - (no data) |
+| tta | ට | ṭ | .t | - | - | t 99% |
+| ttha | ඨ | ṭh | - | ṯ | - | t 92% |
+| dda | ඩ | ḍ | - | - | - | d 100% |
+| ddha | ඪ | ḍh | - | - | - | d 73% |
+| nna | ණ | ṇ | - | - | - | n 100% |
 | nndda | ඬ | n̆ḍ | ^n.d | n̆ḍ | ṇḍ | nd 81% |
-| ta | ත | t | t | — | — | th 93% |
-| tha | ථ | th | th | — | — | th 99% |
-| da | ද | d | d | — | — | d 99% |
-| dha | ධ | dh | dh | — | — | dh 68% |
-| na | න | n | n | — | — | n |
+| ta | ත | t | t | - | - | th 93% |
+| tha | ථ | th | th | - | - | th 99% |
+| da | ද | d | d | - | - | d 99% |
+| dha | ධ | dh | dh | - | - | dh 68% |
+| na | න | n | n | - | - | n |
 | nda | ඳ | n̆d | ^nd | n̆d | nd | nd 90% |
-| pa | ප | p | p | — | — | p |
-| pha | ඵ | ph | ph | — | — | p 57% (ph 43%) |
-| ba | බ | b | b | — | — | b |
-| bha | භ | bh | bh | — | — | bh 91% |
-| ma | ම | m | m | — | — | m |
+| pa | ප | p | p | - | - | p |
+| pha | ඵ | ph | ph | - | - | p 57% (ph 43%) |
+| ba | බ | b | b | - | - | b |
+| bha | භ | bh | bh | - | - | bh 91% |
+| ma | ම | m | m | - | - | m |
 | mba | ඹ | m̆b | ^mb | ḅ | ṃb | mb 88% |
-| ya | ය | y | y | — | — | y |
-| ra | ර | r | r | — | — | r |
-| la | ල | l | l | — | — | l |
-| va | ව | v | v | — | — | w 73% (v 27%) |
+| ya | ය | y | y | - | - | y |
+| ra | ර | r | r | - | - | r |
+| la | ල | l | l | - | - | l |
+| va | ව | v | v | - | - | w 73% (v 27%) |
 | sha | ශ | ś | sh | ś | ś | sh 85% |
 | ssa | ෂ | ṣ | .s | sh | ṣ | sh 91% |
-| sa | ස | s | s | — | — | s |
-| ha | හ | h | h | — | — | h |
-| lla | ළ | ḷ | .l | — | — | l 100% |
-| fa | ෆ | f | f | — | — | f 86% |
+| sa | ස | s | s | - | - | s |
+| ha | හ | h | h | - | - | h |
+| lla | ළ | ḷ | .l | - | - | l 100% |
+| fa | ෆ | f | f | - | - | f 86% |
 
 ### Vowels (independent / sign) and signs
 
 | ID | Sinhala | ISO 15919 | ISO 7-bit | Sri Lanka national | ALA-LC | Informal 🧪 |
 |---|---|---|---|---|---|---|
-| a | අ / (inherent) | a | a | — | — | a 99% |
-| aa | ආ / ා | ā | aa | — | — | a 97% (aa 3%) |
+| a | අ / (inherent) | a | a | - | - | a 99% |
+| aa | ආ / ා | ā | aa | - | - | a 97% (aa 3%) |
 | ae | ඇ / ැ | æ | ae | æ | ă | ැ e 62%; ඇ a 60% |
 | aee | ඈ / ෑ | ǣ | aee | ǣ | â | e 68% (a 29%) |
-| i | ඉ / ි | i | i | — | — | i |
-| ii | ඊ / ී | ī | ii | — | — | i 57% (**ee 40%**) |
-| u | උ / ු | u | u | — | — | u |
-| uu | ඌ / ූ | ū | uu | — | — | u 72% (**oo 23%**) |
-| ru | ඍ / ෘ | r̥ | ,r | ṛ | — | ru 93% |
-| ruu | ඎ / ෲ | r̥̄ | ,rr | ṝ | — | ru (n = 7) |
-| ilu | ඏ / ෟ | l̥ | ,l | ḷ | ḷ | — (no data) |
-| iluu | ඐ / ෳ | l̥̄ | ,ll | ḹ | ḹ | — (no data) |
-| e | එ / ෙ | e | e | — | — | e |
-| ee | ඒ / ේ | ē | ee | — | ē | e 99% |
-| ai | ඓ / ෛ | ai | ai | ĩ | — | ai 94% |
-| o | ඔ / ො | o | o | — | — | o |
-| oo | ඕ / ෝ | ō | oo | — | ō | o 97% |
-| au | ඖ / ෞ | au | au | — | — | au 97% |
-| hal | ් | (none) | (none) | — | — | not written (implied at end of word) |
+| i | ඉ / ි | i | i | - | - | i |
+| ii | ඊ / ී | ī | ii | - | - | i 57% (**ee 40%**) |
+| u | උ / ු | u | u | - | - | u |
+| uu | ඌ / ූ | ū | uu | - | - | u 72% (**oo 23%**) |
+| ru | ඍ / ෘ | r̥ | ,r | ṛ | - | ru 93% |
+| ruu | ඎ / ෲ | r̥̄ | ,rr | ṝ | - | ru (n = 7) |
+| ilu | ඏ / ෟ | l̥ | ,l | ḷ | ḷ | - (no data) |
+| iluu | ඐ / ෳ | l̥̄ | ,ll | ḹ | ḹ | - (no data) |
+| e | එ / ෙ | e | e | - | - | e |
+| ee | ඒ / ේ | ē | ee | - | ē | e 99% |
+| ai | ඓ / ෛ | ai | ai | ĩ | - | ai 94% |
+| o | ඔ / ො | o | o | - | - | o |
+| oo | ඕ / ෝ | ō | oo | - | ō | o 97% |
+| au | ඖ / ෞ | au | au | - | - | au 97% |
+| hal | ් | (none) | (none) | - | - | not written (implied at end of word) |
 | anusvara | ං | ṁ | ;m | ṅ | ṃ (class nasal) | n 92% |
-| visarga | ඃ | ḥ | .h | — | — | h (n = 1) |
-| yansaya | ්‍ය | -y | -y | -y | — | y |
-| rakaransaya | ්‍ර | -r | -r | -r | — | r |
-| repaya | ර්‍ | r- | r- | r- | — | r |
+| visarga | ඃ | ḥ | .h | - | - | h (n = 1) |
+| yansaya | ්‍ය | -y | -y | -y | - | y |
+| rakaransaya | ්‍ර | -r | -r | -r | - | r |
+| repaya | ර්‍ | r- | r- | r- | - | r |
 
 ---
 

@@ -1,4 +1,4 @@
-# 07 — A grammar-correct phonetic romanization of Sinhala
+# 07: A grammar-correct phonetic romanization of Sinhala
 
 This document specifies a phonetic romanization of Sinhala: a set of Latin-letter sequences
 and conversion rules that turn romanized text into Sinhala script. It is designed so that

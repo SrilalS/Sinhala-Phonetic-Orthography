@@ -1,4 +1,4 @@
-# 02 — Vowel signs (pili) and vowel attachment
+# 02: Vowel signs (pili) and vowel attachment
 
 Scope: every Sinhala dependent vowel sign (U+0DCF–U+0DDF, U+0DF2, U+0DF3) plus al-lakuna
 (U+0DCA): how they attach to consonants, which consonant + sign pairs occur, independent vs
@@ -31,10 +31,10 @@ Noto Serif Sinhala, Abhaya Libre, Yaldevi, Gemunu Libre, Nirmala UI and Iskoola 
 | S10 | H. Jayasuriya (UCSC LTRL), *Sinhala Orthography: Ola Leaf to the Computer* (2007) | https://ftp3.gwdg.de/pub/gnu/www/savannah-checkouts/non-gnu/sinhala/doc/presentations/sinhala-orthography-hj-20070212.pdf |
 | S11 | A. Wasala & K. Gamage (UCSC), *Research Report on Phonetics and Phonology of Sinhala* | http://www.columbia.edu/~kf2119/SPLTE1014/Day%203%20slides%20and%20readings/SinhalaPhoneticsandPhonology.pdf |
 | S12 | M. Żygis, *Typology of Consonantal Insertions*, ZAS Papers in Linguistics 52 (2010), citing Smith (2001:63) on Sinhala | https://d-nb.info/1096751291/34 |
-| S13 | Sinhala Wikipedia, සන්ධි (sandhi types incl. ආගම සන්ධි) — lead only | https://si.wikipedia.org/wiki/සන්ධි |
-| S14 | English Wikipedia, *Sinhala script* — lead only (cites Gair & Paolillo 1997, Fairbanks/Gair/Silva 1968) | https://en.wikipedia.org/wiki/Sinhala_script |
+| S13 | Sinhala Wikipedia, සන්ධි (sandhi types incl. ආගම සන්ධි): lead only | https://si.wikipedia.org/wiki/සන්ධි |
+| S14 | English Wikipedia, *Sinhala script*: lead only (cites Gair & Paolillo 1997, Fairbanks/Gair/Silva 1968) | https://en.wikipedia.org/wiki/Sinhala_script |
 | S15 | Liyanapathirana, Gunasinghe, Dias, *SinSpell* (2021) | https://arxiv.org/abs/2107.02983 |
-| S16 | Local test (see header) | — |
+| S16 | Local test (see header) | - |
 | S17 | University of Moratuwa NLPC, *Word Frequency List for Sinhala*: the 2.1M-word list (`word_frequency_list_2M`) | https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala |
 | S18 | Sinhala Wikipedia, page counts from `insource:` phrase searches, October 2026 | https://si.wikipedia.org/w/api.php |
 
@@ -71,7 +71,7 @@ names) and from general knowledge. They are marked as such.
 
 ## 2. Sign inventory
 
-### VS-001 — The dependent-sign repertoire
+### VS-001: The dependent-sign repertoire
 
 **Statement.** Sinhala has 17 dependent vowel signs plus al-lakuna. U+0DD5 and U+0DD7 are
 unassigned. Data is from S2, the positions from S3 (IndicPositionalCategory), and the
@@ -79,19 +79,19 @@ decompositions from S2/UCD, checked locally (S16).
 
 | Code | Sign | Unicode name (S2) | Trad. name (Sinhala) | Vowel (letter id) | Position (S3) | Canonical decomposition | Gen. cat. |
 |---|---|---|---|---|---|---|---|
-| U+0DCA | ◌් | AL-LAKUNA (= virama) | හල් කිරීම / හල් ලකුණ | hal (kills inherent a) | Top | — (ccc = 9) | Mn |
-| U+0DCF | ◌ා | AELA-PILLA | ඇලපිල්ල | aa | Right | — | Mc |
-| U+0DD0 | ◌ැ | KETTI AEDA-PILLA | ඇදපිල්ල | ae | Right | — | Mc |
-| U+0DD1 | ◌ෑ | DIGA AEDA-PILLA | දිග ඇදපිල්ල | aee | Right | — | Mc |
-| U+0DD2 | ◌ි | KETTI IS-PILLA | ඉස්පිල්ල | i | Top | — | Mn |
-| U+0DD3 | ◌ී | DIGA IS-PILLA | දිග ඉස්පිල්ල | ii | Top | — | Mn |
-| U+0DD4 | ◌ු | KETTI PAA-PILLA | පාපිල්ල | u | Bottom | — | Mn |
-| U+0DD6 | ◌ූ | DIGA PAA-PILLA | දිග පාපිල්ල | uu | Bottom | — | Mn |
-| U+0DD8 | ◌ෘ | GAETTA-PILLA | ගැටපිල්ල | ru (vocalic r) | Right | — | Mc |
-| U+0DF2 | ◌ෲ | DIGA GAETTA-PILLA | දිග ගැටපිල්ල | ruu (vocalic rr) | Right | — | Mc |
-| U+0DDF | ◌ෟ | GAYANUKITTA | ගයනුකිත්ත | ilu (vocalic l) | Right | — | Mc |
-| U+0DF3 | ◌ෳ | DIGA GAYANUKITTA | දිග ගයනුකිත්ත | iluu (vocalic ll) | Right | — | Mc |
-| U+0DD9 | ෙ◌ | KOMBUVA | කොම්බුව | e | Left (pre-base) | — | Mc |
+| U+0DCA | ◌් | AL-LAKUNA (= virama) | හල් කිරීම / හල් ලකුණ | hal (kills inherent a) | Top | - (ccc = 9) | Mn |
+| U+0DCF | ◌ා | AELA-PILLA | ඇලපිල්ල | aa | Right | - | Mc |
+| U+0DD0 | ◌ැ | KETTI AEDA-PILLA | ඇදපිල්ල | ae | Right | - | Mc |
+| U+0DD1 | ◌ෑ | DIGA AEDA-PILLA | දිග ඇදපිල්ල | aee | Right | - | Mc |
+| U+0DD2 | ◌ි | KETTI IS-PILLA | ඉස්පිල්ල | i | Top | - | Mn |
+| U+0DD3 | ◌ී | DIGA IS-PILLA | දිග ඉස්පිල්ල | ii | Top | - | Mn |
+| U+0DD4 | ◌ු | KETTI PAA-PILLA | පාපිල්ල | u | Bottom | - | Mn |
+| U+0DD6 | ◌ූ | DIGA PAA-PILLA | දිග පාපිල්ල | uu | Bottom | - | Mn |
+| U+0DD8 | ◌ෘ | GAETTA-PILLA | ගැටපිල්ල | ru (vocalic r) | Right | - | Mc |
+| U+0DF2 | ◌ෲ | DIGA GAETTA-PILLA | දිග ගැටපිල්ල | ruu (vocalic rr) | Right | - | Mc |
+| U+0DDF | ◌ෟ | GAYANUKITTA | ගයනුකිත්ත | ilu (vocalic l) | Right | - | Mc |
+| U+0DF3 | ◌ෳ | DIGA GAYANUKITTA | දිග ගයනුකිත්ත | iluu (vocalic ll) | Right | - | Mc |
+| U+0DD9 | ෙ◌ | KOMBUVA | කොම්බුව | e | Left (pre-base) | - | Mc |
 | U+0DDA | ෙ◌් | DIGA KOMBUVA | කොම්බුව සහ හල් කිරීම | ee | Top_And_Left | ≡ 0DD9 0DCA | Mc |
 | U+0DDB | ෛ◌ | KOMBU DEKA | කොම්බු දෙක | ai | Left (pre-base) | **none** | Mc |
 | U+0DDC | ෙ◌ා | KOMBUVA HAA AELA-PILLA | කොම්බුව සහ ඇලපිල්ල | o | Left_And_Right (split) | ≡ 0DD9 0DCF | Mc |
@@ -105,7 +105,7 @@ decompositions from S2/UCD, checked locally (S16).
   knowledge; no school textbook was found).
 - **Sources:** S2, S3, S5 (Table 1 and Table 4), S16.
 
-### VS-002 — Positions, split signs and reordering
+### VS-002: Positions, split signs and reordering
 
 **Statement.** The signs fall into five positional classes. ා ැ ෑ ෘ ෲ ෟ ෳ sit to the right.
 ි ී ් sit above. ු ූ sit below. ෙ ෛ sit to the left (pre-base). ො ෝ ේ ෞ are split, with a left
@@ -127,7 +127,7 @@ the start of the cluster. The second part is then handled by the font's `pstf` f
 
 ## 3. Decomposition and normalization
 
-### VS-003 — Canonical equivalences and NFC
+### VS-003: Canonical equivalences and NFC
 
 **Statement.** Four signs have canonical decompositions: ේ ≡ ෙ+්, ො ≡ ෙ+ා, ෝ ≡ ො+් (that
 is, ෙ+ා+්), and ෞ ≡ ෙ+ෟ. None of them is a composition exclusion, so NFC composes the
@@ -141,7 +141,7 @@ sequences back to the single code point. Local test (UCD 16.0):
 - **Confidence:** high.
 - **Sources:** S2, S5 §5.4, S16.
 
-### VS-004 — Kombu deka is atomic
+### VS-004: Kombu deka is atomic
 
 **Statement.** ෛ U+0DDB has no decomposition. The sequence ෙ+ෙ is not equivalent to it.
 Under HarfBuzz with Nirmala UI, ක+ෙ+ෙ gives two separate kombuva glyphs (gid 3858 twice).
@@ -154,7 +154,7 @@ form must be U+0DDB.
 - **Confidence:** high.
 - **Sources:** S2, S5 §6.2 ("ai modifier"), S10 (note on kombuva ordering), S16.
 
-### VS-005 — Sign order inside ෝ / ේ
+### VS-005: Sign order inside ෝ / ේ
 
 **Statement.** ෝ decomposes canonically as ෙ ා ්. Al-lakuna has ccc = 9 and the vowel signs
 have ccc = 0, so normalization never reorders them. The sequence ෙ ් ා therefore composes to
@@ -165,7 +165,7 @@ have ccc = 0, so normalization never reorders them. The sequence ෙ ් ා the
 - **Confidence:** high.
 - **Sources:** S2, S16.
 
-### VS-006 — Independent vowels are atomic; never build them from a letter + sign
+### VS-006: Independent vowels are atomic; never build them from a letter + sign
 
 **Statement.** Nine vowel letters look like a base vowel plus a sign, but they must be encoded
 as single code points. Unicode's Table 13-2 and DoNotEmit.txt list them:
@@ -194,7 +194,7 @@ HarfBuzz puts a dotted circle on exactly these sequences.
 
 ## 4. Invalid and ill-formed sequences
 
-### VS-007 — No vowel sign after an independent vowel
+### VS-007: No vowel sign after an independent vowel
 
 **Statement.** A dependent sign or al-lakuna must follow a consonant (or a sannjaka). The LGR's
 whole-label rules say a sign "must be preceded by C or J", and H must be preceded by C. SLS
@@ -207,7 +207,7 @@ detected.
 - **Confidence:** high.
 - **Sources:** S5 §4, S9 §7 rules 1–2, S8, S16.
 
-### VS-008 — A sign with no base
+### VS-008: A sign with no base
 
 **Statement.** A sign with no base is invalid in text. Shapers show it on a dotted circle
 (U+25CC). For deliberately showing a sign in isolation, the sources disagree:
@@ -222,7 +222,7 @@ Local test: a lone ා, or ZWNJ + ා, gets a dotted circle in HarfBuzz.
 - **Confidence:** high for "invalid". The display convention is disputed (see §10).
 - **Sources:** S5 §5.4, S6 item 1, S7 ("Handling invalid combining marks"), S16.
 
-### VS-009 — Nothing after al-lakuna except ZWJ, a consonant or an end
+### VS-009: Nothing after al-lakuna except ZWJ, a consonant or an end
 
 **Statement.** Al-lakuna removes the vowel. A vowel sign after it is contradictory. Local test:
 ක + ් + ා → dotted circle before ා. ක + ් + ෙ → dotted circle. ක + ් + ් → dotted circle.
@@ -232,7 +232,7 @@ Anusvara/visarga must not follow hal either (the LGR says ං can follow any sig
 - **Confidence:** high.
 - **Sources:** S9 §3.3.4 and §7, S16.
 
-### VS-010 — One vowel sign per syllable
+### VS-010: One vowel sign per syllable
 
 **Statement.** A consonant takes at most one vowel sign. SLS 1134 counts exactly 17 vocalic
 forms per consonant (bare + hal + 16 vowel signs, excluding ෟ ෳ) and discourages multi-sign
@@ -252,7 +252,7 @@ contains two signs on one consonant.
 These are font and shaper matters. They never change the encoding. They matter for text
 processing only because writers may try to reproduce what they *see* with look-alike code points.
 
-### VS-011 — ra + ae / aee: irregular ligatures
+### VS-011: ra + ae / aee: irregular ligatures
 
 **Statement.** ර + ැ → රැ and ර + ෑ → රෑ are irregular glyphs (Unicode Table 13-5). The
 encoding stays ර U+0DBB + U+0DD0/U+0DD1.
@@ -262,7 +262,7 @@ encoding stays ර U+0DBB + U+0DD0/U+0DD1.
 - **Confidence:** high.
 - **Sources:** S1 Table 13-5, S5 §5.4, S7 (`psts` example), S16.
 
-### VS-012 — ra + u / uu: irregular ligatures
+### VS-012: ra + u / uu: irregular ligatures
 
 **Statement.** ර + ු → රු and ර + ූ → රූ have special shapes. In these, the u-sign attaches
 at the right like a hook, not below. Wikipedia notes that the sign used for රු/රූ looks like
@@ -276,7 +276,7 @@ no separate code: the form is stored as ර + pāpilla.
 - **Note.** S1's HTML shows a stray ZWJ after ◌ු in the රු/ළු rows. This is assumed to be a
   rendering artifact, not a required ZWJ **[unverified]**.
 
-### VS-013 — lla + u / uu
+### VS-013: lla + u / uu
 
 **Statement.** ළ + ු → ළු and ළ + ූ → ළූ are irregular glyphs. SLS lists ළු as a distinct form,
 but it is still stored as ළ U+0DC5 + ු U+0DD4. ළූ can look like ළු + ෑ, but it must be stored as
@@ -287,7 +287,7 @@ but it is still stored as ළ U+0DC5 + ු U+0DD4. ළූ can look like ළු +
 - **Confidence:** high.
 - **Sources:** S1 Table 13-5, S5 §5.4 and §6.1–6.2.
 
-### VS-014 — The "koku" (hook) form of u / uu
+### VS-014: The "koku" (hook) form of u / uu
 
 **Statement.** ු and ූ take an alternative hook form (attached at the right foot) on ක, ග, ඟ,
 ත, භ and ශ. SLS calls these "ketti/diga paa-pilla 2" and notes that the stroke shape depends
@@ -299,7 +299,7 @@ form on exactly these six. All other consonants take the plain below-base loop.
 - **Confidence:** high.
 - **Sources:** S1, S5 Table 1 (7a, 8a), S14, S16.
 
-### VS-015 — Descender loss for da-like bases
+### VS-015: Descender loss for da-like bases
 
 **Statement.** Bases shaped like ද drop their descending tail when a below-base sign attaches
 (දු, දූ, and ද්‍ර). Local test: ඳු also loses its tail in Nirmala UI. Unicode does not list the
@@ -310,7 +310,7 @@ whole class, so ඳ is font-observed **[unverified as a rule]**.
 - **Confidence:** high for da, medium for nda.
 - **Sources:** S1, S16.
 
-### VS-016 — Vowel signs on rakaransaya / yansaya clusters
+### VS-016: Vowel signs on rakaransaya / yansaya clusters
 
 **Statement.** After a cluster such as ක්‍ර or ක්‍ය, the vowel belongs to the ර or ය. Its
 sign attaches to the rightmost component. The kombuva goes before the whole cluster.
@@ -332,7 +332,7 @@ SLS also says other combinations, though not used, should still be allowed.
 - **Confidence:** high for the encoding. **Conflict** on ru/ruu after rakaransaya (see §10).
 - **Sources:** S1, S5 Table 3 and §6.3, S7 (`vatu`, `abvs`).
 
-### VS-017 — Al-lakuna has two shapes
+### VS-017: Al-lakuna has two shapes
 
 **Statement.** Al-lakuna has the usual curl ("kodiya") on most letters and a second shape on
 some letters. SLS cites ට්. Unicode cites ච්. Local test (Nirmala UI): ච් ජ් ඦ් ට් and ර්
@@ -343,7 +343,7 @@ way.
 - **Confidence:** high that the code is the same. Low for the exact membership list.
 - **Sources:** S1, S5 Table 1 (1a) and §5.4, S16.
 
-### VS-018 — Kombuva placement
+### VS-018: Kombuva placement
 
 **Statement.** In display, the kombuva (and the left part of ේ ො ෝ ෞ, and ෛ) goes before
 the **entire** orthographic cluster: before the first consonant of a ZWJ conjunct, a
@@ -362,7 +362,7 @@ rightmost part. Storage is still cluster first, then sign.
 
 ## 6. Which consonant + vowel combinations occur
 
-### VS-019 — ඇ / ඈ and ැ / ෑ are distinctly Sinhala
+### VS-019: ඇ / ඈ and ැ / ෑ are distinctly Sinhala
 
 **Statement.** The æ vowels are unique to Sinhala among Indo-Aryan scripts, and in use since
 about the 7th century. They are common in native words and English loans, and absent from
@@ -373,13 +373,13 @@ Sanskrit/Pali loans. As a result, aspirated and Sanskrit-only consonants rarely 
 - **Confidence:** high for uniqueness. Medium for "rare on aspirates" (inferred).
 - **Sources:** S1, S5 §3 note 1, S9.
 
-### VS-020 — ෘ is pronounced /ru/: Sanskrit ṛ, and C + r + u in other words
+### VS-020: ෘ is pronounced /ru/: Sanskrit ṛ, and C + r + u in other words
 
 **Statement.** ෘ (gaetta-pilla) appears in tatsama (Sanskrit) words. It is pronounced as ru
 (or ri). The mixed-alphabet ṛ can also be written phonetically as r+u in śuddha Sinhala. SLS
 counts it among the 17 standard forms. Because ෘ is read /ru/, writers also use ෘ/ෲ for /ru/
 and /ruː/ after a consonant in non-Sanskrit words and English loans (ගෲප්, ඇන්ඩෲ), and it is
-the usual spelling of C + r + u/uu (VS-034).
+the usual spelling of C + r + u/uu (VS-035).
 
 - **Attested consonants (examples):** කෘෂිකර්මය, ගෘහ, තෘප්තිය, දෘෂ්ටිය, ධෘති, නෘත්‍ය,
   පෘථිවිය, බෘහත්, භෘත්‍ය, මෘදු, වෘක්ෂ, ශෘංගාර, සෘජු, හෘදය, ඝෘ(ණා) (LGR lists ඝෘ as a
@@ -387,10 +387,10 @@ the usual spelling of C + r + u/uu (VS-034).
 - **Never:** ර+ෘ (no rṛ in Sanskrit) [inferred], ළ ඞ ඤ ඥ ඦ, the sannjakas, ණ ය ල ෂ
   [inferred]. ෆ is attested in English loans (ෆෘට් "fruit", S17).
 - **Applies to:** ru.
-- **Confidence:** high for Sanskrit ṛ. High for the wider /ru/ use (S17, VS-034). Medium for the consonant list.
+- **Confidence:** high for Sanskrit ṛ. High for the wider /ru/ use (S17, VS-035). Medium for the consonant list.
 - **Sources:** S5 Table 2, S9 Tables 2 and 3a, S11, S14, S17.
 
-### VS-021 — ෲ, ෟ, ෳ, ඎ, ඏ, ඐ are marginal
+### VS-021: ෲ, ෟ, ෳ, ඎ, ඏ, ඐ are marginal
 
 **Statement.**
 - ඏ and ඐ are not in present usage (SLS).
@@ -404,7 +404,7 @@ the usual spelling of C + r + u/uu (VS-034).
 - **Confidence:** high.
 - **Sources:** S5 §3.1 notes 2–3 and §3.4 note 4, S9 Table 4.
 
-### VS-022 — ෛ / ෞ in loans; native ai/au use ය/ව
+### VS-022: ෛ / ෞ in loans; native ai/au use ය/ව
 
 **Statement.** The diphthong signs ෛ and ෞ belong to the mixed (Sanskrit-derived) set. In
 pure Sinhala spelling, ai is written as a + yi and au as a + wu. Spoken Sinhala has many
@@ -419,7 +419,7 @@ diphthongs, all ending in a high vowel. They are written with consonant ය/ව 
   **[unverified individually]**.
 - **Sources:** S11 (diphthong list), S14.
 
-### VS-023 — ඞ takes no vowel signs
+### VS-023: ඞ takes no vowel signs
 
 **Statement.** SLS 1134 says ඞ is never combined with a vowel and appears only as ඞ් (as in
 සඞ්ඝ). The LGR excludes ඞ as not in modern usage. In modern writing, anusvara ං usually
@@ -429,7 +429,7 @@ replaces ඞ්.
 - **Confidence:** high.
 - **Sources:** S5 §3.5 note 1, S9 Table 4.
 
-### VS-024 — ඦ is archaic
+### VS-024: ඦ is archaic
 
 **Statement.** ඦ is not found in contemporary writing (SLS). The LGR says it occurs only in a
 dog-calling word. Treat every sign on it as rare. Never use hal with it (VS-025).
@@ -438,7 +438,7 @@ dog-calling word. Treat every sign on it as rare. Never use hal with it (VS-025)
 - **Confidence:** high.
 - **Sources:** S5 §3.2 note 1, S9 Table 4.
 
-### VS-025 — Sannjakas take vowels but not hal
+### VS-025: Sannjakas take vowels but not hal
 
 **Statement.** Vowel signs attach to a prenasalized consonant the same way they attach to the
 plain stop (S14). The LGR whole-label rules allow sannjaka + vowel sign and sannjaka + ං, but
@@ -449,7 +449,7 @@ say sannjakas cannot be followed by halanta.
 - **Confidence:** high for "no hal". Medium for how often each sign occurs.
 - **Sources:** S9 §3.3.6 and §5.6.5, S14.
 
-### VS-026 — ඥ and ඤ
+### VS-026: ඥ and ඤ
 
 **Statement.** ඥ (jña) is an atomic conjunct. Word-initially it sounds the same as ඤ, but
 elsewhere it is a cluster. Both take vowel signs. ඥා is by far the most common form.
@@ -459,7 +459,7 @@ elsewhere it is a cluster. Both take vowel signs. ඥා is by far the most comm
 - **Confidence:** medium for frequency.
 - **Sources:** S1, S5 §3.2 note 2.
 
-### VS-027 — ෆ is for loans only
+### VS-027: ෆ is for loans only
 
 **Statement.** ෆ (fa) is used for English and other loans. It takes the ordinary signs (ා ැ ෑ
 ි ී ු ූ ෙ ේ ො ෝ ්) but not ෘ ෲ ෛ ෞ.
@@ -469,7 +469,7 @@ elsewhere it is a cluster. Both take vowel signs. ඥා is by far the most comm
 - **Confidence:** medium (inferred from what the letter is for).
 - **Sources:** S2, S5 §3.2.
 
-### VS-028 — Aspirates and Sanskrit-only consonants
+### VS-028: Aspirates and Sanskrit-only consonants
 
 **Statement.** ඛ ඝ ඡ ඣ ඨ ඪ ථ ධ ඵ භ ශ ෂ (and ණ in most positions) belong to the mixed
 alphabet. They appear mainly in tatsama/Pali loans, so their sign set is the Sanskrit one: no
@@ -483,7 +483,7 @@ or rare ැ/ෑ, but ෘ ෛ ෞ are possible. English loans add ශ/ෂ + ැ (
 
 ## 7. Independent vowel vs sign; hiatus and glides; length
 
-### VS-029 — Independent vowels are word-initial
+### VS-029: Independent vowels are word-initial
 
 **Statement.** SLS 1134 says the 18 vowels, unlike consonants, are used only at the
 beginning of words. The LGR adds that independent vowels start words and dependent vowels
@@ -497,7 +497,7 @@ independent vowel.
 - **Confidence:** high for the rule. Low for the exceptions list.
 - **Sources:** S5 §3.1, S9 §3.3.2.
 
-### VS-030 — Hiatus is resolved with ය (after front vowels) or ව (after back vowels)
+### VS-030: Hiatus is resolved with ය (after front vowels) or ව (after back vowels)
 
 **Statement.** At root–suffix boundaries in nouns, Sinhala always resolves vowel hiatus by
 inserting a glide. It is j (ය) after i or æ and w (ව) after u or ā. Verbs prefer deleting
@@ -519,7 +519,7 @@ ovun → ඔවුන් (ou → ඔවු), æyi → ඇයි "why" (æi → �
   claim.
 - **Sources:** S12 (citing Smith 2001), S11.
 
-### VS-031 — Āgama (insertion) sandhi in compounds
+### VS-031: Āgama (insertion) sandhi in compounds
 
 **Statement.** In compounds, ය or ව (or occasionally ර) is inserted between a final and an
 initial vowel.
@@ -529,7 +529,7 @@ initial vowel.
 - **Confidence:** medium (Wikipedia lead only; textbook not reached).
 - **Sources:** S13.
 
-### VS-032 — Vowel length is phonemic and has separate signs
+### VS-032: Vowel length is phonemic and has separate signs
 
 **Statement.** Short and long vowels are distinct phonemes (14 vowel phonemes in all). Each
 long vowel has its own sign:
@@ -552,19 +552,19 @@ same way.
 - **Confidence:** high for the system. Medium for the example pairs.
 - **Sources:** S2, S5 Table 2, S11.
 
-### VS-033 — Common spelling mistakes involving pili
+### VS-033: Common spelling mistakes involving pili
 
 1. **Vowel length** (hrasva/dirgha) is the most common error class in Sinhala text (S15).
 2. **ෘ vs ්‍ර / රු confusion** (ගෘහ vs ග්‍රහ, a real meaning change).
 3. **ෛ/ෞ vs ayi/avu.** For example, වෛද්‍ය is correct, and spelling it with අයි is wrong.
 4. **Encoding errors:** ෙ+ෙ for ෛ; ෙ+්+ා for ෝ; අ+ා for ආ; ැ/ෑ stored instead of
-   rakaransaya-u forms (S1 warning; ක්‍රෑර, ශ්‍රැති, see VS-034); two signs on one consonant.
+   rakaransaya-u forms (S1 warning; ක්‍රෑර, ශ්‍රැති, see VS-035); two signs on one consonant.
 5. **ඥ/ඤ** swapped word-initially (they sound the same there; S5).
 
 - **Confidence:** high for 1 and 4. Medium for 2, 3 and 5.
 - **Sources:** S15, S1, S4, S5, S16.
 
-### VS-034 — C + r + u/uu: ෘ/ෲ is the usual spelling, rakaransaya + ු/ූ the alternative
+### VS-035: C + r + u/uu is usually written ෘ/ෲ, with rakaransaya + ු/ූ as the alternative
 
 **Statement.** A consonant followed by /ru/ or /ruː/ has two correct encodings, and both are
 read the same way because ෘ is pronounced /ru/ (VS-020, 05:G2P-011):
@@ -714,7 +714,7 @@ or validating stored Sinhala text.
    - treat ayi/avu as the default reading and reserve distinct symbols for ෛ/ෞ, or
    - decide per word from a dictionary.
 5. **"ru" collides three ways** (VS-012, VS-016, VS-020): ර+ු, ෘ, and rakaransaya + ු.
-   - "kru" is usually කෘ (කෘෂි, කෲර) and occasionally ක්‍රු; a lexicon decides per word (VS-034), and
+   - "kru" is usually කෘ (කෘෂි, කෲර) and occasionally ක්‍රු; a lexicon decides per word (VS-035), and
    - "karu" must never become කෘ.
    A reversible romanization should give ෘ a distinct symbol (for example `ṛ`), and let plain
    `ru` mean r+u.
@@ -747,7 +747,7 @@ or validating stored Sinhala text.
 
 1. **Rakaransaya + u/uu.** SLS 1134 Table 3 leaves kru/kruu out of the valid rakaransaya
    vowels, and says such sequences "are not used". Unicode §13.2 gives ක්‍රු/ක්‍රූ as normal
-   forms with dedicated glyph variants. Corpus counts (VS-034) partly support SLS: the sequence
+   forms with dedicated glyph variants. Corpus counts (VS-035) partly support SLS: the sequence
    is valid but rare, because writers use ෘ/ෲ (කෲර) or, wrongly, ැ/ෑ (ක්‍රෑර) instead.
    Treat both ෘ/ෲ and rakaransaya + ු/ූ as valid, with ෘ/ෲ as the usual form.
 2. **Displaying a sign in isolation.** Three conventions conflict:
@@ -784,4 +784,4 @@ or validating stored Sinhala text.
     no ZWJ.
 12. **ඔ + ් vs ඕ.** This pair is absent from Unicode Table 13-2 and DoNotEmit, and HarfBuzz does
     not flag it. Well-formed text should still never contain it.
-13. **Removed rules:** VS-034 — removed: out of scope.
+13. **Removed rules:** VS-034 was removed as out of scope.

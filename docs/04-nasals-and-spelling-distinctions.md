@@ -1,6 +1,6 @@
-# 04 — Nasals, ayogavaha signs, and the ණ/න · ළ/ල · ශ/ෂ/ස spelling distinctions
+# 04: Nasals, ayogavaha signs, and the ණ/න · ළ/ල · ශ/ෂ/ස spelling distinctions
 
-Scope: the nasal and nasal-related signs of Sinhala — anusvara (ං), visarga (ඃ), candrabindu (ඁ), the prenasalised ("sanyaka") letters ඟ ඦ ඬ ඳ ඹ and the nasal consonants ඞ ඤ ඥ ණ න ම — together with the spelling distinctions that sound alone cannot decide: ණ/න, ළ/ල and ස/ශ/ෂ. For each, the file gives where the sign may occur, how it is pronounced, and the orthographic rules (mostly from school grammar and Sanskrit/Pali etymology) that choose between homophonous letters. A closing section draws out the consequences for romanization and transliteration.
+Scope: the nasal and nasal-related signs of Sinhala (anusvara (ං), visarga (ඃ), candrabindu (ඁ), the prenasalised ("sanyaka") letters ඟ ඦ ඬ ඳ ඹ and the nasal consonants ඞ ඤ ඥ ණ න ම) together with the spelling distinctions that sound alone cannot decide: ණ/න, ළ/ල and ස/ශ/ෂ. For each, the file gives where the sign may occur, how it is pronounced, and the orthographic rules (mostly from school grammar and Sanskrit/Pali etymology) that choose between homophonous letters. A closing section draws out the consequences for romanization and transliteration.
 
 Compiled October 2026. All rules are summarised in my own words. Short quotes are marked.
 
@@ -75,11 +75,11 @@ For anyone converting between romanized and Sinhala text, checking spelling, or 
 
 ---
 
-## 1. Anusvara / binduva — ං (U+0D82)
+## 1. Anusvara / binduva: ං (U+0D82)
 
 Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 
-### NS-001 — Position: always after a base, never word-initial, never after hal
+### NS-001: Position: always after a base, never word-initial, never after hal
 - **Statement.** ං is a combining sign. It must follow one of these bases:
   - an independent vowel (V)
   - a consonant with its inherent *a* (C)
@@ -97,7 +97,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** high.
 - **Sources.** [ICANN-P] §3.3.4 and §5.6.3–5.6.5; [ICANN-LGR].
 
-### NS-002 — ං carries no vowel sign of its own
+### NS-002: ං carries no vowel sign of its own
 - **Statement.** The vowel belongs to the preceding base, so the encoding order is base + vowel sign + ං. ං cannot be "killed" with hal and cannot be followed by a vowel sign. In speech it closes the syllable.
 - **Examples.**
   - පුංචි *puṃci* 'small'
@@ -109,7 +109,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** high.
 - **Sources.** [ICANN-P] Table 7.
 
-### NS-003 — Phonetic value: [ŋ]
+### NS-003: Phonetic value: [ŋ]
 - **Statement.** ං is pronounced as the velar nasal [ŋ]. The Sinhala GP describes it as representing "a general nasal sound" (short quote).
 - **Examples.**
   - ලංකා *laṃkā* [laŋkaː]
@@ -119,7 +119,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** high for [ŋ].
 - **Sources.** [ICANN-P] §3.3.4; [ICANN-LGR]; [UNGEGN] romanises ං as **ṅ**.
 
-### NS-004 — ං has replaced ඞ් (and often ඤ්) in modern spelling
+### NS-004: ං has replaced ඞ් (and often ඤ්) in modern spelling
 - **Statement.** Words traditionally spelled with a velar nasal hal (ඞ්), and some with a palatal one (ඤ්), are now written with ං. ඞ් is the same sound as ං but is now archaic or Pali-only (NS-040).
 - **Examples.**
   - මඞ්ගල → මංගල *maṃgala* 'auspicious'
@@ -130,7 +130,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** medium.
 - **Sources.** [KS-NGA]; [GG-UNI] (a commenter notes binduva can stand for ඤ medially, but only as a lead); [UD-AM] (the Sidat Sangarava alphabet lists අං among its consonants).
 
-### NS-005 — Choosing ං vs a nasal + hal before a consonant (tatsama words)
+### NS-005: Choosing ං vs a nasal + hal before a consonant (tatsama words)
 - **Statement.** Spelling follows Sanskrit/Pali practice for the nasal before a consonant:
 
 | Following consonant | Spelling | Examples |
@@ -152,7 +152,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
   - medium: velar → ං, labial → ම්, and ං before ය ර ල ව ශ ස හ. A search snippet from a Sinhala lesson page said binduva stays unchanged before ය් ර් ල් ව් ශ් ස් හ්, but I could not open that page. The rest is Sanskrit sandhi and well-attested spellings.
 - **Sources.** [UD-AV]; [KS-NN]; [TI943]; [UNI] (shows අඬ vs අණ්ඩ, i.e. ණ්ඩ written with a full nasal plus hal).
 
-### NS-006 — *saṃ-* / *sam-* before a vowel → ම + vowel sign (no ං)
+### NS-006: *saṃ-* / *sam-* before a vowel → ම + vowel sign (no ං)
 - **Statement.** In Sanskrit compounds, prefix-final *m* before a vowel is written as ම carrying that vowel. ං is not written before a vowel inside a word.
 - **Examples.**
   - සමාගම *samāgama* (sam+āgama)
@@ -164,7 +164,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** medium (Sanskrit sandhi; examples are standard words).
 - **Sources.** General Sanskrit grammar. Examples checked against usage (coop.gov.lk uses සමූපකාර / සමුපකාර).
 
-### NS-007 — Native words: ං alternates with ඟ (and other sanyaka) at stem or compound boundaries
+### NS-007: Native words: ං alternates with ඟ (and other sanyaka) at stem or compound boundaries
 - **Statement.** Several native nouns that end in a sanyaka syllable use a ං-final stem in compounds and in some inflections.
 - **Examples.**
   - ගඟ *gan̆ga* 'river' → ගංවතුර *gaṃvatura* 'flood', ගංතෙර
@@ -175,7 +175,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** low–medium. **UNVERIFIED** as a stated rule; the example words are standard.
 - **Sources.** None found that state this rule.
 
-### NS-008 — Word-final ං in native words and in colloquial writing
+### NS-008: Word-final ං in native words and in colloquial writing
 - **Statement.** ං is common word-finally:
   - in native lexemes: සුළං *suḷaṃ* 'wind', which [ASSAJ] cites from Disanayaka as an indigenous ḷ-word
   - in informal or colloquial spellings that stand for a final nasal
@@ -191,7 +191,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** medium. The colloquial examples are **UNVERIFIED** against a written-grammar source; [GG-UNI] supports the general point.
 - **Sources.** [ASSAJ]; [GG-UNI].
 
-### NS-009 — Contrast: final ං vs final ම් / න්
+### NS-009: Contrast: final ං vs final ම් / න්
 - **Statement.** Word-final ං [ŋ] contrasts with ම් [m] and න් [n], so the three are different words.
 - **Examples.**
   - දං *daṃ* 'jambu fruit' vs දන් *dan* 'alms' (දන්සැල) ([GG-UNI])
@@ -201,7 +201,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** medium.
 - **Sources.** [GG-UNI].
 
-### NS-010 — ං after independent vowels
+### NS-010: ං after independent vowels
 - **Statement.** ං may follow any independent vowel letter.
 - **Examples.**
   - අං *aṃ*
@@ -212,7 +212,7 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** high (structure); medium (examples).
 - **Sources.** [ICANN-P] Table 6.
 
-### NS-011 — ං in English and other recent loans (before k/g)
+### NS-011: ං in English and other recent loans (before k/g)
 - **Statement.** Loanwords with [ŋk] or [ŋg] use ං.
 - **Examples.**
   - බැංකුව *bæṃkuva* 'bank'
@@ -224,16 +224,16 @@ Names: *anusvāraya*, *binduva* ("zero"), *nāsikya* [WG2].
 - **Confidence.** medium (**UNVERIFIED** in a cited source; standard spellings).
 - **Sources.** None.
 
-### NS-012 — ං vs ඟ: two different sequences
+### NS-012: ං vs ඟ: two different sequences
 See NS-030 to NS-033. ං+ග is [ŋ.g], heavy and heterosyllabic, as in අංගය. ඟ is [ᵑg], a light onset, as in අඟල.
 
 ---
 
-## 2. Visarga — ඃ (U+0D83)
+## 2. Visarga: ඃ (U+0D83)
 
 Names: *visargaya*, *visarjanīya* [WG2].
 
-### NS-020 — Rare, Sanskrit-only, pronounced [h]
+### NS-020: Rare, Sanskrit-only, pronounced [h]
 - **Statement.** ඃ is rarely used. It occurs almost only in Sanskrit borrowings and is read as [h].
 - **Examples.**
   - අන්තඃපුරය *antaḥpuraya* 'harem' (the ICANN example)
@@ -245,7 +245,7 @@ Names: *visargaya*, *visarjanīya* [WG2].
 - **Confidence.** high.
 - **Sources.** [ICANN-P] §3.3.5; [ICANN-LGR].
 
-### NS-021 — Position: after a vowel, a consonant, or a consonant + vowel sign; never after hal
+### NS-021: Position: after a vowel, a consonant, or a consonant + vowel sign; never after hal
 - **Statement.** Same constraint as ං, except that sanyaka letters are not listed as valid bases (see NS-024).
 - **Examples.**
   - අඃ (V+ඃ)
@@ -256,7 +256,7 @@ Names: *visargaya*, *visarjanīya* [WG2].
 - **Confidence.** high.
 - **Sources.** [ICANN-P] Tables 6–7; [ICANN-LGR].
 
-### NS-022 — Visarga sandhi in tatsama words (where ඃ disappears into another letter)
+### NS-022: Visarga sandhi in tatsama words (where ඃ disappears into another letter)
 - **Statement.** Most Sanskrit visarga in Sinhala vocabulary shows up as a sandhi result, not as ඃ:
 
 | Context | Result | Examples |
@@ -273,30 +273,30 @@ Names: *visargaya*, *visarjanīya* [WG2].
 - **Confidence.** medium. The sandhi pattern is standard Sanskrit. The Sinhala examples for ශ්/ෂ්/ස් come from [UD-AV] and [SIWIKI-AV]. The ෝ and ර් examples are standard spellings, **UNVERIFIED** in a fetched Sinhala grammar.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; en.wikipedia Visarga (lead only).
 
-### NS-023 — Not part of the native (*śuddha*) alphabet
+### NS-023: Not part of the native (*śuddha*) alphabet
 - **Statement.** Visarga is technically a *miśra* (mixed, Sanskrit) sign:
   - The Sidat Sangarava (13th c.) alphabet left it out.
   - The NIE 60-letter alphabet and Unicode include it.
   - The proposed "spoken Sinhala" (භාෂණ) 40-letter alphabet drops both ඃ and ං.
-- **Examples.** —
-- **Exceptions.** —
+- **Examples.** -
+- **Exceptions.** -
 - **Applies-to.** visarga, anusvara.
 - **Confidence.** high.
 - **Sources.** [UD-AM]; [WP-SCRIPT].
 
-### NS-024 — Colloquial ඃ after a sanyaka
+### NS-024: Colloquial ඃ after a sanyaka
 - **Statement.** The Sinhala GP notes that a few colloquial words put ඃ after a sanyaka, e.g. ඉඳඃ *in̆daḥ*. Standard writing has no such sequence.
 - **Examples.** ඉඳඃ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** visarga, nnga nyja nndda nda mba.
 - **Confidence.** low (single source).
 - **Sources.** [ICANN-P] §5.6.5.
 
 ---
 
-## 3. Candrabindu — ඁ (U+0D81)
+## 3. Candrabindu: ඁ (U+0D81)
 
-### NS-025 — Not used in modern Sinhala
+### NS-025: Not used in modern Sinhala
 - **Statement.** Unicode reserves ඁ for "some archaic Sanskrit texts" (short quote) and says it is not for modern Sinhala. The ICANN repertoire does not include it. It does not appear in any school alphabet: not Sidat Sangarava, NIE-60, Disanayaka-60 or Unicode-61.
 - **Examples.** None in modern text.
 - **Exceptions.** Specialist Sanskrit editions only. [GANESAN] mentions candrabindu as one way to render Sinhala half-nasals in *other* Indic scripts. That is not a Sinhala use.
@@ -306,11 +306,11 @@ Names: *visargaya*, *visarjanīya* [WG2].
 
 ---
 
-## 4. Sanyaka (prenasalised) letters — ඟ ඦ ඬ ඳ ඹ
+## 4. Sanyaka (prenasalised) letters: ඟ ඦ ඬ ඳ ඹ
 
 Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal").
 
-### NS-030 — Inventory and make-up
+### NS-030: Inventory and make-up
 - **Statement.** There are five letters. Each is a short homorganic nasal fused to a voiced unaspirated stop:
 
 | Letter | Letter ID | Parts | IPA |
@@ -327,12 +327,12 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
   - හොඬ *hon̆ḍa*
   - ඇඳ *æn̆da* 'bed'
   - අඹ *am̆ba* 'mango'
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nnga nyja nndda nda mba.
 - **Confidence.** high.
 - **Sources.** [ADYA]; [SLAK]; [WP-SCRIPT]; [UNI].
 
-### NS-031 — Never with hal; never word-initial
+### NS-031: Never with hal; never word-initial
 - **Statement.**
   - A sanyaka letter cannot take al-lakuna, so it never closes a syllable or ends a word as a dead consonant.
   - It does not occur word-initially. It appears word-medially (intervocalically) or as the last syllable of a word with a vowel.
@@ -344,7 +344,7 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Confidence.** high (hal, from the normative ICANN rule); high (initial, from several school sources).
 - **Sources.** [ICANN-P] §3.3.6; [ICANN-LGR]; [ADYA]; a Sinhala lesson-site search snippet (lead).
 
-### NS-032 — Phonetics: short nasal onset vs nasal + stop cluster
+### NS-032: Phonetics: short nasal onset vs nasal + stop cluster
 - **Statement.**
   - **Sanyaka:** the nasal part is very short and never makes the preceding syllable heavy. Stress or accent does not fall before it.
   - **Nasal + stop** (න්ද, ම්බ, ං+ග): a full nasal that closes the preceding syllable, which is therefore heavy.
@@ -353,12 +353,12 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Examples.**
   - කද *kada* 'carrying pole' / කන *kana* 'ear' / කඳ *kan̆da* 'trunk' / කන්ද *kanda* 'hill'
   - අඬ *an̆ḍa* 'cry, sound' vs අණ්ඩ *aṇḍa* 'egg' (Sanskrit; Unicode's example)
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nnga nndda nda mba, na, nna, ma, anusvara.
 - **Confidence.** high.
 - **Sources.** [UNI]; [WP-PNC]; [BAND]; [MADD]; [FEIN].
 
-### NS-033 — Choosing a sanyaka vs ං/nasal + hal + stop: a lexical choice
+### NS-033: Choosing a sanyaka vs ං/nasal + hal + stop: a lexical choice
 - **Statement.** There is no phonological rule that predicts the spelling. Practical guidance:
   - **Tatsama** (direct Sanskrit or Pali) words never use a sanyaka. They use ං before velars, and ණ්/න්/ම් before the other stops (NS-005). Examples: අංගය, ගංගාව, චන්ද්‍ර, සුන්දර, ආනන්ද, සම්බන්ධ.
   - **Native and tadbhava** (evolved) words often have a sanyaka where the Sanskrit source had a nasal cluster. Examples: අඟ / අඟල (< aṅga), ගඟ (< gaṅgā), සඳ (< candra), කඳ (< skandha), බඹ (< brahma; **UNVERIFIED** etymology).
@@ -370,7 +370,7 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Confidence.** medium. The tatsama/native split is a strong tendency, not a stated rule. [BAND] documents that many sanyaka continue Old Indo-Aryan nasal + stop clusters, and that others arose from secondary nasalisation.
 - **Sources.** [BAND]; [UNI]; [UTH] (loans with න්ඩ).
 
-### NS-034 — Some words allow a sanyaka or a plain stop
+### NS-034: Some words allow a sanyaka or a plain stop
 - **Statement.** A set of words is written either with a sanyaka or with the plain voiced stop. Both spellings are accepted.
 - **Examples.**
   - උරග / උරඟ 'serpent'
@@ -380,12 +380,12 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
   - මඩුව / මඬුව
   - නිදි / නිඳි
   - කලබ / කලඹ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nnga nndda nda mba, ga dda da ba.
 - **Confidence.** medium.
 - **Sources.** [SLAK]; [ADYA].
 
-### NS-035 — Vowel signs on sanyaka letters
+### NS-035: Vowel signs on sanyaka letters
 - **Statement.** Sanyaka letters take every dependent vowel sign, and can be followed by ං (rare). Rendering note: ු and ූ take special forms on ඟ, as they do on ක, ග, ත, භ and ශ.
 - **Examples.**
   - ඟු *n̆gu* (in මඟුල්)
@@ -398,7 +398,7 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Confidence.** high.
 - **Sources.** [ICANN-P] Table 8; [UNI] (vowel-sign alternates).
 
-### NS-036 — ඦ is (almost) never used
+### NS-036: ඦ is (almost) never used
 - **Statement.** ඦ is part of the NIE alphabet and of Unicode, but it is extremely rare:
   - The ICANN LGR leaves it out as "not frequently used".
   - J.B. Disanayaka's 1990 alphabet dropped it in favour of ඥ.
@@ -409,29 +409,29 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Confidence.** high for "rare". Whether it is ever used is disputed.
 - **Sources.** [ICANN-P] §3.3.6; [ICANN-LGR]; [UD-AM]; [ADYA]; [GG-SAN]; [WP-SCRIPT].
 
-### NS-037 — Nothing nasal precedes a sanyaka
+### NS-037: Nothing nasal precedes a sanyaka
 - **Statement.** A sanyaka already contains its nasal, so ං+ඟ or න්+ඳ is redundant and not written.
 - **Examples.** අඹ, never අංඹ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nnga nyja nndda nda mba, anusvara.
 - **Confidence.** medium (follows from the structure; no source states it).
-- **Sources.** —
+- **Sources.** -
 
 ---
 
 ## 5. The nasal consonants ඞ ඤ ඥ ණ න ම
 
-### NS-040 — ඞ (*kaṇṭhaja nāsikyaya*, velar nasal)
+### NS-040: ඞ (*kaṇṭhaja nāsikyaya*, velar nasal)
 - **Statement.** ඞ is rare in modern Sinhala and almost never occurs as a live syllable. Its hal form ඞ් appears in Pali written in Sinhala script and in a few learned Sanskrit words. Elsewhere it has been replaced by ං (NS-004).
 - **Examples.**
   - Pali සඞ්ඝ *saṅgha* vs modern සංඝයා
   - වාඞ්මය *vāṅmaya* 'literature' (learned; **UNVERIFIED** current frequency)
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nga, hal.
 - **Confidence.** medium.
 - **Sources.** [KS-NGA]; [UD-AM] (Sidat Sangarava left out the class-final nasals ඞ and ඤ).
 
-### NS-041 — ඤ (*tāluja nāsikyaya*, palatal nasal)
+### NS-041: ඤ (*tāluja nāsikyaya*, palatal nasal)
 - **Statement.** ඤ is used:
   - word-initially in a handful of Pali-derived words
   - as a geminate ඤ්ඤ in Pali words and a few native or loan words
@@ -444,12 +444,12 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
   - සඤ්ඤා *saññā*, පඤ්ඤා *paññā*
   - මඤ්ඤොක්කා *maññokkā* 'manioc' (**UNVERIFIED** in a fetched source)
   - පඤ්ච *pañca*, අඤ්ජන *añjana*, කුඤ්ජර
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nya, hal.
 - **Confidence.** medium.
 - **Sources.** [KS-NGA]; [UD-AM].
 
-### NS-042 — ඥ (*tāluja sanyōga nāsikyaya*): the ජ්+ඤ conjunct
+### NS-042: ඥ (*tāluja sanyōga nāsikyaya*): the ජ්+ඤ conjunct
 - **Statement.**
   - **Encoding.** ඥ is a single code point, U+0DA5. It represents the Sanskrit conjunct *jñ* (ජ්+ඤ). Unicode says it is "atomically encoded" (short quote).
   - **Pronunciation.** Sri Lankan speech is commonly *gn* / *gny*. The Survey Dept romanisation is **gna**, and personal names use *Gnana-* and *Pragna*. Wikipedia gives [dʒɲ], which is the Sanskrit value.
@@ -470,40 +470,40 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Confidence.** high (encoding, usage); medium (pronunciation).
 - **Sources.** [UNI]; [ICANN-P] §3.3.1; [UNGEGN]; [GANESAN]; [WP-SCRIPT]; [UD-AM] (Disanayaka added ඥ as a letter of its own in 1990).
 
-### NS-043 — Palatal-nasal spellings vary
+### NS-043: Palatal-nasal spellings vary
 - **Statement.** Before ච/ජ, and in the *saṃ+jñ* prefix, both ං and ඤ් spellings occur. Modern general writing leans towards ං.
 - **Examples.**
   - පංච ~ පඤ්ච
   - වංචා ~ වඤ්චා
   - සංඥා ~ සඤ්ඥා (**UNVERIFIED**)
   - සංජානනය
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** anusvara, nya, ca, ja, jnya.
 - **Confidence.** low–medium.
 - **Sources.** [KS-NGA]; [GG-UNI].
 
-### NS-044 — ම: no special rule
+### NS-044: ම: no special rule
 - **Statement.** ම behaves like any other consonant. Before labials, ම් is the nasal hal (NS-005), and *sam-* plus a vowel gives ම (NS-006).
 - **Examples.** සම්පත, සම්බන්ධ, සමාගම.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ma.
 - **Confidence.** high.
-- **Sources.** —
+- **Sources.** -
 
-### NS-045 — න / ණ: see §6 (NS-050 to NS-066).
+### NS-045: න / ණ: see §6 (NS-050 to NS-066).
 
-### NS-046 — Gotcha: ග්න ≠ ඥ
+### NS-046: Gotcha: ග්න ≠ ඥ
 - **Statement.** Sanskrit *gn* (ග්න) is a separate cluster from *jñ* (ඥ).
 - **Examples.**
   - අග්නි *agni* 'fire'
   - නග්න *nagna* 'naked'
   - ලග්න *lagna* 'ascendant'
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ga, na, jnya, hal.
 - **Confidence.** medium (standard spellings; **UNVERIFIED** in a fetched source).
-- **Sources.** —
+- **Sources.** -
 
-### NS-047 — Gotcha: ඤ ≠ න්‍ය
+### NS-047: Gotcha: ඤ ≠ න්‍ය
 - **Statement.** *nya* in tatsama words is very often න + yansaya (න්‍ය), not ඤ.
 - **Examples.**
   - අන්‍ය *anya* 'other'
@@ -511,7 +511,7 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
   - ශූන්‍ය *śūnya* 'zero'
   - මාන්‍ය *mānya*
   - වන්‍ය *vanya* 'wild'
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nya, na, ya.
 - **Confidence.** high.
 - **Sources.** [UNI] (yansaya = ්+ZWJ+ය).
@@ -528,15 +528,15 @@ Background. ණ (*mūrdhaja*) and න (*dantaja*) are both pronounced [n] in mod
 
 Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 
-### NS-050 — ණ and න are homophones in modern Sinhala
+### NS-050: ණ and න are homophones in modern Sinhala
 - **Statement.** The retroflex nasal is not a separate phoneme in modern Sinhala.
 - **Examples.** As above.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, na.
 - **Confidence.** high.
 - **Sources.** [WP-SCRIPT]; [WP-LANG]; [UD-AV].
 
-### NS-051 — After ර in Sanskrit/Pali words → ණ
+### NS-051: After ර in Sanskrit/Pali words → ණ
 - **Statement.** In tatsama words, an n that follows ර takes ණ.
 - **Examples.**
   - සරණ *saraṇa* 'refuge'
@@ -552,7 +552,7 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [LLS]; [TI943].
 
-### NS-052 — After repaya (ර්) or rakaransaya (්‍ර) → ණ
+### NS-052: After repaya (ර්) or rakaransaya (්‍ර) → ණ
 - **Statement.** An r that is part of a cluster (written as repaya or rakaransaya) also triggers ණ.
 - **Examples.**
   - මන්ත්‍රණ *mantraṇa*
@@ -563,12 +563,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - ශ්‍රේණිය *śrēṇiya*
   - ප්‍රණාමය *praṇāmaya*
   - ආමන්ත්‍රණය, චිත්‍රණ, ප්‍රවීණ, ග්‍රහණය, සංක්‍රමණ, අරණ්‍ය
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, ra.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [KS-NN]; [TI943].
 
-### NS-053 — After ෂ or ඍ/ෘ → ණ
+### NS-053: After ෂ or ඍ/ෘ → ණ
 - **Statement.** ෂ and the vowel ඍ (or its sign ෘ) also trigger ණ.
 - **Examples.**
   - දූෂණය *dūṣaṇaya*
@@ -581,12 +581,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - විෂ්ණු *viṣṇu*
   - උෂ්ණ *uṣṇa*
   - දක්ෂිණ *dakṣiṇa*
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, ssa, ru, ruu.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [KS-NN]; [UTH]; [TI943].
 
-### NS-054 — Which sounds block the trigger (the Sanskrit *ṇatva* rule)
+### NS-054: Which sounds block the trigger (the Sanskrit *ṇatva* rule)
 - **Statement.** The trigger (ර / ෂ / ඍ) still causes ණ when only vowels, velars (ක-group), labials (ප-group), or ය / ව / හ come in between. Any other consonant in between, such as a dental, palatal, retroflex, ල or ශ/ස, blocks it, and the n stays න.
 - **Examples.**
   - Trigger still works:
@@ -605,12 +605,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
     - ප්‍රශ්නය *praśnaya*
     - ප්‍රකාශන *prakāśana*
     - විදර්ශන
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, na, ra, ssa, ru.
 - **Confidence.** high for the Sinhala statement ([LLS]; [SDVP]). Mapping it to Pāṇini 8.4.1–2 is medium (general knowledge).
 - **Sources.** [LLS]; [SDVP]; [KS-NN].
 
-### NS-055 — Before retroflex stops → ණ් (ණ්ට, ණ්ඨ, ණ්ඩ, ණ්ඪ)
+### NS-055: Before retroflex stops → ණ් (ණ්ට, ණ්ඨ, ණ්ඩ, ණ්ඪ)
 - **Statement.** A nasal hal before a retroflex stop is always ණ්.
 - **Examples.**
   - කණ්ටක *kaṇṭaka*
@@ -629,7 +629,7 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [UTH]; [KS-NN]; [SANH].
 
-### NS-056 — Before dentals, and after ස or ශ → න
+### NS-056: Before dentals, and after ස or ශ → න
 - **Statement.** A nasal next to a dental consonant, or after ස or ශ, is න.
 - **Examples.**
   - Before dentals (න්ත, න්ථ, න්ද, න්ධ):
@@ -642,12 +642,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
     - චන්දන *candana*
   - After ස: ලස්සන *lassana*, අත්සන *atsana*
   - After ශ: ප්‍රශ්නය, දේශනය *dēśanaya*
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** na, ta, tha, da, dha, sa, sha.
 - **Confidence.** high.
 - **Sources.** [TI943]; [KS-NN].
 
-### NS-057 — Word-initial ණ: practically only ණය
+### NS-057: Word-initial ණ: practically only ණය
 - **Statement.** In modern usage only ණය *ṇaya* 'debt' begins with ණ. [UD-AV] also lists ණිහ 'dog' and ණිහිය 'daughter-in-law', which are archaic or literary.
 - **Examples.** ණය.
 - **Exceptions.** ණිහ, ණිහිය (archaic).
@@ -655,7 +655,7 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** high.
 - **Sources.** [KS-NN]; [UD-AV]; ketisatahan "ණ යන්නෙන් ඇරැඹී…" (ketapathpawra).
 
-### NS-058 — Stem-final ණ is never written with hal
+### NS-058: Stem-final ණ is never written with hal
 - **Statement.** ණ at the end of a stem is never written with hal. [UD-AV] says the stem-final letters ණ and ළ "are not hal" (short paraphrase). When a form needs a final consonant, it usually surfaces as න්.
 - **Examples.**
   - තොරණ, සෙවණ, බණ, පහණ
@@ -665,15 +665,15 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** medium.
 - **Sources.** [UD-AV].
 
-### NS-059 — Root-derived native nouns ending in ණ (or ළ)
+### NS-059: Root-derived native nouns ending in ණ (or ළ)
 - **Statement.** A group of native nouns built from roots ends in ණ or ළ.
 - **Examples.** දණ, බණ, පණ, අණ, වළ, බළ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, lla.
 - **Confidence.** medium.
 - **Sources.** [UD-AV].
 
-### NS-060 — Honorific suffixes -ආණ, -අණි, -අණු, -අණ්ඩි → ණ
+### NS-060: Honorific suffixes -ආණ, -අණි, -අණු, -අණ්ඩි → ණ
 - **Statement.** Honorific suffixes are written with ණ.
 - **Examples.**
   - පියාණෝ / පියාණන් *piyāṇō*
@@ -681,12 +681,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - පුතණුවෝ
   - මැණි
   - මාමණ්ඩි, අයියණ්ඩි, මලයණ්ඩි
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [KS-NN]; [LLS]; [TI943]; [SANH].
 
-### NS-061 — Native verbs: past and passive forms take ණ; present forms take න
+### NS-061: Native verbs: past and passive forms take ණ; present forms take න
 - **Statement.**
   - **ණ:** involitive/passive past forms in -ඉණි / -ඉණ, and past participles in -උණු / -උණ / -උණේ.
   - **න:** present participles and present-tense verbs, even after ර. This overrides NS-051.
@@ -703,12 +703,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
     - හදාරන, මරන, මතුරන, බලන
     - කරනු
     - කරනවා, හදාරනවා, මෝරනවා
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, na, ra.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [KS-NN]; [SANH]; [SDVP]; [TI943].
 
-### NS-062 — Other native suffixes take න
+### NS-062: Other native suffixes take න
 - **Statement.** These suffixes are written with dental න:
   - nouns ending in -න්න
   - the -නි vocative/locative plural
@@ -717,47 +717,47 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - ඉන්න, දුන්න, ගින්න, ඔටුන්න
   - උතුමනි, මිනිසුනි, ළමයිනි
   - යකිනි, මැතිනි, කෙකිනි
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** na.
 - **Confidence.** medium–high.
 - **Sources.** [KS-NN]; [TI943].
 
-### NS-063 — Compound boundary blocks retroflexion
+### NS-063: Compound boundary blocks retroflexion
 - **Statement.** A ර at the end of the first member of a compound does not turn an n at the start of the second member into ණ.
 - **Examples.**
   - ධාරානිපාත
   - සුරනර
   - බණ්ඩාරනායක
   - පිරිනමනවා
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** na, ra.
 - **Confidence.** medium.
 - **Sources.** [KS-NN].
 
-### NS-064 — When Sanskrit and Pali disagree, Sinhala follows Pali ණ
+### NS-064: When Sanskrit and Pali disagree, Sinhala follows Pali ණ
 - **Statement.** Where Pali has ṇ but Sanskrit has n, the Sinhala word takes ණ.
 - **Examples.**
   - පෙණ *peṇa* 'foam' (Pali pheṇa, Sanskrit phena)
   - Native forms that keep ණ: බමුණු (< brāhmaṇa), වෙණ (< vīṇā), දෙරණ (< dharaṇī), ලුණු (< lavaṇa)
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna.
 - **Confidence.** medium (single source with citations).
 - **Sources.** [SANH].
 
-### NS-065 — Native and loan words outside the rules must be memorised
+### NS-065: Native and loan words outside the rules must be memorised
 - **Statement.** Some words do not follow any rule and must be learned as they are.
 - **Examples.**
   - ගණිතය, මැණික, මුහුණ (ණ)
   - ඉරානය, කුරානය (න despite ර)
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna, na.
 - **Confidence.** medium.
 - **Sources.** [UTH].
 
-### NS-066 — Rare word-medial ණ before a vowel
+### NS-066: Rare word-medial ණ before a vowel
 - **Statement.** ණ also appears between vowels in non-trigger contexts. These cases are etymological.
 - **Examples.** කිංකිණි, රෙහෙණ, ආභරණ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** nna.
 - **Confidence.** medium.
 - **Sources.** [SANH].
@@ -766,15 +766,15 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 
 ## 7. ල / ළ භේදය (dental vs retroflex l)
 
-### NS-070 — ළ and ල are homophones in modern Sinhala
+### NS-070: ළ and ල are homophones in modern Sinhala
 - **Statement.** The difference is written only. Spoken Sinhala lost /ḷ/, around the 16th century according to [ASSAJ]. Inflection still shows an older difference: ල doubles before case endings, ළ does not.
 - **Examples.** balu+ā → ballā, but nalu+ā → naluvā.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** la, lla.
 - **Confidence.** high.
 - **Sources.** [ASSAJ]; [WP-SCRIPT].
 
-### NS-071 — Past tense of ර-final roots: ර → ළ
+### NS-071: Past tense of ර-final roots: ර → ළ
 - **Statement.** In the past tense of verbs whose root ends in ර, the ර becomes ළ.
 - **Examples.**
   - කර → කළ *kaḷa* 'did'
@@ -788,12 +788,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - මතුර → මතුළ
   - හර → හළ
   - විසුර → විසුළ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla, ra.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [LLS]; [SDVP].
 
-### NS-072 — A Pali/Sanskrit retroflex (ට ඨ ඩ ඪ ණ) becomes ළ in Sinhala
+### NS-072: A Pali/Sanskrit retroflex (ට ඨ ඩ ඪ ණ) becomes ළ in Sinhala
 - **Statement.** When a word with one of these retroflex consonants passes into Sinhala, that consonant is written ළ.
 - **Examples.**
   - දාඨා → දළ 'tusk'
@@ -804,12 +804,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - වාණිජ → වෙළෙඳ 'trade'
   - ක්‍රීඩා → කෙළි
   - Tamil loans: අගළ, ආඬපාළි
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla, tta, ttha, dda, ddha, nna.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [ASSAJ]; [LLS]; [SDVP].
 
-### NS-073 — Meaning "small / young / near / tender" → initial ළ
+### NS-073: Meaning "small / young / near / tender" → initial ළ
 - **Statement.** Words carrying this meaning begin with ළ.
 - **Examples.**
   - ළපටි *ḷapaṭi*
@@ -819,12 +819,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - ළසඳ
   - ළහිරු
   - ළඳරු
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV].
 
-### NS-074 — Two l's in one noun: the first is usually ළ
+### NS-074: Two l's in one noun: the first is usually ළ
 - **Statement.** When a noun contains two l-sounds, the first is usually written ළ.
 - **Examples.**
   - සළෙල
@@ -839,26 +839,26 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** medium.
 - **Sources.** [UD-AV]; [LLS].
 
-### NS-075 — ළ is never doubled and never hal; geminates are ල්ල
+### NS-075: ළ is never doubled and never hal; geminates are ල්ල
 - **Statement.** A doubled l is always ල්ල. A singular in -ල්ල has a plural in -ලු. A singular with medial ළ keeps ළ in the plural.
 - **Examples.**
   - සියල්ල, මල්ල, පොල්ල
   - සියල්ල > සියලු, බල්ලා > බලු, වල්ල > වලු, කොල්ලා > කොලු, ගාල්ල > ගාලු, මහල්ලා > මහලු
   - සළුව > සළු, සිළුව > සිළු, මළුව > මළු
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla, la, hal.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [LLS]; [SDVP].
 
-### NS-076 — Stem-final ළ is not hal
+### NS-076: Stem-final ළ is not hal
 - **Statement.** See NS-058.
 - **Examples.** දළ, නළ 'wind', බළ, කොළ, පොළ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla, hal.
 - **Confidence.** medium.
 - **Sources.** [UD-AV].
 
-### NS-077 — The prefix පිළි- always takes ළ
+### NS-077: The prefix පිළි- always takes ළ
 - **Statement.** Words built with the prefix පිළි- are always written with ළ.
 - **Examples.**
   - පිළිතුර
@@ -868,24 +868,24 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - පිළිරුව
   - පිළිවෙළ
   - පිළිකුල්
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla.
 - **Confidence.** high.
 - **Sources.** [SIWIKI-AV].
 
-### NS-078 — ළ before a sanyaka
+### NS-078: ළ before a sanyaka
 - **Statement.** An l-sound directly before a sanyaka letter is written ළ.
 - **Examples.**
   - වෙළඳ / වෙළෙඳ
   - කොළඹ *koḷam̆ba*
   - කැළඹීම
   - ළිඳ 'well'
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla, nnga nndda nda mba.
 - **Confidence.** medium. Two informal sources state it ([LLS]; a YouTube lesson title by kinki). There may be counter-examples. **UNVERIFIED** exhaustively.
 - **Sources.** [LLS]; YouTube "කිංකිගේ ඉස්කෝලේ … ඟ ඳ ඹ සඤ්ඤක අකුරුවලට පෙර ළ යෙදීම".
 
-### NS-079 — Indigenous ළ-words (memorise)
+### NS-079: Indigenous ළ-words (memorise)
 - **Statement.** Some native words have ළ without any rule-based reason and must be memorised.
 - **Examples.**
   - මාළු 'fish'
@@ -893,7 +893,7 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - ඔළුව 'head'
   - සුළං 'wind'
   - කළව, කොළඹ, කරළු
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** lla.
 - **Confidence.** high.
 - **Sources.** [ASSAJ] (citing J.B. Disanayaka and W.S. Karunatillake).
@@ -902,15 +902,15 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 
 ## 8. ස / ශ / ෂ භේදය (sibilants)
 
-### NS-080 — Native Sinhala uses only ස; ශ and ෂ are for loans
+### NS-080: Native Sinhala uses only ස; ශ and ෂ are for loans
 - **Statement.** ශ and ෂ belong to the *miśra* set. They are used for Sanskrit/Pali tatsama and for foreign loans. In modern speech ශ and ෂ are both [ʃ] and ස is [s].
-- **Examples.** —
-- **Exceptions.** —
+- **Examples.** -
+- **Exceptions.** -
 - **Applies-to.** sa, sha, ssa.
 - **Confidence.** high for the distribution; medium for the [ʃ] merger.
 - **Sources.** [WP-SCRIPT]; [WP-LANG]; [UD-AM].
 
-### NS-081 — ශ with palatal consonants
+### NS-081: ශ with palatal consonants
 - **Statement.** ශ is the sibilant used in clusters with palatals (ච ඡ ජ ඣ ඤ) and in ශ්ශ.
 - **Examples.**
   - දුශ්චරිත *duścarita*
@@ -918,33 +918,33 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - නිශ්ශබ්ද, නිශ්ශංක
   - දුශ්ශීල
   - දෘශ්‍යාබාධ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** sha, ca, cha, ja, jha, nya.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [SDVP].
 
-### NS-082 — ශ before ව and ර, and without a cluster
+### NS-082: ශ before ව and ර, and without a cluster
 - **Statement.** ශ is used before ව, in ශ්‍ර, and in many words with no cluster at all.
 - **Examples.**
   - Before ව: විශ්වාස, ඊශ්වර, විශ්වය, අශ්වයා
   - ශ්‍ර: ශ්‍රී, ශ්‍රවණ, ශ්‍රේණිය
   - No cluster: අනුශාසනා, විශාරද, ක්ලේශ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** sha, va, ra.
 - **Confidence.** high.
 - **Sources.** [SIWIKI-AV].
 
-### NS-083 — Word with two sibilants: ශ comes first
+### NS-083: Word with two sibilants: ශ comes first
 - **Statement.** In words with ශ+ස or ශ+ෂ, the ශ comes first.
 - **Examples.**
   - ප්‍රශස්ති, ශාස්ත්‍රය, ශාසනය
   - ශිෂ්ටාචාරය, විශේෂ, විශිෂ්ට, ශිෂ්‍යයා
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** sha, sa, ssa.
 - **Confidence.** medium–high.
 - **Sources.** [SIWIKI-AV]; [UD-AV].
 
-### NS-084 — ෂ with retroflex consonants
+### NS-084: ෂ with retroflex consonants
 - **Statement.** ෂ is the sibilant used before retroflex consonants (ෂ්ට, ෂ්ඨ, ෂ්ණ).
 - **Examples.**
   - විෂ්ණු, කෘෂ්ණ
@@ -952,12 +952,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - ශිෂ්ටාචාරය
   - ජ්‍යෙෂ්ඨ, ධර්මිෂ්ඨ
   - නෂ්ට
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ssa, tta, ttha, nna.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [SDVP].
 
-### NS-085 — ෂ in ක්ෂ, and after vowels other than a/ā before velars and labials (the *ruki* rule)
+### NS-085: ෂ in ක්ෂ, and after vowels other than a/ā before velars and labials (the *ruki* rule)
 - **Statement.**
   - ක්ෂ (also written ක්‍ෂ) always takes ෂ.
   - After any vowel other than අ/ආ, a sibilant before a velar or labial is ෂ.
@@ -972,12 +972,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
     - අභිනිෂ්ක්‍රමණය
     - නිෂ්ඵල
     - ද්වේෂ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ssa, ka, pa, pha.
 - **Confidence.** high.
 - **Sources.** [UD-AV]; [SIWIKI-AV]; [SDVP].
 
-### NS-086 — Morphophonemic ෂ
+### NS-086: Morphophonemic ෂ
 - **Statement.** Two processes produce ෂ:
   - **Root + ත / ති:** a root ending in ශ, ෂ or ස, plus the suffix ත or ති, gives ෂ්ට / ෂ්ටි.
   - **Superlative -ඉෂ්ඨ:** keeps ෂ්ඨ.
@@ -986,12 +986,12 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
   - දෘශ්+ති → දෘෂ්ටි
   - ශිස්+ත → ශිෂ්ට
   - පාපිෂ්ඨ, ධර්මිෂ්ඨ, ජ්‍යෙෂ්ඨ, කනිෂ්ඨ, ශ්‍රේෂ්ඨ
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ssa, sha, sa, ta, tta, ttha.
 - **Confidence.** high.
 - **Sources.** [UD-AV].
 
-### NS-087 — ස with dental consonants
+### NS-087: ස with dental consonants
 - **Statement.** ස is the sibilant used before dentals, and in *namas-* / *manas-* + k.
 - **Examples.**
   - Before dentals:
@@ -1006,13 +1006,13 @@ Sources: [UD-AV]; [UTH]; [LLS]; [WP-SCRIPT].
 - **Confidence.** high (main rule).
 - **Sources.** [UD-AV].
 
-### NS-088 — English /ʃ/ in loanwords
+### NS-088: English /ʃ/ in loanwords
 - **Statement.** English /ʃ/ is usually written ෂ, e.g. ෂර්ට් *shirt* and ෂෝ *show*. ශ also occurs in some loans and names.
 - **Examples.** ෂර්ට්, ෂෝ.
-- **Exceptions.** —
+- **Exceptions.** -
 - **Applies-to.** ssa, sha.
 - **Confidence.** low (**UNVERIFIED**).
-- **Sources.** —
+- **Sources.** -
 
 ---
 

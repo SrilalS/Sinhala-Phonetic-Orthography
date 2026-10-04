@@ -50,7 +50,7 @@ Consonant IDs follow [01 · Letter inventory](/research/inventory), in Unicode o
 
 Consonant × vowel statuses come from the 41 × 17 table in
 [02 · Vowel signs §8](/research/vowel-signs). They are a synthesis of the sources, not a corpus count,
-except the ෘ / ෲ columns, which were checked against a 2.1M-word list (VS-034).
+except the ෘ / ෲ columns, which were checked against a 2.1M-word list (VS-035).
 
 ## `romanization-coverage.json`
 

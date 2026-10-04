@@ -1,4 +1,4 @@
-# 00 — Sinhala orthography: consolidated rule set
+# 00: Sinhala orthography: consolidated rule set
 
 This file merges the topic studies (01–06) into one deduplicated rule list. Each rule
 cites the source rules it was built from (e.g. `02:VS-007` = file 02, rule VS-007).
@@ -116,7 +116,7 @@ Machine-readable companions:
 
 ---
 
-## 6. Spelling distinctions (sound-alike groups) — lexical, not rule-based
+## 6. Spelling distinctions (sound-alike groups): lexical, not rule-based
 
 | ID | Rule | Kind | Conf | Sources |
 |---|---|---|---|---|
@@ -175,7 +175,7 @@ checked exhaustively, never produces a forbidden sequence.
 | # | Gap | Where it matters |
 |---|---|---|
 | 1 | NIE textbooks, the final SLS 1134:2004/2011 texts and the Sinhala Lekhana Rīthiya (1989) were **not reachable**. School-grammar rules rest on agreeing secondary sources | G-SP-*, G-HC-07, alphabet counts |
-| 2 | The 41 × 17 validity table is a synthesis, **not a corpus count**. Only the ෘ / ෲ columns have been checked against a corpus (02:VS-034) | G-VS-13 / validity.json |
+| 2 | The 41 × 17 validity table is a synthesis, **not a corpus count**. Only the ෘ / ෲ columns have been checked against a corpus (02:VS-035) | G-VS-13 / validity.json |
 | 3 | Touching-letter and yansaya-with-repaya encodings changed between SLS drafts | G-EN-08, G-HC-14 |
 | 4 | ම්‍ර / න්‍ර / ල්‍ර have no attestation in a Sinhala source | G-HC-12, R-07 |
 | 5 | How ං before ය ර ල ව ශ ස හ is actually pronounced | G-NS-02/03 |

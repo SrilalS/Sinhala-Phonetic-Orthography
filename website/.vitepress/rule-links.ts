@@ -1,7 +1,7 @@
 // Turns rule IDs and repository paths in the research documents into links.
 //
-// Rule IDs are defined in docs/*.md in three ways: a heading ("### VS-007 — …"), a bold
-// lead-in ("**INV-001 — …**") or the first cell of a table row ("| G-EN-01 | …").
+// Rule IDs are defined in docs/*.md in three ways: a heading ("### VS-007: …"), a bold
+// lead-in ("**INV-001: …**") or the first cell of a table row ("| G-EN-01 | …").
 // Every definition gets an anchor (the ID in lower case), and every mention of a defined ID
 // ("G-HC-06", "02:VS-007", "R-11") links to it.
 import fs from "node:fs";
@@ -26,14 +26,14 @@ const BY_NUMBER = Object.fromEntries(Object.entries(PAGES).map(([f, r]) => [f.sl
 
 const ID = String.raw`(?:G-[A-Z]+-\d+|[A-Z][A-Z0-9]*-\d+[a-z]?)`;
 const DEFINITION = [
-  new RegExp(String.raw`^#{2,4} (${ID}) [—–]`, "gm"),
-  new RegExp(String.raw`^\*\*(${ID}) [—–]`, "gm"),
+  new RegExp(String.raw`^#{2,4} (${ID}):`, "gm"),
+  new RegExp(String.raw`^\*\*(${ID}):`, "gm"),
   new RegExp(String.raw`^\| *(${ID}) *\|`, "gm"),
 ];
 const MENTION = new RegExp(String.raw`(?:\b(0[0-7]):)?\b(${ID})(?![\w-])`, "g");
-const HEADING_ID = new RegExp(String.raw`^(${ID}) [—–]`);
+const HEADING_ID = new RegExp(String.raw`^(${ID}):`);
 const CELL_ID = new RegExp(String.raw`^${ID}$`);
-const LEAD_ID = new RegExp(String.raw`^\*\*(${ID}) [—–]`);
+const LEAD_ID = new RegExp(String.raw`^\*\*(${ID}):`);
 
 /** id → the routes that define it, for every rule in docs/. */
 function scanDefinitions() {
