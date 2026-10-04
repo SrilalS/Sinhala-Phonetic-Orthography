@@ -12,7 +12,10 @@ standard spelling. This module:
    frequent first;
 3. keeps the converter's own spelling first when the romanization contains an
    explicit marker for a distinction (a capital, a z- prefix, a doubled vowel …)
-   and that spelling is a real word.
+   and that spelling is a real word;
+4. writes the words in the style the converter options ask for (restyle()), so a
+   word list in the usual style (කෲර, කර්ම) does not undo rakaransaya_u, repaya_zwj
+   or classical (ක්‍රූර, කර්‍ම).
 
 Any word-frequency list works (one "word<TAB>count" per line). The evaluation in
 docs/07-phonetic-romanization.md used the University of Moratuwa NLPC "Word Frequency
@@ -24,7 +27,7 @@ import bisect
 import re
 from pathlib import Path
 
-from .romanization import to_sinhala
+from .romanization import BANDI, to_sinhala
 
 HAL, ZWJ = "්", "‍"
 CONS = "ක-ෆ"
@@ -38,6 +41,34 @@ _JOIN = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=[යර])")   # lookahead: ය/�
 def normalize(word):
     """Restore the mandatory ZWJ in C ් ය / C ් ර (never after ර: G-HC-14, R-09)."""
     return _JOIN.sub(lambda m: m.group(1) + HAL + (ZWJ if m.group(1) != "ර" else ""), word)
+
+
+# --- 1b. converter options applied to lexicon spellings --------------------------------
+
+_GAETTA = re.compile(f"([{CONS}])([ෘෲ])")
+_REPAYA = re.compile(f"ර{HAL}(?!{ZWJ})(?=[{CONS}])")
+_CLUSTER = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=([{CONS}]))")
+
+
+def restyle(word, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False):
+    """Write a word in the style the converter options choose, as to_sinhala() would.
+
+    rakaransaya_u: C + ෘ/ෲ → C ් ZWJ ර + ු/ූ (R-06), except after ර. repaya_zwj: ර ් + C →
+    ර ් ZWJ + C (R-08). classical: the bandi akuru pairs get ZWJ (R-10). archaic changes
+    no spelling. With no options the word is returned unchanged.
+    """
+    if rakaransaya_u:
+        word = _GAETTA.sub(lambda m: m.group(0) if m.group(1) == "ර" else
+                           m.group(1) + HAL + ZWJ + "ර" + ("ු" if m.group(2) == "ෘ" else "ූ"), word)
+    if repaya_zwj:
+        word = _REPAYA.sub("ර" + HAL + ZWJ, word)
+    if classical:
+        word = _CLUSTER.sub(lambda m: m.group(1) + HAL + (ZWJ if (m.group(1), m.group(2)) in BANDI else ""), word)
+    return word
+
+
+def _unique(words):
+    return list(dict.fromkeys(words))
 
 
 # --- 2. sound key ----------------------------------------------------------------------
@@ -107,16 +138,21 @@ _EXPLICIT = re.compile(r"[KCGJTDNLPBSWVUIEOAXRMH]|z[a-zA-Z]|aa|ii|uu|ee|oo|ae|th
 
 
 def candidates(lex, roman, limit=5, partial=False, **options):
-    """Ranked Sinhala spellings for a romanized word (or a word prefix with partial=True)."""
+    """Ranked Sinhala spellings for a romanized word (or a word prefix with partial=True).
+
+    Words are ranked by their frequency in the list, then written in the style of the
+    options (restyle()), so they match what the converter writes with the same options.
+    """
     spelled = to_sinhala(roman, **options)
     key = sound_key(spelled)
     if partial:
         # An incomplete word: its last consonant may still take a vowel, so drop a trailing hal.
         ranked = sorted(set(lex.prefix(key.removesuffix(HAL))), key=lambda w: (-lex.count[w], w))
-        return ranked[:limit]
+        return _unique(restyle(w, **options) for w in ranked)[:limit]
     ranked = sorted(set(lex.exact(key)), key=lambda w: (-lex.count[w], w))
+    ranked = _unique(restyle(w, **options) for w in ranked)
     explicit = bool(_EXPLICIT.search(roman))
-    if spelled in lex.count and explicit:
+    if spelled in ranked and explicit:
         ranked = [spelled] + [w for w in ranked if w != spelled]   # explicit markers beat frequency
     elif spelled not in ranked:
         ranked.append(spelled)                 # the rule-based spelling is always included

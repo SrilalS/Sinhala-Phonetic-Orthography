@@ -9,8 +9,10 @@
 //    write in Latin script (aspiration, ණ/න, ළ/ල, ශ/ෂ/ස, ද/ඩ, vowel length, sanyaka vs cluster …);
 // 2. returns the words of a frequency list that share the input's sound key, most frequent first;
 // 3. keeps the converter's own spelling first when the romanization contains an explicit marker
-//    for a distinction (a capital, a z- prefix, a doubled vowel …) and that spelling is a word.
-import { toSinhala, type Options } from "./romanization.js";
+//    for a distinction (a capital, a z- prefix, a doubled vowel …) and that spelling is a word;
+// 4. writes the words in the style the converter options ask for (restyle()), so a word list in
+//    the usual style (කෲර, කර්ම) does not undo rakaransayaU, repayaZwj or classical (ක්‍රූර, කර්‍ම).
+import { BANDI, toSinhala, type Options } from "./romanization.js";
 
 const HAL = "්";
 const ZWJ = "‍";
@@ -23,6 +25,29 @@ const JOIN = new RegExp(`([ක-ෆ])${HAL}(?!${ZWJ})(?=[යර])`, "g"); // look
 export function normalize(word: string): string {
   return word.replace(JOIN, (_, c: string) => c + HAL + (c !== "ර" ? ZWJ : ""));
 }
+
+// --- 1b. converter options applied to lexicon spellings ----------------------------------------
+
+const GAETTA = /([ක-ෆ])([ෘෲ])/g;
+const REPAYA = new RegExp(`ර${HAL}(?!${ZWJ})(?=[ක-ෆ])`, "g");
+const CLUSTER = new RegExp(`([ක-ෆ])${HAL}(?!${ZWJ})(?=([ක-ෆ]))`, "g");
+
+/**
+ * Write a word in the style the converter options choose, as toSinhala() would: rakaransaya + u
+ * for C + ෘ/ෲ except after ර (R-06), ZWJ repaya (R-08), the classical bandi akuru pairs (R-10).
+ * `archaic` changes no spelling. With no options the word is returned unchanged.
+ */
+export function restyle(word: string, options: Options = {}): string {
+  if (options.rakaransayaU)
+    word = word.replace(GAETTA, (m, c: string, sign: string) =>
+      c === "ර" ? m : c + HAL + ZWJ + "ර" + (sign === "ෘ" ? "ු" : "ූ"));
+  if (options.repayaZwj) word = word.replace(REPAYA, "ර" + HAL + ZWJ);
+  if (options.classical)
+    word = word.replace(CLUSTER, (_, c: string, next: string) => c + HAL + (BANDI.has(c + next) ? ZWJ : ""));
+  return word;
+}
+
+const unique = (words: string[]) => [...new Set(words)];
 
 // --- 2. sound key --------------------------------------------------------------------------------
 
@@ -126,7 +151,10 @@ export interface CandidateOptions extends Options {
   partial?: boolean;
 }
 
-/** Ranked Sinhala spellings for a romanized word (or a word prefix with partial: true). */
+/**
+ * Ranked Sinhala spellings for a romanized word (or a word prefix with partial: true). Words are
+ * ranked by frequency, then written in the style of the options (restyle()).
+ */
 export function candidates(lex: Lexicon, roman: string, options: CandidateOptions = {}): string[] {
   const { limit = 5, partial = false, ...convert } = options;
   const spelled = toSinhala(roman, convert);
@@ -135,10 +163,11 @@ export function candidates(lex: Lexicon, roman: string, options: CandidateOption
     [...new Set(ws)].sort((a, b) => lex.count.get(b)! - lex.count.get(a)! || byCode(a, b));
   if (partial) {
     // An incomplete word: its last consonant may still take a vowel, so drop a trailing hal.
-    return rank(lex.prefix(key.endsWith(HAL) ? key.slice(0, -HAL.length) : key)).slice(0, limit);
+    const words = rank(lex.prefix(key.endsWith(HAL) ? key.slice(0, -HAL.length) : key));
+    return unique(words.map((w) => restyle(w, convert))).slice(0, limit);
   }
-  let ranked = rank(lex.exact(key));
-  if (lex.count.has(spelled) && EXPLICIT.test(roman)) {
+  let ranked = unique(rank(lex.exact(key)).map((w) => restyle(w, convert)));
+  if (ranked.includes(spelled) && EXPLICIT.test(roman)) {
     ranked = [spelled, ...ranked.filter((w) => w !== spelled)]; // explicit markers beat frequency
   } else if (!ranked.includes(spelled)) {
     ranked.push(spelled); // the rule-based spelling is always included

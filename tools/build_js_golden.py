@@ -7,6 +7,8 @@ js/test/golden/romanization.jsonl.gz: [options, input, to_sinhala, sound_key, no
   random sample of 3-sequence inputs, the unit-test cases and some sentences.
 js/test/golden/lexicon.txt and js/test/golden/candidates.jsonl: a synthetic word-frequency list
   and the Python candidates() for a set of queries, exact and partial.
+js/test/golden/styled.jsonl: restyle() of the lexicon words and candidates() under each option
+  that changes spelling.
 js/test/golden/entries.json: inventory.entries().
 
 Rerun after any change to src/sinhala_orthography/; the JS tests must then pass unchanged.
@@ -21,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "tests"))
-from sinhala_orthography import Lexicon, candidates, entries, normalize, sound_key, to_sinhala  # noqa: E402
+from sinhala_orthography import Lexicon, candidates, entries, normalize, restyle, sound_key, to_sinhala  # noqa: E402
 from sinhala_orthography import romanization  # noqa: E402
 from test_romanization import CASES, SETTINGS  # noqa: E402
 
@@ -107,6 +109,15 @@ def main():
             f.write(json.dumps([q, False, candidates(lex, q, limit=8)], ensure_ascii=False) + "\n")
             f.write(json.dumps([q[: max(1, len(q) - 2)], True, candidates(lex, q[: max(1, len(q) - 2)], limit=8, partial=True)],
                                ensure_ascii=False) + "\n")
+    with open(OUT / "styled.jsonl", "w", encoding="utf-8", newline="\n") as f:
+        for name in ("repayaZwj", "classical", "rakaransayaU"):
+            opts = OPTION_SETS[name]
+            for w in words:
+                f.write(json.dumps(["R", name, w, restyle(w, **opts)], ensure_ascii=False) + "\n")
+            for q in queries[:400]:
+                for partial in (False, True):
+                    f.write(json.dumps(["D", name, q, partial, candidates(lex, q, limit=8, partial=partial, **opts)],
+                                       ensure_ascii=False) + "\n")
     (OUT / "entries.json").write_text(json.dumps(entries(), ensure_ascii=False), encoding="utf-8", newline="\n")
     print(f"{len(rows):,} romanizations, {len(words):,} lexicon words, {2 * len(queries):,} candidate queries")
 

@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { test } from "node:test";
 import { gunzipSync } from "node:zlib";
-import { Lexicon, candidates, entries, normalize, soundKey, toSinhala } from "../dist/index.js";
+import { Lexicon, candidates, entries, normalize, restyle, soundKey, toSinhala } from "../dist/index.js";
 
 const GOLDEN = new URL("./golden/", import.meta.url);
 const read = (name) => fs.readFileSync(new URL(name, GOLDEN));
@@ -52,6 +52,19 @@ test("candidates match the Python reference", () => {
     rows,
     ([q, partial, want]) => [JSON.stringify(candidates(lex, q, { limit: 8, partial })), JSON.stringify(want)],
     ([q, partial]) => `${JSON.stringify(q)}${partial ? " (partial)" : ""}`,
+  );
+});
+
+test("restyle and candidates with options match the Python reference", () => {
+  const lex = new Lexicon(read("lexicon.txt").toString("utf-8"));
+  const rows = lines(read("styled.jsonl").toString("utf-8"));
+  assert.ok(rows.some((r) => r[0] === "R" && r[2] !== r[3]), "some words change style");
+  check(
+    rows,
+    (row) => row[0] === "R"
+      ? [restyle(row[2], OPTIONS[row[1]]), row[3]]
+      : [JSON.stringify(candidates(lex, row[2], { limit: 8, partial: row[3], ...OPTIONS[row[1]] })), JSON.stringify(row[4])],
+    (row) => `${row[0]} ${row[1]} ${JSON.stringify(row[2])}`,
   );
 });
 

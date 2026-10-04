@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from sinhala_orthography import Lexicon, candidates, normalize  # noqa: E402
+from sinhala_orthography import Lexicon, candidates, normalize, restyle, to_sinhala  # noqa: E402
 
 WORD_LIST = os.environ.get("SINHALA_WORD_LIST")
 
@@ -44,6 +44,37 @@ class NormalizeTest(unittest.TestCase):
         w = normalize("ක්ය්ය")
         self.assertEqual(w, "ක්" + Z + "ය්" + Z + "ය")
         self.assertEqual(normalize(w), w)
+
+
+class RestyleTest(unittest.TestCase):
+    """Lexicon words follow the converter options, so Space never undoes a chosen style."""
+
+    def test_matches_the_converter(self):
+        for roman, options in [("kruura", {"rakaransaya_u": True}), ("mrudu", {"rakaransaya_u": True}),
+                               ("karma", {"repaya_zwj": True}), ("kaarya", {"repaya_zwj": True}),
+                               ("akShara", {"classical": True}), ("ananda", {"classical": True})]:
+            with self.subTest(roman=roman, options=options):
+                self.assertEqual(restyle(to_sinhala(roman), **options), to_sinhala(roman, **options))
+
+    def test_no_options_no_change(self):
+        for word in ["කෲර", "කර්ම", "අක්ෂර", "ර්රු", "ක්" + Z + "රමය"]:
+            self.assertEqual(restyle(word), word)
+            self.assertEqual(restyle(word, archaic=True), word)
+
+    def test_leaves_other_spellings_alone(self):
+        self.assertEqual(restyle("රෘ", rakaransaya_u=True), "රෘ")                 # never after ර (R-06)
+        self.assertEqual(restyle("කර්" + Z + "ම", repaya_zwj=True), "කර්" + Z + "ම")  # already joined
+        self.assertEqual(restyle("අක්කා", classical=True), "අක්කා")             # not a bandi pair
+
+    def test_candidates_use_the_options(self):
+        import tempfile
+        with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False, encoding="utf-8") as f:
+            f.write("කෲර\t500\nකර්ම\t900\n")
+        lex = Lexicon(f.name)
+        os.unlink(f.name)
+        self.assertEqual(candidates(lex, "kruura")[0], "කෲර")
+        self.assertEqual(candidates(lex, "kruura", rakaransaya_u=True)[0], "ක්" + Z + "රූර")
+        self.assertEqual(candidates(lex, "karma", repaya_zwj=True)[0], "කර්" + Z + "ම")
 
 
 @unittest.skipUnless(WORD_LIST, "set SINHALA_WORD_LIST to a word-frequency list")

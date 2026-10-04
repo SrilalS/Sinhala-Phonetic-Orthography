@@ -65,6 +65,7 @@ candidates(lex, "hon", { partial: true });  // completions of a word prefix
 | `candidates(lex, roman, { limit = 5, partial = false, ...options })` | Ranked spellings. The converter's own spelling is always included; when the romanization has an explicit marker (a capital, a `z` prefix, a doubled vowel …) and that spelling is a word, it comes first |
 | `soundKey(text)` | The text folded so sound-alike spellings match. `soundKey("හොඳ")` is `'හොන්ද'` |
 | `normalize(word)` | Restores the mandatory ZWJ in C ් ය and C ් ර (never after ර), for word lists that dropped it |
+| `restyle(word, options)` | A word in the style of the converter options (ක්‍රූර for කෲර with `rakaransayaU` …). `candidates()` applies it, so the word list never undoes an option |
 
 ## Letter inventory
 

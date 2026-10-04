@@ -29,7 +29,8 @@ const VELARS = new Set("කඛගඝ"); // R-11: n + velar → ං
 const GAETTA: Record<string, string> = { u: "ෘ", uu: "ෲ" }; // R-06, G-VS-15
 const FRONT = new Set(["i", "ii", "e", "ee", "ae", "aee", "ai"]);
 const BACK = new Set(["u", "uu", "o", "oo", "au"]);
-const BANDI = new Set(["කෂ", "කව", "ගධ", "ටඨ", "තථ", "තව", "දධ", "දව", "නථ", "නද", "නධ", "නව", "ඤච"]); // G-HC-15
+/** The classical bandi akuru pairs (first + second consonant). */
+export const BANDI: ReadonlySet<string> = new Set(["කෂ", "කව", "ගධ", "ටඨ", "තථ", "තව", "දධ", "දව", "නථ", "නද", "නධ", "නව", "ඤච"]); // G-HC-15
 
 export type Token =
   | { kind: "C"; seq: string; letter: string }

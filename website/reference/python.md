@@ -68,6 +68,7 @@ candidates(lex, "hon", partial=True)       # completions of a word prefix
 | `candidates(lex, roman, limit=5, partial=False, **options)` | Ranked spellings. The converter's own spelling is always included. When the romanization has an explicit marker (a capital, a `z` prefix, a doubled vowel …) and that spelling is a word, it comes first |
 | `sound_key(text)` | The text folded so sound-alike spellings match: aspirates → plain, ණ → න, ළ → ල, ශ/ෂ → ස, vowel length dropped, sanyaka → nasal + stop. `sound_key("හොඳ")` is `'හොන්ද'` |
 | `normalize(word)` | Restores the mandatory ZWJ in C ් ය and C ් ර (never after ර), for word lists that dropped it |
+| `restyle(word, **options)` | A word in the style of the converter options (ක්‍රූර for කෲර with `rakaransaya_u` …). `candidates()` applies it, so the word list never undoes an option |
 | `Lexicon(path)` | `.count` (word → frequency), `.exact(key)`, `.prefix(key, limit=200)` |
 
 The evaluation in [07](/research/phonetic-romanization#_4-disambiguation-with-a-lexicon) used the

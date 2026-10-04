@@ -182,6 +182,12 @@ romanized ──► conversion (§3) ──► one spelling ──► sound key 
 The **sound key** erases: aspiration, ණ/න, ළ/ල, ශ/ෂ/ස, ද/ඩ, ඤ/න, ඥ/ග්න, sanyaka vs
 nasal + stop, ං/න්, vowel length, ඇ/එ, ෛ/යි, ෞ/වු, ෘ/්‍රු and ZWJ.
 
+**Options apply to the words too.** A word list is written in the usual style (කෲර, කර්ම), so
+`candidates()` rewrites each word in the style of the converter options before returning it
+(`restyle()`): `rakaransaya_u` turns C + ෘ/ෲ into rakaransaya + ු/ූ (ක්‍රූර), `repaya_zwj` joins
+repaya with ZWJ (කර්‍ම) and `classical` joins the bandi akuru pairs (අක්‍ෂර). Otherwise the
+lexicon would undo the options on every word. With no options nothing changes.
+
 **Evaluation.** 27 everyday words, written as people informally romanize them, with the
 University of Moratuwa NLPC frequency list (37,547 words). That list is not included here;
 see `tests/test_lexicon.py`.
