@@ -3,7 +3,8 @@
 // Rule IDs are defined in docs/*.md in three ways: a heading ("### VS-007: …"), a bold
 // lead-in ("**INV-001: …**") or the first cell of a table row ("| G-EN-01 | …").
 // Every definition gets an anchor (the ID in lower case), and every mention of a defined ID
-// ("G-HC-06", "02:VS-007", "R-11") links to it.
+// ("G-HC-06", "02:VS-007", "R-11") links to it. Translations keep the IDs, so a page under a
+// language prefix ("/si/…") links to the same rule in the same language.
 import fs from "node:fs";
 import path from "node:path";
 import type MarkdownIt from "markdown-it";
@@ -82,9 +83,16 @@ export function slugify(s: string) {
   return m ? m[1].toLowerCase() : defaultSlugify(s);
 }
 
-function fileLink(code: string): string | null {
+/** The language prefix of a route ("/si" for "/si/rules", "" for English). */
+export const LOCALES = ["si"];
+function splitLocale(route: string): [string, string] {
+  const m = route.match(new RegExp(`^/(${LOCALES.join("|")})(/.*|$)`));
+  return m ? ["/" + m[1], m[2] || "/"] : ["", route];
+}
+
+function fileLink(code: string, prefix: string): string | null {
   const doc = code.replace(/^docs\//, "");
-  if (PAGES[doc]) return PAGES[doc];
+  if (PAGES[doc]) return prefix + PAGES[doc];
   if (/^(data|src|tools|reports|tests)\/[\w./-]+$/.test(code)) return `${REPO}/blob/main/${code}`;
   return null;
 }
@@ -92,7 +100,7 @@ function fileLink(code: string): string | null {
 export function ruleLinks(md: MarkdownIt) {
   md.core.ruler.push("rule_links", (state) => {
     const rel: string = state.env.relativePath ?? "";
-    const here = "/" + rel.replace(/(index)?\.md$/, "").replace(/\/$/, "");
+    const [prefix, here] = splitLocale("/" + rel.replace(/(index)?\.md$/, "").replace(/\/$/, ""));
     const tokens = state.tokens;
     const Token = state.Token;
 
@@ -121,7 +129,7 @@ export function ruleLinks(md: MarkdownIt) {
         if (inLink) { out.push(c); continue; }
 
         if (c.type === "code_inline") {
-          const href = fileLink(c.content);
+          const href = fileLink(c.content, prefix);
           if (href) {
             const open = new Token("link_open", "a", 1);
             open.attrSet("href", href);
@@ -139,7 +147,7 @@ export function ruleLinks(md: MarkdownIt) {
             const pre = new Token("text", "", 0); pre.content = c.content.slice(last, m.index); out.push(pre);
           }
           const open = new Token("link_open", "a", 1);
-          open.attrSet("href", (route === here ? "" : route) + "#" + m[2].toLowerCase());
+          open.attrSet("href", (route === here ? "" : prefix + route) + "#" + m[2].toLowerCase());
           open.attrSet("class", "rule-ref");
           const txt = new Token("text", "", 0); txt.content = m[0];
           out.push(open, txt, new Token("link_close", "a", -1));

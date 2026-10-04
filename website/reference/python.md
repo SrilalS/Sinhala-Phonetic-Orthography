@@ -98,5 +98,6 @@ entries()[30]    # {'id': 'ka.ru', 'kind': 'syllable', 'text': 'කෘ', 'conson
 python tools/build_data.py            # data/letters.json, data/validity.json
 python tools/check_romanization.py    # coverage + exhaustive safety (about 20 s)
 python tools/build_spec_tables.py     # tables in docs/07
+python tools/check_translations.py    # Sinhala translations whose English source changed
 python -m unittest discover tests     # set SINHALA_WORD_LIST to also run the lexicon tests
 ```

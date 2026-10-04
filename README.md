@@ -14,7 +14,8 @@ orthographic rules.
 - 🧪 **Reference code:** a romanization-to-Sinhala converter and a frequency-based
   disambiguator, verified against the rules over 3.34 million inputs.
 - 🌐 **Website:** <https://srilals.github.io/Sinhala-Phonetic-Orthography/>: the studies, a playground
-  that runs the converter in the browser, and an explorer for all 923 letter forms.
+  that runs the converter in the browser, and an explorer for all 923 letter forms. In English
+  and [Sinhala](https://srilals.github.io/Sinhala-Phonetic-Orthography/si/) (සිංහලෙන්).
 
 ---
 
@@ -30,12 +31,13 @@ orthographic rules.
 | 📏 | [docs/05-phonotactics-sandhi-spelling.md](docs/05-phonotactics-sandhi-spelling.md) | Syllable structure, sandhi, schwa (letter-to-sound) rules, spelling conventions, loanwords |
 | 🌐 | [docs/06-romanization.md](docs/06-romanization.md) | Formal romanizations (ISO 15919, Sri Lanka national system, ALA-LC …) and measured informal romanization |
 | ✍️ | [docs/07-phonetic-romanization.md](docs/07-phonetic-romanization.md) | A grammar-correct phonetic romanization: tables, conversion rules, conventions, evaluation |
+| 🇱🇰 | [docs/si/](docs/si) | Sinhala translations of 00 to 07 (සිංහල පරිවර්තනය), with the translation glossary. English is authoritative |
 | 📊 | [data/letters.json](data/letters.json) | 923 letter forms: 18 vowels, 3 signs, 41 × 19 consonant forms, 41 × 3 conjuncts |
 | ✅ | [data/validity.json](data/validity.json) | Status of each form: `valid` · `loan` · `rare` · `unattested` · `never`, with rule IDs |
 | 🗺️ | [data/romanization-coverage.json](data/romanization-coverage.json) | Romanizations that produce each form, per option set |
 | 🐍 | [src/sinhala_orthography/](src/sinhala_orthography) | Inventory, converter (`to_sinhala`), sound key and disambiguator (`Lexicon`, `candidates`) |
 | 🛠️ | [tools/](tools) | Builders and the exhaustive rule checker |
-| 📈 | [reports/romanization-check.md](reports/romanization-check.md) | Coverage and safety results |
+| 📈 | [reports/romanization-check.md](reports/romanization-check.md) | Coverage and safety results ([සිංහලෙන්](reports/romanization-check.si.md)) |
 | 🌐 | [website/](website) | The documentation site (VitePress). `npm install`, then `npm run dev` |
 
 ---
@@ -81,6 +83,7 @@ Rebuild the data and run the checks:
 python tools/build_data.py            # data/letters.json, data/validity.json
 python tools/check_romanization.py    # coverage + exhaustive safety (about 20 s)
 python tools/build_spec_tables.py     # tables in docs/07
+python tools/check_translations.py    # Sinhala translations whose English source changed
 python -m unittest discover tests     # set SINHALA_WORD_LIST to also run the lexicon tests
 ```
 

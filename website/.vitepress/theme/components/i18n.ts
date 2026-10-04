@@ -1,0 +1,204 @@
+// UI strings for the playground and the letter explorer, in each site language.
+import { computed } from "vue";
+import { useData, withBase } from "vitepress";
+
+const en = {
+  // Playground
+  romanized: "Romanized",
+  sinhala: "Sinhala",
+  placeholder: "Type a romanization, e.g. shrii lankaava",
+  copy: "Copy",
+  copied: "Copied",
+  loadingEngine: "Loading the Python reference implementation…",
+  engineError: "Couldn't start the converter:",
+  retry: "Retry",
+  examples: "Examples",
+  exampleNotes: {
+    aayuboovan: "greeting",
+    "shrii lankaava": "rakaransaya, n + velar → ං",
+    "oyaata kohomada": "d is ද",
+    vidyaava: "yansaya",
+    "karma kaarya": "plain repaya",
+    "lait kauda": "glides, not ෛ / ෞ",
+    "kruura mrudu": "C + ru → ෘ / ෲ",
+    "kazda saha kanda": "sanyaka vs cluster",
+    akShara: "try the classical option",
+    "siMhala": "explicit ං",
+  } as Record<string, string>,
+  options: {
+    repaya_zwj: ["ZWJ repaya", "කර්‍ම instead of plain කර්ම"],
+    classical: ["Classical conjuncts", "ZWJ for the 13 bandi akuru pairs (ක්‍ෂ, න්‍ද …)"],
+    rakaransaya_u: ["Rakaransaya + u", "ක්‍රූර instead of the usual කෲර"],
+    archaic: ["Archaic letters", "ඏ ඐ ෟ ෳ ඎ ඁ ඦ and touching letters"],
+  } as Record<string, [string, string]>,
+  stepByStep: "Step by step",
+  stepIntro: "Each word is split into the longest matching sequences, then one left-to-right pass decides vowel signs, hal, ZWJ joins, glides and nasals",
+  conversionRules: "conversion rules C-1 … C-13",
+  conversionRulesAnchor: "_3-conversion-rules",
+  firstWords: "Showing the first 12 words.",
+  sequences: "Sequences",
+  sequencesIntro: "Click a sequence to insert it. Case matters: capitals mark retroflex, aspirate and a few vowels.",
+  tabs: { consonants: "Consonants", vowels: "Vowels", signs: "Signs" } as Record<string, string>,
+  archaicTag: "archaic",
+  tokenKinds: { consonant: "consonant", vowel: "vowel", sign: "sign", dropped: "dropped" } as Record<string, string>,
+
+  // Explorer
+  statuses: {
+    valid: ["Valid", "In ordinary use."],
+    loan: ["Loan", "Valid, but in practice only in Sanskrit or Pali (tatsama) words."],
+    rare: ["Rare", "A valid encoding that is marginal or archaic in use."],
+    unattested: ["Unattested", "No known word uses it, but no rule forbids it."],
+    never: ["Never", "Forbidden by a hard rule. The converter never produces it in normal mode."],
+  } as Record<string, [string, string]>,
+  kinds: { HARD: "HARD", SOFT: "SOFT", STYLE: "STYLE" } as Record<string, string>,
+  optionSets: {
+    default: "default",
+    repaya_zwj: "ZWJ repaya",
+    classical: "classical conjuncts",
+    archaic: "archaic letters",
+    rakaransaya_u: "rakaransaya + u",
+  } as Record<string, string>,
+  shapes: {
+    "hook-u": "The u / uu sign is drawn as a hook joined to the letter. The encoding is still consonant + sign (G-EN-11).",
+    irregular: "This consonant and sign fuse into an irregular glyph. Never encode a look-alike substitute (G-VS-10).",
+    "tail-loss": "The letter loses its tail before u / uu. The encoding is still consonant + sign (G-EN-11).",
+    "alt-hal": "Fonts draw hal on this letter with a second, alternate shape (G-EN-11).",
+  } as Record<string, string>,
+  filterByStatus: "Filter by status",
+  findPlaceholder: "Find: කෘ or kR",
+  findLabel: "Find a letter form by Sinhala text or romanization",
+  matches: (n: number) => `${n} match${n === 1 ? "" : "es"}`,
+  loadingForms: "Loading 923 letter forms…",
+  vowelsAndSigns: "Vowels and signs",
+  grid: "Consonants × vowel signs and conjuncts",
+  glyph: "Glyph:",
+  codePoints: "Code points",
+  rules: "Rules",
+  howToType: "How to type it",
+  anyOptions: "With any options",
+  withOption: (label: string) => `with ${label}`,
+  openInPlayground: "Open in the playground",
+  cantType: "Can't be typed: the rules above forbid it.",
+  notProduced: "Not produced with these options.",
+  optionsHint: [
+    "The options are the converter's settings (see the ",
+    "playground",
+    "). They only change how repaya, conjuncts, archaic letters and C + r + u are written, so most forms are typed the same way with any of them.",
+  ],
+  conjuncts: { yansaya: "yansaya", rakaransaya: "rakaransaya", repaya: "repaya" } as Record<string, string>,
+  describe: {
+    vowel: (v: string) => `independent vowel ${v}`,
+    sign: (s: string) => s,
+    conjunct: (base: string, c: string) => `${base} + ${c}`,
+    hal: (base: string) => `${base} with hal (no vowel)`,
+    inherent: (base: string) => `${base} with the inherent a`,
+    sign2: (base: string, v: string) => `${base} + vowel sign ${v}`,
+  },
+  signNames: { anusvara: "anusvara", visarga: "visarga", candrabindu: "candrabindu" } as Record<string, string>,
+};
+
+type Strings = typeof en;
+
+const si: Strings = {
+  romanized: "රෝම අකුරින්",
+  sinhala: "සිංහලෙන්",
+  placeholder: "රෝම අකුරින් ලියන්න, උදා: shrii lankaava",
+  copy: "පිටපත් කරන්න",
+  copied: "පිටපත් විය",
+  loadingEngine: "Python යොමු ක්‍රියාත්මක කිරීම පූරණය වෙමින් පවතී…",
+  engineError: "පරිවර්තකය ආරම්භ කළ නොහැකි විය:",
+  retry: "නැවත උත්සාහ කරන්න",
+  examples: "උදාහරණ",
+  exampleNotes: {
+    aayuboovan: "ආචාරය",
+    "shrii lankaava": "රකාරාංශය, n + කණ්ඨජ → ං",
+    "oyaata kohomada": "d යනු ද",
+    vidyaava: "යංශය",
+    "karma kaarya": "සාමාන්‍ය රේඵය",
+    "lait kauda": "ෛ / ෞ නොව අර්ධ ස්වර",
+    "kruura mrudu": "C + ru → ෘ / ෲ",
+    "kazda saha kanda": "සඤ්ඤකය සහ ව්‍යඤ්ජන පොකුර",
+    akShara: "සම්භාව්‍ය විකල්පය සමඟ බලන්න",
+    "siMhala": "ං පැහැදිලිව",
+  },
+  options: {
+    repaya_zwj: ["ZWJ රේඵය", "සාමාන්‍ය කර්ම වෙනුවට කර්‍ම"],
+    classical: ["සම්භාව්‍ය බැඳි අකුරු", "බැඳි අකුරු යුගල 13 සඳහා ZWJ (ක්‍ෂ, න්‍ද …)"],
+    rakaransaya_u: ["රකාරාංශය + u", "සුලබ කෲර වෙනුවට ක්‍රූර"],
+    archaic: ["පුරාතන අකුරු", "ඏ ඐ ෟ ෳ ඎ ඁ ඦ සහ ස්පර්ශ අකුරු"],
+  },
+  stepByStep: "පියවරෙන් පියවර",
+  stepIntro: "සෑම වචනයක්ම ගැළපෙන දිගම අනුක්‍රමවලට බෙදූ පසු, පරිවර්තකය වමේ සිට දකුණට එක් වරක් කියවමින් පිලි, හල් ලකුණ, ZWJ සම්බන්ධ කිරීම්, අර්ධ ස්වර සහ නාසික තීරණය කරයි",
+  conversionRules: "පරිවර්තන නීති C-1 … C-13",
+  conversionRulesAnchor: "_3-පරිවර්තන-නීති",
+  firstWords: "පළමු වචන 12 පමණක් පෙන්වයි.",
+  sequences: "අනුක්‍රම",
+  sequencesIntro: "අනුක්‍රමයක් ඇතුළු කිරීමට එය ක්ලික් කරන්න. ලොකු අකුරු සහ කුඩා අකුරු එකිනෙකට වෙනස්ය: ලොකු අකුරු (capitals) මූර්ධජ, මහාප්‍රාණ සහ ස්වර කිහිපයක් දක්වයි.",
+  tabs: { consonants: "ව්‍යඤ්ජන", vowels: "ස්වර", signs: "ලකුණු" },
+  archaicTag: "පුරාතන",
+  tokenKinds: { consonant: "ව්‍යඤ්ජනය", vowel: "ස්වරය", sign: "ලකුණ", dropped: "ඉවත් විය" },
+
+  statuses: {
+    valid: ["වලංගු", "සාමාන්‍ය භාවිතයේ ඇත."],
+    loan: ["ණය වචන", "වලංගුය, නමුත් ප්‍රායෝගිකව සංස්කෘත හෝ පාලි (තත්සම) වචනවල පමණක් යෙදේ."],
+    rare: ["දුර්ලභ", "වලංගු කේතනයකි, නමුත් භාවිතය ඉතා අඩු හෝ පුරාතනය."],
+    unattested: ["හමු නොවූ", "එය යෙදෙන වචනයක් හමු වී නැත, නමුත් කිසිදු නීතියක් එය තහනම් නොකරයි."],
+    never: ["තහනම්", "අනිවාර්ය නීතියකින් තහනම්ය. සාමාන්‍ය ප්‍රකාරයේදී පරිවර්තකය එය කිසි විටෙක නිපදවන්නේ නැත."],
+  },
+  kinds: { HARD: "අනිවාර්ය", SOFT: "නැඹුරුව", STYLE: "විකල්ප" },
+  optionSets: {
+    default: "පෙරනිමි",
+    repaya_zwj: "ZWJ රේඵය",
+    classical: "සම්භාව්‍ය බැඳි අකුරු",
+    archaic: "පුරාතන අකුරු",
+    rakaransaya_u: "රකාරාංශය + u",
+  },
+  shapes: {
+    "hook-u": "අකුරු මුහුණත් u / uu පිල්ල අකුරට සම්බන්ධ කොක්කක් ලෙස අඳියි. කේතනය තවමත් ව්‍යඤ්ජනය + පිල්ල වේ (G-EN-11).",
+    irregular: "මෙම ව්‍යඤ්ජනය සහ පිල්ල එකතු වී අක්‍රමවත් අක්ෂර රූපයක් සාදයි. සමාන පෙනුමැති ආදේශකයක් කිසි විටෙක කේතනය නොකරන්න (G-VS-10).",
+    "tail-loss": "u / uu ට පෙර අකුරේ වලිගය නැති වේ. කේතනය තවමත් ව්‍යඤ්ජනය + පිල්ල වේ (G-EN-11).",
+    "alt-hal": "මෙම අකුරේ හල් ලකුණ අකුරු මුහුණත් දෙවන, විකල්ප හැඩයකින් අඳියි (G-EN-11).",
+  },
+  filterByStatus: "තත්ත්වය අනුව තෝරන්න",
+  findPlaceholder: "සොයන්න: කෘ හෝ kR",
+  findLabel: "සිංහල අකුරෙන් හෝ රෝම අකුරින් අකුරු රූපයක් සොයන්න",
+  matches: (n: number) => `ගැළපීම් ${n}`,
+  loadingForms: "අකුරු රූප 923 පූරණය වෙමින්…",
+  vowelsAndSigns: "ස්වර සහ ලකුණු",
+  grid: "ව්‍යඤ්ජන × පිලි සහ සංයුක්ත අකුරු",
+  glyph: "අක්ෂර රූපය:",
+  codePoints: "කේත ලක්ෂ්‍ය",
+  rules: "නීති",
+  howToType: "ලියන ආකාරය",
+  anyOptions: "ඕනෑම විකල්පයක් සමඟ",
+  withOption: (label: string) => `${label} සමඟ`,
+  openInPlayground: "අත්හදා බැලීමේ පිටුවෙන් විවෘත කරන්න",
+  cantType: "ලිවිය නොහැක: ඉහත නීති එය තහනම් කරයි.",
+  notProduced: "මෙම විකල්ප සමඟ නිපදවෙන්නේ නැත.",
+  optionsHint: [
+    "විකල්ප යනු පරිවර්තකයේ සැකසුම්ය (",
+    "අත්හදා බැලීමේ පිටුව",
+    " බලන්න). ඒවා වෙනස් කරන්නේ රේඵය, බැඳි අකුරු, පුරාතන අකුරු සහ C + r + u ලියන ආකාරය පමණි. එබැවින් බොහෝ අකුරු රූප ඕනෑම විකල්පයක් සමඟ එකම ලෙස ලියයි.",
+  ],
+  conjuncts: { yansaya: "යංශය", rakaransaya: "රකාරාංශය", repaya: "රේඵය" },
+  describe: {
+    vowel: (v: string) => `ස්වතන්ත්‍ර ස්වරය ${v}`,
+    sign: (s: string) => s,
+    conjunct: (base: string, c: string) => `${base} + ${c}`,
+    hal: (base: string) => `හල් කළ ${base} (ස්වරයක් නැත)`,
+    inherent: (base: string) => `ආවේණික “අ” සහිත ${base}`,
+    sign2: (base: string, v: string) => `${base} + ${v} පිල්ල`,
+  },
+  signNames: { anusvara: "අනුස්වාරය", visarga: "විසර්ගය", candrabindu: "චන්ද්‍රබින්දුව" },
+};
+
+const STRINGS: Record<string, Strings> = { root: en, si };
+
+/** The strings for the current page's language, and a helper that adds the language prefix to a route. */
+export function useI18n() {
+  const { localeIndex } = useData();
+  const t = computed(() => STRINGS[localeIndex.value] ?? en);
+  const prefix = computed(() => (localeIndex.value === "root" ? "" : `/${localeIndex.value}`));
+  const link = (route: string) => withBase(prefix.value + route);
+  return { t, link, locale: localeIndex };
+}

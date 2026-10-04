@@ -90,3 +90,18 @@
 /* The site title is wider than VitePress's default 272px sidebar, which the nav bar uses as the
    width of the title area. Widen the sidebar so the title fits inside it at every width. */
 :root { --vp-sidebar-width: 312px; }
+
+/* Sinhala pages: Sinhala text first in the font stack, and taller lines for vowel signs above and
+   below the letters. */
+:root:lang(si) {
+  --vp-font-family-base: "Noto Sans Sinhala", "Inter", "Nirmala UI", "Sinhala Sangam MN", ui-sans-serif, system-ui, sans-serif;
+}
+:lang(si) .vp-doc p, :lang(si) .vp-doc li { line-height: 1.85; }
+:lang(si) .vp-doc td, :lang(si) .vp-doc th { line-height: 1.7; }
+:lang(si) .vp-doc h1, :lang(si) .vp-doc h2, :lang(si) .vp-doc h3 { letter-spacing: 0; line-height: 1.5; }
+:lang(si) .VPHero .name, :lang(si) .VPHero .text { letter-spacing: 0; line-height: 1.35; }
+:lang(si) .VPHero .text { font-size: clamp(26px, 4vw, 44px); }
+
+/* The Sinhala site title is long: wrap it onto two lines so it doesn't crowd the search box. */
+:lang(si) .VPNavBarTitle .title span { white-space: normal; max-width: 10em; line-height: 1.3; font-size: 15px; }
+@media (max-width: 480px) { :lang(si) .VPNavBarTitle .title span { font-size: 13px; } }

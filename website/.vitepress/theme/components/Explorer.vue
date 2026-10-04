@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from "vue";
-import { withBase } from "vitepress";
 import { RULES, inline } from "./rules";
+import { useI18n } from "./i18n";
+
+const { t, link, locale } = useI18n();
+const rules = computed(() => RULES[locale.value] ?? RULES.root);
 
 type Form = {
   id: string; text: string; status: Status; shape: string | null; rules: string[];
@@ -10,26 +13,14 @@ type Form = {
 type Status = "valid" | "loan" | "rare" | "unattested" | "never";
 type OptionSet = "default" | "repaya_zwj" | "classical" | "archaic" | "rakaransaya_u";
 
-const STATUSES: { key: Status; label: string; note: string }[] = [
-  { key: "valid", label: "Valid", note: "In ordinary use." },
-  { key: "loan", label: "Loan", note: "Valid, but in practice only in Sanskrit or Pali (tatsama) words." },
-  { key: "rare", label: "Rare", note: "A valid encoding that is marginal or archaic in use." },
-  { key: "unattested", label: "Unattested", note: "No known word uses it, but no rule forbids it." },
-  { key: "never", label: "Never", note: "Forbidden by a hard rule. The converter never produces it in normal mode." },
+const STATUSES: Status[] = ["valid", "loan", "rare", "unattested", "never"];
+const OPTION_SETS: { key: OptionSet; param: string }[] = [
+  { key: "default", param: "" },
+  { key: "repaya_zwj", param: "repaya_zwj" },
+  { key: "classical", param: "classical" },
+  { key: "archaic", param: "archaic" },
+  { key: "rakaransaya_u", param: "rakaransaya_u" },
 ];
-const OPTION_SETS: { key: OptionSet; label: string; param: string }[] = [
-  { key: "default", label: "Default", param: "" },
-  { key: "repaya_zwj", label: "ZWJ repaya", param: "repaya_zwj" },
-  { key: "classical", label: "classical conjuncts", param: "classical" },
-  { key: "archaic", label: "archaic letters", param: "archaic" },
-  { key: "rakaransaya_u", label: "rakaransaya + u", param: "rakaransaya_u" },
-];
-const SHAPES: Record<string, string> = {
-  "hook-u": "The u / uu sign is drawn as a hook joined to the letter. The encoding is still consonant + sign (G-EN-11).",
-  irregular: "This consonant and sign fuse into an irregular glyph. Never encode a look-alike substitute (G-VS-10).",
-  "tail-loss": "The letter loses its tail before u / uu. The encoding is still consonant + sign (G-EN-11).",
-  "alt-hal": "Fonts draw hal on this letter with a second, alternate shape (G-EN-11).",
-};
 const VOWEL_COLS = ["hal", "a", "aa", "ae", "aee", "i", "ii", "u", "uu", "ru", "ruu", "ilu", "iluu", "e", "ee", "ai", "o", "oo", "au"];
 const CONJ_COLS = ["yansaya", "rakaransaya", "repaya"];
 
@@ -120,13 +111,14 @@ const codepoints = computed(() =>
 );
 function describe(id: string) {
   const [head, tail] = id.split(".");
-  if (head === "vowel") return `independent vowel ${tail}`;
-  if (head === "sign") return tail;
+  const d = t.value.describe;
+  if (head === "vowel") return d.vowel(tail);
+  if (head === "sign") return t.value.signNames[tail] ?? tail;
   const base = forms.value.get(`${head}.a`)?.text ?? head;
-  if (CONJ_COLS.includes(tail)) return `${base} + ${tail}`;
-  if (tail === "hal") return `${base} with hal (no vowel)`;
-  if (tail === "a") return `${base} with the inherent a`;
-  return `${base} + vowel sign ${tail}`;
+  if (CONJ_COLS.includes(tail)) return d.conjunct(base, t.value.conjuncts[tail]);
+  if (tail === "hal") return d.hal(base);
+  if (tail === "a") return d.inherent(base);
+  return d.sign2(base, tail);
 }
 // Option sets that type this form the same way are shown together; most forms have one group.
 const typing = computed(() => {
@@ -140,8 +132,8 @@ const typing = computed(() => {
   }
   return [...groups.values()].map((g) => ({
     ...g,
-    label: g.sets.length === OPTION_SETS.length ? "With any options"
-      : capitalize(g.sets.map((o) => (o.key === "default" ? "default" : `with ${o.label}`)).join(", ")),
+    label: g.sets.length === OPTION_SETS.length ? t.value.anyOptions
+      : capitalize(g.sets.map((o) => (o.key === "default" ? t.value.optionSets.default : t.value.withOption(t.value.optionSets[o.key]))).join(", ")),
     param: g.sets[0].param,
   }));
 });
@@ -151,36 +143,36 @@ function capitalize(s: string) {
 function tryHref(seq: string, param: string) {
   const p = new URLSearchParams({ q: seq });
   if (param) p.set("o", param);
-  return withBase(`/playground?${p}`);
+  return link(`/playground?${p}`);
 }
 </script>
 
 <template>
   <div class="ex">
     <div class="ex-controls">
-      <div class="ex-legend" role="group" aria-label="Filter by status">
-        <button v-for="s in STATUSES" :key="s.key" class="ex-status" :class="['st-' + s.key, { off: !shown[s.key] }]"
-          :aria-pressed="shown[s.key]" :title="s.note" @click="shown[s.key] = !shown[s.key]">
-          <span class="ex-swatch" />{{ s.label }} <b>{{ counts[s.key] ?? 0 }}</b>
+      <div class="ex-legend" role="group" :aria-label="t.filterByStatus">
+        <button v-for="s in STATUSES" :key="s" class="ex-status" :class="['st-' + s, { off: !shown[s] }]"
+          :aria-pressed="shown[s]" :title="t.statuses[s][1]" @click="shown[s] = !shown[s]">
+          <span class="ex-swatch" />{{ t.statuses[s][0] }} <b>{{ counts[s] ?? 0 }}</b>
         </button>
       </div>
       <div class="ex-find">
-        <input v-model="query" type="search" placeholder="Find: කෘ or kR" aria-label="Find a letter form by Sinhala text or romanization" />
-        <span v-if="matches" class="ex-muted">{{ matches.size }} match{{ matches.size === 1 ? "" : "es" }}</span>
+        <input v-model="query" type="search" :placeholder="t.findPlaceholder" :aria-label="t.findLabel" />
+        <span v-if="matches" class="ex-muted">{{ t.matches(matches.size) }}</span>
       </div>
     </div>
 
-    <p v-if="loading" class="ex-muted">Loading 923 letter forms…</p>
+    <p v-if="loading" class="ex-muted">{{ t.loadingForms }}</p>
 
     <div v-else class="ex-layout">
       <div class="ex-main">
-        <h2>Vowels and signs</h2>
+        <h2>{{ t.vowelsAndSigns }}</h2>
         <div class="ex-vowels">
           <button v-for="f in vowelRow" :key="f.id" class="ex-cell si" :class="['st-' + f.status, { dim: dim(f), sel: f.id === selected }]"
             :title="f.id" @click="selected = f.id">{{ f.text }}</button>
         </div>
 
-        <h2>Consonants × vowel signs and conjuncts</h2>
+        <h2>{{ t.grid }}</h2>
         <div class="ex-scroll">
           <table class="ex-grid">
             <thead>
@@ -206,36 +198,35 @@ function tryHref(seq: string, param: string) {
       <aside v-if="current" class="ex-detail" aria-live="polite">
         <div class="ex-big si" lang="si">{{ current.text }}</div>
         <div class="ex-id"><code>{{ current.id }}</code> · {{ describe(current.id) }}</div>
-        <div class="ex-badge" :class="'st-' + current.status">{{ current.status }}</div>
-        <p class="ex-note">{{ STATUSES.find((s) => s.key === current!.status)?.note }}</p>
-        <p v-if="current.shape" class="ex-note"><b>Glyph:</b> {{ SHAPES[current.shape] }}</p>
+        <div class="ex-badge" :class="'st-' + current.status">{{ t.statuses[current.status][0] }}</div>
+        <p class="ex-note">{{ t.statuses[current.status][1] }}</p>
+        <p v-if="current.shape" class="ex-note"><b>{{ t.glyph }}</b> {{ t.shapes[current.shape] }}</p>
 
-        <h3>Code points</h3>
+        <h3>{{ t.codePoints }}</h3>
         <div class="ex-cps">
           <span v-for="(c, i) in codepoints" :key="i" :class="{ special: c.special }"><span class="si">{{ c.label }}</span><small>{{ c.cp }}</small></span>
         </div>
 
-        <h3>Rules</h3>
+        <h3>{{ t.rules }}</h3>
         <div v-for="r in current.rules" :key="r" class="ex-rule">
-          <a :href="withBase('/rules#' + r.toLowerCase())">{{ r }}</a>
-          <span v-if="RULES[r]" class="ex-kind">{{ RULES[r].kind }}</span>
-          <div v-if="RULES[r]" class="ex-rule-text" v-html="inline(RULES[r].text)" />
+          <a :href="link('/rules#' + r.toLowerCase())">{{ r }}</a>
+          <span v-if="rules[r]" class="ex-kind">{{ rules[r].kind }}</span>
+          <div v-if="rules[r]" class="ex-rule-text" v-html="inline(rules[r].text)" />
         </div>
 
-        <h3>How to type it</h3>
+        <h3>{{ t.howToType }}</h3>
         <div v-for="g in typing" :key="g.label" class="ex-type">
           <div class="ex-type-label">{{ g.label }}</div>
           <div v-if="g.seqs.length" class="ex-romans">
-            <a v-for="s in g.seqs" :key="s" :href="tryHref(s, g.param)" title="Open in the playground"><code>{{ s }}</code></a>
+            <a v-for="s in g.seqs" :key="s" :href="tryHref(s, g.param)" :title="t.openInPlayground"><code>{{ s }}</code></a>
           </div>
           <p v-else class="ex-muted">
-            <template v-if="current.status === 'never'">Can't be typed: the rules above forbid it.</template>
-            <template v-else>Not produced with these options.</template>
+            <template v-if="current.status === 'never'">{{ t.cantType }}</template>
+            <template v-else>{{ t.notProduced }}</template>
           </p>
         </div>
         <p v-if="typing.length > 1" class="ex-hint">
-          The options are the converter's settings (see the <a :href="withBase('/playground')">playground</a>). They only change
-          how repaya, conjuncts, archaic letters and C + r + u are written, so most forms are typed the same way with any of them.
+          {{ t.optionsHint[0] }}<a :href="link('/playground')">{{ t.optionsHint[1] }}</a>{{ t.optionsHint[2] }}
         </p>
       </aside>
     </div>

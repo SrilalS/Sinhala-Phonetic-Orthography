@@ -1,26 +1,19 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, reactive, ref, watch } from "vue";
-import { withBase } from "vitepress";
 import { loadEngine, TABLES, type Explained, type Options } from "./engine";
+import { useI18n } from "./i18n";
 
-const EXAMPLES: [string, string][] = [
-  ["aayuboovan", "greeting"],
-  ["shrii lankaava", "rakaransaya, n + velar → ං"],
-  ["oyaata kohomada", "d is ද"],
-  ["vidyaava", "yansaya"],
-  ["karma kaarya", "plain repaya"],
-  ["lait kauda", "glides, not ෛ / ෞ"],
-  ["kruura mrudu", "C + ru → ෘ / ෲ"],
-  ["kazda saha kanda", "sanyaka vs cluster"],
-  ["akShara", "try the classical option"],
-  ["siMhala", "explicit ං"],
-];
+const { t, link } = useI18n();
 
-const OPTIONS: { key: keyof Options; label: string; note: string; rule: string }[] = [
-  { key: "repaya_zwj", label: "ZWJ repaya", note: "කර්‍ම instead of plain කර්ම", rule: "r-08" },
-  { key: "classical", label: "Classical conjuncts", note: "ZWJ for the 13 bandi akuru pairs (ක්‍ෂ, න්‍ද …)", rule: "r-10" },
-  { key: "rakaransaya_u", label: "Rakaransaya + u", note: "ක්‍රූර instead of the usual කෲර", rule: "r-06" },
-  { key: "archaic", label: "Archaic letters", note: "ඏ ඐ ෟ ෳ ඎ ඁ ඦ and touching letters", rule: "r-14" },
+const EXAMPLES = ["aayuboovan", "shrii lankaava", "oyaata kohomada", "vidyaava", "karma kaarya", "lait kauda",
+  "kruura mrudu", "kazda saha kanda", "akShara", "siMhala"];
+
+// Each option links to the convention in docs/07 that it switches.
+const OPTIONS: { key: keyof Options; rule: string }[] = [
+  { key: "repaya_zwj", rule: "r-08" },
+  { key: "classical", rule: "r-10" },
+  { key: "rakaransaya_u", rule: "r-06" },
+  { key: "archaic", rule: "r-14" },
 ];
 
 const input = ref("shrii lankaava");
@@ -130,23 +123,23 @@ function shortName(name: string) {
   <div class="pg">
     <section class="pg-io">
       <div class="pg-pane">
-        <label class="pg-label" for="pg-input">Romanized</label>
+        <label class="pg-label" for="pg-input">{{ t.romanized }}</label>
         <textarea id="pg-input" ref="textarea" v-model="input" spellcheck="false" autocapitalize="off"
-          autocomplete="off" rows="3" placeholder="Type a romanization, e.g. shrii lankaava" />
+          autocomplete="off" rows="3" :placeholder="t.placeholder" />
       </div>
       <div class="pg-pane pg-out">
         <div class="pg-label">
-          Sinhala
-          <button class="pg-copy" :disabled="!result?.output" @click="copy">{{ copied ? "Copied" : "Copy" }}</button>
+          {{ t.sinhala }}
+          <button class="pg-copy" :disabled="!result?.output" @click="copy">{{ copied ? t.copied : t.copy }}</button>
         </div>
         <div class="pg-result si" lang="si" aria-live="polite">
           <template v-if="state === 'ready'">{{ result?.output }}</template>
           <span v-else-if="state === 'loading'" class="pg-status">
-            <span class="pg-spinner" /> Loading the Python reference implementation…
+            <span class="pg-spinner" /> {{ t.loadingEngine }}
           </span>
           <span v-else-if="state === 'error'" class="pg-status pg-err">
-            Couldn't start the converter: {{ error }}
-            <button class="pg-copy" @click="start">Retry</button>
+            {{ t.engineError }} {{ error }}
+            <button class="pg-copy" @click="start">{{ t.retry }}</button>
           </span>
         </div>
       </div>
@@ -155,30 +148,29 @@ function shortName(name: string) {
     <section class="pg-opts">
       <label v-for="o in OPTIONS" :key="o.key" class="pg-opt">
         <input v-model="opts[o.key]" type="checkbox" />
-        <span><b>{{ o.label }}</b> <span class="pg-muted">{{ o.note }}</span>
-          <a :href="withBase('/research/phonetic-romanization#' + o.rule)" class="pg-rule">{{ o.rule.toUpperCase() }}</a></span>
+        <span><b>{{ t.options[o.key][0] }}</b> <span class="pg-muted">{{ t.options[o.key][1] }}</span>
+          <a :href="link('/research/phonetic-romanization#' + o.rule)" class="pg-rule">{{ o.rule.toUpperCase() }}</a></span>
       </label>
     </section>
 
     <section class="pg-examples">
-      <span class="pg-muted">Examples</span>
-      <button v-for="[ex, why] in EXAMPLES" :key="ex" class="pg-chip" :title="why" @click="input = ex">{{ ex }}</button>
+      <span class="pg-muted">{{ t.examples }}</span>
+      <button v-for="ex in EXAMPLES" :key="ex" class="pg-chip" :title="t.exampleNotes[ex]" @click="input = ex">{{ ex }}</button>
     </section>
 
     <section v-if="result?.words.length" class="pg-words">
-      <h2>Step by step</h2>
+      <h2>{{ t.stepByStep }}</h2>
       <p class="pg-muted">
-        Each word is split into the longest matching sequences, then one left-to-right pass decides
-        vowel signs, hal, ZWJ joins, glides and nasals (<a :href="withBase('/research/phonetic-romanization#_3-conversion-rules')">conversion rules C-1 … C-12</a>).
+        {{ t.stepIntro }} (<a :href="link('/research/phonetic-romanization#' + t.conversionRulesAnchor)">{{ t.conversionRules }}</a>).
       </p>
       <div v-for="(w, i) in result.words.slice(0, 12)" :key="i" class="pg-word">
         <div class="pg-word-head">
           <code>{{ w.input }}</code><span class="pg-arrow">→</span><span class="si pg-word-out" lang="si">{{ w.output }}</span>
         </div>
         <div class="pg-tokens">
-          <div v-for="(t, j) in w.tokens" :key="j" class="pg-tok" :class="'k-' + t.kind" :title="t.kind">
-            <code>{{ t.seq }}</code>
-            <span class="si">{{ t.kind === "dropped" ? "∅" : t.letter }}<template v-if="t.kind === 'vowel'"> · ◌{{ t.sign }}</template></span>
+          <div v-for="(tok, j) in w.tokens" :key="j" class="pg-tok" :class="'k-' + tok.kind" :title="t.tokenKinds[tok.kind] ?? tok.kind">
+            <code>{{ tok.seq }}</code>
+            <span class="si">{{ tok.kind === "dropped" ? "∅" : tok.letter }}<template v-if="tok.kind === 'vowel'"> · ◌{{ tok.sign }}</template></span>
           </div>
         </div>
         <div class="pg-chars">
@@ -189,15 +181,15 @@ function shortName(name: string) {
           </span>
         </div>
       </div>
-      <p v-if="result.words.length > 12" class="pg-muted">Showing the first 12 words.</p>
+      <p v-if="result.words.length > 12" class="pg-muted">{{ t.firstWords }}</p>
     </section>
 
     <section class="pg-sheet">
-      <h2>Sequences</h2>
-      <p class="pg-muted">Click a sequence to insert it. Case matters: capitals mark retroflex, aspirate and a few vowels.</p>
+      <h2>{{ t.sequences }}</h2>
+      <p class="pg-muted">{{ t.sequencesIntro }}</p>
       <div class="pg-tabs" role="tablist">
-        <button v-for="t in (['consonants', 'vowels', 'signs'] as const)" :key="t" role="tab"
-          :aria-selected="tab === t" :class="{ on: tab === t }" @click="tab = t">{{ t }}</button>
+        <button v-for="k in (['consonants', 'vowels', 'signs'] as const)" :key="k" role="tab"
+          :aria-selected="tab === k" :class="{ on: tab === k }" @click="tab = k">{{ t.tabs[k] }}</button>
       </div>
       <div class="pg-grid">
         <div v-for="(c, i) in sheet[tab]" :key="i" class="pg-cell" :class="{ archaic: c.archaic && !opts.archaic }"
@@ -206,7 +198,7 @@ function shortName(name: string) {
           <div class="pg-seqs">
             <button v-for="s in c.seqs" :key="s.seq" :class="{ alias: s.alias }" @click="insert(s.seq)">{{ s.seq }}</button>
           </div>
-          <div v-if="c.archaic" class="pg-tag">archaic</div>
+          <div v-if="c.archaic" class="pg-tag">{{ t.archaicTag }}</div>
         </div>
       </div>
     </section>
@@ -263,7 +255,7 @@ textarea { width: 100%; flex: 1; min-height: 120px; resize: vertical; font: 20px
 .pg-char.special .si { font-size: 14px; font-weight: 700; color: var(--vp-c-brand-1); line-height: 1.9; }
 
 .pg-tabs { display: flex; gap: 4px; margin: 12px 0; border-bottom: 1px solid var(--vp-c-divider); }
-.pg-tabs button { padding: 6px 14px; font-size: 14px; font-weight: 600; text-transform: capitalize; color: var(--vp-c-text-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.pg-tabs button { padding: 6px 14px; font-size: 14px; font-weight: 600; color: var(--vp-c-text-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .pg-tabs button.on { color: var(--vp-c-brand-1); border-bottom-color: var(--vp-c-brand-1); }
 .pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
 .pg-cell { border: 1px solid var(--vp-c-divider); border-radius: 10px; padding: 8px; text-align: center; background: var(--vp-c-bg-soft); }
