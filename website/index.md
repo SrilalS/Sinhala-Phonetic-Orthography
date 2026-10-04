@@ -62,7 +62,7 @@ features:
 | 📚 | [Seven topic studies](/research/inventory) | About 250 numbered rules with evidence from Unicode, SLS 1134, the ICANN Sinhala script panel, linguistics and NLP papers, and school grammar material |
 | ✍️ | [Playground](/playground) | The reference converter, running in your browser. Type a romanization and see each step |
 | 🔤 | [Letter explorer](/explorer) | All 923 letter forms, their validity status, the rules behind it and how to type each one |
-| 🐍 | [Python package](/reference/python) | `to_sinhala`, the inventory and a frequency-based disambiguator. No dependencies |
+| 🐍 | [Python & JS packages](/reference/python) | `to_sinhala` / `toSinhala`, the inventory and a frequency-based disambiguator. No dependencies |
 | 📈 | [Verification](/reference/verification) | Every allowed form is producible, and 3.34 million inputs produce no rule violation |
 
 ## Quick start

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, reactive, ref, watch } from "vue";
-import { loadEngine, TABLES, type Explained, type Options } from "./engine";
+import { explain, TABLES, type Explained, type Options } from "./engine";
 import { useI18n } from "./i18n";
 
 const { t, link } = useI18n();
@@ -18,30 +18,12 @@ const OPTIONS: { key: keyof Options; rule: string }[] = [
 
 const input = ref("shrii lankaava");
 const opts = reactive<Options>({ archaic: false, repaya_zwj: false, classical: false, rakaransaya_u: false });
-const state = ref<"idle" | "loading" | "ready" | "error">("idle");
-const error = ref("");
-const result = ref<Explained | null>(null);
+const result = computed<Explained>(() => explain(input.value, { ...opts }));
 const copied = ref(false);
 const tab = ref<"consonants" | "vowels" | "signs">("consonants");
 const textarea = ref<HTMLTextAreaElement | null>(null);
-let convert: ((t: string, o: Options) => Explained) | null = null;
 
-function run() {
-  if (!convert) return;
-  try {
-    result.value = convert(input.value, { ...opts });
-  } catch (e: any) {
-    error.value = String(e?.message ?? e);
-  }
-  syncUrl();
-}
-
-let timer: ReturnType<typeof setTimeout> | undefined;
-watch([input, () => ({ ...opts })], () => {
-  clearTimeout(timer);
-  timer = setTimeout(run, 80);
-});
-
+// The input and options live in the URL (?q=…&o=…), so a conversion can be shared as a link.
 function syncUrl() {
   const p = new URLSearchParams();
   if (input.value) p.set("q", input.value);
@@ -49,25 +31,12 @@ function syncUrl() {
   if (on.length) p.set("o", on.join(","));
   history.replaceState(history.state, "", `${location.pathname}${p.size ? "?" + p : ""}`);
 }
-
-async function start() {
-  state.value = "loading";
-  error.value = "";
-  try {
-    convert = await loadEngine();
-    state.value = "ready";
-    run();
-  } catch (e: any) {
-    state.value = "error";
-    error.value = String(e?.message ?? e);
-  }
-}
+watch([input, () => ({ ...opts })], syncUrl);
 
 onMounted(() => {
   const p = new URLSearchParams(location.search);
   if (p.has("q")) input.value = p.get("q")!;
   for (const k of (p.get("o") ?? "").split(",")) if (k in opts) opts[k as keyof Options] = true;
-  start();
 });
 
 async function copy() {
@@ -133,14 +102,7 @@ function shortName(name: string) {
           <button class="pg-copy" :disabled="!result?.output" @click="copy">{{ copied ? t.copied : t.copy }}</button>
         </div>
         <div class="pg-result si" lang="si" aria-live="polite">
-          <template v-if="state === 'ready'">{{ result?.output }}</template>
-          <span v-else-if="state === 'loading'" class="pg-status">
-            <span class="pg-spinner" /> {{ t.loadingEngine }}
-          </span>
-          <span v-else-if="state === 'error'" class="pg-status pg-err">
-            {{ t.engineError }} {{ error }}
-            <button class="pg-copy" @click="start">{{ t.retry }}</button>
-          </span>
+          {{ result.output }}
         </div>
       </div>
     </section>
@@ -216,10 +178,6 @@ function shortName(name: string) {
 .pg-label { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--vp-c-text-2); margin-bottom: 8px; min-height: 26px; }
 textarea { width: 100%; flex: 1; min-height: 120px; resize: vertical; font: 20px/1.5 var(--vp-font-family-mono); background: transparent; color: var(--vp-c-text-1); border: none; outline: none; }
 .pg-result { font-size: 34px; line-height: 1.6; min-height: 120px; word-break: break-word; white-space: pre-wrap; }
-.pg-status { font: 14px/1.5 var(--vp-font-family-base); color: var(--vp-c-text-2); display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.pg-err { color: var(--st-never); }
-.pg-spinner { width: 14px; height: 14px; border: 2px solid var(--vp-c-divider); border-top-color: var(--vp-c-brand-1); border-radius: 50%; animation: spin 0.8s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
 .pg-copy { font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg); color: var(--vp-c-text-1); }
 .pg-copy:hover:not(:disabled) { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .pg-copy:disabled { opacity: 0.5; }

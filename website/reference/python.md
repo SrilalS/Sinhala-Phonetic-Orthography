@@ -1,4 +1,4 @@
-# Python package
+# Python and JavaScript packages
 
 `sinhala_orthography` holds the letter inventory, the romanization converter and a
 frequency-based disambiguator. It needs Python 3.9 or later and has no dependencies.
@@ -91,6 +91,32 @@ entries()[30]    # {'id': 'ka.ru', 'kind': 'syllable', 'text': 'කෘ', 'conson
 | `CONSONANTS` | `(id, letter)` for the 41 consonants in Unicode order |
 | `SIGNS` | ං ඃ ඁ |
 | `entries()` | Every letter form, as in [`data/letters.json`](/reference/data) |
+
+## JavaScript and TypeScript
+
+The same package is available for JavaScript and TypeScript, for Node.js and the browser, with no
+dependencies. It lives in [`js/`](https://github.com/SrilalS/Sinhala-Phonetic-Orthography/tree/main/js)
+and reads the same sequence tables. A golden test checks that it gives exactly the Python output for
+more than 50,000 inputs, and the [playground](/playground) runs on it.
+
+```js
+import { toSinhala, Lexicon, candidates } from "sinhala-orthography";
+
+toSinhala("kruura");                          // 'කෲර'
+toSinhala("kruura", { rakaransayaU: true });  // 'ක්‍රූර'
+const lex = new Lexicon(wordListText);        // "word<TAB>count" lines, or [word, count] pairs
+candidates(lex, "honda", { limit: 5 });
+```
+
+| Python | JavaScript |
+|---|---|
+| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (also `archaic`, `classical`, `rakaransayaU`) |
+| `Lexicon(path)` | `new Lexicon(text)` or `new Lexicon(pairs)`: no file access, so it also runs in a browser |
+| `candidates(lex, roman, limit=5, partial=False)` | `candidates(lex, roman, { limit, partial })` |
+| `sound_key`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` | `soundKey`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` |
+
+The Python package stays the reference: change it first, run `python tools/build_js_golden.py`, then
+make `npm test` in `js/` pass.
 
 ## Tools
 

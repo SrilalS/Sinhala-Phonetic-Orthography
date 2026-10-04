@@ -1,0 +1,47 @@
+name: Test
+
+# Checks the Python reference package and the rules, then checks that the JavaScript port in js/
+# still matches it exactly.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: js/package-lock.json
+
+      - name: Python tests
+        run: python -m unittest discover tests
+      - name: Rule coverage and safety
+        run: python tools/check_romanization.py
+      - name: Golden files are up to date with the Python package
+        # Compare the gzipped file by content: zlib versions may compress the same rows differently.
+        run: |
+          zcat js/test/golden/romanization.jsonl.gz > /tmp/before.jsonl
+          python tools/build_js_golden.py
+          git diff --exit-code -- js/test/golden ':!*.gz'
+          zcat js/test/golden/romanization.jsonl.gz | cmp - /tmp/before.jsonl
+      - name: JavaScript tests
+        working-directory: js
+        run: |
+          npm ci
+          npm test
+          git diff --exit-code -- src/data.ts   # the committed tables match src/sinhala_orthography/data

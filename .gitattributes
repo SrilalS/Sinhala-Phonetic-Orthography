@@ -1,0 +1,2 @@
+# Golden files for the JavaScript port: byte-exact, written by tools/build_js_golden.py
+js/test/golden/** -text

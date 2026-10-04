@@ -1,0 +1,36 @@
+{
+  "name": "sinhala-orthography",
+  "version": "0.1.0",
+  "description": "Sinhala orthographic rules, letter inventory, phonetic romanization and disambiguation",
+  "keywords": ["sinhala", "romanization", "transliteration", "orthography", "unicode", "sinhalese"],
+  "license": "MIT",
+  "author": "Srilal Siriwardhana",
+  "homepage": "https://srilals.github.io/Sinhala-Phonetic-Orthography/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrilalS/Sinhala-Phonetic-Orthography.git",
+    "directory": "js"
+  },
+  "bugs": "https://github.com/SrilalS/Sinhala-Phonetic-Orthography/issues",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "gen": "node scripts/gen-data.mjs",
+    "build": "npm run gen && tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

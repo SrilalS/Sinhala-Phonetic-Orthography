@@ -1,4 +1,4 @@
-# Python පැකේජය
+# Python සහ JavaScript පැකේජ
 
 `sinhala_orthography` පැකේජයේ අක්ෂර මාලාව, රෝමානුකරණ පරිවර්තකය සහ වචන සංඛ්‍යාතය අනුව නිවැරදි
 අක්ෂර වින්‍යාසය තෝරන මෙවලමක් ඇත. එයට Python 3.9 හෝ ඊට පසු සංස්කරණයක් අවශ්‍ය වන අතර වෙනත් පැකේජ අවශ්‍ය නැත.
@@ -90,6 +90,32 @@ entries()[30]    # {'id': 'ka.ru', 'kind': 'syllable', 'text': 'කෘ', 'conson
 | `CONSONANTS` | යුනිකේත අනුපිළිවෙළින් ව්‍යඤ්ජන 41 සඳහා `(id, අකුර)` |
 | `SIGNS` | ං ඃ ඁ |
 | `entries()` | [`data/letters.json`](/si/reference/data) හි මෙන්, සෑම අකුරු රූපයක්ම |
+
+## JavaScript සහ TypeScript {#javascript-and-typescript}
+
+මෙම පැකේජයම JavaScript සහ TypeScript සඳහාද ඇත. එය Node.js හි සහ බ්‍රවුසරයේ ක්‍රියා කරන අතර වෙනත් පැකේජ
+අවශ්‍ය නැත. එය [`js/`](https://github.com/SrilalS/Sinhala-Phonetic-Orthography/tree/main/js) හි ඇති අතර
+එකම අනුක්‍රම වගු භාවිත කරයි. ආදාන 50,000 කට වැඩි ගණනක් සඳහා එහි ප්‍රතිදානය Python ප්‍රතිදානයට හරියටම සමාන බව
+ස්වයංක්‍රීය පරීක්ෂණයක් තහවුරු කරයි. [අත්හදා බැලීමේ පිටුව](/si/playground) ක්‍රියා කරන්නේද මෙම පැකේජයෙනි.
+
+```js
+import { toSinhala, Lexicon, candidates } from "sinhala-orthography";
+
+toSinhala("kruura");                          // 'කෲර'
+toSinhala("kruura", { rakaransayaU: true });  // 'ක්‍රූර'
+const lex = new Lexicon(wordListText);        // "word<TAB>count" lines, or [word, count] pairs
+candidates(lex, "honda", { limit: 5 });
+```
+
+| Python | JavaScript |
+|---|---|
+| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (`archaic`, `classical`, `rakaransayaU` ද) |
+| `Lexicon(path)` | `new Lexicon(text)` හෝ `new Lexicon(pairs)`: ගොනු කියවන්නේ නැති නිසා බ්‍රවුසරයේද ක්‍රියා කරයි |
+| `candidates(lex, roman, limit=5, partial=False)` | `candidates(lex, roman, { limit, partial })` |
+| `sound_key`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` | `soundKey`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` |
+
+යොමුව තවමත් Python පැකේජයයි: මුලින් එය වෙනස් කර, `python tools/build_js_golden.py` ධාවනය කර, ඉන්පසු
+`js/` හි `npm test` සාර්ථක කරන්න.
 
 ## මෙවලම්
 

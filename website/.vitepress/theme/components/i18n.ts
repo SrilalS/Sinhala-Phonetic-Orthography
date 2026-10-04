@@ -9,9 +9,6 @@ const en = {
   placeholder: "Type a romanization, e.g. shrii lankaava",
   copy: "Copy",
   copied: "Copied",
-  loadingEngine: "Loading the Python reference implementation…",
-  engineError: "Couldn't start the converter:",
-  retry: "Retry",
   examples: "Examples",
   exampleNotes: {
     aayuboovan: "greeting",
@@ -105,9 +102,6 @@ const si: Strings = {
   placeholder: "රෝම අකුරින් ලියන්න, උදා: shrii lankaava",
   copy: "පිටපත් කරන්න",
   copied: "පිටපත් විය",
-  loadingEngine: "Python යොමු ක්‍රියාත්මක කිරීම පූරණය වෙමින් පවතී…",
-  engineError: "පරිවර්තකය ආරම්භ කළ නොහැකි විය:",
-  retry: "නැවත උත්සාහ කරන්න",
   examples: "උදාහරණ",
   exampleNotes: {
     aayuboovan: "ආචාරය",

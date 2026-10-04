@@ -69,7 +69,7 @@ const en: Labels = {
     ["06 · Romanization systems", "romanization-systems"],
     ["07 · Phonetic romanization", "phonetic-romanization"],
   ],
-  python: "Python package", data: "Data files", verification: "Verification report",
+  python: "Python & JS packages", data: "Data files", verification: "Verification report",
 };
 
 const si: Labels = {
@@ -84,7 +84,7 @@ const si: Labels = {
     ["06 · රෝමානුකරණ ක්‍රම", "romanization-systems"],
     ["07 · ශබ්දානුසාරී රෝමානුකරණය", "phonetic-romanization"],
   ],
-  python: "Python පැකේජය", data: "දත්ත ගොනු", verification: "සත්‍යාපන වාර්තාව",
+  python: "Python සහ JS පැකේජ", data: "දත්ත ගොනු", verification: "සත්‍යාපන වාර්තාව",
 };
 
 export default defineConfig({
