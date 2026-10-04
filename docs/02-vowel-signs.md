@@ -10,6 +10,8 @@ Compiled October 2026.
 All text is paraphrased. Rules carry a confidence level, and anything not confirmed by a
 source is marked **[unverified]**. "Local test" means the compiler checked behaviour locally: Python `unicodedata` (UCD 16.0), HarfBuzz via `uharfbuzz`
 0.56.2 with the Windows *Nirmala UI* font, and Chromium rendering of all 41 consonants × signs.
+A second local test (October 2026) rendered rakaransaya + u/uu in seven fonts: Noto Sans Sinhala,
+Noto Serif Sinhala, Abhaya Libre, Yaldevi, Gemunu Libre, Nirmala UI and Iskoola Pota.
 
 ---
 
@@ -33,6 +35,8 @@ source is marked **[unverified]**. "Local test" means the compiler checked behav
 | S14 | English Wikipedia, *Sinhala script* — lead only (cites Gair & Paolillo 1997, Fairbanks/Gair/Silva 1968) | https://en.wikipedia.org/wiki/Sinhala_script |
 | S15 | Liyanapathirana, Gunasinghe, Dias, *SinSpell* (2021) | https://arxiv.org/abs/2107.02983 |
 | S16 | Local test (see header) | — |
+| S17 | University of Moratuwa NLPC, *Word Frequency List for Sinhala*: the 2.1M-word list (`word_frequency_list_2M`) | https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala |
+| S18 | Sinhala Wikipedia, page counts from `insource:` phrase searches, October 2026 | https://si.wikipedia.org/w/api.php |
 
 Gap: no NIE / educationpublications.gov.lk grammar textbook could be found through web search,
 so the native pili names below come from S2/S5 (Unicode names follow the traditional Sinhala
@@ -369,20 +373,22 @@ Sanskrit/Pali loans. As a result, aspirated and Sanskrit-only consonants rarely 
 - **Confidence:** high for uniqueness. Medium for "rare on aspirates" (inferred).
 - **Sources:** S1, S5 §3 note 1, S9.
 
-### VS-020 — ෘ is for Sanskrit loans only and is pronounced /ru/
+### VS-020 — ෘ is pronounced /ru/: Sanskrit ṛ, and C + r + u in other words
 
 **Statement.** ෘ (gaetta-pilla) appears in tatsama (Sanskrit) words. It is pronounced as ru
 (or ri). The mixed-alphabet ṛ can also be written phonetically as r+u in śuddha Sinhala. SLS
-counts it among the 17 standard forms.
+counts it among the 17 standard forms. Because ෘ is read /ru/, writers also use ෘ/ෲ for /ru/
+and /ruː/ after a consonant in non-Sanskrit words and English loans (ගෲප්, ඇන්ඩෲ), and it is
+the usual spelling of C + r + u/uu (VS-034).
 
 - **Attested consonants (examples):** කෘෂිකර්මය, ගෘහ, තෘප්තිය, දෘෂ්ටිය, ධෘති, නෘත්‍ය,
   පෘථිවිය, බෘහත්, භෘත්‍ය, මෘදු, වෘක්ෂ, ශෘංගාර, සෘජු, හෘදය, ඝෘ(ණා) (LGR lists ඝෘ as a
   sequence). Spot examples are from general knowledge **[unverified individually]**.
-- **Never:** ර+ෘ (no rṛ in Sanskrit) [inferred], ළ ෆ ඞ ඤ ඥ ඦ, the sannjakas, ණ ය ල ෂ
-  [inferred].
+- **Never:** ර+ෘ (no rṛ in Sanskrit) [inferred], ළ ඞ ඤ ඥ ඦ, the sannjakas, ණ ය ල ෂ
+  [inferred]. ෆ is attested in English loans (ෆෘට් "fruit", S17).
 - **Applies to:** ru.
-- **Confidence:** high for loan-only. Medium for the consonant list.
-- **Sources:** S5 Table 2, S9 Tables 2 and 3a, S11, S14.
+- **Confidence:** high for Sanskrit ṛ. High for the wider /ru/ use (S17, VS-034). Medium for the consonant list.
+- **Sources:** S5 Table 2, S9 Tables 2 and 3a, S11, S14, S17.
 
 ### VS-021 — ෲ, ෟ, ෳ, ඎ, ඏ, ඐ are marginal
 
@@ -552,11 +558,56 @@ same way.
 2. **ෘ vs ්‍ර / රු confusion** (ගෘහ vs ග්‍රහ, a real meaning change).
 3. **ෛ/ෞ vs ayi/avu.** For example, වෛද්‍ය is correct, and spelling it with අයි is wrong.
 4. **Encoding errors:** ෙ+ෙ for ෛ; ෙ+්+ා for ෝ; අ+ා for ආ; ැ/ෑ stored instead of
-   rakaransaya-u forms (S1 warning); two signs on one consonant.
+   rakaransaya-u forms (S1 warning; ක්‍රෑර, ශ්‍රැති, see VS-034); two signs on one consonant.
 5. **ඥ/ඤ** swapped word-initially (they sound the same there; S5).
 
 - **Confidence:** high for 1 and 4. Medium for 2, 3 and 5.
 - **Sources:** S15, S1, S4, S5, S16.
+
+### VS-034 — C + r + u/uu: ෘ/ෲ is the usual spelling, rakaransaya + ු/ූ the alternative
+
+**Statement.** A consonant followed by /ru/ or /ruː/ has two correct encodings, and both are
+read the same way because ෘ is pronounced /ru/ (VS-020, 05:G2P-011):
+
+- C + ෘ / ෲ: කෘ, කෲර, මෘදු, ගෲප්. This is by far the more common spelling.
+- C ් ZWJ ර + ු / ූ (rakaransaya + u/uu): ක්‍රු, ක්‍රූර. This is the spelling S1 uses to
+  illustrate the rakaransaya + u/uu glyphs (VS-016).
+
+A third spelling copies the look of the rakaransaya + u/uu glyph with ැ/ෑ (ක්‍රෑර, ශ්‍රැති,
+භ්‍රෑණ). It is common but wrong: ැ/ෑ write the vowel /æ/, and S1 warns against the substitution
+(VS-016, VS-033).
+
+**Evidence (S17).** For every word in the list written with C + ෘ/ෲ, the same word was looked
+up with rakaransaya + ු/ූ and with rakaransaya + ැ/ෑ. Where two or more spellings occur, ෘ/ෲ is
+the most frequent in 299 words, rakaransaya + ු/ූ in 55 and rakaransaya + ැ/ෑ in 47. Counts
+below are the word and its inflected forms:
+
+| Word | C + ෘ/ෲ | ්‍ර + ු/ූ | ්‍ර + ැ/ෑ |
+|---|---:|---:|---:|
+| *krūra* "cruel" | කෲර 1,667 | 22 | 186 |
+| *saṃskṛtika* "cultural" | සංස්කෘතික 14,680 | 7 | 0 |
+| *mṛdukāṃga* "software" | මෘදුකාංග 16,492 | 28 | 0 |
+| *ṛju* "direct" | සෘජු 7,013 | 6 | 0 |
+| "group" (English) | ගෲප් 937, ගෘප් 685 | 72 | 9 |
+| *śruti* | ශෘති 21 | 3 | **128** |
+| *bhrūṇa* "embryo" | භෲණ 0 | 2 | **80** |
+
+Sinhala Wikipedia agrees (S18): කෲර on 98 pages, ක්‍රෑර on 19, ක්‍රූර on none. The last two
+rows show the ැ/ෑ look-alike winning in a few learned words, which is why a lexicon, not a
+fixed rule, should choose the spelling of a given word.
+
+ෘ/ෲ are not limited to Sanskrit words. English loans and names use them for /ru/ and /ruː/:
+ගෲප් "group", ඇන්ඩෲ "Andrew", බෲනායි "Brunei", ෆෘට් "fruit", ටෲමන් "Truman".
+
+**Rendering (S16).** Fonts disagree on the rakaransaya + u/uu glyph. Noto Sans Sinhala, Noto
+Serif Sinhala, Yaldevi and Gemunu Libre draw the special form S1 describes, a stroke after the
+cluster that resembles ෑ. Nirmala UI, Iskoola Pota and Abhaya Libre attach an ordinary ු/ූ below
+the cluster. With the Windows system fonts a correctly encoded ක්‍රූර therefore looks wrong to
+readers, which may be one reason writers avoid it **[inferred]**.
+
+- **Applies to:** every consonant that takes rakaransaya; u, uu, ru, ruu.
+- **Confidence:** high for the usage counts. Medium for the font explanation.
+- **Sources:** S1, S16, S17, S18.
 
 ---
 
@@ -578,11 +629,16 @@ The ෟ and ෳ columns are N for every row (VS-021), so they are omitted below.
 and examples from general knowledge. Cells beyond the hard rules (N for ඞ signs, sannjaka hal,
 ෟ/ෳ; S cells) are **medium/low confidence and need corpus validation** (see §10).
 
+The ru and ruu columns were checked against S17 (October 2026). A cell was raised when the list
+has at least 150 tokens in at least 10 word types, after removing misspellings: ka ga tta dda pa
+ba + ෲ and tta dda fa + ෘ became V, and ta + ෲ became L (ශාස්තෲ). The ya and ra rows were left
+alone: their ෘ tokens are misspellings (ව්‍යෘපෘති, ද්‍රෘෂ්ටි).
+
 | id | C | a | hal | aa | ae | aee | i | ii | u | uu | ru | ruu | e | ee | ai | o | oo | au |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ka | ක | V | V | V | V | V | V | V | V S | V S | L | R | V | V | L | V | V | L |
+| ka | ක | V | V | V | V | V | V | V | V S | V S | L | V | V | V | L | V | V | L |
 | kha | ඛ | L | L | L | R | R | L | L | L | L | N | N | L | L | R | L | L | R |
-| ga | ග | V | V | V | V | V | V | V | V S | V S | L | N | V | V | R | V | V | L |
+| ga | ග | V | V | V | V | V | V | V | V S | V S | L | V | V | V | R | V | V | L |
 | gha | ඝ | L | L | L | N | N | L | L | L | L | L | N | L | L | N | L | L | N |
 | nga | ඞ | N | R | N | N | N | N | N | N | N | N | N | N | N | N | N | N | N |
 | nnga | ඟ | V | N | V | R | R | V | V | V S | R S | N | N | V | V | N | V | R | N |
@@ -593,21 +649,21 @@ and examples from general knowledge. Cells beyond the hard rules (N for ඞ sign
 | nya | ඤ | R | R | R | N | N | R | R | R | N | N | N | R | N | N | R | N | N |
 | jnya | ඥ | V | N | V | N | N | R | N | R | N | N | N | R | R | N | R | N | N |
 | nyja | ඦ | R | N | R | R | R | R | R | R | R | N | N | R | R | N | R | R | N |
-| tta | ට | V | V S | V | V | V | V | V | V | V | N | N | V | V | N | V | V | N |
+| tta | ට | V | V S | V | V | V | V | V | V | V | V | V | V | V | N | V | V | N |
 | ttha | ඨ | L | L | L | N | N | L | L | L | L | N | N | L | L | N | L | L | N |
-| dda | ඩ | V | V | V | V | V | V | V | V | V | N | N | V | V | N | V | V | N |
+| dda | ඩ | V | V | V | V | V | V | V | V | V | V | V | V | V | N | V | V | N |
 | ddha | ඪ | L | L | L | N | N | L | L | L | L | N | N | L | L | N | L | L | N |
 | nna | ණ | V | V | V | R | R | V | V | V | V | N | N | V | V | N | V | V | N |
 | nndda | ඬ | V | N | V | R | R | V | V | V | R | N | N | V | V | N | V | R | N |
-| ta | ත | V | V | V | V | V | V | V | V S | V S | L | R | V | V | L | V | V | R |
+| ta | ත | V | V | V | V | V | V | V | V S | V S | L | L | V | V | L | V | V | R |
 | tha | ථ | L | L | L | N | N | L | L | L | L | N | N | L | L | N | L | L | N |
 | da | ද | V | V | V | V | V | V | V | V S | V S | L | R | V | V | L | V | V | L |
 | dha | ධ | L | L | L | R | R | L | L | L | L | L | N | L | L | L | L | L | L |
 | na | න | V | V | V | V | V | V | V | V | V | L | N | V | V | L | V | V | L |
 | nda | ඳ | V | N | V | R | R | V | V | V S | R S | N | N | V | V | N | V | R | N |
-| pa | ප | V | V | V | V | V | V | V | V | V | L | R | V | V | L | V | V | L |
+| pa | ප | V | V | V | V | V | V | V | V | V | L | V | V | V | L | V | V | L |
 | pha | ඵ | L | L | L | N | N | L | L | L | L | N | N | L | L | N | L | L | N |
-| ba | බ | V | V | V | V | V | V | V | V | V | L | N | V | V | R | V | V | L |
+| ba | බ | V | V | V | V | V | V | V | V | V | L | V | V | V | R | V | V | L |
 | bha | භ | L | L | L | R | R | L | L | L S | L S | L | N | L | L | L | L | L | L |
 | ma | ම | V | V | V | V | V | V | V | V | V | L | R | V | V | L | V | V | L |
 | mba | ඹ | V | N | V | R | R | V | V | V | R | N | N | V | V | N | V | R | N |
@@ -620,7 +676,7 @@ and examples from general knowledge. Cells beyond the hard rules (N for ඞ sign
 | sa | ස | V | V | V | V | V | V | V | V | V | L | N | V | V | L | V | V | L |
 | ha | හ | V | V | V | V | V | V | V | V | V | L | N | V | V | R | V | V | R |
 | lla | ළ | V | R | V | V | R | V | V | V S | R S | N | N | V | R | N | V | R | N |
-| fa | ෆ | V | V | V | V | V | V | V | V | V | N | N | V | V | N | V | V | N |
+| fa | ෆ | V | V | V | V | V | V | V | V | V | V | N | V | V | N | V | V | N |
 
 Notes on the table:
 - **S, u/uu:** ka ga nnga ta bha sha take the hook form (VS-014). ra and lla are irregular
@@ -658,7 +714,7 @@ or validating stored Sinhala text.
    - treat ayi/avu as the default reading and reserve distinct symbols for ෛ/ෞ, or
    - decide per word from a dictionary.
 5. **"ru" collides three ways** (VS-012, VS-016, VS-020): ර+ු, ෘ, and rakaransaya + ු.
-   - "kru" must resolve to ක්‍රු or කෘ depending on the word (ක්‍රූර vs කෘෂි), and
+   - "kru" is usually කෘ (කෘෂි, කෲර) and occasionally ක්‍රු; a lexicon decides per word (VS-034), and
    - "karu" must never become කෘ.
    A reversible romanization should give ෘ a distinct symbol (for example `ṛ`), and let plain
    `ru` mean r+u.
@@ -691,8 +747,9 @@ or validating stored Sinhala text.
 
 1. **Rakaransaya + u/uu.** SLS 1134 Table 3 leaves kru/kruu out of the valid rakaransaya
    vowels, and says such sequences "are not used". Unicode §13.2 gives ක්‍රු/ක්‍රූ as normal
-   forms with dedicated glyph variants, and words such as ක්‍රූර exist. Treat as valid; SLS
-   Table 3 appears incomplete.
+   forms with dedicated glyph variants. Corpus counts (VS-034) partly support SLS: the sequence
+   is valid but rare, because writers use ෘ/ෲ (කෲර) or, wrongly, ැ/ෑ (ක්‍රෑර) instead.
+   Treat both ෘ/ෲ and rakaransaya + ු/ූ as valid, with ෘ/ෲ as the usual form.
 2. **Displaying a sign in isolation.** Three conventions conflict:
    - SLS 1134 draft: ZWNJ + sign;
    - SLSI WG 2004: space + sign, NBSP + pāpilla for the hook form;

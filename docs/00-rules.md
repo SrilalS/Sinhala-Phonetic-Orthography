@@ -50,10 +50,11 @@ Machine-readable companions:
 | G-VS-08 | **ඏ ඐ ෟ (alone) ෳ** are not used in modern Sinhala. The letter ඎ is obsolete (its sign ෲ survives in a few words). ෟ survives only inside ෞ/ඖ | HARD (normal mode) | H | 01:INV-018, 02:VS-021 |
 | G-VS-09 | Vowel length is phonemic, with one long sign per short sign: a→aa, ae→aee, i→ii, u→uu, e→ee, o→oo, ru→ruu | HARD | H | 02:VS-032 |
 | G-VS-10 | ර and ළ have irregular glyphs with u/uu (and ර with ae/aee). Never encode a "visual" substitute | HARD | H | 02:VS-011…013 |
-| G-VS-11 | **ෘ ෲ ෛ ෞ (and ඍ ඓ ඖ) are Sanskrit-loan only.** ැ/ෑ (ඇ ඈ) are distinctly Sinhala and almost absent from Sanskrit words | SOFT | H | 02:VS-019/020/022, 05:SN-012 |
-| G-VS-12 | **"ru" has three readings:** ර+ු, ෘ, and rakaransaya+ු. ගෘහ (house) ≠ ග්‍රහ (planet). ක්‍රු/ක්‍රූ must be encoded with ු/ූ, never ැ/ෑ | HARD (encoding), SOFT (choice) | H | 02:VS-012/016/020, 03:HC-024, 05:G2P-011 |
-| G-VS-13 | Per-consonant sign validity (41 × 17): see `data/grammar/validity.json`. Aspirates rarely take ැ/ෑ; ළ rarely takes long signs; sanyaka letters rarely take long signs | SOFT | M | 02:§8 |
-| G-VS-14 | On ්‍ය clusters, SLS lists a aa u uu e ee o oo. On ්‍ර clusters, a aa ae aee i ii e ee ai o oo au, plus u uu (SLS omits them, but ක්‍රූර exists). Other combinations are encodable | SOFT | H | 01:INV-018, 02:VS-016, 03:HC-020/021 |
+| G-VS-11 | **ෛ ෞ (and ඍ ඓ ඖ) are Sanskrit-loan only.** ෘ ෲ write Sanskrit ṛ, and are also the usual spelling of /ru, ruː/ after a consonant in other words and English loans (G-VS-15). ැ/ෑ (ඇ ඈ) are distinctly Sinhala and almost absent from Sanskrit words | SOFT | H | 02:VS-019/020/022/034, 05:SN-012 |
+| G-VS-12 | **"ru" has three readings:** ර+ු, ෘ, and rakaransaya+ු. ගෘහ (house) ≠ ග්‍රහ (planet). ක්‍රු/ක්‍රූ must be encoded with ු/ූ, never ැ/ෑ (ක්‍රෑර is wrong) | HARD (encoding), SOFT (choice) | H | 02:VS-012/016/020/034, 03:HC-024, 05:G2P-011 |
+| G-VS-13 | Per-consonant sign validity (41 × 17): see `data/validity.json`. Aspirates rarely take ැ/ෑ; ළ rarely takes long signs; sanyaka letters rarely take long signs | SOFT | M | 02:§8 |
+| G-VS-14 | On ්‍ය clusters, SLS lists a aa u uu e ee o oo. On ්‍ර clusters, a aa ae aee i ii e ee ai o oo au, plus u uu (SLS omits them; they are valid but rare, see G-VS-15). Other combinations are encodable | SOFT | H | 01:INV-018, 02:VS-016, 03:HC-020/021 |
+| G-VS-15 | **C + r + u/uu has two correct spellings: C + ෘ/ෲ (කෲර, මෘදු, ගෲප්) and rakaransaya + ු/ූ (ක්‍රූර).** Both read /Cru(ː)/. ෘ/ෲ is the usual one: it is the most frequent spelling in 299 of 401 words attested in more than one spelling. The look-alike rakaransaya + ැ/ෑ is never correct (G-VS-12) | STYLE | H | 02:VS-020/034, 03:HC-024 |
 
 ---
 
@@ -174,7 +175,7 @@ checked exhaustively, never produces a forbidden sequence.
 | # | Gap | Where it matters |
 |---|---|---|
 | 1 | NIE textbooks, the final SLS 1134:2004/2011 texts and the Sinhala Lekhana Rīthiya (1989) were **not reachable**. School-grammar rules rest on agreeing secondary sources | G-SP-*, G-HC-07, alphabet counts |
-| 2 | The 41 × 17 validity table is a synthesis, **not a corpus count** | G-VS-13 / validity.json |
+| 2 | The 41 × 17 validity table is a synthesis, **not a corpus count**. Only the ෘ / ෲ columns have been checked against a corpus (02:VS-034) | G-VS-13 / validity.json |
 | 3 | Touching-letter and yansaya-with-repaya encodings changed between SLS drafts | G-EN-08, G-HC-14 |
 | 4 | ම්‍ර / න්‍ර / ල්‍ර have no attestation in a Sinhala source | G-HC-12, R-07 |
 | 5 | How ං before ය ර ල ව ශ ස හ is actually pronounced | G-NS-02/03 |

@@ -23,6 +23,7 @@ NO_HAL = SANYAKA | {"ළ"}                       # G-HC-06, G-HC-07
 NGA = "ඞ"                                     # G-HC-08: only as ඞ්
 PLAIN = {"ඟ": "ග", "ඦ": "ජ", "ඬ": "ඩ", "ඳ": "ද", "ඹ": "බ"}   # G-PH-01: no sanyaka word-initially
 VELARS = set("කඛගඝ")                          # R-11: n + velar → ං
+GAETTA = {"u": "ෘ", "uu": "ෲ"}                 # R-06: C + r + u/uu is usually written ෘ/ෲ (G-VS-15)
 FRONT = {"i", "ii", "e", "ee", "ae", "aee", "ai"}
 BACK = {"u", "uu", "o", "oo", "au"}
 BANDI = {("ක", "ෂ"), ("ක", "ව"), ("ග", "ධ"), ("ට", "ඨ"), ("ත", "ථ"), ("ත", "ව"), ("ද", "ධ"),
@@ -82,7 +83,7 @@ def _glide(prev_vowel, vowel):
     return "ය" if vowel in FRONT else "ව"
 
 
-def transliterate(source, archaic=False, repaya_zwj=False, classical=False):
+def transliterate(source, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False):
     toks = tokenize(source, archaic)
     out = []
     # state: None (word start), "V" (ends in a vowel; prev_vowel set), "ANUS", "HAL"
@@ -128,6 +129,11 @@ def transliterate(source, archaic=False, repaya_zwj=False, classical=False):
                 elif nl == "ය":
                     out.append(HAL + ZWJ if (letter != "ර" or repaya_zwj) else HAL)   # G-HC-11, G-HC-14, R-09
                 elif nl == "ර":
+                    vowel = after[1] if after and after[0] == "V" else None
+                    if vowel in GAETTA and letter != "ර" and not rakaransaya_u:
+                        out.append(GAETTA[vowel])                                        # G-VS-15, R-06
+                        state, prev_vowel = "V", vowel
+                        j += 3; continue
                     out.append(HAL if letter == "ර" else HAL + ZWJ)                     # G-HC-12, R-07
                 elif letter == "ර":
                     out.append(HAL + ZWJ if repaya_zwj else HAL)                         # R-08

@@ -55,7 +55,7 @@ Conventions used in this file:
 4. **`ර + ් + ZWJ + ය` is ambiguous** (ra + yansaya, or rēpaya + ya). SLS 1134 says ra + yansaya is not used, so it means rēpaya + ya. Fonts disagree. (HC-033)
 5. **ඥ is atomic (U+0DA5).** Never build it as `ජ්‍ඤ`. (HC-051)
 6. **A word that ends in a consonant sound is written with hal.** The inherent vowel is pronounced as *a* or *ə*, but spelling never shows which. Schwa never triggers a hal. (HC-010…HC-013)
-7. **Rakāransaya + u/ū have special glyph shapes that look like æ/ǣ signs.** They must still be encoded with U+0DD4/U+0DD6. Real corpora contain the wrong encoding, e.g. ක්‍රෑර written for *krūra*. (HC-024)
+7. **Rakāransaya + u/ū have special glyph shapes that look like æ/ǣ signs.** They must still be encoded with U+0DD4/U+0DD6. Real corpora contain the wrong encoding, e.g. ක්‍රෑර written for *krūra*. The usual spelling of *krūra* is in fact කෲර, with ෲ (02:VS-034). (HC-024)
 8. **Prenasalized letters (ඟ ඦ ඬ ඳ ඹ) never take hal.** ළ does not take hal either. (HC-014)
 9. **Many systems strip or mangle ZWJ**: some renderers, search boxes, the root-zone LGR. Expect ZWJ-less spellings in real-world corpora and fold them together when matching. (§10)
 
@@ -244,6 +244,7 @@ Conventions used in this file:
 - **Statement:** After a rakāransaya, the u and uu vowel signs take alternative shapes that look like the æ/ǣ signs. Unicode says they must be encoded as U+0DD4/U+0DD6, **not** as U+0DD0/U+0DD1.
 - **Examples:** ක්‍රු `U+0D9A U+0DCA U+200D U+0DBB U+0DD4`, ක්‍රූර *krūra* `U+0D9A U+0DCA U+200D U+0DBB U+0DD6 U+0DBB`. Wrong (but attested): ක්‍රෑර `U+0D9A U+0DCA U+200D U+0DBB U+0DD1 U+0DBB`. S13 found corpus words where ැ/ෑ were used for /u, uː/. S13 printed its examples in a legacy font, so they are garbled. They are most likely ශ්‍රැති-type and ක්‍රෑර-type spellings.
 - **Also:** Bases shaped like ද lose their tail before a below-base sign. ද්‍ර looks different from ක්‍ර, but the encoding is unaffected (S1).
+- **Usage and rendering (02:VS-034):** in practice /Cru/ and /Cruː/ are mostly written C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 22 vs ක්‍රෑර 186 in the NLPC 2.1M-word list). Several fonts, including the Windows system fonts Nirmala UI and Iskoola Pota, do not draw the special shape and attach an ordinary ු/ූ below the cluster.
 - **Applies-to:** ra (rakāransaya), u, uu, ae, aee.
 - **Confidence:** high (S1); medium for the corpus interpretation.
 - **Sources:** S1, S13, S3 §6.3 note.
@@ -491,7 +492,7 @@ or validating and searching stored Sinhala text.
 8. **Prenasalized letters and ළ cannot take hal.** Romanized `nd` + consonant resolves to න්ද… (dental n + hal), not ඳ් (HC-014).
 9. **Word-final nasal ambiguity:** final `ng` could be ං, න් or ම් (HC-012). Resolving it needs a dictionary, not a fixed rule.
 10. **Vowel on clusters goes on the last consonant.** `kre` → ක්‍රෙ (ක ් ZWJ ර ෙ). `kyoo` → ක්‍යෝ. Use the precomposed vowel sign (ෝ U+0DDD etc.), never a split sequence (HC-060).
-11. **`kru`/`kruu` use ු/ූ (U+0DD4/U+0DD6)**, even though the glyph looks like ැ/ෑ (HC-024).
+11. **`kru`/`kruu` written with rakāransaya use ු/ූ (U+0DD4/U+0DD6)**, even though the glyph looks like ැ/ෑ (HC-024). The more common spelling is C + ෘ/ෲ (කෘ, කෲ; 02:VS-034).
 12. **Normalisation/search:** fold `C ් ZWJ C`, `C ් C` and `C ZWJ ් C` together for matching. Writers and data sources mix them (ශ්‍රී/ශ්රී, අක්‍ෂර/අක්ෂර). Never strip ZWJ from stored or converted text. IDNA permits ZWJ after a virama (S24), but the root-zone LGR excludes it (S8).
 13. **ZWNJ does not belong in normal text** (HC-005).
 14. **Writing order vs storage order.** A romanization is naturally in logical order. For rēpaya, `r` comes first and the stored form is `ර ් ZWJ` before the base consonant, which is already logical order, even though the rēpaya is drawn above the following consonant (HC-022).

@@ -16,6 +16,7 @@ Every romanization of 1–3 sequences plus a space, checked against 14 forbidden
 | repaya_zwj | 643,538 | 0 |
 | classical | 643,538 | 0 |
 | archaic | 761,943 | 0 |
+| rakaransaya_u | 643,538 | 0 |
 
 Forbidden patterns:
 

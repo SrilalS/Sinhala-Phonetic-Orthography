@@ -1,0 +1,101 @@
+/* Palette: lotus red to saffron. Sinhala text uses Noto Sans Sinhala, falling back to system fonts. */
+:root {
+  --vp-font-family-base: "Inter", "Noto Sans Sinhala", "Nirmala UI", "Sinhala Sangam MN", ui-sans-serif, system-ui, sans-serif;
+  --si-font: "Noto Sans Sinhala", "Nirmala UI", "Sinhala Sangam MN", "Iskoola Pota", sans-serif;
+  --si-font-display: "Noto Serif Sinhala", "Noto Sans Sinhala", "Nirmala UI", "Sinhala Sangam MN", serif;
+
+  --vp-c-brand-1: #a3173f;
+  --vp-c-brand-2: #c8204f;
+  --vp-c-brand-3: #d9405f;
+  --vp-c-brand-soft: rgba(200, 32, 79, 0.12);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #c8204f 10%, #e8912a 90%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(200, 32, 79, 0.45), rgba(232, 145, 42, 0.45));
+  --vp-home-hero-image-filter: blur(56px);
+  --vp-button-brand-bg: #b01b46;
+  --vp-button-brand-hover-bg: #c8204f;
+  --vp-button-brand-active-bg: #9b1c42;
+
+  /* Letter-form status colours (letter explorer, playground). */
+  --st-valid: #2f8f5b;
+  --st-loan: #3a72c4;
+  --st-rare: #c98a12;
+  --st-unattested: #8a8f98;
+  --st-never: #c43c3c;
+  --st-valid-bg: rgba(47, 143, 91, 0.14);
+  --st-loan-bg: rgba(58, 114, 196, 0.14);
+  --st-rare-bg: rgba(201, 138, 18, 0.16);
+  --st-unattested-bg: rgba(138, 143, 152, 0.14);
+  --st-never-bg: rgba(196, 60, 60, 0.10);
+}
+
+.dark {
+  --vp-c-bg: #17110f;
+  --vp-c-bg-alt: #120d0b;
+  --vp-c-bg-soft: #211816;
+  --vp-c-bg-elv: #261c19;
+  --vp-c-divider: #3a2b27;
+  --vp-c-border: #4d3934;
+  --vp-c-gutter: #120d0b;
+  --vp-code-block-bg: #1d1513;
+  --vp-c-brand-1: #ff7a93;
+  --vp-c-brand-2: #f0937a;
+  --vp-c-brand-3: #e8602f;
+  --vp-c-brand-soft: rgba(255, 122, 147, 0.14);
+  --vp-button-brand-bg: #ff7a93;
+  --vp-button-brand-hover-bg: #ff95a9;
+  --vp-button-brand-active-bg: #f0637f;
+  --vp-button-brand-text: #2a0712;
+  --vp-button-brand-hover-text: #2a0712;
+  --vp-button-brand-active-text: #2a0712;
+
+  --st-valid: #5cc98d;
+  --st-loan: #7aa8f0;
+  --st-rare: #f0b84a;
+  --st-unattested: #a3a8b0;
+  --st-never: #f07a7a;
+  --st-valid-bg: rgba(92, 201, 141, 0.16);
+  --st-loan-bg: rgba(122, 168, 240, 0.16);
+  --st-rare-bg: rgba(240, 184, 74, 0.16);
+  --st-unattested-bg: rgba(163, 168, 176, 0.12);
+  --st-never-bg: rgba(240, 122, 122, 0.10);
+}
+
+/* Wide tables from the research docs scroll inside their own box. */
+.vp-doc table { font-size: 14px; }
+.vp-doc td, .vp-doc th { line-height: 1.55; }
+
+/* Rule rows: a highlight when targeted from a link. */
+.vp-doc tr.rule-row { scroll-margin-top: calc(var(--vp-nav-height) + 24px); }
+.vp-doc tr.rule-row:target td { background: var(--vp-c-brand-soft); }
+.vp-doc p[id]:target { background: var(--vp-c-brand-soft); border-radius: 6px; }
+.vp-doc tr.rule-row td:first-child { white-space: nowrap; font-weight: 600; }
+.vp-doc a.rule-ref { text-decoration: none; border-bottom: 1px dotted currentColor; white-space: nowrap; }
+
+/* Full-width tool pages (playground, explorer). */
+.tool-page { max-width: 1280px; margin: 0 auto; padding: 32px 24px 96px; }
+.tool-page h1 { font-size: 32px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 8px; }
+.tool-page .lede { color: var(--vp-c-text-2); max-width: 760px; margin-bottom: 24px; }
+.tool-page .lede a { color: var(--vp-c-brand-1); text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 640px) { .tool-page { padding: 20px 16px 64px; } .tool-page h1 { font-size: 26px; } }
+
+.si { font-family: var(--si-font); }
+
+/* The long site title would push the menu button off a phone screen. */
+@media (max-width: 480px) {
+  .VPNavBarTitle .title { font-size: 14px; }
+  .VPNavBarTitle .logo { height: 20px; margin-right: 6px; }
+}
+
+/* One flat background for the nav bar and sidebar, so the site title can't spill over a colour edge. */
+:root { --vp-sidebar-bg-color: var(--vp-c-bg); }
+@media (min-width: 960px) {
+  .VPSidebar { border-right: 1px solid var(--vp-c-divider); }
+  .VPNavBar.has-sidebar .title { border-bottom: 1px solid var(--vp-c-gutter); }
+}
+/* With the sidebar open, the title has only the sidebar's width (272px) until the layout widens:
+   let it wrap onto two lines instead of running past the sidebar edge. */
+@media (min-width: 960px) and (max-width: 1279px) {
+  .VPNavBar.has-sidebar .VPNavBarTitle .title { padding-right: 16px; }
+  .VPNavBar.has-sidebar .VPNavBarTitle .title span { white-space: normal; font-size: 15px; line-height: 1.2; }
+}

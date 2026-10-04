@@ -8,11 +8,13 @@ orthographic rules.
 - 📚 **Research:** seven topic studies with about 250 numbered rules, each citing its sources
   (Unicode, SLS 1134, the ICANN Sinhala script panel, peer-reviewed linguistics and NLP papers,
   and school-level grammar material).
-- 🧾 **Rule set:** the studies merged into one deduplicated list of 87 rules, each marked
+- 🧾 **Rule set:** the studies merged into one deduplicated list of 88 rules, each marked
   HARD (invariant), SOFT (tendency) or STYLE (accepted variants).
 - 🔤 **Data:** all 923 Sinhala letter forms, each with a validity status and the rules behind it.
 - 🧪 **Reference code:** a romanization-to-Sinhala converter and a frequency-based
-  disambiguator, verified against the rules over 2.69 million inputs.
+  disambiguator, verified against the rules over 3.34 million inputs.
+- 🌐 **Website:** <https://srilals.github.io/Sinhala-Phonetic-Orthography/>: the studies, a playground
+  that runs the converter in the browser, and an explorer for all 923 letter forms.
 
 ---
 
@@ -34,6 +36,7 @@ orthographic rules.
 | 🐍 | [src/sinhala_orthography/](src/sinhala_orthography) | Inventory, converter (`to_sinhala`), sound key and disambiguator (`Lexicon`, `candidates`) |
 | 🛠️ | [tools/](tools) | Builders and the exhaustive rule checker |
 | 📈 | [reports/romanization-check.md](reports/romanization-check.md) | Coverage and safety results |
+| 🌐 | [website/](website) | The documentation site (VitePress). `npm install`, then `npm run dev` |
 
 ---
 
@@ -48,7 +51,10 @@ orthographic rules.
    can recover their spelling from sound; a frequency lexicon must (G-SP-01).
 5. **Two vowels are never written side by side.** Hiatus takes a ය / ව glide: "ai" is අයි, not
    අඉ, and ෛ / ෞ belong to Sanskrit loans (G-VS-03, G-VS-06, G-VS-11).
-6. **Informal romanization differs from formal systems.** `d` is ද 99% of the time,
+6. **/kru/ is written කෘ, not ක්‍රු.** Rakaransaya + ු/ූ is the Unicode illustration of
+   *krūra*, but writers use C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 22 in a 2.1M-word list), or the
+   wrong look-alike ක්‍රෑර. Several fonts don't draw the rakaransaya + ූ shape at all (G-VS-15).
+7. **Informal romanization differs from formal systems.** `d` is ද 99% of the time,
    `ee` means ී 40% of the time, and vowel length is rarely marked (G-TY-01…10).
 
 ---

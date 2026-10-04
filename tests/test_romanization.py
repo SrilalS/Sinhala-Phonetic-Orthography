@@ -30,7 +30,9 @@ CASES = [
     # R-05b explicit diphthong signs
     ("kE", "කෛ", "R-05b"), ("AuShadha", "ඖෂධ", "R-05b"), ("pAudgalika", "පෞද්ගලික", "R-05b"),
     # R-06 ru
-    ("kru", "ක්" + Z + "රු", "R-06"), ("kruura", "ක්" + Z + "රූර", "R-06"), ("karu", "කරු", "R-06"),
+    ("kru", "කෘ", "R-06, G-VS-15"), ("kruura", "කෲර", "R-06, G-VS-15"), ("mrudu", "මෘදු", "G-VS-15"),
+    ("gruup", "ගෲප්", "G-VS-15"), ("kruua", "කෲව", "G-VS-06 glide after ෲ"), ("karu", "කරු", "R-06"),
+    ("rru", "ර්රු", "no ෘ after ර"), ("Lru", "ළරු", "C-9"), ("kramaya", "ක්" + Z + "රමය", "R-07"),
     ("kR", "කෘ", "R-06"), ("kRShi", "කෘෂි", "R-06"), ("kRR", "කෲ", "R-06"), ("R", "ඍ", "R-06"),
     # R-07 rakaransaya everywhere
     ("thaamra", "තාම්" + Z + "ර", "R-07"), ("kramaya", "ක්" + Z + "රමය", "G-HC-12"), ("shrii", "ශ්" + Z + "රී", ""),
@@ -59,6 +61,9 @@ SETTINGS = [
     ("izja", {"archaic": True}, "ඉඦ", "R-14"),
     ("ka~n", {"archaic": True}, "කඁ", "R-14"),
     ("dham+ma", {"archaic": True}, "ධම" + Z + "්" + "ම", "R-14 touching"),
+    ("kru", {"rakaransaya_u": True}, "ක්" + Z + "රු", "R-06 setting"),
+    ("kruura", {"rakaransaya_u": True}, "ක්" + Z + "රූර", "R-06 setting"),
+    ("kR", {"rakaransaya_u": True}, "කෘ", "R-06: explicit R still gives ෘ"),
 ]
 
 

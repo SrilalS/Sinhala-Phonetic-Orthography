@@ -16,7 +16,7 @@ tables are `src/sinhala_orthography/data/{consonants,vowels,specials}.json`.
 |---|---|---|
 | 1 | Lower-case `t` is retroflex but lower-case `d` is dental, matching informal usage | `t` ට, `th` ත · `d` ද, `D` ඩ |
 | 2 | `ai` and `au` are written with a glide, not as ෛ / ෞ | `lait` → ලයිට්, `kauda` → කවුද |
-| 3 | `ru` after a consonant is ර + ු, not the vowel sign ෘ (use `R`) | `kru` → ක්‍රු, `kR` → කෘ |
+| 3 | `ru` / `ruu` straight after a consonant is written with ෘ / ෲ, the usual spelling; rakaransaya + ු / ූ is an option | `kruura` → කෲර, `mrudu` → මෘදු, `karu` → කරු |
 | 4 | Lower-case `n` before a velar becomes ං | `lankaava` → ලංකාව |
 | 5 | Repaya is plain ර් by default | `karma` → කර්ම, `kaarya` → කාර්ය |
 | 6 | A rule-forbidden form is never produced; a valid fallback is used instead | `kazd` → කඳ (no hal on ඳ), `Ba` → බ (no word-initial ඹ) |
@@ -152,6 +152,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | C-10 | No sanyaka at the start of a word: the plain stop is written | `zda` → ද | G-PH-01 |
 | C-11 | ඞ only as ඞ් before a consonant; ඞ + vowel → ඟ + sign; ං before a sanyaka is dropped | `aXa` → අඟ, `axzda` → අඳ | G-HC-08, G-NS-09 |
 | C-12 | A sequence that cannot be written is left in Latin script | `x` (no base) → x | G-NS-01 |
+| C-13 | C + `r` + `u` / `uu` → C + ෘ / ෲ, for every consonant except ර (rakaransaya + ු / ූ under `rakaransaya_u`) | `kruura` → කෲර, `mrudu` → මෘදු, `gruup` → ගෲප් | G-VS-15, R-06 |
 
 ### Options
 
@@ -160,6 +161,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | `repaya_zwj` | ර්‍ + C instead of ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for ක්‍ෂ ක්‍ව ග්‍ධ ට්‍ඨ ත්‍ථ ත්‍ව ද්‍ධ ද්‍ව න්‍ථ න්‍ද න්‍ධ න්‍ව ඤ්‍ච | R-10, G-HC-15 |
 | `archaic` | ඏ ඐ ෟ ෳ (`~l`, `~ll`), standalone ඎ (`RR`), ඁ (`~n`), ඦ (`zj`), touching letters (`+`) | R-14 |
+| `rakaransaya_u` | C + `r` + `u` / `uu` as rakaransaya + ු / ූ (ක්‍රු, ක්‍රූ) instead of C + ෘ / ෲ | R-06 |
 
 ---
 
@@ -196,7 +198,7 @@ see `tests/test_lexicon.py`.
 | `thiyenawa` | තියෙනව | තියෙනවා |
 | `bada` | බද | බඩ |
 | `vaidya` | වයිද්‍ය | වෛද්‍ය |
-| `krushi` | ක්‍රුශි | කෘෂි |
+| `krushi` | කෘශි | කෘෂි |
 | `lamaya` | ලමය | ළමයා |
 
 About 15% of the list's sound keys are shared by 2–8 words (e.g. කළ කල කාල කලා), so
@@ -211,7 +213,7 @@ frequency alone cannot always choose. Context from the previous word would help.
 | Check | Result |
 |---|---|
 | Coverage: letter forms allowed by `data/validity.json` that can be produced | **791 / 791** |
-| Safety: inputs of 1–3 sequences (plus space), all four option sets | **2.69 million inputs, 0 violations** of 14 forbidden patterns |
+| Safety: inputs of 1–3 sequences (plus space), all five option sets | **3.34 million inputs, 0 violations** of 14 forbidden patterns |
 | Fixtures: `tests/test_romanization.py` | all pass |
 
 ---
@@ -225,7 +227,7 @@ frequency alone cannot always choose. Context from the previous word would help.
 | R-03 | `nd` / `mb` / `ng` + vowel are written as clusters; the lexicon chooses sanyaka (ඳ ඹ ඟ) or cluster | Sanyaka vs cluster is lexical (G-NS-08), and informal writing uses `nd`/`mb`/`ng` for both (G-TY-06) |
 | R-04 | `A` / `ae` ඇ · `Aa` / `AA` / `aee` ඈ | `ae` matches ISO 15919 7-bit; `A` keeps a one-letter form |
 | R-05 | `ai` / `au` → glide spelling (අයි / අවු, C + යි / C + වු); ෛ ඓ via `E`, ෞ ඖ via `Au` | Two vowels are never written side by side (G-VS-03, G-VS-06). In the NLPC list, ayi/yi outnumber ෛ about 60:1 and vu outnumbers ෞ about 8:1 |
-| R-06 | `ru` = ර + ු; ෘ = `R` after a consonant, ෲ = `RR`; standalone `R` = ඍ | ගෘහ and ග්‍රහ are different words (G-VS-12); ක්‍රු / ක්‍රූ must be writable |
+| R-06 | C + `ru` / `ruu` = C + ෘ / ෲ; `R` / `RR` also write ෘ / ෲ; `rakaransaya_u` gives ක්‍රු / ක්‍රූ instead; standalone `R` = ඍ; `ru` after a vowel = ර + ු | ෘ / ෲ is the usual spelling of /Cru(ː)/ in Sanskrit and English loans alike (G-VS-15): in the NLPC list it is the most frequent spelling in 299 of 401 words written more than one way (කෲර 1,667, ක්‍රූර 22). ගෘහ and ග්‍රහ stay distinct (G-VS-12) |
 | R-07 | Rakaransaya after every consonant that takes hal, including ම න ල | The encoding is valid everywhere (G-HC-12); තාම්‍ර occurs |
 | R-08 | Repaya defaults to plain ර් + C | Both forms are standard (G-HC-13); the plain form dominates the NLPC list (කර්මය, කාර්ය) |
 | R-09 | *kārya* → කාර්ය | Follows from R-08; 18,722 occurrences in the NLPC list |

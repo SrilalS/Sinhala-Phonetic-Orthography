@@ -383,7 +383,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
   - [ru]: කෘති *kruti*; පෘෂ්ඨය *pruṣṭhəyə*; උත්කෘෂ්ට *utkruṣṭə*
   - [ri] initial: ඍණ *riṇə*
   - [ur]: ප්‍රවෘත්ති *pravurtti*; සමෘද්ධි *samurddhi*; විවෘත *vivurtə*
-- **Confusion risk:** Romanized *kru* can mean either කෘ or ක්‍රු. Examples: ක්‍රූර *krūrə* "cruel" vs. කෘෂි *kruṣi*. The paper also says a few words use the ු/ූ signs where one would expect [ru]. Its examples are illegible in the PDF.
+- **Confusion risk:** Romanized *kru* can mean either කෘ or ක්‍රු. Both are read [kru], and C + ෘ/ෲ is the usual written form even where the etymology has r + u: *krūra* "cruel" is mostly written කෲර, rarely ක්‍රූර (02:VS-034). Compare කෘෂි *kruṣi*. The paper also says a few words use the ු/ූ signs where one would expect [ru]. Its examples are illegible in the PDF.
 - **Applies to:** ru, ruu, ra.
 - **Confidence:** high.
 - **Sources:** WWG-G2P 2006 §6 (error analysis, citing Disanayaka 2000).

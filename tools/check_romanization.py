@@ -59,6 +59,9 @@ def coverage(settings):
     for k, vid in vows:
         vowel_seqs.setdefault(vid, []).append(k)
     vowel_seqs["hal"] = [""]
+    # C-13: C + r + u/uu also writes C + ෘ/ෲ (candidates are still checked by converting them)
+    vowel_seqs["ru"] = vowel_seqs.get("ru", []) + ["ru"]
+    vowel_seqs["ruu"] = vowel_seqs.get("ruu", []) + ["ruu"]
     sign_seqs = {"anusvara": "x", "visarga": "H", "candrabindu": "~n"}
     letters_by_id = {r["consonant"]: r["text"] for r in LETTERS if r["kind"] == "syllable" and r["vowel"] == "a"}
 
@@ -107,7 +110,7 @@ def safety(settings):
 
 def main():
     configs = [("default", {}), ("repaya_zwj", {"repaya_zwj": True}), ("classical", {"classical": True}),
-               ("archaic", {"archaic": True})]
+               ("archaic", {"archaic": True}), ("rakaransaya_u", {"rakaransaya_u": True})]
     cov = {name: coverage(o) for name, o in configs}
     result, gaps = [], []
     for r in LETTERS:
