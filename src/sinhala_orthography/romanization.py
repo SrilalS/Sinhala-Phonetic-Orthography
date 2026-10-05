@@ -25,6 +25,8 @@ PLAIN = {"ඟ": "ග", "ඦ": "ජ", "ඬ": "ඩ", "ඳ": "ද", "ඹ": "බ"}  
 PLAIN_BEFORE_RA = set("මනල")                 # R-07: C ් ර after ම න ල is plain hal (දුම්රිය, හෙන්රි)
 VELARS = set("කඛගඝ")                          # R-11: n + velar → ං
 GAETTA = {"u": "ෘ", "uu": "ෲ"}                 # R-06: C + r + u/uu is usually written ෘ/ෲ (G-VS-15)
+# C-13: ෘ / ෲ only after the consonants where the form is attested (validity.json: valid, loan or rare)
+GAETTA_AFTER = {"u": set("කගඝජටඩතදධනපබභමවශසහෆ"), "uu": set("කගටඩතදපබම")}
 FRONT = {"i", "ii", "e", "ee", "ae", "aee", "ai"}
 BACK = {"u", "uu", "o", "oo", "au"}
 BANDI = {("ක", "ෂ"), ("ක", "ව"), ("ග", "ධ"), ("ට", "ඨ"), ("ත", "ථ"), ("ත", "ව"), ("ද", "ධ"),
@@ -131,12 +133,15 @@ def transliterate(source, archaic=False, repaya_zwj=False, classical=False, raka
                     out.append(HAL + ZWJ if (letter != "ර" or repaya_zwj) else HAL)   # G-HC-11, G-HC-14, R-09
                 elif nl == "ර":
                     vowel = after[1] if after and after[0] == "V" else None
-                    if vowel in GAETTA and letter != "ර" and not rakaransaya_u:
+                    ru = vowel in GAETTA
+                    attested = ru and letter in GAETTA_AFTER[vowel]                       # C-13: මෘ, not ලෘ
+                    if attested and not rakaransaya_u:
                         out.append(GAETTA[vowel])                                        # G-VS-15, R-06
                         state, prev_vowel = "V", vowel
                         j += 3; continue
-                    plain = letter == "ර" or (letter in PLAIN_BEFORE_RA and not classical
-                                              and not (rakaransaya_u and vowel in GAETTA))
+                    # R-07: plain hal after ම න ල (දුම්රිය, දිල්රුක්ෂි), except a rakaransaya that stands
+                    # for an attested ෘ (rakaransaya_u: ම්‍රුදු) or, without u, under classical (තාම්‍ර)
+                    plain = letter == "ර" or (letter in PLAIN_BEFORE_RA and not attested and not (classical and not ru))
                     out.append(HAL if plain else HAL + ZWJ)                              # G-HC-12, R-07
                 elif letter == "ර":
                     out.append(HAL + ZWJ if repaya_zwj else HAL)                         # R-08

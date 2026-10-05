@@ -11,6 +11,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from sinhala_orthography import Lexicon, candidates, normalize, restyle, to_sinhala  # noqa: E402
+from sinhala_orthography.romanization import GAETTA_AFTER  # noqa: E402
+import json  # noqa: E402
 
 WORD_LIST = os.environ.get("SINHALA_WORD_LIST")
 
@@ -46,6 +48,16 @@ class NormalizeTest(unittest.TestCase):
         w = normalize("ක්ය්ය")
         self.assertEqual(w, "ක්" + Z + "ය්" + Z + "ය")
         self.assertEqual(normalize(w), w)
+
+
+class GaettaAfterTest(unittest.TestCase):
+    def test_matches_validity(self):
+        """C-13 writes ෘ / ෲ exactly after the consonants whose form is attested in validity.json."""
+        rows = json.loads((Path(__file__).resolve().parents[1] / "data" / "validity.json").read_text(encoding="utf-8"))
+        for vid in ("ru", "ruu"):
+            attested = {r["text"][0] for r in rows if r["id"].endswith("." + vid) and not r["id"].startswith("vowel.")
+                        and r["status"] in ("valid", "loan", "rare")}
+            self.assertEqual(GAETTA_AFTER[vid[1:]], attested, vid)   # keyed by the vowel after r
 
 
 class RestyleTest(unittest.TestCase):

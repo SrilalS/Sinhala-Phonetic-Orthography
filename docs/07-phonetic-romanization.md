@@ -152,7 +152,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | C-10 | No sanyaka at the start of a word: the plain stop is written | `zda` → ද | G-PH-01 |
 | C-11 | ඞ only as ඞ් before a consonant; ඞ + vowel → ඟ + sign; ං before a sanyaka is dropped | `aXa` → අඟ, `axzda` → අඳ | G-HC-08, G-NS-09 |
 | C-12 | A sequence that cannot be written is left in Latin script | `x` (no base) → x | G-NS-01 |
-| C-13 | C + `r` + `u` / `uu` → C + ෘ / ෲ, for every consonant except ර (rakaransaya + ු / ූ under `rakaransaya_u`) | `kruura` → කෲර, `mrudu` → මෘදු, `gruup` → ගෲප් | G-VS-15, R-06 |
+| C-13 | C + `r` + `u` / `uu` → C + ෘ / ෲ where that form is attested (`valid`, `loan` or `rare` in validity.json: මෘ, not ලෘ); otherwise C-3 applies (rakaransaya + ු / ූ, plain hal after ම න ල). Rakaransaya + ු / ූ throughout under `rakaransaya_u`; `R` / `RR` always write ෘ / ෲ | `kruura` → කෲර, `mrudu` → මෘදු, `gruup` → ගෲප්, `dilrukshi` → දිල්රුක්ශි | G-VS-15, R-06 |
 
 ### Options
 

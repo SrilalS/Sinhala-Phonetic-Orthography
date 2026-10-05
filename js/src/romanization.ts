@@ -28,6 +28,8 @@ const PLAIN: Record<string, string> = { ඟ: "ග", ඦ: "ජ", ඬ: "ඩ", ඳ:
 const PLAIN_BEFORE_RA = new Set("මනල"); // R-07: C ් ර after ම න ල is plain hal (දුම්රිය, හෙන්රි)
 const VELARS = new Set("කඛගඝ"); // R-11: n + velar → ං
 const GAETTA: Record<string, string> = { u: "ෘ", uu: "ෲ" }; // R-06, G-VS-15
+// C-13: ෘ / ෲ only after the consonants where the form is attested (validity.json: valid, loan or rare)
+const GAETTA_AFTER: Record<string, Set<string>> = { u: new Set("කගඝජටඩතදධනපබභමවශසහෆ"), uu: new Set("කගටඩතදපබම") };
 const FRONT = new Set(["i", "ii", "e", "ee", "ae", "aee", "ai"]);
 const BACK = new Set(["u", "uu", "o", "oo", "au"]);
 /** The classical bandi akuru pairs (first + second consonant). */
@@ -142,13 +144,16 @@ export function toSinhala(source: string, options: Options = {}): string {
           out.push(letter !== "ර" || repayaZwj ? HAL + ZWJ : HAL); // G-HC-11, G-HC-14, R-09
         } else if (nl === "ර") {
           const vowel = after?.kind === "V" ? after.vowel : null;
-          if (vowel !== null && has(GAETTA, vowel) && letter !== "ර" && !rakaransayaU) {
+          const ru = vowel !== null && has(GAETTA, vowel);
+          const attested = ru && GAETTA_AFTER[vowel].has(letter); // C-13: මෘ, not ලෘ
+          if (attested && !rakaransayaU) {
             out.push(GAETTA[vowel]); // G-VS-15, R-06
             state = "V"; prevVowel = vowel;
             j += 3; continue;
           }
-          const plain = letter === "ර" || (PLAIN_BEFORE_RA.has(letter) && !classical
-            && !(rakaransayaU && vowel !== null && has(GAETTA, vowel)));
+          // R-07: plain hal after ම න ල (දුම්රිය, දිල්රුක්ෂි), except a rakaransaya that stands for an
+          // attested ෘ (rakaransayaU: ම්‍රුදු) or, without u, under classical (තාම්‍ර)
+          const plain = letter === "ර" || (PLAIN_BEFORE_RA.has(letter) && !attested && !(classical && !ru));
           out.push(plain ? HAL : HAL + ZWJ); // G-HC-12, R-07
         } else if (letter === "ර") {
           out.push(repayaZwj ? HAL + ZWJ : HAL); // R-08

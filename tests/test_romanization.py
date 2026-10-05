@@ -35,7 +35,10 @@ CASES = [
     ("rru", "ර්රු", "no ෘ after ර"), ("Lru", "ළරු", "C-9"), ("kramaya", "ක්" + Z + "රමය", "R-07"),
     ("kR", "කෘ", "R-06"), ("kRShi", "කෘෂි", "R-06"), ("kRR", "කෲ", "R-06"), ("R", "ඍ", "R-06"),
     # R-07 rakaransaya, but plain hal before ර after ම න ල
-    ("dumriya", "දුම්රිය", "R-07"), ("henri", "හෙන්රි", "R-07"), ("mrudu", "මෘදු", "R-06"), ("kramaya", "ක්" + Z + "රමය", "G-HC-12"), ("shrii", "ශ්" + Z + "රී", ""),
+    ("dumriya", "දුම්රිය", "R-07"), ("henri", "හෙන්රි", "R-07"), ("mrudu", "මෘදු", "R-06"),
+    ("dilrukshi", "දිල්රුක්ශි", "C-13: ලෘ is unattested"), ("samruddhi", "සමෘද්ධි", "C-13: මෘ is attested"),
+    ("chru", "ච්" + Z + "රු", "C-13: චෘ is unattested"), ("nruu", "න්රූ", "C-13: නෲ is unattested, R-07"),
+    ("lR", "ලෘ", "R-06: explicit R still writes ෘ"), ("kramaya", "ක්" + Z + "රමය", "G-HC-12"), ("shrii", "ශ්" + Z + "රී", ""),
     # R-08 / R-09 repaya plain, kārya
     ("karma", "කර්ම", "R-08"), ("kaarya", "කාර්ය", "R-09"),
     # yansaya
@@ -58,6 +61,7 @@ SETTINGS = [
     ("ananda", {"classical": True}, "අනන්" + Z + "ද", "R-10 setting"),
     ("thaamra", {"classical": True}, "තාම්" + Z + "ර", "R-07 setting"),
     ("mrudu", {"rakaransaya_u": True}, "ම්" + Z + "රුදු", "R-06 setting: ෘ written out keeps ZWJ"),
+    ("dilrukshi", {"classical": True}, "දිල්රුක්ශි", "R-07: ල්රු stays plain"),
     ("RR", {"archaic": True}, "ඎ", "R-14"),
     ("k~l", {"archaic": True}, "කෟ", "R-14"),
     ("izja", {"archaic": True}, "ඉඦ", "R-14"),
