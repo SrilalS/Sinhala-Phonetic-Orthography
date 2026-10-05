@@ -49,6 +49,7 @@ Compiled October 2026. All rules are summarised in my own words. Short quotes ar
 | [GG-SAN] | Google Groups sinhala-bloggers, "සඤ්ඥක අකුරු සහිත වචන" |
 | [GG-UNI] | Google Groups sinhala-unicode, "අක්ෂර වින්‍යාසය සහ ණ, න සහ ළ, ල භේදය" (2006) |
 | [GANESAN] | N. Ganesan, unicode-ml post, July 2006, on U+0DA5 |
+| [NLPC] | A. Fernando and G. Dias (2021), "Building a Linguistic Resource: A Word Frequency List for Sinhala", ICON 2021 (University of Moratuwa NLPC; github.com/nlpcuom/Word-Frequency-List-for-Sinhala) |
 
 > **Coverage gap.** I could not reach the NIE / educationpublications.gov.lk textbooks or the SLS 1134 text online. [UD-AV], [UD-AM] and the school-lesson blogs ([SDVP], [KS-NN], [LLS]) appear to reproduce the school rule set; their wording matches each other closely. Treat them as secondary until someone checks them against an NIE Grade 6–11 Sinhala textbook.
 
@@ -72,6 +73,7 @@ For anyone converting between romanized and Sinhala text, checking spelling, or 
 6. **Retroflexion after ර is reversed in native verbs.** Tatsama මරණ *maraṇa* 'death' takes ණ, but the native participle මරන *marana* 'killing' takes න (NS-051, NS-061).
 7. **ං never takes a vowel sign, and nothing can follow a hal** (al-lakuna). Sanyaka letters can never take hal (NS-002, NS-031).
 8. **ශ and ෂ are both pronounced [ʃ].** Choosing between them depends on the neighbouring consonant (NS-081 to NS-086).
+9. **ඞ, ඩ and ඬ look alike.** A ඞ in modern text is nearly always a mistyped ඩ (කොවිඞ් for කොවිඩ්), and a word-initial ඬ is too (NS-048).
 
 ---
 
@@ -515,6 +517,19 @@ Names: *sañ​ñaka akuru*, *ardha-nāsikya* / *ardhānunāsika* ("half-nasal")
 - **Applies-to.** nya, na, ya.
 - **Confidence.** high.
 - **Sources.** [UNI] (yansaya = ්+ZWJ+ය).
+
+### NS-048: Gotcha: ඞ in a word is almost always a typo for ඩ
+- **Statement.** ඞ (U+0D9E, nga) and ඩ (U+0DA9, dda) look almost the same in many fonts, and ඬ (U+0DAC, nndda) looks like ඩ too. In digital text, a ඞ that is not ඞ් before a velar (NS-040) is a mistyped ඩ, and a word-initial ඬ (banned by NS-031) is a mistyped ඩ. A ඞ or ඞ් right before a velar stands for the modern ං (NS-004).
+- **Examples** (wrong → right, from [NLPC]):
+  - කොවිඞ් → කොවිඩ් 'COVID', මොහොමඞ් → මොහොමඩ්, රිමාන්ඞ් → රිමාන්ඩ් 'remand', ඩොනල්ඞ් → ඩොනල්ඩ්
+  - ඞීසල් → ඩීසල් 'diesel', ක්‍රීඞා → ක්‍රීඩා 'sports', ෆීල්ඞ් → ෆීල්ඩ් 'field'
+  - ඬේවිඞ් → ඩේවිඩ් 'David' (initial ඬ and final ඞ් in one word)
+  - සඞඝයා → සංඝයා, අස්තඞගමයද → අස්තංගමයද (ඞ before a velar, hal missing)
+- **Evidence.** In a 37,547-word excerpt of [NLPC], all 15 words containing ඞ were typos of this kind: the correct ඩ spelling of each was also in the list and more frequent, usually 3 to 10 times (කොවිඩ් 2,328 vs කොවිඞ් 333). The 16th entry was a run-together token. No ඞ word in it was a correct modern spelling.
+- **Exceptions.** Pali and a few learned words written with ඞ් before a velar (NS-040).
+- **Applies-to.** nga, dda, nndda.
+- **Confidence.** high (for modern prose).
+- **Sources.** [NLPC]; [UNI] (code points).
 
 ---
 
@@ -1114,6 +1129,7 @@ Guidance for anyone converting between Latin-script romanizations and Sinhala sc
 - [FEIN] https://academicworks.cuny.edu/gc_etds/2207
 - [UNGEGN] https://arhiiv.eki.ee/wgrs/rom2_si.pdf
 - [GANESAN] https://unicode.org/mail-arch/unicode-ml/y2006-m07/0010.html
+- [NLPC] https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala
 - [SIWIKI-AV] https://si.wikipedia.org/wiki/සිංහල_අක්ෂර_වින්‍යාසය
 - [WP-SCRIPT] https://en.wikipedia.org/wiki/Sinhala_script
 - [WP-LANG] https://en.wikipedia.org/wiki/Sinhala_language
