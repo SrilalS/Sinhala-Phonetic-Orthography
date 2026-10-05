@@ -19,11 +19,14 @@ const ZWJ = "‍";
 
 // --- 1. normalisation of lexicon spellings ----------------------------------------------------
 
-const JOIN = new RegExp(`([ක-ෆ])${HAL}(?!${ZWJ})(?=[යර])`, "g"); // lookahead: ය/ර may start the next join
+const JOIN = new RegExp(`([ක-ෆ])${HAL}(?!${ZWJ})(?=([යර]))`, "g"); // lookahead: ය/ර may start the next join
 
-/** Restore the mandatory ZWJ in C ් ය / C ් ර (never after ර: G-HC-14, R-09). */
+/** C ් ය / C ් ර takes ZWJ, except after ර (G-HC-14, R-09) and C ් ර after ම න ල (R-07). */
+const joins = (c: string, next: string): boolean => c !== "ර" && !(next === "ර" && "මනල".includes(c));
+
+/** Restore the mandatory ZWJ in yansaya and rakaransaya, for word lists that dropped it. */
 export function normalize(word: string): string {
-  return word.replace(JOIN, (_, c: string) => c + HAL + (c !== "ර" ? ZWJ : ""));
+  return word.replace(JOIN, (_, c: string, next: string) => c + HAL + (joins(c, next) ? ZWJ : ""));
 }
 
 // --- 1b. converter options applied to lexicon spellings ----------------------------------------

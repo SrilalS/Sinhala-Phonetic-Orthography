@@ -9,7 +9,7 @@ orthographic rules (verified exhaustively by tools/check_romanization.py).
 Options (all off by default):
   archaic     allow ඏ ඐ ෟ ෳ ඎ ඁ ඦ and touching letters (R-14)
   repaya_zwj  write repaya as ර්‍ + C instead of plain ර් + C (R-08)
-  classical   ZWJ conjuncts for the classical bandi akuru pairs (R-10)
+  classical   ZWJ conjuncts for the classical bandi akuru pairs (R-10), and rakaransaya after ම න ල (R-07)
 """
 import json
 from pathlib import Path
@@ -22,6 +22,7 @@ SANYAKA = set("ඟඦඬඳඹ")
 NO_HAL = SANYAKA | {"ළ"}                       # G-HC-06, G-HC-07
 NGA = "ඞ"                                     # G-HC-08: only as ඞ්
 PLAIN = {"ඟ": "ග", "ඦ": "ජ", "ඬ": "ඩ", "ඳ": "ද", "ඹ": "බ"}   # G-PH-01: no sanyaka word-initially
+PLAIN_BEFORE_RA = set("මනල")                 # R-07: C ් ර after ම න ල is plain hal (දුම්රිය, හෙන්රි)
 VELARS = set("කඛගඝ")                          # R-11: n + velar → ං
 GAETTA = {"u": "ෘ", "uu": "ෲ"}                 # R-06: C + r + u/uu is usually written ෘ/ෲ (G-VS-15)
 FRONT = {"i", "ii", "e", "ee", "ae", "aee", "ai"}
@@ -134,7 +135,9 @@ def transliterate(source, archaic=False, repaya_zwj=False, classical=False, raka
                         out.append(GAETTA[vowel])                                        # G-VS-15, R-06
                         state, prev_vowel = "V", vowel
                         j += 3; continue
-                    out.append(HAL if letter == "ර" else HAL + ZWJ)                     # G-HC-12, R-07
+                    plain = letter == "ර" or (letter in PLAIN_BEFORE_RA and not classical
+                                              and not (rakaransaya_u and vowel in GAETTA))
+                    out.append(HAL if plain else HAL + ZWJ)                              # G-HC-12, R-07
                 elif letter == "ර":
                     out.append(HAL + ZWJ if repaya_zwj else HAL)                         # R-08
                 elif classical and (letter, nl) in BANDI:

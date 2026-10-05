@@ -34,7 +34,7 @@ over every input of up to three sequences.
 |---|---|---|
 | `archaic` | Allow ඏ ඐ ෟ ෳ, standalone ඎ, ඁ, ඦ and touching letters | R-14 |
 | `repayaZwj` | Write repaya as ර්‍ + C instead of plain ර් + C | R-08 |
-| `classical` | ZWJ conjuncts for the classical bandi akuru pairs | R-10 |
+| `classical` | ZWJ conjuncts for the classical bandi akuru pairs, and rakaransaya after ම න ල | R-07, R-10 |
 | `rakaransayaU` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර) | R-06 |
 
 The romanization (sequence tables, conversion rules, conventions) is specified in

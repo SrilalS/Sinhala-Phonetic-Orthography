@@ -142,7 +142,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 |---|---|---|---|
 | C-1 | A consonant with no following vowel takes hal | `pin` → පින් | G-HC-01 |
 | C-2 | C + `y` → yansaya (C ් ZWJ ය), except after ර | `vaakya` → වාක්‍ය | G-HC-11, G-HC-14 |
-| C-3 | C + `r` → rakaransaya (C ් ZWJ ර) for every consonant that takes hal | `kramaya` → ක්‍රමය, `thaamra` → තාම්‍ර | G-HC-12, R-07 |
+| C-3 | C + `r` → rakaransaya (C ් ZWJ ර) for every consonant that takes hal, except ම න ල (plain hal; rakaransaya under `classical`) | `kramaya` → ක්‍රමය, `dumriya` → දුම්රිය | G-HC-12, R-07 |
 | C-4 | ර + C → plain ර් (repaya with ZWJ under `repaya_zwj`) | `karma` → කර්ම | G-HC-13, R-08 |
 | C-5 | Geminates and other clusters use plain hal (ZWJ conjuncts under `classical`) | `amma` → අම්ම, `akShara` → අක්ෂර | G-HC-03, R-10 |
 | C-6 | A vowel after a vowel is joined by a glide: ය after front vowels, ව after back vowels; after a / aa the following vowel decides | `toppia` → ටොප්පිය, `dua` → දුව, `ai` → අයි | G-VS-06, R-05 |
@@ -159,7 +159,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | Option | Effect | Convention |
 |---|---|---|
 | `repaya_zwj` | ර්‍ + C instead of ර් + C | R-08 |
-| `classical` | ZWJ conjuncts for ක්‍ෂ ක්‍ව ග්‍ධ ට්‍ඨ ත්‍ථ ත්‍ව ද්‍ධ ද්‍ව න්‍ථ න්‍ද න්‍ධ න්‍ව ඤ්‍ච | R-10, G-HC-15 |
+| `classical` | ZWJ conjuncts for ක්‍ෂ ක්‍ව ග්‍ධ ට්‍ඨ ත්‍ථ ත්‍ව ද්‍ධ ද්‍ව න්‍ථ න්‍ද න්‍ධ න්‍ව ඤ්‍ච, and rakaransaya after ම න ල (ම්‍ර න්‍ර ල්‍ර) | R-10, G-HC-15, R-07 |
 | `archaic` | ඏ ඐ ෟ ෳ (`~l`, `~ll`), standalone ඎ (`RR`), ඁ (`~n`), ඦ (`zj`), touching letters (`+`) | R-14 |
 | `rakaransaya_u` | C + `r` + `u` / `uu` as rakaransaya + ු / ූ (ක්‍රු, ක්‍රූ) instead of C + ෘ / ෲ | R-06 |
 
@@ -234,7 +234,7 @@ frequency alone cannot always choose. Context from the previous word would help.
 | R-04 | `A` / `ae` ඇ · `Aa` / `AA` / `aee` ඈ | `ae` matches ISO 15919 7-bit; `A` keeps a one-letter form |
 | R-05 | `ai` / `au` → glide spelling (අයි / අවු, C + යි / C + වු); ෛ ඓ via `E`, ෞ ඖ via `Au` | Two vowels are never written side by side (G-VS-03, G-VS-06). In the NLPC list, ayi/yi outnumber ෛ about 60:1 and vu outnumbers ෞ about 8:1 |
 | R-06 | C + `ru` / `ruu` = C + ෘ / ෲ; `R` / `RR` also write ෘ / ෲ; `rakaransaya_u` gives ක්‍රු / ක්‍රූ instead; standalone `R` = ඍ; `ru` after a vowel = ර + ු | ෘ / ෲ is the usual spelling of /Cru(ː)/ in Sanskrit and English loans alike (G-VS-15): in the NLPC list it is the most frequent spelling in 299 of 401 words written more than one way (කෲර 1,667, ක්‍රූර 22). ගෘහ and ග්‍රහ stay distinct (G-VS-12) |
-| R-07 | Rakaransaya after every consonant that takes hal, including ම න ල | The encoding is valid everywhere (G-HC-12); තාම්‍ර occurs |
+| R-07 | Rakaransaya after every consonant that takes hal, except ම න ල: there ර starts a new syllable and takes plain hal (දුම්රිය, හෙන්රි); `classical` writes ම්‍ර (තාම්‍ර) | Running text writes ම්ර / න්ර plain (03:HC-052); a ZWJ would draw a rakaransaya under ම. ම්‍ර is attested only for Sanskrit tatsama words |
 | R-08 | Repaya defaults to plain ර් + C | Both forms are standard (G-HC-13); the plain form dominates the NLPC list (කර්මය, කාර්ය) |
 | R-09 | *kārya* → කාර්ය | Follows from R-08; 18,722 occurrences in the NLPC list |
 | R-10 | ක්ෂ and other bandi akuru default to plain hal; ZWJ conjuncts are optional | Conjuncts other than yansaya/rakaransaya are optional and mostly classical (G-HC-15/16) |

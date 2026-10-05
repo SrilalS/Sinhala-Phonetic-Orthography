@@ -44,6 +44,7 @@ Conventions used in this file:
 | S22 | si.wikipedia "සිංහල අක්ෂර වින්‍යාසය": https://si.wikipedia.org/wiki/සිංහල_අක්ෂර_වින්‍යාසය | Lead only |
 | S23 | A published Sinhala transliteration scheme (nongnu.org Sinhala project documentation): https://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_2.html | Prior-art romanization |
 | S24 | RFC 5892 (IDNA2008), Appendix A.2, CONTEXTJ rule for ZWJ: https://www.rfc-editor.org/rfc/rfc5892 | IETF standard (cited from knowledge, not fetched this session) |
+| S25 | si.wikipedia articles "දුම්රිය" and "ශ්‍රී ලංකා දුම්රිය සේවය", wikitext fetched 2026-10-05: https://si.wikipedia.org/wiki/දුම්රිය | Usage sample (running text) |
 
 ---
 
@@ -373,9 +374,10 @@ Conventions used in this file:
 - **Statement:** Nothing in Unicode, SLS or the shaping specs restricts which consonant may take a rakāransaya. Any `C ් ZWJ ර` is valid encoding, and fonts draw the generic below-base form.
   - ම්‍ර occurs in Sanskrit tatsama words such as තාම්‍ර "copper" and ආම්‍ර "mango" **[UNVERIFIED in a Sinhala source this session]**.
   - න්‍ර and ල්‍ර: I found no attested Sinhala word.
-  - ම්ර without ZWJ would follow the general rule of HC-021: not accepted as a spelling of *-mr-*.
-- **Confidence:** medium (encoding high; attestations low).
-- **Sources:** S1, S3, S5, S17.
+  - **In running text, ම න ල + ර is written with plain hal.** Where ම න ල meets ර there is usually a morpheme or syllable boundary: දුම් + රිය "train", හෙන්රි "Henry", ඉම්රාන්, දිල්රුක්ෂි. In S25 every ම්ර is written without ZWJ, while the same pages write ප්‍ර ත්‍ර ක්‍ර with ZWJ (78 times). A ZWJ would draw a rakāransaya under ම, a form readers do not use for these words.
+  - So the general rule of HC-021 (C + ර takes ZWJ) holds within a syllable. After ම න ල the plain form is the norm, and ම්‍ර is kept for a deliberately classical style.
+- **Confidence:** medium (encoding high; usage from one source).
+- **Sources:** S1, S3, S5, S17, S25.
 
 ### HC-053: ඤ්‍ච / ඤ්‍ජ (pañca, vyañjana)
 - **Statement:**
@@ -514,7 +516,7 @@ or validating and searching stored Sinhala text.
 6. **ක්ෂ vs ක්‍ෂ preference** in current NIE textbooks: unknown. The S16 notes use both.
 7. **තත්ත්වය vs තත්වය:** I found only a teaching note (S16) supporting the double-t form. No official ruling (Official Languages Dept / NIE "Sinhala Lekhana Rithiya", 1989) could be fetched.
 8. **Word-final න්/ම් → [ŋ]** (S14) is one lead source. Not checked against Gair/Karunatillake.
-9. **ම්‍ර, න්‍ර, ල්‍ර** attestations not verified.
+9. **ම්‍ර, න්‍ර, ල්‍ර** attestations not verified. Plain ම්ර / න්ර is attested (HC-052); a corpus count of ම්‍ර would show whether any word needs the joined form.
 10. **SLS Table 3 count:** it says "7" yansaya combinations but lists 8. It also omits u/uu with rakāransaya, while Unicode shows ක්‍රු/ක්‍රූ shapes. This may be an editorial slip in the draft.
 11. **"Sinhala Lekhana Rithiya" (NIE 1989)** is cited by S8 as the alphabet source. It was not accessed and is likely the best source for school-level hal/conjunct rules.
 12. **Corpus evidence of wrong encodings** (ැ/ෑ for u/uu after rakāransaya). S13's examples are in a garbled legacy font, so the exact words are inferred.

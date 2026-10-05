@@ -73,7 +73,7 @@ Machine-readable companions:
 | G-HC-09 | ණ never ends a stem with hal (a final consonant surfaces as න්). ණ් is fine inside clusters (ණ්ඩ) | SOFT | M | 04:NS-058 |
 | G-HC-10 | Each joining point of a long cluster is independent: ZWJ only where a reduced form is wanted (ස්ත්‍රී, රාෂ්ට්‍ර, ශාස්ත්‍ර) | HARD | H | 03:HC-044 |
 | G-HC-11 | **Yansaya is mandatory** for C + ය: `C ් ZWJ ය` (වාක්‍ය, විද්‍යාව). වාක්ය without ZWJ is not accepted | HARD | H | 03:HC-020, 05:SP-012 |
-| G-HC-12 | **Rakaransaya is mandatory** for C + ර: `C ් ZWJ ර` (ක්‍රම, ශ්‍රී, ප්‍රශ්නය). Valid after **any** consonant that takes hal, including ම (තාම්‍ර), න and ල (rare) | HARD | H (rule), L (m/n/l attestation) | 03:HC-021/052 |
+| G-HC-12 | **Rakaransaya is mandatory** for C + ර: `C ් ZWJ ර` (ක්‍රම, ශ්‍රී, ප්‍රශ්නය). After ම න ල, ර normally starts a new syllable and takes plain hal (දුම්රිය, හෙන්රි). ම්‍ර (තාම්‍ර) is valid encoding but rare | HARD | H (rule), M (m/n/l usage) | 03:HC-021/052 |
 | G-HC-13 | **Repaya is optional style**: ර් + C or ර ් ZWJ + C, both correct (කර්ම / කර්‍ම) | STYLE | H | 01:INV-006, 03:HC-022 |
 | G-HC-14 | **No yansaya after ර** (SLS 1134). `ර ් ZWJ ය` means repaya + ය. *kārya* has 3 accepted spellings: කාර්‍ය්‍ය (traditional), කාර්‍ය, කාර්ය. ර්‍ර is unattested | HARD (ra+yansaya), DESIGN (which kārya) | H | 03:HC-033/034/054, 05:PH-012 |
 | G-HC-15 | **Other conjuncts (bandi akuru) are optional and mostly classical.** Still seen: ක්‍ෂ, ක්‍ව, න්‍ද, න්‍ධ, න්‍ථ, ත්‍ථ. Not contemporary: ද්‍ධ, ද්‍ව, ට්‍ඨ, ඤ්‍ච. Modern default is plain hal | STYLE | M | 03:HC-030, 03:§9b |
@@ -177,7 +177,7 @@ checked exhaustively, never produces a forbidden sequence.
 | 1 | NIE textbooks, the final SLS 1134:2004/2011 texts and the Sinhala Lekhana Rīthiya (1989) were **not reachable**. School-grammar rules rest on agreeing secondary sources | G-SP-*, G-HC-07, alphabet counts |
 | 2 | The 41 × 17 validity table is a synthesis, **not a corpus count**. Only the ෘ / ෲ columns have been checked against a corpus (02:VS-035) | G-VS-13 / validity.json |
 | 3 | Touching-letter and yansaya-with-repaya encodings changed between SLS drafts | G-EN-08, G-HC-14 |
-| 4 | ම්‍ර / න්‍ර / ල්‍ර have no attestation in a Sinhala source | G-HC-12, R-07 |
+| 4 | ම්‍ර / න්‍ර / ල්‍ර have no attestation in a Sinhala source; plain ම්ර / න්ර is attested (03:HC-052) | G-HC-12, R-07 |
 | 5 | How ං before ය ර ල ව ශ ස හ is actually pronounced | G-NS-02/03 |
 
 **Recommended next step:** count consonant + sign and cluster bigrams in a Sinhala corpus (Wikipedia

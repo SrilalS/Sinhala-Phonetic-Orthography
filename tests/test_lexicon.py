@@ -38,6 +38,8 @@ class NormalizeTest(unittest.TestCase):
         self.assertEqual(normalize("ක්රමය"), "ක්" + Z + "රමය")
         self.assertEqual(normalize("විද්යාව"), "විද්" + Z + "යාව")
         self.assertEqual(normalize("කාර්යය"), "කාර්යය")                        # never after ර (G-HC-14)
+        self.assertEqual(normalize("දුම්රිය"), "දුම්රිය")                      # C ් ර after ම න ල stays plain (R-07)
+        self.assertEqual(normalize("රම්ය"), "රම්" + Z + "ය")                     # yansaya after ම still joins
         self.assertEqual(normalize("ක්" + Z + "රමය"), "ක්" + Z + "රමය")          # already joined
 
     def test_overlapping_joins(self):

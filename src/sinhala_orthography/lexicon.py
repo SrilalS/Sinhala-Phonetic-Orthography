@@ -35,12 +35,17 @@ NO_HAL = "ඟඦඬඳඹළ"
 
 # --- 1. normalisation of lexicon spellings -------------------------------------------
 
-_JOIN = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=[යර])")   # lookahead: ය/ර may start the next join
+_JOIN = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=([යර]))")   # lookahead: ය/ර may start the next join
+
+
+def _joins(c, nxt):
+    """C ් ය / C ් ර takes ZWJ, except after ර (G-HC-14, R-09) and C ් ර after ම න ල (R-07)."""
+    return c != "ර" and not (nxt == "ර" and c in "මනල")
 
 
 def normalize(word):
-    """Restore the mandatory ZWJ in C ් ය / C ් ර (never after ර: G-HC-14, R-09)."""
-    return _JOIN.sub(lambda m: m.group(1) + HAL + (ZWJ if m.group(1) != "ර" else ""), word)
+    """Restore the mandatory ZWJ in yansaya and rakaransaya, for word lists that dropped it."""
+    return _JOIN.sub(lambda m: m.group(1) + HAL + (ZWJ if _joins(m.group(1), m.group(2)) else ""), word)
 
 
 # --- 1b. converter options applied to lexicon spellings --------------------------------

@@ -12,7 +12,7 @@ export interface Options {
   archaic?: boolean;
   /** Write repaya as ර්‍ + C instead of plain ර් + C (R-08). */
   repayaZwj?: boolean;
-  /** ZWJ conjuncts for the classical bandi akuru pairs (R-10). */
+  /** ZWJ conjuncts for the classical bandi akuru pairs (R-10), and rakaransaya after ම න ල (R-07). */
   classical?: boolean;
   /** Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual ෘ/ෲ (කෲර) (R-06). */
   rakaransayaU?: boolean;
@@ -25,6 +25,7 @@ const SANYAKA = new Set("ඟඦඬඳඹ");
 const NO_HAL = new Set([...SANYAKA, "ළ"]); // G-HC-06, G-HC-07
 const NGA = "ඞ"; // G-HC-08: only as ඞ්
 const PLAIN: Record<string, string> = { ඟ: "ග", ඦ: "ජ", ඬ: "ඩ", ඳ: "ද", ඹ: "බ" }; // G-PH-01
+const PLAIN_BEFORE_RA = new Set("මනල"); // R-07: C ් ර after ම න ල is plain hal (දුම්රිය, හෙන්රි)
 const VELARS = new Set("කඛගඝ"); // R-11: n + velar → ං
 const GAETTA: Record<string, string> = { u: "ෘ", uu: "ෲ" }; // R-06, G-VS-15
 const FRONT = new Set(["i", "ii", "e", "ee", "ae", "aee", "ai"]);
@@ -146,7 +147,9 @@ export function toSinhala(source: string, options: Options = {}): string {
             state = "V"; prevVowel = vowel;
             j += 3; continue;
           }
-          out.push(letter === "ර" ? HAL : HAL + ZWJ); // G-HC-12, R-07
+          const plain = letter === "ර" || (PLAIN_BEFORE_RA.has(letter) && !classical
+            && !(rakaransayaU && vowel !== null && has(GAETTA, vowel)));
+          out.push(plain ? HAL : HAL + ZWJ); // G-HC-12, R-07
         } else if (letter === "ර") {
           out.push(repayaZwj ? HAL + ZWJ : HAL); // R-08
         } else if (classical && BANDI.has(letter + nl)) {
