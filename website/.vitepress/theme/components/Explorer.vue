@@ -9,6 +9,7 @@ const rules = computed(() => RULES[locale.value] ?? RULES.root);
 type Form = {
   id: string; text: string; status: Status; shape: string | null; rules: string[];
   roman: Record<OptionSet, string[]>;
+  words: [string, number][];
 };
 type Status = "valid" | "loan" | "rare" | "unattested" | "never";
 type OptionSet = "default" | "repaya_zwj" | "classical" | "archaic" | "rakaransaya_u";
@@ -39,16 +40,18 @@ function fromHash() {
 onUnmounted(() => window.removeEventListener("hashchange", fromHash));
 
 onMounted(async () => {
-  const [validity, coverage] = await Promise.all([
+  const [validity, coverage, examples] = await Promise.all([
     import("../../../../data/validity.json").then((m) => m.default as any[]),
     import("../../../../data/romanization-coverage.json").then((m) => m.default as any[]),
+    import("../../../../data/examples.json").then((m) => m.default as any[]),
   ]);
   const roman = new Map(coverage.map((c) => [c.id, c]));
+  const words = new Map(examples.map((e) => [e.id, e.words]));
   const map = new Map<string, Form>();
   const cons: string[] = [];
   for (const v of validity) {
     const c = roman.get(v.id);
-    map.set(v.id, { ...v, roman: { default: c.default, repaya_zwj: c.repaya_zwj, classical: c.classical, archaic: c.archaic, rakaransaya_u: c.rakaransaya_u } });
+    map.set(v.id, { ...v, roman: { default: c.default, repaya_zwj: c.repaya_zwj, classical: c.classical, archaic: c.archaic, rakaransaya_u: c.rakaransaya_u }, words: words.get(v.id) ?? [] });
     const [head, tail] = v.id.split(".");
     if (tail === "hal") cons.push(head);
   }
@@ -214,6 +217,17 @@ function tryHref(seq: string, param: string) {
           <div v-if="rules[r]" class="ex-rule-text" v-html="inline(rules[r].text)" />
         </div>
 
+        <h3>{{ t.wordsUsing }}</h3>
+        <div v-if="current.words.length" class="ex-words si" lang="si">
+          <span v-for="[w, n] in current.words" :key="w" :title="t.wordCount(n)">{{ w }}</span>
+        </div>
+        <p v-else class="ex-muted">
+          <template v-if="current.status === 'never'">{{ t.wordsNever }}</template>
+          <template v-else-if="current.status === 'unattested'">{{ t.wordsUnattested }}</template>
+          <template v-else>{{ t.wordsNone }}</template>
+        </p>
+        <p v-if="current.words.length" class="ex-hint">{{ t.wordsSource }}</p>
+
         <h3>{{ t.howToType }}</h3>
         <div v-for="g in typing" :key="g.label" class="ex-type">
           <div class="ex-type-label">{{ g.label }}</div>
@@ -296,6 +310,8 @@ td.ex-conj, th.ex-conj { padding-left: 6px !important; }
 .ex-type-label { font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px; }
 .ex-hint { font-size: 12px; line-height: 1.5; color: var(--vp-c-text-3); margin: 8px 0 0; }
 .ex-hint a { color: var(--vp-c-brand-1); }
+.ex-words { display: flex; flex-wrap: wrap; gap: 6px; }
+.ex-words span { font-size: 17px; padding: 2px 10px; border-radius: 8px; background: var(--vp-c-bg); border: 1px solid var(--vp-c-divider); cursor: default; }
 .ex-romans { display: flex; flex-wrap: wrap; gap: 6px; }
 .ex-romans a code { font-size: 14px; }
 .ex-romans a:hover code { color: var(--vp-c-brand-1); }

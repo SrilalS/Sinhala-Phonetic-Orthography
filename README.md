@@ -35,6 +35,7 @@ orthographic rules.
 | 📊 | [data/letters.json](data/letters.json) | 923 letter forms: 18 vowels, 3 signs, 41 × 19 consonant forms, 41 × 3 conjuncts |
 | ✅ | [data/validity.json](data/validity.json) | Status of each form: `valid` · `loan` · `rare` · `unattested` · `never`, with rule IDs |
 | 🗺️ | [data/romanization-coverage.json](data/romanization-coverage.json) | Romanizations that produce each form, per option set |
+| 📖 | [data/examples.json](data/examples.json) | A few frequent words that contain each form, from a word-frequency list |
 | 🐍 | [src/sinhala_orthography/](src/sinhala_orthography) | Inventory, converter (`to_sinhala`), sound key and disambiguator (`Lexicon`, `candidates`) |
 | 🟦 | [js/](js) | The same package in TypeScript (`toSinhala`, `Lexicon`, `candidates` …), golden-tested against the Python |
 | 🛠️ | [tools/](tools) | Builders and the exhaustive rule checker |
@@ -83,6 +84,7 @@ Rebuild the data and run the checks:
 ```sh
 python tools/build_data.py            # data/letters.json, data/validity.json
 python tools/check_romanization.py    # coverage + exhaustive safety (about 20 s)
+python tools/build_examples.py LIST   # data/examples.json from a "word<TAB>count" list
 python tools/build_spec_tables.py     # tables in docs/07
 python tools/check_translations.py    # Sinhala translations whose English source changed
 python tools/build_js_golden.py       # golden files for the TypeScript port; then `npm test` in js/
