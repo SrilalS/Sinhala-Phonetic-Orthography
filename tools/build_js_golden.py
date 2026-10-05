@@ -99,7 +99,7 @@ def main():
             if a in w and rng.random() < 0.5:
                 words[w.replace(a, b, 1)] = rng.randint(1, 5000)
         if ZWJ in w and rng.random() < 0.3:
-            words[w.replace(ZWJ, "")] = rng.randint(1, 50)       # a ZWJ-less copy, repaired on load
+            words[w.replace(ZWJ, "")] = rng.randint(1, 50)       # a ZWJ-less variant, kept as written (the list has ZWJ)
     lex_path = OUT / "lexicon.txt"
     lex_path.write_text("".join(f"{w}\t{n}\n" for w, n in words.items()), encoding="utf-8", newline="\n")
     lex = Lexicon(lex_path)

@@ -20,8 +20,8 @@ standard spelling. This module:
 Any word-frequency list works (one "word<TAB>count" per line). The evaluation in
 docs/07-phonetic-romanization.md used the University of Moratuwa NLPC "Word Frequency
 List for Sinhala" (https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala), which
-is not redistributed here. Copies of that list without ZWJ are repaired on load
-(see normalize()).
+is not redistributed here. Copies of that list without any ZWJ are repaired on load
+(see normalize()); a list that has ZWJ is used as written.
 """
 import bisect
 import re
@@ -108,16 +108,24 @@ def sound_key(text):
 # --- 3. lexicon --------------------------------------------------------------------------
 
 class Lexicon:
-    """A word-frequency list indexed by sound key. `path`: a "word<TAB>count" file."""
+    """A word-frequency list indexed by sound key. `path`: a "word<TAB>count" file.
+
+    A list with no ZWJ at all lost it, and every word is repaired with normalize(). A list
+    that has ZWJ is taken as written: normalize() cannot see word boundaries and would join
+    spellings like බවත්ය (බවත් + ය) that such a list keeps apart on purpose.
+    """
 
     def __init__(self, path):
-        path = Path(path)
-        self.count = {}
-        for line in path.read_text(encoding="utf-8").splitlines():
+        rows = []
+        for line in Path(path).read_text(encoding="utf-8").splitlines():
             word, _, n = line.partition("\t")
             if word and n.isdigit():
-                w = normalize(word)
-                self.count[w] = self.count.get(w, 0) + int(n)
+                rows.append((word, int(n)))
+        repair = not any(ZWJ in w for w, _ in rows)
+        self.count = {}
+        for word, n in rows:
+            w = normalize(word) if repair else word
+            self.count[w] = self.count.get(w, 0) + n
         self.by_key = {}
         for w, n in self.count.items():
             self.by_key.setdefault(sound_key(w), []).append(w)

@@ -90,6 +90,21 @@ class RestyleTest(unittest.TestCase):
         self.assertEqual(candidates(lex, "kruura", rakaransaya_u=True)[0], "ක්" + Z + "රූර")
         self.assertEqual(candidates(lex, "karma", repaya_zwj=True)[0], "කර්" + Z + "ම")
 
+    def test_repairs_only_lists_without_zwj(self):
+        import tempfile
+
+        def load(text):
+            with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False, encoding="utf-8") as f:
+                f.write(text)
+            lex = Lexicon(f.name)
+            os.unlink(f.name)
+            return set(lex.count)
+
+        # No ZWJ anywhere: the list lost it, so joins are restored.
+        self.assertEqual(load("ක්රමය\t10\nබවත්ය\t5\n"), {"ක්" + Z + "රමය", "බවත්" + Z + "ය"})
+        # Some ZWJ: the list kept it, so a plain hal is a word boundary (බවත් + ය).
+        self.assertEqual(load("ක්" + Z + "රමය\t10\nබවත්ය\t5\n"), {"ක්" + Z + "රමය", "බවත්ය"})
+
 
 @unittest.skipUnless(WORD_LIST, "set SINHALA_WORD_LIST to a word-frequency list")
 class DisambiguationTest(unittest.TestCase):

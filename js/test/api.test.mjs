@@ -29,6 +29,13 @@ test("candidates rank a word list", () => {
   assert.equal(soundKey("හොඳ"), "හොන්ද");
 });
 
+test("Lexicon repairs only lists without ZWJ", () => {
+  // No ZWJ anywhere: the list lost it, so joins are restored.
+  assert.deepEqual([...new Lexicon([["ක්රමය", 10], ["බවත්ය", 5]]).count.keys()], ["ක්" + Z + "රමය", "බවත්" + Z + "ය"]);
+  // Some ZWJ: the list kept it, so a plain hal is a word boundary (බවත් + ය).
+  assert.deepEqual([...new Lexicon([["ක්" + Z + "රමය", 10], ["බවත්ය", 5]]).count.keys()], ["ක්" + Z + "රමය", "බවත්ය"]);
+});
+
 test("inventory", () => {
   assert.equal(entries().length, 923);
   assert.equal(VOWELS.length, 19);

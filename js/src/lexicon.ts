@@ -89,7 +89,8 @@ const byCode = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
 
 /**
  * A word-frequency list indexed by sound key. Pass the text of a "word<TAB>count" file, or
- * [word, count] pairs. Copies of a list without ZWJ are repaired on load (see normalize()).
+ * [word, count] pairs. A list with no ZWJ at all is repaired on load (see normalize()); a list
+ * that has ZWJ is used as written, since normalize() would also join across word boundaries (බවත්ය).
  */
 export class Lexicon {
   /** word → frequency */
@@ -98,19 +99,21 @@ export class Lexicon {
   readonly keys: string[];
 
   constructor(source: string | Iterable<readonly [string, number]>) {
-    const add = (word: string, n: number) => {
-      const w = normalize(word);
-      this.count.set(w, (this.count.get(w) ?? 0) + n);
-    };
+    const rows: [string, number][] = [];
     if (typeof source === "string") {
       for (const line of source.split(LINE_BREAK)) {
         const tab = line.indexOf("\t");
         const word = tab < 0 ? line : line.slice(0, tab);
         const n = tab < 0 ? "" : line.slice(tab + 1);
-        if (word && /^[0-9]+$/.test(n)) add(word, parseInt(n, 10));
+        if (word && /^[0-9]+$/.test(n)) rows.push([word, parseInt(n, 10)]);
       }
     } else {
-      for (const [word, n] of source) if (word) add(word, n);
+      for (const [word, n] of source) if (word) rows.push([word, n]);
+    }
+    const repair = !rows.some(([w]) => w.includes(ZWJ));
+    for (const [word, n] of rows) {
+      const w = repair ? normalize(word) : word;
+      this.count.set(w, (this.count.get(w) ?? 0) + n);
     }
     for (const w of this.count.keys()) {
       const k = soundKey(w);

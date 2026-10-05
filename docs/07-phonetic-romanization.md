@@ -250,7 +250,8 @@ frequency alone cannot always choose. Context from the previous word would help.
 
 - Disambiguation quality depends on the word list. The NLPC list is drawn from news text,
   so formal words outrank colloquial ones (ඔය before ඔයා). Some copies of it have lost
-  their ZWJs; `normalize()` repairs yansaya and rakaransaya on load.
+  their ZWJs; `normalize()` repairs yansaya and rakaransaya on load. It runs only on a list
+  with no ZWJ at all, because it cannot see word boundaries and also joins බවත් + ය → බවත්‍ය.
 - The per-consonant validity table (`data/validity.json`) is a synthesis of the sources,
   not a corpus count (`00-rules.md` §10).
 - Informal romanization often drops vowels altogether (G-TY-05). Recovering those needs
