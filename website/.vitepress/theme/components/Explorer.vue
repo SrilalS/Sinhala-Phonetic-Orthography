@@ -176,6 +176,7 @@ function tryHref(seq: string, param: string) {
         </div>
 
         <h2>{{ t.grid }}</h2>
+        <p class="ex-hint ex-grid-note">{{ t.gridNote }}</p>
         <div class="ex-scroll">
           <table class="ex-grid">
             <thead>
@@ -309,6 +310,7 @@ td.ex-conj, th.ex-conj { padding-left: 6px !important; }
 .ex-type { margin-bottom: 10px; }
 .ex-type-label { font-size: 12px; color: var(--vp-c-text-2); margin-bottom: 4px; }
 .ex-hint { font-size: 12px; line-height: 1.5; color: var(--vp-c-text-3); margin: 8px 0 0; }
+.ex-grid-note { margin: -4px 0 10px; }
 .ex-hint a { color: var(--vp-c-brand-1); }
 .ex-words { display: flex; flex-wrap: wrap; gap: 6px; }
 .ex-words span { font-size: 17px; padding: 2px 10px; border-radius: 8px; background: var(--vp-c-bg); border: 1px solid var(--vp-c-divider); cursor: default; }
