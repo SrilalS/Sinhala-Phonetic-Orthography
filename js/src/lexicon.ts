@@ -9,7 +9,8 @@
 //    write in Latin script (aspiration, ණ/න, ළ/ල, ශ/ෂ/ස, ද/ඩ, vowel length, sanyaka vs cluster …);
 // 2. returns the words of a frequency list that share the input's sound key, most frequent first;
 // 3. keeps the converter's own spelling first when the romanization contains an explicit marker
-//    for a distinction (a capital, a z- prefix, a doubled vowel …) and that spelling is a word;
+//    for a distinction (a capital, a z- prefix, a doubled vowel …) and that spelling is a word,
+//    or a lone vowel letter (`R` ඍ, `E` ඓ);
 // 4. writes the words in the style the converter options ask for (restyle()), so a word list in
 //    the usual style (කෲර, කර්ම) does not undo rakaransayaU, repayaZwj or classical (ක්‍රූර, කර්‍ම).
 import { BANDI, toSinhala, type Options } from "./romanization.js";
@@ -150,6 +151,10 @@ export class Lexicon {
 // and the converter's spelling is a word, that spelling outranks frequency.
 const EXPLICIT = /[KCGJTDNLPBSWVUIEOAXRMH]|z[a-zA-Z]|aa|ii|uu|ee|oo|ae|thh|dh|kh|gh|chh|jh|ph|bh|x/;
 
+// One independent vowel letter (අ … ඖ). A list has no such words, yet a letter typed on its own is
+// meant as that letter: frequency would turn ඍ into රු and ඓ into අයි.
+const loneVowel = (spelling: string) => spelling.length === 1 && spelling >= "අ" && spelling <= "ඖ";
+
 export interface CandidateOptions extends Options {
   /** Maximum number of spellings (default 5). */
   limit?: number;
@@ -173,7 +178,7 @@ export function candidates(lex: Lexicon, roman: string, options: CandidateOption
     return unique(words.map((w) => restyle(w, convert))).slice(0, limit);
   }
   let ranked = unique(rank(lex.exact(key)).map((w) => restyle(w, convert)));
-  if (ranked.includes(spelled) && EXPLICIT.test(roman)) {
+  if (EXPLICIT.test(roman) && (ranked.includes(spelled) || loneVowel(spelled))) {
     ranked = [spelled, ...ranked.filter((w) => w !== spelled)]; // explicit markers beat frequency
   } else if (!ranked.includes(spelled)) {
     ranked.push(spelled); // the rule-based spelling is always included

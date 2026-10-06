@@ -90,6 +90,24 @@ class RestyleTest(unittest.TestCase):
         self.assertEqual(candidates(lex, "kruura", rakaransaya_u=True)[0], "ක්" + Z + "රූර")
         self.assertEqual(candidates(lex, "karma", repaya_zwj=True)[0], "කර්" + Z + "ම")
 
+    def test_lone_vowel_letters_keep_their_spelling(self):
+        import tempfile
+        with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False, encoding="utf-8") as f:
+            f.write("ඒ\t900\nඑ\t500\nරු\t300\nරූ\t200\nඅයි\t800\nඅවු\t100\nඕ\t700\nකල\t50\n")
+        lex = Lexicon(f.name)
+        os.unlink(f.name)
+        # An explicit marker on a lone vowel keeps that letter first, although it is not in the list.
+        for roman, letter in [("A", "ඇ"), ("ae", "ඇ"), ("Aa", "ඈ"), ("aee", "ඈ"), ("R", "ඍ"), ("RR", "ඍ"),
+                              ("E", "ඓ"), ("Au", "ඖ"), ("O", "ඔ")]:
+            with self.subTest(roman=roman):
+                self.assertEqual(candidates(lex, roman)[0], letter)
+        self.assertIn("රු", candidates(lex, "R"))                  # the sound-alike words still follow
+        # Unmarked vowels are matched by sound, as before.
+        self.assertEqual(candidates(lex, "e")[0], "ඒ")
+        self.assertEqual(candidates(lex, "o")[0], "ඕ")
+        # Only a lone vowel: any other explicit spelling that is not a word still yields to the list.
+        self.assertEqual(candidates(lex, "kaLa")[0], "කල")
+
     def test_repairs_only_lists_without_zwj(self):
         import tempfile
 

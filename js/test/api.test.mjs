@@ -29,6 +29,18 @@ test("candidates rank a word list", () => {
   assert.equal(soundKey("හොඳ"), "හොන්ද");
 });
 
+test("a lone vowel letter typed with a marker keeps its spelling", () => {
+  const lex = new Lexicon("ඒ\t900\nඑ\t500\nරු\t300\nරූ\t200\nඅයි\t800\nඅවු\t100\nඕ\t700\nකල\t50\n");
+  for (const [roman, letter] of [["A", "ඇ"], ["ae", "ඇ"], ["Aa", "ඈ"], ["aee", "ඈ"], ["R", "ඍ"], ["RR", "ඍ"],
+    ["E", "ඓ"], ["Au", "ඖ"], ["O", "ඔ"]]) {
+    assert.equal(candidates(lex, roman)[0], letter, roman);
+  }
+  assert.ok(candidates(lex, "R").includes("රු")); // the sound-alike words still follow
+  assert.equal(candidates(lex, "e")[0], "ඒ"); // unmarked vowels are matched by sound
+  assert.equal(candidates(lex, "o")[0], "ඕ");
+  assert.equal(candidates(lex, "kaLa")[0], "කල"); // other explicit non-words still yield to the list
+});
+
 test("Lexicon repairs only lists without ZWJ", () => {
   // No ZWJ anywhere: the list lost it, so joins are restored.
   assert.deepEqual([...new Lexicon([["ක්රමය", 10], ["බවත්ය", 5]]).count.keys()], ["ක්" + Z + "රමය", "බවත්" + Z + "ය"]);

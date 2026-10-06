@@ -176,11 +176,18 @@ romanized ──► conversion (§3) ──► one spelling ──► sound key 
                                                        │            with the same key,
                                                        │            most frequent first
                                                        └─ explicit marker present and the
-                                                          spelling is a word → it stays first
+                                                          spelling is a word, or a lone
+                                                          vowel letter → it stays first
 ```
 
 The **sound key** erases: aspiration, ණ/න, ළ/ල, ශ/ෂ/ස, ද/ඩ, ඤ/න, ඥ/ග්න, sanyaka vs
 nasal + stop, ං/න්, vowel length, ඇ/එ, ෛ/යි, ෞ/වු, ෘ/්‍රු and ZWJ.
+
+**A lone vowel letter keeps its spelling.** When an input with an explicit marker converts
+to a single independent vowel (`A` ඇ, `Aa` ඈ, `R` ඍ, `E` ඓ, `Au` ඖ), that letter stays first
+although the list has no such word: a letter typed on its own is meant as that letter, and
+frequency would otherwise turn it into a sound-alike word (ඍ → රු, ඓ → අයි). Unmarked vowels
+are still matched by sound (`e` → ඒ).
 
 **Options apply to the words too.** A word list is written in the usual style (කෲර, කර්ම), so
 `candidates()` rewrites each word in the style of the converter options before returning it

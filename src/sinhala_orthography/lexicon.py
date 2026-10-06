@@ -12,7 +12,7 @@ standard spelling. This module:
    frequent first;
 3. keeps the converter's own spelling first when the romanization contains an
    explicit marker for a distinction (a capital, a z- prefix, a doubled vowel …)
-   and that spelling is a real word;
+   and that spelling is a real word, or a lone vowel letter (`R` ඍ, `E` ඓ);
 4. writes the words in the style the converter options ask for (restyle()), so a
    word list in the usual style (කෲර, කර්ම) does not undo rakaransaya_u, repaya_zwj
    or classical (ක්‍රූර, කර්‍ම).
@@ -150,6 +150,12 @@ class Lexicon:
 _EXPLICIT = re.compile(r"[KCGJTDNLPBSWVUIEOAXRMH]|z[a-zA-Z]|aa|ii|uu|ee|oo|ae|thh|dh|kh|gh|chh|jh|ph|bh|x")
 
 
+def _lone_vowel(spelling):
+    """One independent vowel letter (අ … ඖ). A list has no such words, yet a letter typed on its
+    own is meant as that letter: frequency would turn ඍ into රු and ඓ into අයි."""
+    return len(spelling) == 1 and "අ" <= spelling <= "ඖ"
+
+
 def candidates(lex, roman, limit=5, partial=False, **options):
     """Ranked Sinhala spellings for a romanized word (or a word prefix with partial=True).
 
@@ -165,7 +171,7 @@ def candidates(lex, roman, limit=5, partial=False, **options):
     ranked = sorted(set(lex.exact(key)), key=lambda w: (-lex.count[w], w))
     ranked = _unique(restyle(w, **options) for w in ranked)
     explicit = bool(_EXPLICIT.search(roman))
-    if spelled in ranked and explicit:
+    if explicit and (spelled in ranked or _lone_vowel(spelled)):
         ranked = [spelled] + [w for w in ranked if w != spelled]   # explicit markers beat frequency
     elif spelled not in ranked:
         ranked.append(spelled)                 # the rule-based spelling is always included
