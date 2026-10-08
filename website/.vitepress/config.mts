@@ -136,7 +136,7 @@ export default defineConfig({
           text: "Edit this page on GitHub",
         },
         footer: {
-          message: "Text and code released under the MIT License.",
+          message: 'Text and code released under the MIT License. Cite as <a href="https://doi.org/10.5281/zenodo.23244126">doi:10.5281/zenodo.23244126</a>.',
           copyright: "© Srilal Siriwardhana",
         },
       },
@@ -158,7 +158,7 @@ export default defineConfig({
           text: "මෙම පිටුව GitHub හි සංස්කරණය කරන්න",
         },
         footer: {
-          message: "පෙළ සහ කේතය MIT බලපත්‍රය යටතේ නිකුත් කර ඇත.",
+          message: 'පෙළ සහ කේතය MIT බලපත්‍රය යටතේ නිකුත් කර ඇත. උපුටා දක්වන්න: <a href="https://doi.org/10.5281/zenodo.23244126">doi:10.5281/zenodo.23244126</a>.',
           copyright: "© Srilal Siriwardhana",
         },
         outline: { level: [2, 3], label: "මෙම පිටුවේ" },

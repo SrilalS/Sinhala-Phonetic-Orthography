@@ -1,5 +1,7 @@
 # Sinhala Phonetic Orthography
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23244126.svg)](https://doi.org/10.5281/zenodo.23244126)
+
 A sourced study of how Sinhala words are built in writing, from the letter inventory and
 vowel signs to conjuncts, nasals, phonotactics and sandhi. It also covers how Sinhala is
 romanized, and specifies a phonetic romanization whose output provably obeys the
@@ -149,7 +151,19 @@ The sources are not redistributed here and keep their own licenses:
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff).
+Archived on Zenodo: [doi:10.5281/zenodo.23244126](https://doi.org/10.5281/zenodo.23244126) (all versions; v0.2.0 is
+[doi:10.5281/zenodo.23244127](https://doi.org/10.5281/zenodo.23244127)). See [CITATION.cff](CITATION.cff).
+
+```bibtex
+@software{siriwardhana_sinhala_phonetic_orthography,
+  author    = {Siriwardhana, Srilal},
+  title     = {Sinhala Phonetic Orthography: a sourced rule set for Sinhala word
+               construction and phonetic romanization},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23244126},
+  url       = {https://doi.org/10.5281/zenodo.23244126}
+}
+```
 
 ## License
 

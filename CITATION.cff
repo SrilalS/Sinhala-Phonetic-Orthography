@@ -6,6 +6,14 @@ authors:
     given-names: Srilal
 version: 0.2.0
 date-released: 2026-10-08
+doi: 10.5281/zenodo.23244126
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23244126
+    description: All versions (concept DOI)
+  - type: doi
+    value: 10.5281/zenodo.23244127
+    description: Version 0.2.0
 license: MIT
 abstract: >-
   A sourced, consolidated rule set for how Sinhala words are written (88 rules over letter
