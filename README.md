@@ -1,6 +1,7 @@
 # Sinhala Phonetic Orthography
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23244126.svg)](https://doi.org/10.5281/zenodo.23244126)
+[![npm](https://img.shields.io/npm/v/sinhala-orthography)](https://www.npmjs.com/package/sinhala-orthography)
 
 A sourced study of how Sinhala words are built in writing, from the letter inventory and
 vowel signs to conjuncts, nasals, phonotactics and sandhi. It also covers how Sinhala is
@@ -89,7 +90,18 @@ in a form that can be checked:
 
 ## Quick start
 
-Requires Python 3.9 or later. No dependencies.
+JavaScript and TypeScript ([npm](https://www.npmjs.com/package/sinhala-orthography), no dependencies):
+
+```sh
+npm install sinhala-orthography
+```
+
+```js
+import { toSinhala } from "sinhala-orthography";
+toSinhala("lankaava");   // 'ලංකාව'
+```
+
+Python: requires Python 3.9 or later. No dependencies.
 
 ```python
 import sys; sys.path.insert(0, "src")

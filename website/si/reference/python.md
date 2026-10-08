@@ -98,7 +98,12 @@ entries()[30]    # {'id': 'ka.ru', 'kind': 'syllable', 'text': 'කෘ', 'conson
 මෙම පැකේජයම JavaScript සහ TypeScript සඳහාද ඇත. එය Node.js හි සහ බ්‍රවුසරයේ ක්‍රියා කරන අතර වෙනත් පැකේජ
 අවශ්‍ය නැත. එය [`js/`](https://github.com/SrilalS/Sinhala-Phonetic-Orthography/tree/main/js) හි ඇති අතර
 එකම අනුක්‍රම වගු භාවිත කරයි. ආදාන 50,000 කට වැඩි ගණනක් සඳහා එහි ප්‍රතිදානය Python ප්‍රතිදානයට හරියටම සමාන බව
-ස්වයංක්‍රීය පරීක්ෂණයක් තහවුරු කරයි. [අත්හදා බැලීමේ පිටුව](/si/playground) ක්‍රියා කරන්නේද මෙම පැකේජයෙනි.
+ස්වයංක්‍රීය පරීක්ෂණයක් තහවුරු කරයි. [අත්හදා බැලීමේ පිටුව](/si/playground) ක්‍රියා කරන්නේද මෙම පැකේජයෙනි. එය npm හි
+[`sinhala-orthography`](https://www.npmjs.com/package/sinhala-orthography) ලෙස ප්‍රකාශයට පත් කර ඇත:
+
+```sh
+npm install sinhala-orthography
+```
 
 ```js
 import { toSinhala, Lexicon, candidates } from "sinhala-orthography";

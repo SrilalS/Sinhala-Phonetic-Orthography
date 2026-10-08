@@ -1,5 +1,8 @@
 # sinhala-orthography
 
+[![npm](https://img.shields.io/npm/v/sinhala-orthography)](https://www.npmjs.com/package/sinhala-orthography)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23244126.svg)](https://doi.org/10.5281/zenodo.23244126)
+
 Sinhala phonetic romanization, letter inventory and spelling disambiguation for JavaScript and
 TypeScript. No dependencies; works in Node.js and the browser.
 

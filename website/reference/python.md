@@ -99,7 +99,12 @@ entries()[30]    # {'id': 'ka.ru', 'kind': 'syllable', 'text': 'කෘ', 'conson
 The same package is available for JavaScript and TypeScript, for Node.js and the browser, with no
 dependencies. It lives in [`js/`](https://github.com/SrilalS/Sinhala-Phonetic-Orthography/tree/main/js)
 and reads the same sequence tables. A golden test checks that it gives exactly the Python output for
-more than 50,000 inputs, and the [playground](/playground) runs on it.
+more than 50,000 inputs, and the [playground](/playground) runs on it. It is published on npm as
+[`sinhala-orthography`](https://www.npmjs.com/package/sinhala-orthography):
+
+```sh
+npm install sinhala-orthography
+```
 
 ```js
 import { toSinhala, Lexicon, candidates } from "sinhala-orthography";
