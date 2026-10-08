@@ -161,7 +161,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | `repaya_zwj` | ර්‍ + C instead of ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for ක්‍ෂ ක්‍ව ග්‍ධ ට්‍ඨ ත්‍ථ ත්‍ව ද්‍ධ ද්‍ව න්‍ථ න්‍ද න්‍ධ න්‍ව ඤ්‍ච, and rakaransaya after ම න ල (ම්‍ර න්‍ර ල්‍ර) | R-10, G-HC-15, R-07 |
 | `archaic` | ඏ ඐ ෟ ෳ (`~l`, `~ll`), standalone ඎ (`RR`), ඁ (`~n`), ඦ (`zj`), touching letters (`+`) | R-14 |
-| `rakaransaya_u` | C + `r` + `u` / `uu` as rakaransaya + ු / ූ (ක්‍රු, ක්‍රූ) instead of C + ෘ / ෲ | R-06 |
+| `rakaransaya_u` | C + `r` + `u` / `uu` as rakaransaya + ු / ූ (ක්‍රු, ක්‍රූ) instead of C + ෘ / ෲ. The name means "rakaransaya + u": the `u` is the vowel sign ු. Rakaransaya itself is always written; the option changes only C + `ru` / `ruu` | R-06 |
 | `retroflex_d` | `d` ඩ · `dh` ද · `D` ඪ · `Dh` ධ · `zd` ඬ, the older keyboard convention (`dhh` ධ, `zdh` ඳ, `q` ද keep their letters) | R-01 |
 
 ---

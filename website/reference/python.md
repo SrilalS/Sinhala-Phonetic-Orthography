@@ -42,7 +42,7 @@ Converts a romanized word or text to Sinhala script. Characters outside the sequ
 | `archaic` | Allow ඏ ඐ ෟ ෳ, standalone ඎ, ඁ, ඦ and touching letters | R-14 |
 | `repaya_zwj` | Write repaya as ර්‍ + C instead of plain ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for the classical bandi akuru pairs, and rakaransaya after ම න ල | R-07, R-10 |
-| `rakaransaya_u` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර) | R-06 |
+| `rakaransaya_u` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර). The name reads "rakaransaya + u": the u is the vowel sign ු (`rakaransayaU` in JavaScript). Rakaransaya itself is always on; only `ru` / `ruu` change | R-06 |
 | `retroflex_d` | `d` types ඩ and `dh` types ද (`D` ඪ, `Dh` ධ), the older keyboard convention | R-01 |
 
 `transliterate()` is the same function under its original name. The sequence tables live in

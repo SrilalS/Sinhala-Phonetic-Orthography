@@ -22,7 +22,7 @@ import { toSinhala } from "sinhala-orthography";
 
 toSinhala("lankaava");                          // 'ලංකාව'
 toSinhala("kruura");                            // 'කෲර'
-toSinhala("kruura", { rakaransayaU: true });    // 'ක්‍රූර'
+toSinhala("kruura", { rakaransayaU: true });    // 'ක්‍රූර' (rakaransaya + u)
 toSinhala("lait");                              // 'ලයිට්'
 toSinhala("akShara", { classical: true });      // 'අක්‍ෂර'
 toSinhala("karma", { repayaZwj: true });        // 'කර්‍ම'
@@ -38,7 +38,7 @@ over every input of up to three sequences.
 | `archaic` | Allow ඏ ඐ ෟ ෳ, standalone ඎ, ඁ, ඦ and touching letters | R-14 |
 | `repayaZwj` | Write repaya as ර්‍ + C instead of plain ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for the classical bandi akuru pairs, and rakaransaya after ම න ල | R-07, R-10 |
-| `rakaransayaU` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර) | R-06 |
+| `rakaransayaU` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර). The name reads "rakaransaya + U": the U is the vowel sign ු. Rakaransaya itself is always on; only `ru` / `ruu` change | R-06 |
 | `retroflexD` | `d` types ඩ and `dh` types ද (`D` ඪ, `Dh` ධ), the older keyboard convention | R-01 |
 
 The romanization (sequence tables, conversion rules, conventions) is specified in
