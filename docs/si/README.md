@@ -97,7 +97,8 @@ source has changed since.
 | reduced form | සංක්ෂිප්ත රූපය |
 | shaping (font) | හැඩගැන්වීම |
 | local test (checks made for this study) | මෙහි කළ පරීක්ෂණය |
-| UNVERIFIED | තහවුරු කර නැත (English markup kept: `[…]`, `**…**`) |
+| open (claim not yet confirmed; `[open]`, **Open**) | විසඳා නැත (`[විසඳා නැත]`, **විසඳා නැත**) |
+| NLPC n (a word's count in the NLPC list) | NLPC n |
 
 ### නීතියක ක්ෂේත්‍ර නාම (Rule field labels)
 

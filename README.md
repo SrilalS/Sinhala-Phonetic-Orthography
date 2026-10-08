@@ -12,10 +12,31 @@ orthographic rules.
   HARD (invariant), SOFT (tendency) or STYLE (accepted variants).
 - 🔤 **Data:** all 923 Sinhala letter forms, each with a validity status and the rules behind it.
 - 🧪 **Reference code:** a romanization-to-Sinhala converter and a frequency-based
-  disambiguator, verified against the rules over 3.34 million inputs, in Python and in TypeScript.
+  disambiguator, verified against the rules over 3.98 million inputs, in Python and in TypeScript.
 - 🌐 **Website:** <https://srilals.github.io/Sinhala-Phonetic-Orthography/>: the studies, a playground
   that runs the converter in the browser, and an explorer for all 923 letter forms. In English
   and [Sinhala](https://srilals.github.io/Sinhala-Phonetic-Orthography/si/) (සිංහලෙන්).
+
+---
+
+## Contributions
+
+The individual facts about Sinhala spelling are known; what this work adds is putting them together
+in a form that can be checked:
+
+1. **A sourced, consolidated rule set.** Seven topic studies merged into 88 rules, each marked HARD
+   (invariant), SOFT (tendency) or STYLE (accepted variant) and traced to its sources.
+2. **A validity status for all 923 Sinhala letter forms**, with the rules behind each, and the
+   ෘ / ෲ columns checked against a 2.1M-word frequency list.
+3. **A phonetic romanization with machine-checked guarantees.** Every letter form the rules allow
+   can be typed (791 / 791), and no input of up to three sequences produces a form the rules
+   forbid: 0 violations over 3.98 million inputs, under each of the six option sets.
+4. **Measured, reproducible evidence.** How Sinhala is written and romanized, counted from pinned
+   public sources (the NLPC 2.1M-word list, the Dakshina corpus, a dated Sinhala Wikipedia dump).
+   One script recomputes every number quoted in the studies.
+5. **Open reference implementations** in Python and TypeScript, golden-tested against each other,
+   with a frequency lexicon that resolves the ~14 groups of sound-alike letters: 27 of 27
+   everyday words come out right, against 9 of 27 for the rules alone.
 
 ---
 
@@ -40,6 +61,7 @@ orthographic rules.
 | 🟦 | [js/](js) | The same package in TypeScript (`toSinhala`, `Lexicon`, `candidates` …), golden-tested against the Python |
 | 🛠️ | [tools/](tools) | Builders and the exhaustive rule checker |
 | 📈 | [reports/romanization-check.md](reports/romanization-check.md) | Coverage and safety results ([සිංහලෙන්](reports/romanization-check.si.md)) |
+| 🔢 | [reports/corpus-counts.md](reports/corpus-counts.md) | Every corpus number in the studies (claims CC-01…), with its source and definition |
 | 🌐 | [website/](website) | The documentation site (VitePress). `npm install`, then `npm run dev` |
 
 ---
@@ -56,10 +78,10 @@ orthographic rules.
 5. **Two vowels are never written side by side.** Hiatus takes a ය / ව glide: "ai" is අයි, not
    අඉ, and ෛ / ෞ belong to Sanskrit loans (G-VS-03, G-VS-06, G-VS-11).
 6. **/kru/ is written කෘ, not ක්‍රු.** Rakaransaya + ු/ූ is the Unicode illustration of
-   *krūra*, but writers use C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 22 in a 2.1M-word list), or the
+   *krūra*, but writers use C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 9 in a 2.1M-word list), or the
    wrong look-alike ක්‍රෑර. Several fonts don't draw the rakaransaya + ූ shape at all (G-VS-15).
 7. **Informal romanization differs from formal systems.** `d` is ද 99% of the time,
-   `ee` means ී 40% of the time, and vowel length is rarely marked (G-TY-01…10).
+   `ee` means ී 38% of the time, and vowel length is rarely marked (G-TY-01…10).
 
 ---
 
@@ -72,7 +94,7 @@ import sys; sys.path.insert(0, "src")
 from sinhala_orthography import to_sinhala, Lexicon, candidates
 
 to_sinhala("lankaava")   # 'ලංකාව'
-to_sinhala("kruura")     # 'ක්‍රූර'
+to_sinhala("kruura")     # 'කෲර'
 to_sinhala("lait")       # 'ලයිට්'
 
 lex = Lexicon("path/to/word-frequency-list.tsv")    # "word<TAB>count" per line
@@ -89,13 +111,26 @@ python tools/build_spec_tables.py     # tables in docs/07
 python tools/check_translations.py    # Sinhala translations whose English source changed
 python tools/build_js_golden.py       # golden files for the TypeScript port; then `npm test` in js/
 python -m unittest discover tests     # set SINHALA_WORD_LIST to also run the lexicon tests
+python tools/corpus_counts.py         # every corpus number in docs/ (downloads the sources once)
 ```
 
 On Windows consoles, set `PYTHONIOENCODING=utf-8` first.
 
-The lexicon tests and the evaluation in `docs/07` use the University of Moratuwa NLPC
-[Word Frequency List for Sinhala](https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala),
-which is not redistributed here.
+### Reproducing the corpus numbers
+
+`tools/corpus_counts.py` downloads three public sources once into `.cache/corpus/` (about 2 GB to
+download, 300 MB kept), checks them against pinned hashes, and writes
+[reports/corpus-counts.md](reports/corpus-counts.md). The studies cite its claim ids (CC-02 …) for
+aggregate numbers, and write a single word's count as "NLPC n".
+The sources are not redistributed here and keep their own licenses:
+
+| Source | Pinned at | Used for |
+|---|---|---|
+| University of Moratuwa NLPC [Word Frequency List for Sinhala](https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala) (Fernando and Dias, ICON 2021) | commit `1283550a3389` | spelling frequencies, the lexicon evaluation |
+| [Dakshina dataset](https://github.com/google-research-datasets/dakshina) v1.0, Sinhala (Roark et al., LREC 2020) | release v1.0 | how native speakers romanize each letter |
+| [Sinhala Wikipedia](https://dumps.wikimedia.org/siwiki/20261001/) pages-articles dump | 2026-10-01 | article counts of competing spellings |
+
+`python tools/corpus_counts.py --lookup WORD …` prints the NLPC count of any word.
 
 ---
 
@@ -104,7 +139,10 @@ which is not redistributed here.
 - School textbooks (NIE), the final SLS 1134:2004/2011 texts and the 1989 *Sinhala Lekhana Rīthiya*
   could not be consulted. School-level spelling rules rest on agreeing secondary sources and are
   marked with their confidence.
-- The consonant × vowel validity table is a synthesis of the sources, not a corpus count.
+- The consonant × vowel validity table is a synthesis of the sources, not a corpus count, except
+  for the ෘ / ෲ columns (CC-04).
+- The corpus counts come from news text (NLPC), carefully romanized Wikipedia sentences
+  (Dakshina) and Wikipedia. Chat and other informal registers may differ.
 - Every topic file ends with its open questions and conflicting sources. Corrections are welcome.
 
 ---

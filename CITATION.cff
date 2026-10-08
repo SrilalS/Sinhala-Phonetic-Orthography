@@ -7,6 +7,12 @@ authors:
 version: 0.1.0
 date-released: 2026-10-03
 license: MIT
+abstract: >-
+  A sourced, consolidated rule set for how Sinhala words are written (88 rules over letter
+  inventory, vowel signs, conjuncts, nasals, phonotactics and sandhi), a validity status for all
+  923 Sinhala letter forms, measured evidence of how Sinhala is written and romanized from pinned
+  public corpora, and a phonetic romanization whose reference converter is machine-checked never
+  to produce a form the rules forbid.
 repository-code: "https://github.com/SrilalS/sinhala-phonetic-orthography"
 keywords:
   - Sinhala

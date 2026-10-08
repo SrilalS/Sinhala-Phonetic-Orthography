@@ -197,8 +197,9 @@ repaya with ZWJ (කර්‍ම) and `classical` joins the bandi akuru pairs (�
 lexicon would undo the options on every word. With no options nothing changes.
 
 **Evaluation.** 27 everyday words, written as people informally romanize them, with the
-University of Moratuwa NLPC frequency list (37,547 words). That list is not included here;
-see `tests/test_lexicon.py`.
+University of Moratuwa NLPC frequency list (2.1M words, pinned; CC-14 in `reports/corpus-counts.md`).
+The list is not included here: `tools/corpus_counts.py` downloads it, and `tests/test_lexicon.py`
+runs the same words against any list.
 
 | | Correct spelling ranked first |
 |---|---:|
@@ -215,7 +216,7 @@ see `tests/test_lexicon.py`.
 | `krushi` | කෘශි | කෘෂි |
 | `lamaya` | ලමය | ළමයා |
 
-About 15% of the list's sound keys are shared by 2–8 words (e.g. කළ කල කාල කලා), so
+17.7% of the list's sound keys are shared by two or more words (e.g. කළ කල කාල කලා; CC-15), so
 frequency alone cannot always choose. Context from the previous word would help.
 
 ---
@@ -227,7 +228,7 @@ frequency alone cannot always choose. Context from the previous word would help.
 | Check | Result |
 |---|---|
 | Coverage: letter forms allowed by `data/validity.json` that can be produced | **791 / 791** |
-| Safety: inputs of 1–3 sequences (plus space), all five option sets | **3.34 million inputs, 0 violations** of 14 forbidden patterns |
+| Safety: inputs of 1–3 sequences (plus space), all six option sets | **3.98 million inputs, 0 violations** of 14 forbidden patterns |
 | Fixtures: `tests/test_romanization.py` | all pass |
 
 ---
@@ -236,15 +237,15 @@ frequency alone cannot always choose. Context from the previous word would help.
 
 | ID | Convention | Rationale |
 |---|---|---|
-| R-01 | `d` ද · `dh` ධ · `D` ඩ · `Dh` ඪ; sanyaka `zd` ඳ, `zD` ඬ; `q` = ද alias | Informal writing uses `d` for ද 99% of the time and `dh` for ධ (G-TY-02). Capitals mark retroflex letters, as with `N` ණ and `L` ළ |. ද is also 5 times as frequent as ඩ in running text (75% vs 15% of d-letters), so the unmarked key goes to the common letter. Older keyboard schemes write `d` ඩ / `dh` ද, mirroring `t` ට / `th` ත (06:RS-030); `retroflex_d` offers that convention
+| R-01 | `d` ද · `dh` ධ · `D` ඩ · `Dh` ඪ; sanyaka `zd` ඳ, `zD` ඬ; `q` = ද alias | Informal writing uses `d` for ද 99% of the time and `dh` for ධ (G-TY-02). Capitals mark retroflex letters, as with `N` ණ and `L` ළ. ද is also 5 times as frequent as ඩ in running text (74% vs 15% of d-letters, CC-12), so the unmarked key goes to the common letter. Older keyboard schemes write `d` ඩ / `dh` ද, mirroring `t` ට / `th` ත (06:RS-030); `retroflex_d` offers that convention |
 | R-02 | `ee` ඒ · `oo` ඕ · `ii` ඊ · `uu` ඌ | Consistent doubling for length. Informal `ee` = ී (G-TY-03) is recovered by the lexicon |
 | R-03 | `nd` / `mb` / `ng` + vowel are written as clusters; the lexicon chooses sanyaka (ඳ ඹ ඟ) or cluster | Sanyaka vs cluster is lexical (G-NS-08), and informal writing uses `nd`/`mb`/`ng` for both (G-TY-06) |
 | R-04 | `A` / `ae` ඇ · `Aa` / `AA` / `aee` ඈ | `ae` matches ISO 15919 7-bit; `A` keeps a one-letter form |
-| R-05 | `ai` / `au` → glide spelling (අයි / අවු, C + යි / C + වු); ෛ ඓ via `E`, ෞ ඖ via `Au` | Two vowels are never written side by side (G-VS-03, G-VS-06). In the NLPC list, ayi/yi outnumber ෛ about 60:1 and vu outnumbers ෞ about 8:1 |
-| R-06 | C + `ru` / `ruu` = C + ෘ / ෲ; `R` / `RR` also write ෘ / ෲ; `rakaransaya_u` gives ක්‍රු / ක්‍රූ instead; standalone `R` = ඍ; `ru` after a vowel = ර + ු | ෘ / ෲ is the usual spelling of /Cru(ː)/ in Sanskrit and English loans alike (G-VS-15): in the NLPC list it is the most frequent spelling in 299 of 401 words written more than one way (කෲර 1,667, ක්‍රූර 22). ගෘහ and ග්‍රහ stay distinct (G-VS-12) |
-| R-07 | Rakaransaya after every consonant that takes hal, except ම න ල: there ර starts a new syllable and takes plain hal (දුම්රිය, හෙන්රි); `classical` writes ම්‍ර (තාම්‍ර) | Running text writes ම්ර / න්ර plain (03:HC-052); a ZWJ would draw a rakaransaya under ම. ම්‍ර is attested only for Sanskrit tatsama words |
-| R-08 | Repaya defaults to plain ර් + C | Both forms are standard (G-HC-13); the plain form dominates the NLPC list (කර්මය, කාර්ය) |
-| R-09 | *kārya* → කාර්ය | Follows from R-08; 18,722 occurrences in the NLPC list |
+| R-05 | `ai` / `au` → glide spelling (අයි / අවු, C + යි / C + වු); ෛ ඓ via `E`, ෞ ඖ via `Au` | Two vowels are never written side by side (G-VS-03, G-VS-06). In the NLPC list, words with C + යි outnumber C + ෛ 11:1 and C + වු outnumber C + ෞ 1.7:1 (CC-05). A word that has ෛ or ෞ is nearly always written with it (වෛද්‍ය 46,508 vs වයිද්‍ය 142, CC-06), and the lexicon restores it |
+| R-06 | C + `ru` / `ruu` = C + ෘ / ෲ; `R` / `RR` also write ෘ / ෲ; `rakaransaya_u` gives ක්‍රු / ක්‍රූ instead; standalone `R` = ඍ; `ru` after a vowel = ර + ු | ෘ / ෲ is the usual spelling of /Cru(ː)/ in Sanskrit and English loans alike (G-VS-15): in the NLPC list it is the most frequent spelling in 155 of 205 words written more than one way (කෲර 1,667, ක්‍රූර 9; CC-02, CC-03). ගෘහ and ග්‍රහ stay distinct (G-VS-12) |
+| R-07 | Rakaransaya after every consonant that takes hal, except ම න ල: there ර starts a new syllable and takes plain hal (දුම්රිය, හෙන්රි); `classical` writes ම්‍ර (තාම්‍ර) | Running text writes ම්ර / න්ර plain (දුම්රිය 30,800 vs දුම්‍රිය 82; 03:HC-052, CC-10); a ZWJ would draw a rakaransaya under ම. ම්‍ර is attested only for Sanskrit tatsama words |
+| R-08 | Repaya defaults to plain ර් + C | Both forms are standard (G-HC-13); the plain form dominates the NLPC list (2,182,087 vs 26,785 tokens, CC-07) |
+| R-09 | *kārya* → කාර්ය | Follows from R-08; 18,722 occurrences in the NLPC list (CC-08) |
 | R-10 | ක්ෂ and other bandi akuru default to plain hal; ZWJ conjuncts are optional | Conjuncts other than yansaya/rakaransaya are optional and mostly classical (G-HC-15/16) |
 | R-11 | `n` + velar → ං automatically; before h s sh y r l v the lexicon chooses ං or න් | G-NS-03; native and Sanskrit words differ before ස (පන්සල vs සංසාරය) |
 | R-12 | `ny` → න්‍ය; `gn` → ග්න; ඥ = `zh`; ඤ = `zk` | න්‍ය and ග්න are the common readings (G-NS-12/13); ඥ and ඤ are recovered by the lexicon |

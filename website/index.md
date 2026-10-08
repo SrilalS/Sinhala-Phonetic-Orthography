@@ -47,7 +47,7 @@ features:
     linkText: G-VS-06
   - icon: ⌨️
     title: Informal romanization isn't formal
-    details: In informal writing, d is ද 99% of the time, ee means ී 40% of the time, and vowel length is rarely marked.
+    details: In informal writing, d is ද 99% of the time, ee means ී 38% of the time, and vowel length is rarely marked.
     link: /research/romanization-systems
     linkText: Measured usage
 ---
@@ -63,7 +63,7 @@ features:
 | ✍️ | [Playground](/playground) | The reference converter, running in your browser. Type a romanization and see each step |
 | 🔤 | [Letter explorer](/explorer) | All 923 letter forms, their validity status, the rules behind it and how to type each one |
 | 🐍 | [Python & JS packages](/reference/python) | `to_sinhala` / `toSinhala`, the inventory and a frequency-based disambiguator. No dependencies |
-| 📈 | [Verification](/reference/verification) | Every allowed form is producible, and 3.34 million inputs produce no rule violation |
+| 📈 | [Verification](/reference/verification) | Every allowed form is producible, and 3.98 million inputs produce no rule violation |
 
 ## Quick start
 

@@ -32,7 +32,7 @@ EXACT = [
     ("lamaya", "ළමයා", "G-SP-04 ළ via lexicon"), ("pilithura", "පිළිතුර", "G-SP-04"), ("malu", "මාළු", "G-SP-04"),
     ("ayubowan", "ආයුබෝවන්", "length"), ("sthuthiyi", "ස්තූතියි", "length"), ("mama", "මම", ""), ("api", "අපි", ""),
 ]
-PARTIAL = [("kohom", "කොහොම"), ("lank", "ලංකා"), ("sinh", "සිංහල"), ("vidy", "විද්" + Z + "ය")]
+PARTIAL = [("kohom", "කොහොම"), ("lank", "ලංකා"), ("sinh", "සිංහ"), ("vidy", "විද්" + Z + "ය")]
 
 
 class NormalizeTest(unittest.TestCase):

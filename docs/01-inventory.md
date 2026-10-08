@@ -25,15 +25,15 @@ vowels `a aa ae aee i ii u uu ru ruu ilu iluu e ee ai o oo au`; `hal` = al-lakun
 |---|---|---|
 | U-CH | Unicode 18.0 code chart, Sinhala: https://www.unicode.org/charts/PDF/U0D80.pdf | Normative names, aliases, decompositions. Read directly. |
 | U-AN | Unicode 18.0 code chart, Sinhala Archaic Numbers: https://www.unicode.org/charts/PDF/U111E0.pdf | Read directly. |
-| U-SP | Unicode Core Spec ch. 13 (v16.0), §13.2 Sinhala: https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-13/ | ZWJ rules, u/uu contextual forms, candrabindu, kunddaliya. Read via summarizer. |
+| U-SP | Unicode Core Spec ch. 13 (v16.0), §13.2 Sinhala: https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-13/ | ZWJ rules, u/uu contextual forms, candrabindu, kunddaliya. Consulted in summary form. |
 | U-NS | Unicode NamedSequences.txt: https://www.unicode.org/Public/UCD/latest/ucd/NamedSequences.txt | Yansaya / rakaransaya / repaya sequences. Read directly. |
 | U-L2 | L2/08-105, J. B. Disanayaka for ICTA & SLSI, "Observations on the Encoding of Archaic Sinhala Numerals", Feb 2008: https://www.unicode.org/L2/L2008/08105-sinhala.pdf | Read directly. |
 | CP | codepoints.net (Unicode version of first encoding): https://codepoints.net/U+0D81 , https://codepoints.net/U+0DE6 , https://codepoints.net/U+0DC6 | Secondary, derived from UCD DerivedAge. |
 | SLS | SLS 1134 Draft, 2nd revision (SLSI, draft dated 2004-04-26): https://sinhala.sourceforge.net/archive/akuru.org/att-0028/sls1134.pdf | Read directly (pages 1–20). **The final published SLS 1134:2004 / :2011 texts were not available**; the draft may differ. |
 | WP-EN | Wikipedia, "Sinhala script": https://en.wikipedia.org/wiki/Sinhala_script | Lead only. |
-| WP-SI | සිංහල විකිපීඩියා, "සිංහල හෝඩි": https://si.wikipedia.org/wiki/සිංහල_හෝඩි | Lead only; read via summarizer. |
+| WP-SI | සිංහල විකිපීඩියා, "සිංහල හෝඩි": https://si.wikipedia.org/wiki/සිංහල_හෝඩි | Lead only; consulted in summary form. |
 | WP-NUM | Wikipedia, "Sinhala numerals": https://en.wikipedia.org/wiki/Sinhala_numerals | Lead only. |
-| KLN | University of Kelaniya, නෙමඩල, "සිංහල හෝඩියේ උත්පත්තිය", බී. ලක්ෂිකා මදුශානි, 2022-07-11: https://units.kln.ac.lk/nemadala/index.php/visheshanga/gaweshana/295-2022-07-11-03-29-22 | University student-research portal; best Sinhala-language source found for alphabet history. |
+| KLN | University of Kelaniya, නෙමඩල, "සිංහල හෝඩියේ උත්පත්තිය", බී. ලක්ෂිකා මදුශානි, 2022-07-11: https://units.kln.ac.lk/nemadala/index.php/visheshanga/gaweshana/295-2022-07-11-03-29-22 | University student-research portal; the most detailed Sinhala-language source consulted for alphabet history. |
 | LD | Lankadeepa, "'ෆ' අක්ෂරය සිංහල හෝඩියට ආ හැටි": https://www.lankadeepa.lk/mathaka_ha_mathaka/ෆ-අකෂරය-සහල-හඩයට-ආ-හට/287-656225 | Newspaper; history of ෆ. |
 | B-AK | akurusinhala.blogspot.com, "සිංහල අක්‍ෂර වර්ගීකරණය" (2016): http://akurusinhala.blogspot.com/2016/10/blog-post.html | Blog; classification tables (corroborative only). |
 | B-BN | bingunada.blogspot.com, "සිංහල භාෂාවේ පිලි" (2014): http://bingunada.blogspot.com/2014/09/blog-post.html | Blog; pili names (corroborative only). |
@@ -42,13 +42,13 @@ vowels `a aa ae aee i ii u uu ru ruu ilu iluu e ee ai o oo au`; `hal` = al-lakun
 | YM | Yamu.lk, "සිංහල හෝඩිය ගැන හැංගුණු කතාවක්" (2019-11-22): https://www.yamu.lk/trending/sinhala-alphabet-doubts/ | Popular article; ඥ/z commentary. |
 | ST | Sunday Times (LK), 1998-10-04: https://www.sundaytimes.lk/981004/plus2.html | Disanayaka interview: "from around 37 letters… up to 60". |
 
-**Not reached:** the NIE / Educational Publications Department Grade 6 textbook lesson "අක්ෂරමාලාව හා පිල්ලම්" (listed at https://govdoc.lk/lesson-view?id=3986&fid=62e8a270be286 but not fetched as text), and the Sri Lanka Sinhala Encyclopedia article "අක්ෂරමාලාව (සිංහල)" at encyclopedia.gov.lk (connection refused). Anything attributed below to "school grammar" is therefore corroborated only by secondary Sinhala sources. **Treat it as medium confidence until someone checks the textbook.**
+**Not consulted:** the NIE / Educational Publications Department Grade 6 textbook lesson "අක්ෂරමාලාව හා පිල්ලම්" (listed at https://govdoc.lk/lesson-view?id=3986&fid=62e8a270be286; the text itself was not available), and the Sri Lanka Sinhala Encyclopedia article "අක්ෂරමාලාව (සිංහල)" at encyclopedia.gov.lk (the site was unavailable). Anything attributed below to "school grammar" is therefore corroborated only by secondary Sinhala sources. **It is given medium confidence pending a check against the textbook.**
 
 ---
 
 ## 2. Table 1: Unicode Sinhala block, complete (U+0D80–U+0DFF)
 
-Columns: **ID** = letter ID used in this repository. **Unicode name** is the normative name (with its `=` alias). **Sinhala name** is the traditional name. For letters these follow the "-යන්න" pattern the Unicode names were built from (WP-EN, SLS Table 4). The Sinhala spelling is my own rendering of the Unicode/SLS romanized name; where B-BN/B-AK give a different everyday form, that form is shown too. **Cat.**: SIGN = ayogavaha/various sign; IV = independent vowel; C = consonant; VS = dependent vowel sign; D = digit; P = punctuation. **Set**: Ś = in the Śuddha (Eḷu) set, M = Miśra-only, N = added in the modern/NIE era. **Status**: live / rare / obsolete. "Since" = first Unicode version (CP, U-SP).
+Columns: **ID** = letter ID used in this repository. **Unicode name** is the normative name (with its `=` alias). **Sinhala name** is the traditional name. For letters these follow the "-යන්න" pattern the Unicode names were built from (WP-EN, SLS Table 4). The Sinhala spelling is a rendering of the Unicode/SLS romanized name made for this study; where B-BN/B-AK give a different everyday form, that form is shown too. **Cat.**: SIGN = ayogavaha/various sign; IV = independent vowel; C = consonant; VS = dependent vowel sign; D = digit; P = punctuation. **Set**: Ś = in the Śuddha (Eḷu) set, M = Miśra-only, N = added in the modern/NIE era. **Status**: live / rare / obsolete. "Since" = first Unicode version (CP, U-SP).
 
 Unassigned in the block: 0D80, 0D84, 0D97–0D99, 0DB2, 0DBC, 0DBE–0DBF, 0DC7–0DC9, 0DCB–0DCE, 0DD5, 0DD7, 0DE0–0DE5, 0DF0–0DF1, 0DF5–0DFF (U-CH). SLS says 0D97–0D99 and 0DC7–0DC9 were held back deliberately for future vowels and consonants.
 
@@ -166,7 +166,7 @@ Unassigned in the block: 0D80, 0D84, 0D97–0D99, 0DB2, 0DBC, 0DBE–0DBF, 0DC7�
 | 200D | ZERO WIDTH JOINER | **Required** to form any conjunct (bandi akuru), yansaya, rakaransaya, repaya, or touching letter. Without ZWJ, al-lakuna is always visible. |
 | 200C | ZERO WIDTH NON-JOINER | SLS only: ZWNJ + vowel sign shows a sign on its own (`‌ා`). ZWNJ ් ZWJ ය gives a stand-alone yansaya. ර ් ZWJ ZWNJ gives a stand-alone repaya. The Unicode Sinhala section does not mention ZWNJ (U-SP). |
 | 00A0 | NO-BREAK SPACE | SLS lists it. The Unicode convention is NBSP or dotted circle as the base for showing a lone combining mark. |
-| 0964/0965 | DEVANAGARI DANDA / DOUBLE DANDA | Not Sinhala-specific. Sometimes seen in Pali texts. **Unverified for Sinhala** and not encoded in the Sinhala block. |
+| 0964/0965 | DEVANAGARI DANDA / DOUBLE DANDA | Not Sinhala-specific. Sometimes seen in Pali texts. Use in Sinhala text is not confirmed by a published source (open), and it is not encoded in the Sinhala block. |
 
 ---
 
@@ -327,7 +327,7 @@ Non-positional, **no zero** (U-AN). 111E0 and 111F5–111FF are unassigned. Unic
   - So SLS 61 = NIE 60 + ඥ.
 - **Examples:** none
 - **Exceptions:**
-  - WP-SI's 42-list, as read through a summarizer, came back one letter short. ඦ was assumed missing because KLN says 1989 added ඦ.
+  - WP-SI's 42-list, as consulted in summary form, is one letter short. ඦ is presumed to be the missing letter because KLN says 1989 added ඦ (see Q2).
   - Some sources say "18 + 42" while also listing ඥ.
 - **Confidence:** medium. **Sources:** SLS §3, KLN, WP-SI, YM.
 
@@ -432,8 +432,8 @@ Non-varga consonants:
   - Aghosha (voiceless) = the first two letters of each varga (ක ඛ ච ඡ ට ඨ ත ථ ප ඵ) + ශ ෂ ස (+ ෆ, ඃ by extension)
   - Ghosha (voiced) = the remaining varga letters, the nasals, the sanyaka letters, ය ර ල ව, හ, ළ, and all vowels
 - **Examples:** none
-- **Exceptions:** හ is traditionally ghosha in Sanskrit phonetics; Sinhala sources follow that. **Unverified** in a primary Sinhala textbook.
-- **Confidence:** medium. **Sources:** search summary of letslearnsinhala/akurusinhala; Sanskrit tradition.
+- **Exceptions:** හ is traditionally ghosha in Sanskrit phonetics; Sinhala sources follow that. Not confirmed in a primary Sinhala textbook (open; see Q10).
+- **Confidence:** medium. **Sources:** B-AK (corroborative only); Sanskrit tradition.
 
 **INV-021: Sanyaka (සඤ්ඤක / අර්ධ නාසික) letters**
 - **Statement:** There are 5 prenasalised stops: ඟ ඦ ඬ ඳ ඹ ("half-nasal", romanized by SLS as nng, ndj, nnd, nd, mb). Each is a single letter and a single code point. Sinhala treats them as one segment, distinct from a full nasal plus a stop.
@@ -452,7 +452,7 @@ Non-varga consonants:
 |---|---|---|---|---|---|---|
 | ඏ ඐ | ilu iluu | obsolete; SLS keeps them only "for completeness"; Disanayaka 1990 dropped them | Sanskrit grammar | (ඏකාරය as a citation only) | high | SLS, KLN, YM |
 | ෟ (alone), ෳ | ilu iluu signs | obsolete (ෟ survives inside ෞ/ඖ) | - | - | high | SLS note 4 |
-| ඎ | ruu | letter obsolete; sign ෲ used in a handful of Sanskrit words | Sanskrit | පිතෲ (unverified example) | medium | SLS note 3 |
+| ඎ | ruu | letter obsolete; sign ෲ used in a handful of Sanskrit words | Sanskrit | මාතෲ (NLPC 65; ෘ in මාතෘ is commoner, NLPC 2,103), පිතෲ (rare: NLPC 0 exact, 4 with endings) | medium | SLS note 3; NLPC |
 | ඍ / ෘ | ru | live in tatsama words | Sanskrit | ඍතුව, කෘෂිකර්ම, වෘක්ෂ, ගෘහ | high | SLS, WP-EN |
 | ඓ ඖ / ෛ ෞ | ai au | live, low frequency | Sanskrit | ඓතිහාසික, වෛද්‍ය, ඖෂධ, පෞද්ගලික | high | - |
 | ඃ | - | rare | Sanskrit | දුඃඛ, අතඃපුර | medium | - |
@@ -465,13 +465,13 @@ Non-varga consonants:
 | ඨ ඵ | ttha pha | rare | Sanskrit | ශ්‍රේෂ්ඨ, ඵල | high | - |
 | ෆ | fa | live; English/foreign /f/ | English | ෆැෂන්, ෆ්‍රාන්සය | high | LD, WP-EN |
 | ඇ ඈ / ැ ෑ | ae aee | native vowels, also the default for English /æ/ | English loans | බැංකුව (bank), කැෆේ | high | SLS §3 |
-| ෂ | ssa | in loans; also the usual letter for English /ʃ/ | English | ෂෝ (show), ෂර්ට් (shirt) | medium | (common practice; unverified in a standard) |
-| (none) | z | **no letter for /z/**. Usually written with ස (sometimes ශ/ජ). | English | සූ (zoo), සීරෝ (zero) | medium | YM, Lankadeepa search summary |
+| ෂ | ssa | in loans; also the usual letter for English /ʃ/ | English | ෂෝ (show, NLPC 2,006), ෂර්ට් (shirt, NLPC 2,195) | medium | NLPC (usage); not codified in a published standard |
+| (none) | z | **no letter for /z/**. Usually written with ස (sometimes ශ/ජ). | English | සූ (zoo), සීරෝ (zero, NLPC 104) | medium | YM; NLPC (usage) |
 
 **INV-022: History of ෆ**
 - **Statement:** A. M. Gunasekara first proposed ෆ in his 1891 grammar and used it in print in 1897. The NIE writing-rules committee formally adopted it in 1989. Before that, writers used ප.
 - **Examples:** ප්‍රැන්සිස් → ෆ්‍රැන්සිස් (Francis).
-- **Exceptions:** One Lankadeepa commenter claims government offices still do not recognize ෆ in official documents. **Unverified.**
+- **Exceptions:** One Lankadeepa commenter claims government offices still do not recognize ෆ in official documents. Not confirmed by an official source (open).
 - **Confidence:** medium-high. **Sources:** LD, KLN, WP-SI.
 
 **INV-023: Pronunciation mergers among letters**
@@ -540,16 +540,16 @@ These points apply to anyone converting between a Latin-script romanization and 
 | # | Issue | Sources in conflict | Status |
 |---|---|---|---|
 | Q1 | Is the modern alphabet **60 or 61** letters, and is ඥ part of it? | NIE 1989 = 60 (no ඥ, per KLN/WP-SI/YM) vs SLS 1134 = 61 (with ඥ) | Reconciled hypothesis INV-016. **Verify against the NIE Grade 6 textbook.** |
-| Q2 | Is **ඦ** in the 60? | KLN: added by NIE 1989 as one of five sanyaka; WP-SI 42-list (via summarizer) omitted it; Disanayaka 1990 reportedly removed it | Unverified |
+| Q2 | Is **ඦ** in the 60? | KLN: added by NIE 1989 as one of five sanyaka; WP-SI 42-list (consulted in summary form) omits it; Disanayaka 1990 reportedly removed it | Open |
 | Q3 | Śuddha / Eḷu count: 30 or 32? Does it include **ච** and the sanyaka? | Sidat Sangarā list has no ච/sanyaka (WP-SI, KLN). WP-EN's "śuddha" includes ච and ඟ ඬ ඳ ඹ. KLN says Eḷu = 30 even after adding ඇ ඈ; B-IH/B-S4 say 32. | Medium. Different definitions: classical vs phonemic. |
-| Q4 | Mishra 54: did it already contain the sanyaka letters? | B-IH: yes (ඟ ඦ ඬ ඳ ඹ). KLN: sanyaka added only in 1989. | Unverified |
-| Q5 | Vadan-kavi hodiya letter list (16 + 34) | Only counts found, no list | Unverified |
+| Q4 | Mishra 54: did it already contain the sanyaka letters? | B-IH: yes (ඟ ඦ ඬ ඳ ඹ). KLN: sanyaka added only in 1989. | Open |
+| Q5 | Vadan-kavi hodiya letter list (16 + 34) | Sources give only counts, no list | Open |
 | Q6 | Touching-letter encoding: ZWJ before or after al-lakuna | Unicode: `C ZWJ ් C`. SLS 2004 draft: `C ් ZWJ C` | Unicode governs. Final SLS text unseen. |
-| Q7 | Disanayaka 1990 "samakaleena" alphabet: exact contents and the "closed vowel" additions | KLN only; summarizer output garbled | Low confidence |
-| Q8 | Ushma set: 4 (ශ ෂ ස හ) or 6 (+ ඃ ෆ)? | Sanskrit tradition: 4. B-AK blog: 6 | Unverified in a textbook |
-| Q9 | Place of articulation for **ඇ ඈ**, and whether ය ර ල ව have assigned places in school grammar | Not found | Open |
-| Q10 | ghosha/aghosha membership of හ, sanyaka letters, and nasals in Sinhala school grammar | Inferred from the Sanskrit system | Unverified |
-| Q11 | Sinhala-script traditional names (e.g. "මහාප්‍රාණ කයන්න" vs "බයානු කයන්න"; "තාලුජ නාසිකය" vs "තාලුජ නාසික්‍යය") | Unicode/SLS give only romanized forms; the Sinhala spellings in Table 1 are my renderings | Medium |
+| Q7 | Disanayaka 1990 "samakaleena" alphabet: exact contents and the "closed vowel" additions | KLN only, and the available text is unclear on this point | Low confidence |
+| Q8 | Ushma set: 4 (ශ ෂ ස හ) or 6 (+ ඃ ෆ)? | Sanskrit tradition: 4. B-AK blog: 6 | Open (not confirmed in a textbook) |
+| Q9 | Place of articulation for **ඇ ඈ**, and whether ය ර ල ව have assigned places in school grammar | No source located | Open |
+| Q10 | ghosha/aghosha membership of හ, sanyaka letters, and nasals in Sinhala school grammar | Inferred from the Sanskrit system | Open |
+| Q11 | Sinhala-script traditional names (e.g. "මහාප්‍රාණ කයන්න" vs "බයානු කයන්න"; "තාලුජ නාසිකය" vs "තාලුජ නාසික්‍යය") | Unicode/SLS give only romanized forms; the Sinhala spellings in Table 1 are renderings made for this study | Medium |
 | Q12 | Pili alternate names: ඇදය vs ඇදපිල්ල; දිග vs දික්; whether ේ is "කොම්බුව හා හල් ලකුණ" or "දිග කොම්බුව" in textbooks | SLS/Unicode vs B-BN | Medium |
 | Q13 | Did archaic Illakkam have a zero? | Unicode chart: no. Disanayaka/ICTA 2008: yes (palm-leaf evidence) | Historical dispute; encoding is settled |
 | Q14 | Unicode version for the Archaic Numbers block (7.0?) | WP-EN only; not checked against DerivedAge | Likely 7.0 |

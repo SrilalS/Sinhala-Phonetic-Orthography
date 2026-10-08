@@ -10,7 +10,7 @@ Compiled October 2026.
 |---|---|
 | ✅ | Taken from a primary source (the standard, an official report, or a published mapping table) |
 | 🧪 | Measured from a corpus (the Dakshina Sinhala data, §2a) |
-| ❓ | Unverified. The source says nothing, or the value is an inference. Don't treat it as a mapping |
+| ❓ | Not confirmed. The source says nothing, or the value is an inference. Don't treat it as a mapping |
 | - | No value recorded for this letter in the sources used here |
 
 Confidence for each RS convention: **H** means several primary sources agree, **M** means one primary source or an inference, **L** means a guess.
@@ -22,9 +22,9 @@ Letter IDs follow the rest of this repository: consonants `ka kha ga gha nga(ඞ
 ## Summary
 
 - **Informal writing uses `th` = ත and `t` = ට.** ත is written `th` 93% of the time and ට is `t` 99%. ISO 15919 does the opposite (`t` = ත, `ṭ` = ට) (RS-001).
-- **Informal `d` is ද first.** People write `d` for both ද (99%) and ඩ (100%), and keep `dh` for ධ (68%), which agrees with ISO (RS-002, RS-003).
-- **Informal `ee`/`oo` mean ī/ū, not ē/ō.** ී is written `ee` 40% of the time, ේ almost never. ISO's 7-bit form uses `ee`/`oo` for ē/ō (RS-006, RS-007).
-- **Vowel length is rarely marked.** ා is written `a` 97% of the time, and ී is `i` 57% (RS-009).
+- **Informal `d` is ද first.** People write `d` for both ද (99%) and ඩ (100%), and keep `dh` for ධ (69%), which agrees with ISO (RS-002, RS-003).
+- **Informal `ee`/`oo` mean ī/ū, not ē/ō.** ී is written `ee` 38% of the time, ේ almost never. ISO's 7-bit form uses `ee`/`oo` for ē/ō (RS-006, RS-007).
+- **Vowel length is rarely marked.** ා is written `a` 97% of the time, and ී is `i` 58% (RS-009).
 - **The formal systems disagree on the nasals.** ISO, the Sri Lanka national system and ALA-LC each romanize ං and ඞ differently (RS-029).
 
 ---
@@ -36,8 +36,8 @@ Letter IDs follow the rest of this repository: consonants `ka kha ga gha nga(ඞ
 | 1 | Informal `kohomada` means කොහොමද: `d` is ද, not ඩ. Reading `d` as ඩ gives the wrong word | RS-002 |
 | 2 | Informal `ee` is ඊ/ී (`kireemata`, `pawathee`), not ඒ as in ISO 7-bit | RS-006 |
 | 3 | Informal `oo` is ඌ/ූ (`soodanam`), not ඕ as in ISO 7-bit | RS-007 |
-| 4 | Plain `nd`, `mb`, `ng` are ambiguous: න්ද or ඳ, ම්බ or ඹ, න්ග or ඟ or ංග. Informal writing uses them for the prenasalized letters (ඳ is `nd` 90% of the time) | RS-012 |
-| 5 | Informal `n` for ං (92%) can't be told apart from න් | RS-014 |
+| 4 | Plain `nd`, `mb`, `ng` are ambiguous: න්ද or ඳ, ම්බ or ඹ, න්ග or ඟ or ංග. Informal writing uses them for the prenasalized letters (ඳ is `nd` 91% of the time) | RS-012 |
+| 5 | Informal `n` for ං (91%) can't be told apart from න් | RS-014 |
 | 6 | `c` is ච in ISO, but informal writing uses `ch` for ච (95%) | RS-005 |
 | 7 | Chat-style Singlish drops vowels (`nthi`, `mta`, `kynna`), so one spelling can stand for several words | RS-010 |
 | 8 | ඏ ඐ ෟ ෳ have values only in the formal systems; there is no informal data for them | RS-018 |
@@ -76,7 +76,7 @@ Letter IDs follow the rest of this repository: consonants `ka kha ga gha nga(ඞ
 - ච ch · ඡ chh · ශ sh · ෂ ṣh · ං ṁ · ඞ ṅ
 
 ### 1d. ALA-LC (Library of Congress) Sinhalese
-**Source:** interscript maps `alalc-sin-Sinh-Latn-1997` and `-2011`. The LoC PDF itself failed to load (HTTP 520), so this is medium confidence.
+**Source:** interscript maps `alalc-sin-Sinh-Latn-1997` and `-2011`. The LoC PDF itself was not consulted, so this is medium confidence.
 
 | Area | ALA-LC 1997 |
 |---|---|
@@ -105,45 +105,45 @@ The 2011 test strings use ă / â for ඇ / ඈ.
 ## 2. Informal Singlish: how people actually write Sinhala in Latin script
 
 ### 2a. Measured: the Dakshina corpus, Sinhala portion 🧪
-**Corpus:** 10,000 Wikipedia sentences romanized by native speakers (Roark et al., LREC 2020), plus a lexicon of attested variants. The data used is a third-party mirror on Hugging Face: `Anvesh-Lankala/Copy_Dakshina_Google_research_dataset`, `si` split. It has not been checked byte-for-byte against the official release ❓.
+**Corpus:** 10,000 Wikipedia sentences romanized by native speakers (Roark et al., LREC 2020), plus a lexicon of attested variants: the Sinhala files of the official Dakshina v1.0 release, pinned by hash.
 
-**Method:** each Sinhala word was aligned to its romanization with a small dynamic-programming aligner, and the spelling chosen for each letter was counted.
-- "Sentences" = sentence tokens: 127,701 of 141,995 tokens aligned.
-- "Lexicon" = lexicon variants: 116,349 of 120,258 aligned.
+**Method:** `tools/corpus_counts.py` (with `tools/dakshina_counts.py`) splits each Sinhala word into letters and signs and aligns it to its romanization by dynamic programming over a broad set of candidate spellings per letter. The candidate probabilities are re-estimated from the alignments for four rounds, so the counts do not depend on the order of a hand-written table. The percentages are shares of the aligned occurrences of each letter (claims CC-17 and CC-18 in `reports/corpus-counts.md`).
+- "Sentences" = sentence word tokens: 127,072 of 139,154 aligned (tokens with digits or no Sinhala letter left out).
+- "Lexicon" = lexicon variants, weighted by the number of annotators: 88,994 of 93,505 aligned.
 
 | Letter | Sentences | Lexicon variants |
 |---|---|---|
 | ක | k 99%, c 1% | k 99% |
-| ඛ / ඝ | kh 69% / gh 70% (rest: k, g) | kh 88% / gh 89% |
-| ඟ | ng 51%, g 48% | ng 62%, g 38% |
-| ච / ඡ | ch 95%, c 5% / ch 98% | ch 56%, c 44% / ch 100% |
-| ජ | j 99% | j 99% |
-| ඤ / ඥ | n 63%, gn 37% / **gn 98%** | n 55%, kn 45% / gn 74%, ny 12% |
-| ට / ඨ | **t 99%** / t 92% | t 100% / th 77% |
-| ඩ / ඪ | **d 100%** / d 73% | d 99% / dh 73% |
+| ඛ / ඝ | kh 71%, k 29% / gh 70%, g 30% | kh 94%, k 6% / gh 93%, g 7% |
+| ඟ | ng 52%, g 48% | ng 85%, g 15% |
+| ච / ඡ | ch 95%, c 5% / ch 98%, chh 1% | ch 59%, c 41% / ch 99% |
+| ජ | j 100% | j 100% |
+| ඤ / ඥ | n 70%, gn 30% / **gn 98%**, kn 1% | n 82%, gn 16%, kn 1% / gn 94%, ny 4%, gy 2% |
+| ට / ඨ | **t 99%** / t 92%, th 8% | t 99% / th 81%, t 19% |
+| ඩ / ඪ | **d 100%** / d 73%, dh 27% | d 99% / dh 70%, d 30% |
 | ණ | n 100% | n 100% |
-| ඬ | nd 81%, d 19% | nd 65%, d 33% |
-| ත / ථ | **th 93%**, t 7% / th 99% | th 54%, t 46% / th 94% |
-| ද / ධ | **d 99%**, dh 1% / **dh 68%**, d 32% | d 94% / dh 90% |
-| ඳ | **nd 90%**, d 9% | nd 58%, dh 31% |
-| ඵ / භ | p 57%, ph 43% / bh 91% | ph 80% / bh 78% |
-| ඹ | **mb 88%**, b 11% | mb 84% |
-| ව | **w 73%**, v 27% | v 74%, w 26% |
-| ශ / ෂ | sh 85% / sh 91% | s 53%, sh 47% / sh 55%, s 45% |
+| ඬ | nd 83%, d 17% | nd 91%, d 9% |
+| ත / ථ | **th 93%**, t 7% / th 100% | th 51%, t 49% / th 96%, t 4% |
+| ද / ධ | **d 99%** / **dh 69%**, d 31% | d 97%, dh 3% / dh 94%, d 6% |
+| ඳ | **nd 91%**, d 9% | nd 82%, d 12%, dh 4% |
+| ඵ / භ | p 56%, ph 44% / bh 91%, b 9% | ph 83%, p 17% / bh 89%, b 11% |
+| ඹ | **mb 88%**, b 11% | mb 93%, b 7% |
+| ව | **w 72%**, v 28% | v 83%, w 17% |
+| ශ / ෂ | sh 85%, s 15% / sh 91%, s 9% | s 53%, sh 47% / sh 52%, s 48% |
 | ළ | l 100% | l 100% |
-| ෆ | f 86%, ph 13% | f 94% |
-| inherent a | a 99% (rarely dropped in this corpus) | a 100% |
-| ා | **a 97%**, aa 3% | a 91%, aa 8% |
-| ැ / ඇ | e 62%, a 38%, ae ≈0% / a 60%, e 40% | ae 44%, a 43%, e 14% |
-| ෑ | e 68%, a 29%, aa 3% | a 52%, ae 34% |
-| ී / ඊ | i 57%, **ee 40%**, ii 2% / i 69%, ee 30% | i 69%, ee 30% |
-| ූ / ඌ | u 72%, **oo 23%**, uu 5% / u 94% | u 83%, oo 14% |
-| ේ / ඒ | e 99%, ee ≈0% / e 98% | e 98% |
-| ෝ / ඕ | o 97%, oo 2% / o 97% | o 99% |
-| ෘ | ru 93%, r 7% | ru 53%, r 46% |
-| ෛ / ඓ | ai 94% / ai 89% | ai 95% |
-| ෞ / ඖ | au 97% / au 93% | au 92% |
-| ං | **n 92%**, ng 4%, m 3% | n 59%, m 34% |
+| ෆ | f 87%, ph 13% | f 90%, ph 10% |
+| inherent a | a 99% | a 100% |
+| ා | **a 97%**, aa 3% | a 95%, aa 5% |
+| ැ / ඇ | e 64%, a 36%, ae ≈0% / a 60%, e 40%, ae ≈0% | a 45%, ae 43%, e 12% / a 53%, ae 39%, e 8% |
+| ෑ | e 68%, a 29%, aa 3% | a 49%, ae 36%, e 10% |
+| ී / ඊ | i 58%, **ee 38%**, ii 2% / i 72%, ee 27% | i 83%, ee 15% / i 99% |
+| ූ / ඌ | u 73%, **oo 22%**, uu 5% / u 94%, uu 6% | u 93%, oo 6% / u 100% |
+| ේ / ඒ | e 100% / e 99%, ee 1% | e 99% / e 100% |
+| ෝ / ඕ | o 98%, oo 2% / o 97%, oo 3% | o 100% / o 100% |
+| ෘ | ru 93%, r 7% | r 55%, ru 45% |
+| ෛ / ඓ | ai 99%, ei 1% / ai 89%, ei 11% | ai 99% / ai 100% |
+| ෞ / ඖ | au 97%, ou 3% / au 89%, ow 7%, ou 4% | au 97%, ou 2%, ow 1% / au 100% |
+| ං | **n 91%**, ng 6%, m 3% | n 60%, m 34%, ng 6% |
 
 **Caveats:**
 - These are Wikipedia sentences romanized carefully on request, not chat. Chat drops vowels much more (§2b).
@@ -185,71 +185,71 @@ Notes on the columns:
 | ID | Sinhala | ISO 15919 | ISO 7-bit | Sri Lanka national | ALA-LC | Informal 🧪 |
 |---|---|---|---|---|---|---|
 | ka | ක | k | k | - | - | k 99% |
-| kha | ඛ | kh | kh | - | - | kh 69% |
+| kha | ඛ | kh | kh | - | - | kh 71% (k 29%) |
 | ga | ග | g | g | - | - | g |
-| gha | ඝ | gh | gh | - | - | gh 70% |
+| gha | ඝ | gh | gh | - | - | gh 70% (g 30%) |
 | nga | ඞ | ṅ | ;n | ṁ | - | - (no data) |
-| nnga | ඟ | n̆g | ^ng | n̆g | ṅg | ng 51% (g 48%) |
+| nnga | ඟ | n̆g | ^ng | n̆g | ṅg | ng 52% (g 48%) |
 | ca | ච | c | c | - | c | ch 95% |
 | cha | ඡ | ch | ch | - | ch | ch 98% |
-| ja | ජ | j | j | - | - | j 99% |
+| ja | ජ | j | j | - | - | j 100% |
 | jha | ඣ | jh | jh | q | - | jh (n = 4) |
-| nya | ඤ | ñ | ~n | - | - | n 63% (gn 37%) |
+| nya | ඤ | ñ | ~n | - | - | n 70% (gn 30%) |
 | jnya | ඥ | jñ ❓ | - | gn | - | gn 98% |
 | nyja | ඦ | n̆j | ^nj | n̆ǰ | ñj | - (no data) |
 | tta | ට | ṭ | .t | - | - | t 99% |
 | ttha | ඨ | ṭh | - | ṯ | - | t 92% |
 | dda | ඩ | ḍ | - | - | - | d 100% |
-| ddha | ඪ | ḍh | - | - | - | d 73% |
+| ddha | ඪ | ḍh | - | - | - | d 73% (dh 27%) |
 | nna | ණ | ṇ | - | - | - | n 100% |
-| nndda | ඬ | n̆ḍ | ^n.d | n̆ḍ | ṇḍ | nd 81% |
+| nndda | ඬ | n̆ḍ | ^n.d | n̆ḍ | ṇḍ | nd 83% (d 17%) |
 | ta | ත | t | t | - | - | th 93% |
-| tha | ථ | th | th | - | - | th 99% |
+| tha | ථ | th | th | - | - | th 100% |
 | da | ද | d | d | - | - | d 99% |
-| dha | ධ | dh | dh | - | - | dh 68% |
+| dha | ධ | dh | dh | - | - | dh 69% (d 31%) |
 | na | න | n | n | - | - | n |
-| nda | ඳ | n̆d | ^nd | n̆d | nd | nd 90% |
+| nda | ඳ | n̆d | ^nd | n̆d | nd | nd 91% |
 | pa | ප | p | p | - | - | p |
-| pha | ඵ | ph | ph | - | - | p 57% (ph 43%) |
+| pha | ඵ | ph | ph | - | - | p 56% (ph 44%) |
 | ba | බ | b | b | - | - | b |
 | bha | භ | bh | bh | - | - | bh 91% |
 | ma | ම | m | m | - | - | m |
-| mba | ඹ | m̆b | ^mb | ḅ | ṃb | mb 88% |
+| mba | ඹ | m̆b | ^mb | ḅ | ṃb | mb 88% (b 11%) |
 | ya | ය | y | y | - | - | y |
 | ra | ර | r | r | - | - | r |
 | la | ල | l | l | - | - | l |
-| va | ව | v | v | - | - | w 73% (v 27%) |
-| sha | ශ | ś | sh | ś | ś | sh 85% |
+| va | ව | v | v | - | - | w 72% (v 28%) |
+| sha | ශ | ś | sh | ś | ś | sh 85% (s 15%) |
 | ssa | ෂ | ṣ | .s | sh | ṣ | sh 91% |
 | sa | ස | s | s | - | - | s |
 | ha | හ | h | h | - | - | h |
 | lla | ළ | ḷ | .l | - | - | l 100% |
-| fa | ෆ | f | f | - | - | f 86% |
+| fa | ෆ | f | f | - | - | f 87% (ph 13%) |
 
 ### Vowels (independent / sign) and signs
 
 | ID | Sinhala | ISO 15919 | ISO 7-bit | Sri Lanka national | ALA-LC | Informal 🧪 |
 |---|---|---|---|---|---|---|
 | a | අ / (inherent) | a | a | - | - | a 99% |
-| aa | ආ / ා | ā | aa | - | - | a 97% (aa 3%) |
-| ae | ඇ / ැ | æ | ae | æ | ă | ැ e 62%; ඇ a 60% |
+| aa | ආ / ා | ā | aa | - | - | a 97% |
+| ae | ඇ / ැ | æ | ae | æ | ă | ැ e 64%; ඇ a 60% |
 | aee | ඈ / ෑ | ǣ | aee | ǣ | â | e 68% (a 29%) |
 | i | ඉ / ි | i | i | - | - | i |
-| ii | ඊ / ී | ī | ii | - | - | i 57% (**ee 40%**) |
+| ii | ඊ / ී | ī | ii | - | - | i 58% (ee 38%) |
 | u | උ / ු | u | u | - | - | u |
-| uu | ඌ / ූ | ū | uu | - | - | u 72% (**oo 23%**) |
+| uu | ඌ / ූ | ū | uu | - | - | u 73% (oo 22%) |
 | ru | ඍ / ෘ | r̥ | ,r | ṛ | - | ru 93% |
 | ruu | ඎ / ෲ | r̥̄ | ,rr | ṝ | - | ru (n = 7) |
 | ilu | ඏ / ෟ | l̥ | ,l | ḷ | ḷ | - (no data) |
 | iluu | ඐ / ෳ | l̥̄ | ,ll | ḹ | ḹ | - (no data) |
 | e | එ / ෙ | e | e | - | - | e |
-| ee | ඒ / ේ | ē | ee | - | ē | e 99% |
-| ai | ඓ / ෛ | ai | ai | ĩ | - | ai 94% |
+| ee | ඒ / ේ | ē | ee | - | ē | e 100% |
+| ai | ඓ / ෛ | ai | ai | ĩ | - | ai 99% |
 | o | ඔ / ො | o | o | - | - | o |
-| oo | ඕ / ෝ | ō | oo | - | ō | o 97% |
+| oo | ඕ / ෝ | ō | oo | - | ō | o 98% |
 | au | ඖ / ෞ | au | au | - | - | au 97% |
 | hal | ් | (none) | (none) | - | - | not written (implied at end of word) |
-| anusvara | ං | ṁ | ;m | ṅ | ṃ (class nasal) | n 92% |
+| anusvara | ං | ṁ | ;m | ṅ | ṃ (class nasal) | n 91% |
 | visarga | ඃ | ḥ | .h | - | - | h (n = 1) |
 | yansaya | ්‍ය | -y | -y | -y | - | y |
 | rakaransaya | ්‍ර | -r | -r | -r | - | r |
@@ -263,26 +263,26 @@ Notes on the columns:
 |---|---|---|---|
 | RS-001 | Informal writing uses `th` = ත and `t` = ට: ත is `th` 93%, ට is `t` 99%. ISO 15919 uses plain `t` = ත and `ṭ` = ට, and some lexicon annotators follow it (ත splits th/t about 50/50 in the lexicon) | §1a, §2a | H |
 | RS-002 | **`d` is ambiguous in informal writing.** People write `d` for both ද (99%) and ඩ (100%). ISO separates them (d = ද, ḍ = ඩ). The RANLP pair `badu` බඩු/බදු shows the ambiguity in practice | §1a, §2a, §2b | H |
-| RS-003 | **`dh` = ධ.** ISO uses dh = ධ, and informal writing agrees (68% in sentences, 90% in the lexicon) | §1a, §2a | H |
+| RS-003 | **`dh` = ධ.** ISO uses dh = ධ, and informal writing agrees (69% in sentences, 94% in the lexicon) | §1a, §2a | H |
 | RS-004 | ISO marks aspirates by adding h to the base letter (`ch` = ඡ, `th` = ථ). Informal writing barely separates aspirates from their plain letters: ථ and ත are both `th`, ඨ is mostly `t`, ඪ mostly `d` | §1a, §2a | H |
 | RS-005 | `c`: ISO and ALA-LC use c = ච. Informal writing uses `ch` for ච (95%), `c` only 5%; ක is `c` 1% | §1a, §1d, §2a | M |
-| RS-006 | `ee`: in ISO 7-bit, `ee` = ē (ඒ). In informal writing `ee` is a common spelling of ī (ී = `ee` 40%), and almost never of ē (ේ = `ee` ≈0%) | §1a, §2a | H |
-| RS-007 | `oo`: in ISO 7-bit, `oo` = ō (ඕ). In informal writing `oo` is a spelling of ū (ූ = `oo` 23%), rarely of ō (ෝ = `oo` 2%) | §1a, §2a | H |
+| RS-006 | `ee`: in ISO 7-bit, `ee` = ē (ඒ). In informal writing `ee` is a common spelling of ī (ී = `ee` 38%), and almost never of ē (ේ = `ee` ≈0%) | §1a, §2a | H |
+| RS-007 | `oo`: in ISO 7-bit, `oo` = ō (ඕ). In informal writing `oo` is a spelling of ū (ූ = `oo` 22%), rarely of ō (ෝ = `oo` 2%) | §1a, §2a | H |
 | RS-008 | ඇ: ISO is æ, with `ae` as its 7-bit form; UN 1972 æ̆, ALA-LC ă, KNAB è. Informal writing mostly uses `e` or `a`, rarely `ae` (ැ = `ae` ≈0% in sentences) | §1, §2a | H |
-| RS-009 | Informal writing rarely marks vowel length (ා = `a` 97%, ී = `i` 57%). Length has to be recovered from context or a dictionary | §2a, §2b | H |
+| RS-009 | Informal writing rarely marks vowel length (ා = `a` 97%, ී = `i` 58%). Length has to be recovered from context or a dictionary | §2a, §2b | H |
 | RS-010 | Chat-style Singlish drops vowels heavily (`nthi`, `mta`, `kynna`). The published systems cope with dictionaries, fuzzy matching or BERT | §2b | H |
-| RS-011 | ව: the formal systems use `v`. KNAB notes that local practice writes `w`, and informal writing prefers `w` in sentences (73%) | §1e, §2a | H |
-| RS-012 | Prenasalized letters: ISO and the national system mark them with a breve (n̆d, m̆b, n̆g), KNAB with a middle dot (·mba), ALA-LC writes nda / ṃba / ṅga. Informal writing uses a plain cluster (`nd` 90%, `mb` 88%, `ng` 51%), which is ambiguous with න්ද, ම්බ, න්ග | §1, §2a | H |
-| RS-014 | ං: ISO ṁ, national system ṅ, ALA-LC the class nasal, KNAB ṁ (ń). Informal writing uses `n` (92%), which can't be told apart from න් | §1, §2a | H |
+| RS-011 | ව: the formal systems use `v`. KNAB notes that local practice writes `w`, and informal writing prefers `w` in sentences (72%) | §1e, §2a | H |
+| RS-012 | Prenasalized letters: ISO and the national system mark them with a breve (n̆d, m̆b, n̆g), KNAB with a middle dot (·mba), ALA-LC writes nda / ṃba / ṅga. Informal writing uses a plain cluster (`nd` 91%, `mb` 88%, `ng` 52%), which is ambiguous with න්ද, ම්බ, න්ග | §1, §2a | H |
+| RS-014 | ං: ISO ṁ, national system ṅ, ALA-LC the class nasal, KNAB ṁ (ń). Informal writing uses `n` (91%), which can't be told apart from න් | §1, §2a | H |
 | RS-017 | ෘ is written `ru` informally (93%, `r` 7%); ISO uses r̥. A romanization that writes ෘ as `ru` cannot distinguish කෘ from ක්‍රු (both `kru`) | §1a, §2a | H |
 | RS-018 | ඏ ඐ ෟ ෳ have values only in the formal systems (ISO l̥ / l̥̄, national and ALA-LC ḷ / ḹ). There is no informal data for them | §1, §2a | H |
 | RS-019 | Hal is not written. ISO has no symbol for ්, and informal writing leaves a consonant with no following vowel bare (hal implied, especially at the end of a word) | §1a, §2a | H |
 | RS-020 | The inherent vowel is written as `a` in ISO and in informal writing (99% in Dakshina). Chat breaks this (RS-010) | §1a, §2a | H |
 | RS-024 | ශ / ෂ: ISO ś / ṣ, national ś / sh, UN 1972 sh / ṣh, KNAB sha / ṣha. Informal writing uses `sh` for both (85% / 91%) | §1, §2a | H |
 | RS-025 | The formal systems mark retroflex letters with an underdot (ṭ ḍ ṇ ḷ). Informal writing does not distinguish them at all for the nasal and lateral (ණ = `n` 100%, ළ = `l` 100%) | §1a, §2a | H |
-| RS-026 | `ai` = ඓ and `au` = ඖ in ISO, and in informal writing (ai 94%, au 97%). The national system now uses ĩ for ඓ | §1a, §1b, §2a | H |
+| RS-026 | `ai` = ඓ and `au` = ඖ in ISO, and in informal writing (ai 99%, au 97%). The national system now uses ĩ for ඓ | §1a, §1b, §2a | H |
 | RS-029 | The formal systems disagree with each other on the nasals. ISO: ං = ṁ, ඞ = ṅ. Sri Lanka 2018+: ං = ṅ, ඞ = ṁ. ALA-LC: ං takes the class nasal | §1 | H |
-| RS-030 | **Keyboard schemes split from informal writing on `d`.** The open Singlish keymap of the Wikimedia input tools (si-singlish, 2012) types `d` ඩ, `dh` ද, `D` ඪ, `Dh` ධ, the same pattern as `t` ට / `th` ත, and older keyboard schemes share it. Informal writing reads `d` as ද (RS-002), and ද is about 5 times as frequent as ඩ in running text. A converter should default to `d` ද and offer the keyboard convention as an option | §2a, Sources | H |
+| RS-030 | **Keyboard schemes split from informal writing on `d`.** The open Singlish keymap of the Wikimedia input tools (si-singlish, 2012) types `d` ඩ, `dh` ද, `D` ඪ, `Dh` ධ, the same pattern as `t` ට / `th` ත, and older keyboard schemes share it. Informal writing reads `d` as ද (RS-002), and ද is about 5 times as frequent as ඩ in running text (CC-12). A converter should default to `d` ද and offer the keyboard convention as an option | §2a, Sources | H |
 
 ---
 
@@ -311,7 +311,7 @@ Notes on the columns:
 
 1. How long-vowel and ඇ use differs between real chat text (social media) and the careful Dakshina romanizations. No chat-corpus counts per letter are published ❓.
 2. Is the Dakshina Hugging Face mirror identical to the official release? ❓
-3. The ALA-LC table is from interscript, not the LoC PDF (which failed to load). The 2011 ඇ value (ă vs æ) still needs checking ❓.
+3. The ALA-LC table is from interscript, not the LoC PDF. The 2011 ඇ value (ă vs æ) is not confirmed ❓.
 
 ---
 
@@ -327,7 +327,7 @@ Removed: out of scope: RS-013, RS-015, RS-016, RS-021, RS-022, RS-023, RS-027, R
 - UNGEGN WGRS Sinhala report v5.0 (2021): <https://arhiiv.eki.ee/wgrs/rom2_si.htm> · Survey Department converter: <https://www.survey.gov.lk/RomanizationConverter/>
 - Interscript maps (UN 1972, ALA-LC 1997 / 2011): <https://github.com/interscript/maps>
 - KNAB 1989: <https://arhiiv.eki.ee/knab/lat/kblsi1.pdf>
-- Dakshina (Roark et al., LREC 2020), Hugging Face mirror: <https://huggingface.co/datasets/Anvesh-Lankala/Copy_Dakshina_Google_research_dataset>
+- Dakshina (Roark et al., LREC 2020), official v1.0 release: <https://github.com/google-research-datasets/dakshina>
 - Athukorala & Sumanathilaka, Swa Bhasha: <https://arxiv.org/abs/2404.13350>
 - Perera, Prabhath, Sumanathilaka & Anuradha, IndoNLP 2025: <https://aclanthology.org/2025.indonlp-1.16.pdf>
 - Perera & Sumanathilaka, RANLP 2025: <https://aclanthology.org/2025.ranlp-1.107.pdf>

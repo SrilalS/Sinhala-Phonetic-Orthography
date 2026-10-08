@@ -54,7 +54,7 @@ Machine-readable companions:
 | G-VS-12 | **"ru" has three readings:** ර+ු, ෘ, and rakaransaya+ු. ගෘහ (house) ≠ ග්‍රහ (planet). ක්‍රු/ක්‍රූ must be encoded with ු/ූ, never ැ/ෑ (ක්‍රෑර is wrong) | HARD (encoding), SOFT (choice) | H | 02:VS-012/016/020/034, 03:HC-024, 05:G2P-011 |
 | G-VS-13 | Per-consonant sign validity (41 × 17): see `data/validity.json`. Aspirates rarely take ැ/ෑ; ළ rarely takes long signs; sanyaka letters rarely take long signs | SOFT | M | 02:§8 |
 | G-VS-14 | On ්‍ය clusters, SLS lists a aa u uu e ee o oo. On ්‍ර clusters, a aa ae aee i ii e ee ai o oo au, plus u uu (SLS omits them; they are valid but rare, see G-VS-15). Other combinations are encodable | SOFT | H | 01:INV-018, 02:VS-016, 03:HC-020/021 |
-| G-VS-15 | **C + r + u/uu has two correct spellings: C + ෘ/ෲ (කෲර, මෘදු, ගෲප්) and rakaransaya + ු/ූ (ක්‍රූර).** Both read /Cru(ː)/. ෘ/ෲ is the usual one: it is the most frequent spelling in 299 of 401 words attested in more than one spelling. The look-alike rakaransaya + ැ/ෑ is never correct (G-VS-12) | STYLE | H | 02:VS-020/034, 03:HC-024 |
+| G-VS-15 | **C + r + u/uu has two correct spellings: C + ෘ/ෲ (කෲර, මෘදු, ගෲප්) and rakaransaya + ු/ූ (ක්‍රූර).** Both read /Cru(ː)/. ෘ/ෲ is the usual one: it is the most frequent spelling in 155 of 205 words attested in more than one spelling (CC-02). The look-alike rakaransaya + ැ/ෑ is never correct (G-VS-12) | STYLE | H | 02:VS-020/034, 03:HC-024 |
 
 ---
 
@@ -133,20 +133,20 @@ Machine-readable companions:
 
 ## 7. Writing Sinhala in Latin script (informal romanization)
 
-Measured from the Dakshina corpus of native-speaker romanizations; see `06-romanization.md`.
+Measured from the Dakshina corpus of native-speaker romanizations; see `06-romanization.md`. Every corpus number in this file is reproduced by `tools/corpus_counts.py` (`reports/corpus-counts.md`).
 
 | ID | Finding | Conf | Sources |
 |---|---|---|---|
 | G-TY-01 | `th` = ත and `t` = ට are near-universal (93–99%) | H | 06:RS-001 |
 | G-TY-02 | ද is written `d` (99%); ධ is written `dh` | H | 06:RS-002/003 |
-| G-TY-03 | ී is written `ee` 40% of the time and ූ is written `oo` 23% | H | 06:RS-006/007 |
+| G-TY-03 | ී is written `ee` 38% of the time and ූ is written `oo` 22% | H | 06:RS-006/007 |
 | G-TY-04 | Vowel length is rarely marked: ා is written `a` 97% of the time | H | 06:RS-009 |
 | G-TY-05 | Informal chat drops vowels (`nthi`, `mta`); only a lexicon or fuzzy matching recovers them | H | 06:RS-010 |
-| G-TY-06 | ඳ ඹ ඟ are written `nd` `mb` `ng` (ඳ = `nd` 90%) and ං is written `n` (92%) | H | 06:RS-012/014 |
+| G-TY-06 | ඳ ඹ ඟ are written `nd` `mb` `ng` (ඳ = `nd` 91%) and ං is written `n` (91%) | H | 06:RS-012/014 |
 | G-TY-07 | ඇ is written `e` or `a`, rarely `ae` | H | 06:RS-008 |
 | G-TY-08 | Retroflex ණ / ළ are never distinguished in informal writing (always `n`, `l`) | H | 06:RS-025 |
 | G-TY-09 | Schwa [ə] is written `a` (sometimes `e`): karanawa / keranawa = කරනවා. Ordered schwa rules (98% accurate) predict it | H | 05:G2P-001…009, 03:HC-011 |
-| G-TY-10 | `w` and `v` both stand for ව; `w` is preferred (73%) | H | 06:RS-011 |
+| G-TY-10 | `w` and `v` both stand for ව; `w` is preferred (72%) | H | 06:RS-011 |
 
 ---
 
@@ -174,7 +174,7 @@ checked exhaustively, never produces a forbidden sequence.
 
 | # | Gap | Where it matters |
 |---|---|---|
-| 1 | NIE textbooks, the final SLS 1134:2004/2011 texts and the Sinhala Lekhana Rīthiya (1989) were **not reachable**. School-grammar rules rest on agreeing secondary sources | G-SP-*, G-HC-07, alphabet counts |
+| 1 | NIE textbooks, the final SLS 1134:2004/2011 texts and the Sinhala Lekhana Rīthiya (1989) were **not consulted**. School-grammar rules rest on agreeing secondary sources | G-SP-*, G-HC-07, alphabet counts |
 | 2 | The 41 × 17 validity table is a synthesis, **not a corpus count**. Only the ෘ / ෲ columns have been checked against a corpus (02:VS-035) | G-VS-13 / validity.json |
 | 3 | Touching-letter and yansaya-with-repaya encodings changed between SLS drafts | G-EN-08, G-HC-14 |
 | 4 | ම්‍ර / න්‍ර / ල්‍ර have no attestation in a Sinhala source; plain ම්ර / න්ර is attested (03:HC-052) | G-HC-12, R-07 |

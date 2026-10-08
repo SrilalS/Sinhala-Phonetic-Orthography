@@ -11,7 +11,7 @@ Conventions used in this file:
 - **Code points** are given as `U+XXXX` sequences. `U+200D` = ZERO WIDTH JOINER (ZWJ), `U+200C` = ZERO WIDTH NON-JOINER (ZWNJ), `U+0DCA` = SINHALA SIGN AL-LAKUNA (hal).
 - Every code point sequence in this file was machine-generated from the Sinhala string shown next to it, so the two always agree.
 - **Letter IDs** (used throughout this repository): ka kha ga … lla fa; vowels a aa … au; hal.
-- **Confidence**: high = stated directly by Unicode / SLS / font-shaping spec, or by two or more independent sources; medium = one good source, or a reasonable inference from good sources; low = unverified or contested. **[UNVERIFIED]** marks claims I could not confirm in any source I fetched.
+- **Confidence**: high = stated directly by Unicode / SLS / font-shaping spec, or by two or more independent sources; medium = one good source, or a reasonable inference from good sources; low = not confirmed in a consulted source, or contested. **[open]** marks claims that no consulted source confirms; they are listed under Open questions. Counts such as "NLPC 108" are token counts in the NLPC 2.1M-word list (reports/corpus-counts.md); "rare" means fewer than 20 tokens.
 - Romanization in examples is informal (`t` = ට, `th` = ත, `d` = ඩ, `dh` = ද, `sh` = ශ, `ss` = ෂ, `ə` = schwa). It is not a proposal.
 
 ---
@@ -43,7 +43,7 @@ Conventions used in this file:
 | S21 | E. Muller (Adobe), comments on Sinhala draft, L2/04-235: https://www.unicode.org/L2/L2004/04235-sinhala-cmt.html | UTC document |
 | S22 | si.wikipedia "සිංහල අක්ෂර වින්‍යාසය": https://si.wikipedia.org/wiki/සිංහල_අක්ෂර_වින්‍යාසය | Lead only |
 | S23 | A published Sinhala transliteration scheme (nongnu.org Sinhala project documentation): https://www.nongnu.org/sinhala/doc/transliteration/sinhala-transliteration_2.html | Prior-art romanization |
-| S24 | RFC 5892 (IDNA2008), Appendix A.2, CONTEXTJ rule for ZWJ: https://www.rfc-editor.org/rfc/rfc5892 | IETF standard (cited from knowledge, not fetched this session) |
+| S24 | RFC 5892 (IDNA2008), Appendix A.2, CONTEXTJ rule for ZWJ: https://www.rfc-editor.org/rfc/rfc5892 | IETF standard (not consulted directly) |
 | S25 | si.wikipedia articles "දුම්රිය" and "ශ්‍රී ලංකා දුම්රිය සේවය", wikitext fetched 2026-10-05: https://si.wikipedia.org/wiki/දුම්රිය | Usage sample (running text) |
 
 ---
@@ -109,7 +109,7 @@ Conventions used in this file:
   - ZWNJ: no role in normal Sinhala text, because hal does not join by default. Its documented uses are marginal:
     - (a) The 2004 draft (S3) put ZWNJ before a vowel sign to show it standalone (`U+200C U+0DCF`). It also used ZWNJ for a standalone yansaya (`U+200C U+0DCA U+200D U+0DBA`) and a standalone rēpaya (`U+0DBB U+0DCA U+200D U+200C`).
     - (b) The SLSI 2004 decisions (S4) replaced these with SPACE-based sequences. Standalone yansaya = `U+0020 U+0DCA U+200D U+0DBA`. Standalone rakāransaya = `U+0020 U+0DCA U+200D U+0DBB`. Standalone rēpaya = `U+0DBB U+0DCA U+200D U+0020`. A standalone vowel sign = space + sign, without ZWJ.
-    - (c) Jansche/Freytag (S9) proposed `U+0DBB U+200C U+0DCA U+200D U+0DBA` to force the non-standard "ra + yansaya" reading. This is a proposal only; I found no adoption.
+    - (c) Jansche/Freytag (S9) proposed `U+0DBB U+200C U+0DCA U+200D U+0DBA` to force the non-standard "ra + yansaya" reading. This is a proposal only; no adoption is documented in the sources consulted.
   - Under USE (S6), ZWNJ blocks fusion of two characters. ZWJ joins the preceding cluster to the following character.
 - **Applies-to:** hal, ya, ra.
 - **Confidence:** high for ZWJ; medium for ZWNJ (the standalone conventions conflict between the draft and the WG decisions).
@@ -136,7 +136,7 @@ Conventions used in this file:
 - **Sources:** S13, S14, S23.
 
 ### HC-011: Schwa vs /a/ realisation rules (pronunciation only)
-- **Statement:** S13 starts by giving every bare consonant /ə/. It then applies ordered rules (summarised in my own words):
+- **Statement:** S13 starts by giving every bare consonant /ə/. It then applies ordered rules (paraphrased):
   1. The first syllable's nucleus becomes /a/. Exceptions: the word starts with /sv/; it starts with /kər/ (e.g. කර-, so කරනවා → /kərənəwaː/); or it is a single CV syllable.
   2. After a consonant + /r/, ə→a before a consonant; there are sub-rules for /h/.
   3. ə→a before /h/ when a vowel follows the /h/.
@@ -178,7 +178,7 @@ Conventions used in this file:
   - The five prenasalized letters (sannaka) ඟ ඦ ඬ ඳ ඹ cannot be followed by hal (S8, "constraint for Sannjakas"). They also cannot geminate (S14).
   - Retroflex ළ never takes hal (S22).
   - ඞ is the reverse case: it "is never combined with a vowel" and appears only in pure form (S3, Table 3 note 1, text partly garbled in the draft PDF; most likely means ඞ්).
-- **Exceptions:** si.wikipedia (S15) lists ඳ්‍ඨ, ඳ්‍ධ, ඳ්‍ව as conjuncts. That contradicts S8. I treat S15 as unreliable here (see Open questions).
+- **Exceptions:** si.wikipedia (S15) lists ඳ්‍ඨ, ඳ්‍ධ, ඳ්‍ව as conjuncts. That contradicts S8. S15 is treated as unreliable here (see Open questions).
 - **Applies-to:** nnga, nyja, nndda, nda, mba, lla (no hal); nga (hal only).
 - **Confidence:** medium-high (S8 is authoritative, S22 is a lead).
 - **Sources:** S8, S14, S22, S3.
@@ -245,7 +245,7 @@ Conventions used in this file:
 - **Statement:** After a rakāransaya, the u and uu vowel signs take alternative shapes that look like the æ/ǣ signs. Unicode says they must be encoded as U+0DD4/U+0DD6, **not** as U+0DD0/U+0DD1.
 - **Examples:** ක්‍රු `U+0D9A U+0DCA U+200D U+0DBB U+0DD4`, ක්‍රූර *krūra* `U+0D9A U+0DCA U+200D U+0DBB U+0DD6 U+0DBB`. Wrong (but attested): ක්‍රෑර `U+0D9A U+0DCA U+200D U+0DBB U+0DD1 U+0DBB`. S13 found corpus words where ැ/ෑ were used for /u, uː/. S13 printed its examples in a legacy font, so they are garbled. They are most likely ශ්‍රැති-type and ක්‍රෑර-type spellings.
 - **Also:** Bases shaped like ද lose their tail before a below-base sign. ද්‍ර looks different from ක්‍ර, but the encoding is unaffected (S1).
-- **Usage and rendering (02:VS-035):** in practice /Cru/ and /Cruː/ are mostly written C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 22 vs ක්‍රෑර 186 in the NLPC 2.1M-word list). Several fonts, including the Windows system fonts Nirmala UI and Iskoola Pota, do not draw the special shape and attach an ordinary ු/ූ below the cluster.
+- **Usage and rendering (02:VS-035):** in practice /Cru/ and /Cruː/ are mostly written C + ෘ/ෲ (කෲර 1,667 vs ක්‍රූර 9 vs ක්‍රෑර 186 in the NLPC 2.1M-word list, CC-03). Several fonts, including the Windows system fonts Nirmala UI and Iskoola Pota, do not draw the special shape and attach an ordinary ු/ූ below the cluster.
 - **Applies-to:** ra (rakāransaya), u, uu, ae, aee.
 - **Confidence:** high (S1); medium for the corpus interpretation.
 - **Sources:** S1, S13, S3 §6.3 note.
@@ -288,7 +288,7 @@ Conventions used in this file:
   - the contemporary කාර්‍ය (rēpaya + ya, no yansaya), "also accepted" `U+0D9A U+0DCF U+0DBB U+0DCA U+200D U+0DBA`
   - කාර්ය (no rēpaya, no yansaya) `U+0D9A U+0DCF U+0DBB U+0DCA U+0DBA`, used by "those who do not follow the above writing system"
 - **Conflict:** The 2004 draft (S3 §5.7) encoded "yansaya with repaya" as `U+0DBB U+0DCA U+200D U+200C U+0DCA U+200D U+0DBA` (with ZWNJ). The SLSI decisions (S4) replaced this with `U+0DBB U+0DCA U+200D U+0DBA U+0DCA U+200D U+0DBA`. Fonts vary in how they render `ර ් ZWJ ය` (S9).
-- **Same family:** සූර්‍ය, ආර්‍ය, ධෛර්‍ය, ආශ්චර්‍ය, ආචාර්‍ය. Their older spellings take the doubled ය්‍ය form **[spellings of individual words UNVERIFIED]**.
+- **Same family:** සූර්‍ය (NLPC 108), ආර්‍ය (179), ධෛර්‍ය (92), ආශ්චර්‍ය (62), ආචාර්‍ය (404). Their older spellings take the doubled ය්‍ය form. That form is attested for each word but is uncommon: counting ර්ය්‍ය with and without ZWJ after ර්, NLPC has සූර්ය්‍ය 21, ආර්ය්‍ය 81, ධෛර්ය්‍ය 41, ආශ්චර්ය්‍ය 18 (rare) and ආචාර්ය්‍ය 53 tokens. Plain-hal spellings are far more frequent (සූර්ය 3,193, ආචාර්ය 19,206; compare CC-07, CC-08).
 - **Applies-to:** ra, ya, hal.
 - **Confidence:** high on the rule; medium on which modern variant is preferred.
 - **Sources:** S3, S4, S5, S8, S9.
@@ -334,7 +334,7 @@ Conventions used in this file:
 ### HC-043: තත්ත්වය vs තත්වය (and සත්ත්ව vs සත්ව)
 - **Statement:** The Sanskrit abstract suffix *-tva* is added to stems ending in *-t* (tat, sat). The prescriptive rule (S16) keeps both t's in tatsama words: තත්ත්වය `U+0DAD U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA`, සත්ත්වයා `U+0DC3 U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA U+0DCF`, තත්ත්වඥ. The reduced spellings තත්වය `U+0DAD U+0DAD U+0DCA U+0DC0 U+0DBA` and සත්වයා are common in contemporary writing and journalism.
 - **Note:** The ත්ව part may also be drawn as the ligature ත්‍ව `U+0DAD U+0DCA U+200D U+0DC0` (Unicode Table 13-4). That gives a third and fourth spelling (තත්ත්‍වය). Treat all as equivalent for search.
-- **Confidence:** medium. S16 is a teaching note, not an official decree. I could not find an Official Languages Department or NIE ruling online.
+- **Confidence:** medium. S16 is a teaching note, not an official decree. No Official Languages Department or NIE ruling was found.
 - **Sources:** S16; Wiktionary lists Sanskrit तत्त्व as තත්ත්ව (lead only).
 
 ### HC-044: Triple (and longer) clusters
@@ -372,9 +372,9 @@ Conventions used in this file:
 
 ### HC-052: Rakāransaya after ම / න / ල
 - **Statement:** Nothing in Unicode, SLS or the shaping specs restricts which consonant may take a rakāransaya. Any `C ් ZWJ ර` is valid encoding, and fonts draw the generic below-base form.
-  - ම්‍ර occurs in Sanskrit tatsama words such as තාම්‍ර "copper" and ආම්‍ර "mango" **[UNVERIFIED in a Sinhala source this session]**.
-  - න්‍ර and ල්‍ර: I found no attested Sinhala word.
-  - **In running text, ම න ල + ර is written with plain hal.** Where ම න ල meets ර there is usually a morpheme or syllable boundary: දුම් + රිය "train", හෙන්රි "Henry", ඉම්රාන්, දිල්රුක්ෂි. In S25 every ම්ර is written without ZWJ, while the same pages write ප්‍ර ත්‍ර ක්‍ර with ZWJ (78 times). A ZWJ would draw a rakāransaya under ම, a form readers do not use for these words.
+  - ම්‍ර in Sanskrit tatsama words is rare in running text: තාම්‍ර "copper" (rare: NLPC 3) and ආම්‍ර "mango" (rare: NLPC 4, with endings only). The plain spellings තාම්ර and ආම්ර do not occur as bare words either.
+  - න්‍ර and ල්‍ර: CC-10 counts 269 and 100 tokens, against 10,133 and 2,786 with plain hal. The most frequent joined forms are ZWJ spellings of words normally written with plain hal (හෙන්‍රි 36 vs හෙන්රි 3,058). Every other න්‍ර or ල්‍ර form has fewer than 20 tokens.
+  - **In running text, ම න ල + ර is written with plain hal.** Where ම න ල meets ර there is usually a morpheme or syllable boundary: දුම් + රිය "train", හෙන්රි "Henry", ඉම්රාන්, දිල්රුක්ෂි. In the NLPC 2.1M-word list, ම්ර outnumbers ම්‍ර 46,496 to 383 tokens and න්ර outnumbers න්‍ර 10,133 to 269 (දුම්රිය 30,800, දුම්‍රිය 82), while ZWJ is written in 98% of other C + ර tokens (CC-09, C-10). Sinhala Wikipedia agrees: 1,148 articles have ම්ර and 63 have ම්‍ර (CC-16). A ZWJ would draw a rakāransaya under ම, a form readers do not use for these words.
   - So the general rule of HC-021 (C + ර takes ZWJ) holds within a syllable. After ම න ල the plain form is the norm, and ම්‍ර is kept for a deliberately classical style.
 - **Confidence:** medium (encoding high; usage from one source).
 - **Sources:** S1, S3, S5, S17, S25.
@@ -382,7 +382,7 @@ Conventions used in this file:
 ### HC-053: ඤ්‍ච / ඤ්‍ජ (pañca, vyañjana)
 - **Statement:**
   - Noto has a ligature glyph for ඤ්‍ච (`nya_ca`), and S8 lists "njca" among obsolete conjuncts. Modern spelling uses hal: පඤ්ච `U+0DB4 U+0DA4 U+0DCA U+0DA0`, ව්‍යඤ්ජන `U+0DC0 U+0DCA U+200D U+0DBA U+0DA4 U+0DCA U+0DA2 U+0DB1`.
-  - ඤ්‍ජ as a dedicated ligature is **[UNVERIFIED]**.
+  - A dedicated ligature for ඤ්‍ජ is not documented in the sources consulted **[open]**.
   - Do not confuse either with ඦ (nyja), the archaic prenasalized letter that never takes hal.
 - **Confidence:** medium.
 - **Sources:** S8, S17, S3.
@@ -509,14 +509,14 @@ or validating and searching stored Sinhala text.
    - SLSI WG 2004: `ර ් ZWJ ය ් ZWJ ය`
    - modern simplified: `ර ් ZWJ ය` (rēpaya on ya)
    
-   Fonts render `ර ් ZWJ ය` inconsistently (S9). Which does SLS 1134:2011 mandate? Unverified.
+   Fonts render `ර ් ZWJ ය` inconsistently (S9). Which does SLS 1134:2011 mandate? Open: the 2011 text was not consulted directly.
 3. **Standalone signs:** ZWNJ-based (2004 draft) vs SPACE-based (SLSI WG 2004 decision). Irrelevant for running text, but matters for documentation that shows a sign on its own.
 4. **ඳ + hal conjuncts** (ඳ්‍ධ etc.) appear in si.wikipedia (S15). ICANN (S8) says sannaka letters never take hal. S15 is likely wrong or archaic.
-5. **Which ligatures count as "still used".** ICANN puts ක්‍ෂ, ක්‍ව, න්‍ද, න්‍ධ, න්‍ථ, ත්‍ථ in current use, but its text is garbled in the PDF. Harshula says modern writing has *no* strict ligation except r/y forms. I found no corpus frequency data.
+5. **Which ligatures count as "still used".** ICANN puts ක්‍ෂ, ක්‍ව, න්‍ද, න්‍ධ, න්‍ථ, ත්‍ථ in current use, but its text is garbled in the PDF. Harshula says modern writing has *no* strict ligation except r/y forms. No corpus frequency data for these ligatures has been compiled. Whether ඤ්‍ජ has a dedicated ligature (HC-053) is also open.
 6. **ක්ෂ vs ක්‍ෂ preference** in current NIE textbooks: unknown. The S16 notes use both.
-7. **තත්ත්වය vs තත්වය:** I found only a teaching note (S16) supporting the double-t form. No official ruling (Official Languages Dept / NIE "Sinhala Lekhana Rithiya", 1989) could be fetched.
+7. **තත්ත්වය vs තත්වය:** Only a teaching note (S16) supports the double-t form. No official ruling (Official Languages Dept / NIE "Sinhala Lekhana Rithiya", 1989) was available for consultation.
 8. **Word-final න්/ම් → [ŋ]** (S14) is one lead source. Not checked against Gair/Karunatillake.
-9. **ම්‍ර, න්‍ර, ල්‍ර** attestations not verified. Plain ම්ර / න්ර is attested (HC-052); a corpus count of ම්‍ර would show whether any word needs the joined form.
+9. **ම්‍ර, න්‍ර, ල්‍ර** (resolved). The corpus count (CC-10) gives ම්ර 46,496 vs ම්‍ර 383, න්ර 10,133 vs න්‍ර 269 and ල්ර 2,786 vs ල්‍ර 100 tokens. The joined forms are mostly ZWJ spellings of plain-hal words (දුම්‍රිය 82, හෙන්‍රි 36), and tatsama ම්‍ර words are rare (තාම්‍ර 3). See HC-052.
 10. **SLS Table 3 count:** it says "7" yansaya combinations but lists 8. It also omits u/uu with rakāransaya, while Unicode shows ක්‍රු/ක්‍රූ shapes. This may be an editorial slip in the draft.
 11. **"Sinhala Lekhana Rithiya" (NIE 1989)** is cited by S8 as the alphabet source. It was not accessed and is likely the best source for school-level hal/conjunct rules.
 12. **Corpus evidence of wrong encodings** (ැ/ෑ for u/uu after rakāransaya). S13's examples are in a garbled legacy font, so the exact words are inferred.

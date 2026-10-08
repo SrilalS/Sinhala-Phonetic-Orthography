@@ -11,8 +11,9 @@ Compiled October 2026.
 | Rule IDs | `PH-0xx` phonotactics, `SN-0xx` sandhi, `G2P-0xx` letter-to-sound, `SP-0xx` spelling conventions, `LW-0xx` loanwords, `TY-0xx` typography / punctuation / numbers |
 | Letter IDs | Letter IDs (used throughout this repository): consonants `ka kha ga gha nga nnga(ඟ) ca cha ja jha nya(ඤ) jnya(ඥ) nyja(ඦ) tta ttha dda ddha nna nndda(ඬ) ta tha da dha na nda(ඳ) pa pha ba bha ma mba(ඹ) ya ra la va sha(ශ) ssa(ෂ) sa ha lla(ළ) fa`; vowels `a aa ae aee i ii u uu ru ruu ilu iluu e ee ai o oo au`; `hal`. Extra IDs used here: `anusvara` (ං), `visarga` (ඃ), `ZWJ` (U+200D). **Note:** `nga` = ඞ (the velar nasal letter), `nnga` = ඟ (prenasalized g). |
 | Romanization | Mostly a loose ISO 15919-style form. `ə` = schwa, `æ` = ඇ, `ŋ` = velar nasal, `ṇ` = ණ, `ḷ` = ළ, `ṣ` = ෂ, `ś` = ශ, `ⁿd`/`ᵐb`/`ⁿḍ`/`ᵑg` = prenasalized stops. `/.../` is phonemic. |
-| Confidence | **high**: two or more independent sources, or one authoritative source plus general agreement. **medium**: one source, or a source that was hard to read (garbled PDF), or widely known but not verified online. **low**: inference or unverified. |
-| `[UNVERIFIED]` | No online source confirmed it in this session. It comes from general knowledge of Sinhala grammar and needs checking against a print grammar (NIE textbook, Disanayaka, Karunatillake). |
+| Confidence | **high**: two or more independent sources, or one authoritative source plus general agreement. **medium**: one source, or a source that was hard to read (garbled PDF), or a widely stated claim that no cited source confirms. **low**: inference, or no supporting source found. |
+| `[open]` | No cited source confirms the point. It needs checking against a print grammar (NIE textbook, Disanayaka, Karunatillake) and is listed under Open questions at the end of this file. |
+| Corpus counts | "NLPC *n*" is the number of tokens of that exact word form in the NLPC word frequency list (2,138,021 word types; pinned in `reports/corpus-counts.md`). "With endings" adds every word that begins with the form. Counts are of written strings and do not separate homographs. |
 
 ### Key sources (short names used below)
 
@@ -33,7 +34,7 @@ Compiled October 2026.
 | **UNICODE-ML 2016** | Unicode mailing list thread on SLS 1134 named sequences: https://unicode.org/mail-arch/unicode-ml/y2016-m10/0218.html |
 | **EN-WP-LOAN** | English Wikipedia, List of Sinhala words of English origin: https://en.wikipedia.org/wiki/List_of_Sinhala_words_of_English_origin |
 
-**Things I could not reach:** the e-Thaksalawa Grade 10 PDF "අක්ෂර හා අක්ෂර වින්‍යාසය" (https://e-thaksalawa.moe.gov.lk/moodle/pluginfile.php/10785/mod_resource/content/1/SG10_Sin_Act_Akshara_vinyasaya.pdf) redirects to a login page. No NIE textbook sandhi chapter and no Department of Official Languages spelling standard could be fetched online. Where a rule rests on these kinds of sources, it is marked `[UNVERIFIED]`.
+**Sources not consulted:** the e-Thaksalawa Grade 10 PDF "අක්ෂර හා අක්ෂර වින්‍යාසය" (https://e-thaksalawa.moe.gov.lk/moodle/pluginfile.php/10785/mod_resource/content/1/SG10_Sin_Act_Akshara_vinyasaya.pdf) requires a login. No NIE textbook sandhi chapter and no Department of Official Languages spelling standard was available online. Claims that would need such sources are marked `[open]`.
 
 ---
 
@@ -79,7 +80,7 @@ Compiled October 2026.
 - **Exceptions:** WWG-G2P quotes Disanayaka as saying all consonants occur initially "except /ŋ/ and nasals". Since /n/ and /m/ obviously occur initially, this most likely means the *prenasalized* stops (PH-003). Reading "nasals" literally would wrongly exclude ණ-initial words.
 - **Applies to:** nna, lla, nya (ඤ is very rare; ඥ-initial words are common: ඥාති, ඥානය).
 - **Confidence:** high for ළ; medium for ණ (only a few words).
-- **Sources:** SI-WP-AV (ළ initial list); WWG-G2P 2006 §2.2; ණය from general dictionary knowledge `[UNVERIFIED]` against the Sinhala Shabdakoshaya.
+- **Sources:** SI-WP-AV (ළ initial list); WWG-G2P 2006 §2.2; ණය is frequent in the corpus (NLPC 22,276).
 
 ### PH-006: Vowels: only ඎ never begins a word; ඏ ඐ are obsolete
 - **Statement:** All independent vowel letters can begin a word except ඎ (*ruu*). ඌ, ඍ, ඓ, ඖ begin words only in Sanskrit loans. ඏ and ඐ (*ilu, iluu*) do not occur in contemporary Sinhala.
@@ -132,7 +133,7 @@ Compiled October 2026.
 
 ### PH-011: Schwa /ə/ never starts a syllable (except in කර- forms)
 - **Statement:** Phonemic /ə/ does not occur syllable-initially. The only exceptions are conjugated forms of the verb stem *kərə* "do". Word-initial /ə, əː/ occurs only in English loans, and is written with අ.
-- **Examples:** කරනවා *kərənəwā*. English *urgent* → written with අ (e.g. අර්ජන්ට්) `[UNVERIFIED example]`.
+- **Examples:** කරනවා *kərənəwā*. English *urgent* → written with අ (e.g. අර්ජන්ට්, rare: NLPC 5).
 - **Applies to:** a.
 - **Confidence:** medium (the source text is a little garbled).
 - **Sources:** WWG-G2P 2006 §2.1–2.2 (citing Karunatillake 2004).
@@ -140,9 +141,9 @@ Compiled October 2026.
 ### PH-012: Written ර + yansaya is not allowed; *rya* uses repaya + ය
 - **Statement:** SLS 1134 says yansaya is not used after ර. The sequence /rya/ is written ර්‍ය (repaya + ය), not ර්‍ය with yansaya.
 - **Examples:** කාර්ය (correct per SLS 1134), *not* කාර‍්‍ය; සූර්ය; වීර්ය; ආශ්චර්ය.
-- **Exceptions:** Older printing wrote *rya* as ය්‍ය (e.g. කාය්‍ය, සූය්‍ය, ආචාය්‍ය). It is still seen in older texts. `[UNVERIFIED: historical convention, from general knowledge]`
+- **Exceptions:** Older printing wrote *rya* as ය්‍ය (e.g. කාය්‍ය, සූය්‍ය, ආචාය්‍ය). These forms are rare in modern text: කාය්‍ය NLPC 0 (5 with endings), සූය්‍ය 3, ආචාය්‍ය 0 (11 with endings), against කාර්ය 18,722, සූර්ය 3,193 and ආචාර්ය 19,206. No source on the older printing convention was consulted `[open]`.
 - **Applies to:** ra, ya, ZWJ, hal.
-- **Confidence:** high (SLS rule); medium (historical variant).
+- **Confidence:** high (SLS rule); low (historical variant).
 - **Sources:** UNICODE-ML 2016 (quoting SLS 1134:2011).
 
 ---
@@ -192,15 +193,15 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
   - ඒක + ඒක → ඒකෛක
   - ජාතික + අභිමානය → ජාතිකාභිමානය (Wikipedia lists this under ස්වරාදේශ, though it is really a දීර්ඝ-type result)
 - **Applies to:** a aa i ii u uu e ee o oo ai au.
-- **Confidence:** high for the native examples; medium for the Sanskrit guṇa/vṛddhi examples (standard Sanskrit sandhi, not checked in a Sinhala textbook) `[partly UNVERIFIED]`.
+- **Confidence:** high for the native examples; medium for the Sanskrit guṇa/vṛddhi examples (standard Sanskrit sandhi, not checked against a Sinhala grammar) `[open]`.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI (lists අ+ඉ→එ, අ+උ→ඔ/ඕ, එ+අ→ඈ). The Sanskrit rules come from general Sanskrit sandhi (dīrgha/guṇa/vṛddhi).
 
 ### SN-005: දීර්ඝ (savarṇa-dīrgha) sandhi in tatsama words
 - **Statement:** Two like vowels merge into the long vowel: අ+අ→ආ, ඉ+ඉ→ඊ, උ+උ→ඌ.
 - **Examples:** ධර්ම + අශෝක → ධර්මාශෝක; කවි + ඉන්ද්‍ර → කවීන්ද්‍ර; ගුරු + උපදේශ → ගුරූපදේශ; විද්‍යා + ආලය → විද්‍යාලය.
 - **Applies to:** aa, ii, uu.
-- **Confidence:** medium `[UNVERIFIED in a Sinhala textbook]`.
-- **Sources:** general Sanskrit sandhi (search result summary of dīrgha sandhi).
+- **Confidence:** medium (not checked against a Sinhala grammar) `[open]`.
+- **Sources:** general Sanskrit sandhi (dīrgha sandhi).
 
 ### SN-006: යණ් sandhi: ඉ/උ before an unlike vowel → ්‍ය / ්ව
 - **Statement:** A final ඉ becomes ්‍ය (yansaya), and a final උ becomes ්ව, before a different vowel. **This is the source of most C + ්‍ය and C + ්ව clusters in learned words.**
@@ -211,7 +212,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
   - අනු + එෂණ → අන්වේෂණ
   - සු + ආගත → ස්වාගත
 - **Applies to:** ya (yansaya), va, hal, ZWJ.
-- **Confidence:** medium `[UNVERIFIED in a Sinhala textbook]`.
+- **Confidence:** medium (not checked against a Sinhala grammar) `[open]`.
 - **Sources:** general Sanskrit sandhi.
 
 ### SN-007: ගාත්‍රාක්ෂර ලෝප සන්ධිය (prenasal loses its stop before a consonant)
@@ -245,7 +246,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Statement:** A new consonant (usually ය or ව, sometimes ර) is inserted between two vowels. In noun inflection this is automatic, and the glide depends on the root-final vowel:
   - **ය [j]** after front vowels: ඉ, ඊ, එ, ඒ, ඇ, ඈ.
   - **ව [w]** after back vowels and after ආ: උ, ඌ, ඔ, ඕ, ආ.
-  - After අ, the vowel is usually *deleted* rather than separated by a glide (පොත + ඒ → පොතේ) `[UNVERIFIED generalisation]`.
+  - After අ, the vowel is usually *deleted* rather than separated by a glide (පොත + ඒ → පොතේ). This is an inference from the examples; the sources do not state it `[open]`.
 - **Examples:**
   - Sandhi: පිරි + අත් → පිරියත්; කටු + අල → කටුවල; දැන් + දු → දැනුදු
   - Definite-singular nouns: රෑ + අ → රෑය *rǣyə*; තොප්පි + අ → තොප්පිය *toppiyə*; අසු + අ → අසුව *aśuwə*; මාලිගා + අ → මාලිගාව *māligāwə*
@@ -254,7 +255,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 - **Applies to:** ya, va, ra.
 - **Confidence:** high for the y/w distribution after i/e/æ vs u/o/aa (four examples in ZYGIS plus the textbook examples); medium for the generalisation about අ.
 - **Sources:** SI-WP-SANDHI; PIRIVEN-SANDHI (ආගම inserts ව, ය, ර); ZYGIS 2010 citing Smith 2001.
-- **Note:** The terms "යකාරාගම / වකාරාගම" returned no web hits. They seem to be informal labels. School grammar uses "ආගම සන්ධිය".
+- **Note:** The terms "යකාරාගම / වකාරාගම" were not found in the sources consulted. They seem to be informal labels. School grammar uses "ආගම සන්ධිය".
 
 ### SN-011: Visarga / *s*-final prefix sandhi (නිස්-, දුස්-, මනස්-) fixes ශ/ෂ/ර් spellings
 - **Statement:** Sanskrit prefixes ending in *-s/-ḥ* change form according to the next sound:
@@ -268,7 +269,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
   - නිස් + මාණ → නිර්මාණ; දුස් + වල → දුර්වල
   - මනස් + භාව → මනෝභාව; යසස් + ධරා → යශෝධරා
 - **Applies to:** sha, ssa, ra+hal (repaya), oo, visarga.
-- **Confidence:** medium. The resulting spellings are confirmed by SI-WP-AV (ෂ before ක/ප; ශ before ච). The derivations are `[UNVERIFIED in a Sinhala textbook]`.
+- **Confidence:** medium. The resulting spellings are confirmed by SI-WP-AV (ෂ before ක/ප; ශ before ච). The derivations are not checked against a Sinhala grammar `[open]`.
 - **Sources:** SI-WP-AV; LETSLEARN.
 
 ### SN-012: *-ika* (තද්ධිත) derivation lengthens the first vowel (vṛddhi)
@@ -280,7 +281,7 @@ Sinhala school grammar lists **ten** native sandhi types (SI-WP-SANDHI; PIRIVEN-
 
 ### SN-013: Umlaut in verb past forms (a→æ, o→e, u→i)
 - **Statement:** Some suffixes front the root vowel: අ→ඇ, ඔ→එ, උ→ඉ.
-- **Examples:** බලනවා → බැලුවා; කපනවා → කැපුවා; අදිනවා → ඇද්දා; කොටනවා → කෙටුවා `[UNVERIFIED example]`.
+- **Examples:** බලනවා → බැලුවා; කපනවා → කැපුවා; අදිනවා → ඇද්දා; කොටනවා → කෙටුවා (NLPC 279).
 - **Applies to:** ae, aee, e, i.
 - **Confidence:** high (the process); medium (the specific forms).
 - **Sources:** EN-WP-SIN (phonology lead).
@@ -407,7 +408,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 ### SP-001: Who sets the standard
 - **Statement:** There is no single online statutory spelling code.
   - **De facto authorities:** NIE / Educational Publications Department school textbooks; the *Sinhala Shabdakoshaya* (Sinhala Dictionary Office); Department of Official Languages technical glossaries (පාරිභාෂික ශබ්ද මාලා), which standardise terms rather than spelling rules; SLS 1134 for encoding and rendering.
-  - **Hela Havula** (Kumaratunga Munidasa, founded 1941) promotes "pure" Sinhala vocabulary and classical grammar. It prefers the śuddha (Eḷu) alphabet and native forms over Sanskrit tatsama forms. Its specific letter rules are `[UNVERIFIED]`; the English Wikipedia article gives no detail.
+  - **Hela Havula** (Kumaratunga Munidasa, founded 1941) promotes "pure" Sinhala vocabulary and classical grammar. It prefers the śuddha (Eḷu) alphabet and native forms over Sanskrit tatsama forms. Its specific letter rules are not documented in the sources consulted `[open]`; the English Wikipedia article gives no detail.
 - **Confidence:** medium.
 - **Sources:** Department of Official Languages performance reports (parliament.lk, e.g. https://www.parliament.lk/uploads/documents/paperspresented/performance-report-official-language-department-2015-si.pdf); https://en.wikipedia.org/wiki/Hela_Havula; EN-WP-SCRIPT (śuddha vs miśra).
 
@@ -439,7 +440,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
   7. before ට in dative and infinitive forms: දරුවන්ට, මිනිසුන්ට, ලබන්ට;
   8. before retroflex consonants in Western loans: කවුන්ටරය, කැන්ටිම;
   9. after ර in compound nouns: පිරිනිවන්.
-- **Minimal pairs:** කණ "ear" / කන "eat"; වණ "wound" / වන "forest"; මරණ "death" / මරන "killing"; බණ "sermon" / බන `[UNVERIFIED]`.
+- **Minimal pairs:** කණ "ear" / කන "eat"; වණ "wound" / වන "forest"; මරණ "death" / මරන "killing".
 - **Applies to:** nna, na.
 - **Confidence:** high (both sources agree).
 - **Sources:** WASALA-SPELL 2010 App. A §1–2; SI-WP-AV; LETSLEARN.
@@ -476,7 +477,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
   5. ශ්‍රී;
   6. as the first sibilant in ශිෂ්‍ය, විශේෂ, ශාස්ත්‍ර.
 - **Use ස:** native words and most tadbhava forms: සිසු (vs tatsama ශිෂ්‍ය), සත (vs ශත).
-- **Registers:** Sanskrit and native spellings often coexist with the same meaning: ශිෂ්‍ය/සිසු, දේශය/දෙස `[UNVERIFIED pair]`.
+- **Registers:** Sanskrit and native spellings often coexist with the same meaning: ශිෂ්‍ය/සිසු (NLPC 12,255 / 6,714).
 - **Applies to:** sha, ssa, sa.
 - **Confidence:** high (rules); medium (completeness, the rules do not cover every word).
 - **Sources:** SI-WP-AV; WASALA-SPELL 2010 App. A §5–6; LETSLEARN.
@@ -484,7 +485,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 ### SP-006: Aspirate vs plain letters (මහාප්‍රාණ / අල්පප්‍රාණ)
 - **Statement:** Aspirates occur only in Sanskrit/Pali words and are pronounced like plain letters (G2P-010). ඣ, ඡ and ඵ are rare. Aspirates can appear at the start, middle or end of a word, so there are **no reliable rules** for them. They must be learned per word.
 - **Examples:** ධර්ම, භාෂාව, ඛේදය, ඝෝෂා, ථේර, කථාව/කතාව.
-- **Variants:** Some words exist in both aspirated (tatsama) and plain (tadbhava) spellings, both accepted: කථා/කතා, නාථ/නාත `[second pair UNVERIFIED]`.
+- **Variants:** Some words exist in both aspirated (tatsama) and plain (tadbhava) spellings, both accepted: කථා/කතා (NLPC 18,687 / 140,763), නාථ/නාත (NLPC 1,342 / 76).
 - **Applies to:** kha gha cha jha ttha ddha tha dha pha bha.
 - **Confidence:** high.
 - **Sources:** WASALA-SPELL 2010 §III-A-1.
@@ -493,16 +494,16 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Statement:** SinSpell found vowel-length errors and similar-sounding-letter errors to be the most common in a real corpus. Prescriptive points:
   - The verbal noun suffix is long -ීම: කිරීම, බැලීම, ලිවීම. Writing *කිරිම* is an error.
   - Long ඊ/ඌ/ඒ/ඕ in Sanskrit roots: ශ්‍රී, ගීතය, රූපය.
-  - Honorific/plural -ූ in some forms `[UNVERIFIED]`.
+  - Whether some honorific or plural forms take long -ූ is not established by the sources consulted `[open]`.
 - **Applies to:** i/ii, u/uu, e/ee, o/oo, ae/aee, a/aa.
 - **Confidence:** high (that length is the top error); medium (the specific suffix rules).
 - **Sources:** SINSPELL 2021; WASALA-SPELL 2010.
 
 ### SP-008: Gemination controversy: තත්ත්වය vs තත්වය
-- **Statement:** Etymologically the word is *tat + tva*, so the strict spelling is තත්ත්වය, with the same pattern in සත්ත්වයා and මහත්ත්වය. Prescriptive teachers and exam guides favour the triple-consonant form. Everyday print and many dictionaries online use තත්වය, සත්වයා.
-- **Status:** `[UNVERIFIED: no authoritative online ruling found]`. A Glosbe dictionary entry uses තත්වය (https://glosbe.com/si/en/තත්වය).
+- **Statement:** Etymologically the word is *tat + tva*, so the strict spelling is තත්ත්වය, with the same pattern in සත්ත්වයා. Prescriptive teachers and exam guides favour the triple-consonant form. Both spellings are in wide use: තත්ත්වය NLPC 25,852 vs තත්වය 21,484 (with endings 58,286 vs 54,239); සත්ත්වයා 539 vs සත්වයා 1,451. මහත්ත්වය (NLPC 1) and මහත්වය (NLPC 11) are both rare.
+- **Status:** no prescriptive ruling was found in the sources consulted `[open]`. A Glosbe dictionary entry uses තත්වය (https://glosbe.com/si/en/තත්වය).
 - **Applies to:** ta, va, hal.
-- **Confidence:** low.
+- **Confidence:** high that both spellings are common (NLPC); low on which one is prescribed.
 - **Recommendation:** Treat both spellings as acceptable; the conservative (etymological) form is a valid alternative.
 
 ### SP-009: ං vs hal nasal before a consonant
@@ -540,7 +541,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Sources:** UNICODE-ML 2016; EN-WP-SCRIPT.
 
 ### SP-013: ඥ vs ඤ
-- **Statement:** ඥ (*jña*) appears in Sanskrit words: ඥාති, ඥානය, විඥාන, ප්‍රඥා, විශේෂඥ. ඤ appears in Pali and native words: ඤාණ, පඤ්ච, කුඤ්ඤම `[examples UNVERIFIED]`. In speech they merge, with ඥ often pronounced "gny-".
+- **Statement:** ඥ (*jña*) appears in Sanskrit words: ඥාති (NLPC 2,627), ඥානය (1,572), විඥාන (185), ප්‍රඥා (793), විශේෂඥ (6,066). ඤ appears in Pali and native words: ඤාණ (NLPC 200), පඤ්ච (321), සඤ්ඤා (157). In speech they merge, with ඥ often pronounced "gny-".
 - **Applies to:** jnya, nya.
 - **Confidence:** medium.
 - **Sources:** KNAB 1989; WASALA-SPELL (similar-sound group {ඥ, ඤ}).
@@ -601,11 +602,11 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 
 ### LW-006: English /z/ → ස; /ʒ/ → ජ
 - **Statement:** English /z/ is written ස; English /ʒ/ is written ජ.
-- **Examples:** සූ "zoo", සීරෝ "zero", සිප් "zip" `[UNVERIFIED]`; ගරාජ් "garage".
-- **Note:** There is no dedicated letter for /z/. Writing /z/ with ශ is not standard `[UNVERIFIED]`.
+- **Examples:** සීරෝ "zero" (NLPC 104), සීබ්‍රා "zebra" (NLPC 122), ගැසට් "gazette" (NLPC 6,320); ගරාජ් "garage".
+- **Note:** There is no dedicated letter for /z/. Writing /z/ with ශ is rare: ශීරෝ NLPC 2 vs සීරෝ 104; ගැශට් 0 vs ගැසට් 6,320.
 - **Applies to:** sa, ja.
 - **Confidence:** medium.
-- **Sources:** EN-WP-LOAN (*garāj*).
+- **Sources:** EN-WP-LOAN (*garāj*); NLPC counts above.
 
 ### LW-007: English /ʃ/ → ෂ (popular) or ශ; older loans → ස
 - **Statement:** Modern popular spelling for English /ʃ/ is mostly ෂ. Learned spelling sometimes uses ශ. Older loans used ස.
@@ -618,17 +619,17 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 
 ### LW-008: English /θ/ → ත; /ð/ → ද
 - **Statement:** English "th" in names is written ත.
-- **Examples:** තෝමස් "Thomas", එලිසබෙත් "Elizabeth", තර්ස්ටන් "Thurstan" `[UNVERIFIED examples]`.
+- **Examples:** තෝමස් "Thomas" (NLPC 1,815), එලිසබෙත් "Elizabeth" (493), තර්ස්ටන් "Thurstan" (383). Spellings with ථ do not occur (ථෝමස්, එලිසබෙථ්: NLPC 0).
 - **Applies to:** ta, da (not tha/dha).
 - **Confidence:** medium.
-- **Sources:** General practice; EN-WP-SIN (speakers substitute stops).
+- **Sources:** NLPC counts above; EN-WP-SIN (speakers substitute stops).
 
 ### LW-009: English *x* → ක්ස් (never ක්ෂ)
 - **Statement:** The ක්ෂ cluster is reserved for Sanskrit *kṣ*.
-- **Examples:** ටැක්සි, ෆැක්ස්, එක්ස්-රේ, බොක්ස් `[UNVERIFIED last two]`.
+- **Examples:** ටැක්සි (NLPC 731), ෆැක්ස් (1,306), එක්ස්රේ (88), බොක්ස් (1,547). Spellings with ක්ෂ do not occur (ටැක්ෂි, ෆැක්ෂ්, බොක්ෂ්: NLPC 0).
 - **Applies to:** ka, sa, hal.
 - **Confidence:** medium-high.
-- **Sources:** General practice.
+- **Sources:** NLPC counts above.
 
 ### LW-010: English /tʃ/ → ච; /dʒ/ → ජ; /k/ (cheque) → ක
 - **Examples:** චොක්ලට්, ජූස්, ජූරිය, ජෙනරාල්; චෙක්/චැක් "cheque" (EN-WP-LOAN gives *cæk*).
@@ -641,7 +642,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
   - බෝලය "ball"; බයිබලය "Bible"; කේතලය "kettle"; ලොරිය; ජූරිය; කොම්පැනිය; පාර්ලිමේන්තුව
   - නෝට්ටුව "note"; කෝච්චිය "coach"; බැංකුව
   Colloquial speech uses the bare form plus එක: ෆෝන් එක.
-- **Portuguese/Dutch layer:** කමිසය, මේසය, ජනේලය, සපත්තුව, බොත්තම, කාමරය, පාන්, රෝදය `[UNVERIFIED etymologies]`.
+- **Portuguese/Dutch layer:** කමිසය, මේසය, ජනේලය, සපත්තුව, බොත්තම, කාමරය, පාන්, රෝදය (etymologies not sourced in this file `[open]`).
 - **Applies to:** ya, va, hal, geminates.
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN; Gamage & Dilani 2024.
@@ -649,7 +650,7 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 ### LW-012: Clusters in English loans are kept with hal or ZWJ
 - **Statement:** Most clusters are kept as written hal sequences. *-ng* is written ං (ඉංග්‍රීසි "English", ෂොපිං).
 - **Examples:** ස්ටේෂන්, ස්කූල්, ප්‍රින්ටර්, බ්ලැක්මේල්, ඉංග්‍රීසි.
-- **Exceptions:** Older loans broke clusters up with vowels: ඉස්කෝලය "school", ඉස්තෝප්පුව `[UNVERIFIED]`.
+- **Exceptions:** Older loans broke clusters up with vowels: ඉස්කෝලය "school" (NLPC 49), ඉස්තෝප්පුව (NLPC 120).
 - **Applies to:** hal, anusvara, ra (rakaransaya).
 - **Confidence:** high.
 - **Sources:** EN-WP-LOAN.
@@ -658,9 +659,9 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Statement:** These follow the same sound substitutions:
   - Arabic f → ෆ (ෆාතිමා); z → ස; q/k → ක; kh → ක or ඛ.
   - Tamil retroflexes map to ට/ඩ/ණ/ළ.
-  Spelling of Muslim and Tamil names varies widely, e.g. මොහොමඩ් / මුහම්මද්.
+  Spelling of Muslim and Tamil names varies widely, e.g. මොහොමඩ් / මුහම්මද් (NLPC 4,109 / 2,015).
 - **Applies to:** fa, sa, ka, tta, dda, nna, lla.
-- **Confidence:** low `[UNVERIFIED, no source found]`.
+- **Confidence:** low. No source was found for these conventions `[open]`.
 
 ---
 
@@ -678,13 +679,13 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 
 ### TY-003: Numerals
 - **Statement:** Hindu-Arabic digits 0–9 are standard. Sinhala Lith digits (U+0DE6–0DEF) and archaic numerals (Sinhala Archaic Numbers block, U+111E1–111F4) exist only for historical and astrological use.
-- **Confidence:** high (usage); medium (code-point ranges, from memory).
+- **Confidence:** high. The code-point ranges match the Unicode Character Database (version 16.0).
 - **Sources:** EN-WP-SCRIPT.
 
 ### TY-004: Word spacing
 - **Statement:** Words are space-delimited. Case suffixes, postpositional clitics and enclitic particles are written attached: ගෙදරට, ඔහුගේ, පොතෙන්, ඔහුත්, ඔහුද. Free postpositions and auxiliaries are written separately: ගැන, සමඟ, විසින්, කතා කරනවා, බලා සිටියි. Compound nouns are written solid: ගංවතුර, පිළිතුර.
 - **Note:** Spacing of compounds and of නම්/වත්/ද is inconsistent in practice.
-- **Confidence:** medium `[UNVERIFIED: no prescriptive spacing source found]`.
+- **Confidence:** medium. No prescriptive spacing source was found `[open]`.
 - **Sources:** WWG-G2P 2006 §2.2 (words are delimited by spaces "in general").
 
 ---
@@ -730,17 +731,20 @@ Guidance for anyone converting between Latin-script romanizations and Sinhala sc
 |---|---|---|---|
 | 1 | Word-initial consonants (PH-005) | WWG-G2P quotes Disanayaka: all except /ŋ/ "and nasals". Read literally, this excludes ණ-initial words like ණය. Probably means prenasals. | Check Disanayaka 1995 in print |
 | 2 | ණ after ර (SP-003) | SI-WP-AV says "always" ණ in native words. WASALA-SPELL lists many න exceptions (verbs, compounds). | Treat as nouns-only tendency |
-| 3 | තත්ත්වය vs තත්වය (SP-008) | Etymological/prescriptive vs common usage. No authoritative ruling found online. | Low confidence; accept both |
+| 3 | තත්ත්වය vs තත්වය (SP-008) | Etymological/prescriptive vs common usage. Both are frequent (NLPC තත්ත්වය 25,852, තත්වය 21,484). No prescriptive ruling was found. | Low confidence; accept both |
 | 4 | G2P Rule 2 and Rule 5 details | The PDF text of Rule 2(b)/(c) is contradictory. Two exception consonants in Rule 5 are illegible. | Needs the clean original paper or the UCSC LTRL implementation |
-| 5 | Glide after අ-final stems (SN-010) | Sources show ය/ව insertion after i/æ/u/ā. Behaviour after short අ (deletion vs ය) is my generalisation. | Unverified |
-| 6 | "යකාරාගම / වකාරාගම" terminology | No hits. School grammar calls this "ආගම සන්ධිය". | Terminology unverified |
+| 5 | Glide after අ-final stems (SN-010) | Sources show ය/ව insertion after i/æ/u/ā. Behaviour after short අ (deletion vs ය) is an inference from the examples, not stated in the sources. | Open |
+| 6 | "යකාරාගම / වකාරාගම" terminology | Not found in the sources consulted. School grammar calls this "ආගම සන්ධිය". | Terminology open |
 | 7 | Number of sandhi types | si.wikipedia (සන්ධි) lists 10 with slightly different names and examples from සිංහල සන්ධි (9 listed) and Piriven (10, adds ගාත්‍රාදේශ). The ස්වරාදේශ examples differ between pages. | Minor; content is consistent |
 | 8 | English /ʃ/: ෂ vs ශ (LW-007) | Popular media mostly ෂ; learned/older forms ශ or ස. No standard found. | Accept both |
 | 9 | English /æ/: ඇ vs ඈ (LW-003) | Length assignment varies by word and writer. | Accept both |
 | 10 | ං vs න් before ස (SP-009) | Native පන්සල vs Sanskrit සංසාරය: the choice depends on origin. | Lexicon needed |
-| 11 | Historical ය්‍ය for *rya* (PH-012) | SLS 1134 forbids ර + yansaya. Older print used ය්‍ය (කාය්‍ය). Whether to treat old forms as valid in modern text is open. | Unverified historical claim |
-| 12 | Hela Havula letter rules (SP-001) | No online source detailed which letters or spellings Hela Havula prescribes. | Unverified |
-| 13 | Department of Official Languages | No public spelling standard found. The department appears to issue terminology glossaries only. | Unverified |
+| 11 | Historical ය්‍ය for *rya* (PH-012) | SLS 1134 forbids ර + yansaya. Older print used ය්‍ය (කාය්‍ය), now rare (NLPC 0; 5 with endings). No source on the older convention was consulted. Whether to treat old forms as valid in modern text is open. | Open |
+| 12 | Hela Havula letter rules (SP-001) | No source consulted details which letters or spellings Hela Havula prescribes. | Open |
+| 13 | Department of Official Languages | No public spelling standard found. The department appears to issue terminology glossaries only. | Open |
 | 14 | Wikipedia gloss error | EN-WP Sinhala phonology table glosses කන as "ear". The ear word is කණ; කන is "eat". This shows Wikipedia examples need checking. | Noted |
-| 15 | Spacing conventions (TY-004) | No prescriptive source found. Practice varies for compounds and particles. | Unverified |
-| 16 | Tamil/Arabic loan conventions (LW-013) | No sources found. | Unverified |
+| 15 | Spacing conventions (TY-004) | No prescriptive source found. Practice varies for compounds and particles. | Open |
+| 16 | Tamil/Arabic loan conventions (LW-013) | No sources found. | Open |
+| 17 | Sanskrit sandhi as taught in Sinhala grammar (SN-004, SN-005, SN-006, SN-011) | The vowel and visarga sandhi rules are standard Sanskrit sandhi. No Sinhala grammar was consulted to confirm them. | Open |
+| 18 | Long -ූ in honorific/plural forms (SP-007) | No source consulted states which forms take it. | Open |
+| 19 | Portuguese/Dutch etymologies (LW-011) | The etymologies of the listed words are not sourced. | Open |

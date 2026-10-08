@@ -7,8 +7,9 @@ storage order and rendering.
 
 Compiled October 2026.
 
-All text is paraphrased. Rules carry a confidence level, and anything not confirmed by a
-source is marked **[unverified]**. "Local test" means the compiler checked behaviour locally: Python `unicodedata` (UCD 16.0), HarfBuzz via `uharfbuzz`
+All text is paraphrased. Rules carry a confidence level, and claims that no consulted source
+confirms are marked **[open]** and listed in §10. Counts such as "(NLPC 829)" are token counts in the
+NLPC 2.1M-word list (S17); "rare" means fewer than 20 tokens. "Local test" means the compiler checked behaviour locally: Python `unicodedata` (UCD 16.0), HarfBuzz via `uharfbuzz`
 0.56.2 with the Windows *Nirmala UI* font, and Chromium rendering of all 41 consonants × signs.
 A second local test (October 2026) rendered rakaransaya + u/uu in seven fonts: Noto Sans Sinhala,
 Noto Serif Sinhala, Abhaya Libre, Yaldevi, Gemunu Libre, Nirmala UI and Iskoola Pota.
@@ -36,11 +37,12 @@ Noto Serif Sinhala, Abhaya Libre, Yaldevi, Gemunu Libre, Nirmala UI and Iskoola 
 | S15 | Liyanapathirana, Gunasinghe, Dias, *SinSpell* (2021) | https://arxiv.org/abs/2107.02983 |
 | S16 | Local test (see header) | - |
 | S17 | University of Moratuwa NLPC, *Word Frequency List for Sinhala*: the 2.1M-word list (`word_frequency_list_2M`) | https://github.com/nlpcuom/Word-Frequency-List-for-Sinhala |
-| S18 | Sinhala Wikipedia, page counts from `insource:` phrase searches, October 2026 | https://si.wikipedia.org/w/api.php |
+| S18 | Sinhala Wikipedia, articles in the pages-articles dump of 2026-10-01 (`tools/corpus_counts.py`) | https://dumps.wikimedia.org/siwiki/20261001/ |
 
 Gap: no NIE / educationpublications.gov.lk grammar textbook could be found through web search,
 so the native pili names below come from S2/S5 (Unicode names follow the traditional Sinhala
-names) and from general knowledge. They are marked as such.
+names). They are not confirmed in a Sinhala grammar textbook, so their confidence is lowered
+(§10, item 10).
 
 ---
 
@@ -101,8 +103,8 @@ decompositions from S2/UCD, checked locally (S16).
 - **Exceptions.** None. Note that "diga" means long and "ketti" means short in the names.
   Short a (inherent) has no sign.
 - **Applies to:** every consonant (validity is in §8).
-- **Confidence:** high. The Sinhala-script traditional names are medium (from general
-  knowledge; no school textbook was found).
+- **Confidence:** high. The Sinhala-script traditional names are medium (not confirmed
+  in a school textbook; §10, item 10).
 - **Sources:** S2, S3, S5 (Table 1 and Table 4), S16.
 
 ### VS-002: Positions, split signs and reordering
@@ -273,8 +275,8 @@ no separate code: the form is stored as ර + pāpilla.
 - **Applies to:** ra; u, uu.
 - **Confidence:** high.
 - **Sources:** S1 Table 13-5, S5 §5.4 and §6.2, S14, S16.
-- **Note.** S1's HTML shows a stray ZWJ after ◌ු in the රු/ළු rows. This is assumed to be a
-  rendering artifact, not a required ZWJ **[unverified]**.
+- **Note.** S1's HTML shows a stray ZWJ after ◌ු in the රු/ළු rows. It is taken to be a
+  rendering artifact, not a required ZWJ; no source states this **[open]** (§10, item 11).
 
 ### VS-013: lla + u / uu
 
@@ -303,7 +305,7 @@ form on exactly these six. All other consonants take the plain below-base loop.
 
 **Statement.** Bases shaped like ද drop their descending tail when a below-base sign attaches
 (දු, දූ, and ද්‍ර). Local test: ඳු also loses its tail in Nirmala UI. Unicode does not list the
-whole class, so ඳ is font-observed **[unverified as a rule]**.
+whole class, so for ඳ this is a font observation, not a documented rule **[open]** (§10, item 7).
 
 - **Examples:** දුව (duva), අඳුර (an̆dura).
 - **Applies to:** da, nda (observed); u, uu, rakaransaya.
@@ -368,7 +370,7 @@ rightmost part. Storage is still cluster first, then sign.
 about the 7th century. They are common in native words and English loans, and absent from
 Sanskrit/Pali loans. As a result, aspirated and Sanskrit-only consonants rarely carry ැ/ෑ.
 
-- **Examples:** ඇස (æsa), පැන (pæna), කෑම (kǣma), බැංකුව, ෆෑන් [unverified loan spelling].
+- **Examples:** ඇස (æsa), පැන (pæna), කෑම (kǣma), බැංකුව, ෆෑන් (NLPC 829).
 - **Applies to:** ae, aee.
 - **Confidence:** high for uniqueness. Medium for "rare on aspirates" (inferred).
 - **Sources:** S1, S5 §3 note 1, S9.
@@ -381,9 +383,10 @@ counts it among the 17 standard forms. Because ෘ is read /ru/, writers also us
 and /ruː/ after a consonant in non-Sanskrit words and English loans (ගෲප්, ඇන්ඩෲ), and it is
 the usual spelling of C + r + u/uu (VS-035).
 
-- **Attested consonants (examples):** කෘෂිකර්මය, ගෘහ, තෘප්තිය, දෘෂ්ටිය, ධෘති, නෘත්‍ය,
-  පෘථිවිය, බෘහත්, භෘත්‍ය, මෘදු, වෘක්ෂ, ශෘංගාර, සෘජු, හෘදය, ඝෘ(ණා) (LGR lists ඝෘ as a
-  sequence). Spot examples are from general knowledge **[unverified individually]**.
+- **Attested consonants (examples, NLPC tokens):** කෘෂිකර්මය 941, ගෘහ 5,906, තෘප්තිය 1,103,
+  දෘෂ්ටිය 987, ධෘති (rare: 2), නෘත්‍ය 106, පෘථිවිය 2,451, බෘහස්පති 26, භෘත්‍ය (rare: 2),
+  මෘදු 1,616, වෘක්ෂ 350, ශෘංගාර 268, සෘජු 3,302, හෘදය 1,375, ඝෘණා (rare: 0 as a bare word,
+  26 with endings; the LGR lists ඝෘ as a sequence).
 - **Never:** ර+ෘ (no rṛ in Sanskrit) [inferred], ළ ඞ ඤ ඥ ඦ, the sannjakas, ණ ය ල ෂ
   [inferred]. ෆ is attested in English loans (ෆෘට් "fruit", S17).
 - **Applies to:** ru.
@@ -399,7 +402,8 @@ the usual spelling of C + r + u/uu (VS-035).
 - The LGR excludes ෟ and ෳ as "usage unknown" and also excludes ඎ ඏ ඐ.
 - ෟ survives as the second half of ෞ, and SLS treats gayanukitta as the au-forming stroke.
 
-- **Examples:** ෲ appears in Sanskrit stems such as pitṝ (පිතෲ) [unverified].
+- **Examples:** ෲ appears in Sanskrit stems such as මාතෲ (NLPC 65) and කර්තෲ (rare: NLPC 15).
+  The often-cited pitṝ (පිතෲ) does not occur in NLPC as a bare word (4 tokens with endings).
 - **Applies to:** ruu, ilu, iluu.
 - **Confidence:** high.
 - **Sources:** S5 §3.1 notes 2–3 and §3.4 note 4, S9 Table 4.
@@ -415,8 +419,8 @@ diphthongs, all ending in a high vowel. They are written with consonant ය/ව 
   (independent).
 - **Examples (native / English loans):** අයිය (ayiya), ලයිට් (light), කවුද (kavuda/kauda), මවුස්.
 - **Applies to:** ai, au.
-- **Confidence:** high for the principle. The examples are from general knowledge
-  **[unverified individually]**.
+- **Confidence:** high for the principle. Every example above is attested in
+  NLPC (from 285 tokens for සෛලය to 46,508 for වෛද්‍ය).
 - **Sources:** S11 (diphthong list), S14.
 
 ### VS-023: ඞ takes no vowel signs
@@ -473,8 +477,8 @@ elsewhere it is a cluster. Both take vowel signs. ඥා is by far the most comm
 
 **Statement.** ඛ ඝ ඡ ඣ ඨ ඪ ථ ධ ඵ භ ශ ෂ (and ණ in most positions) belong to the mixed
 alphabet. They appear mainly in tatsama/Pali loans, so their sign set is the Sanskrit one: no
-or rare ැ/ෑ, but ෘ ෛ ෞ are possible. English loans add ශ/ෂ + ැ (for example ෂැම්පු)
-**[unverified spelling]**.
+or rare ැ/ෑ, but ෘ ෛ ෞ are possible. English loans add ශ/ෂ + ැ (for example ෂැම්පු,
+NLPC 218).
 
 - **Confidence:** medium.
 - **Sources:** S14 (mixed vs pure alphabet), S5.
@@ -491,8 +495,8 @@ follow consonants. Inside a word, a vowel after a consonant is always a sign. A 
 another vowel is resolved by a glide (VS-030) or sandhi (VS-031), not by writing a second
 independent vowel.
 
-- **Exceptions [unverified]:** spelled-out acronyms and letter names (ඩී එන් ඒ), some
-  compounds and loan-prefix forms written without sandhi, and Pali texts.
+- **Exceptions [open]:** spelled-out acronyms and letter names (ඩී එන් ඒ), some
+  compounds and loan-prefix forms written without sandhi, and Pali texts. See §10, item 9.
 - **Applies to:** all vowels.
 - **Confidence:** high for the rule. Low for the exceptions list.
 - **Sources:** S5 §3.1, S9 §3.3.2.
@@ -508,7 +512,7 @@ a vowel. Orthography follows the pronunciation, so the glide is written as the c
 |---|---|---|---|
 | ræ + a | [ræjə] | රැය | night (def.) |
 | toppi + a | [toppijə] | තොප්පිය | hat (def.) |
-| ašu + a | [ašuwə] | අටුව [spelling unverified] | attic (def.) |
+| ašu + a | [ašuwə] | අටුව (NLPC 85) | attic (def.) |
 | maaligaa + a | [maaligaawə] | මාලිගාව | palace (def.) |
 
 Typical spellings: dia → දිය, dua → දුව, kiyanawa → කියනවා, diyunu → දියුණු (iu → ඉයු),
@@ -547,8 +551,8 @@ long vowel has its own sign:
 In ේ and ෝ the long mark is the al-lakuna stroke. The independent letters ඒ and ඕ work the
 same way.
 
-- **Example pairs [unverified]:** බල (bala) / බාල (bāla), සුදු (sudu, white) / සූදු (sūdu,
-  gambling), මල / මාල.
+- **Example pairs (NLPC tokens):** බල 30,873 / බාල 8,405 (bala / bāla), සුදු 30,640 / සූදු 1,106
+  (sudu "white" / sūdu "gambling"), මල 12,867 / මාල 1,665.
 - **Confidence:** high for the system. Medium for the example pairs.
 - **Sources:** S2, S5 Table 2, S11.
 
@@ -579,20 +583,21 @@ A third spelling copies the look of the rakaransaya + u/uu glyph with ැ/ෑ (�
 
 **Evidence (S17).** For every word in the list written with C + ෘ/ෲ, the same word was looked
 up with rakaransaya + ු/ූ and with rakaransaya + ැ/ෑ. Where two or more spellings occur, ෘ/ෲ is
-the most frequent in 299 words, rakaransaya + ු/ූ in 55 and rakaransaya + ැ/ෑ in 47. Counts
-below are the word and its inflected forms:
+the most frequent in 155 words, rakaransaya + ැ/ෑ in 47 and rakaransaya + ු/ූ in 3 (CC-02 in
+`reports/corpus-counts.md`). Counts below are the word and its inflected forms, that is every word
+that starts with it (CC-03):
 
 | Word | C + ෘ/ෲ | ්‍ර + ු/ූ | ්‍ර + ැ/ෑ |
 |---|---:|---:|---:|
-| *krūra* "cruel" | කෲර 1,667 | 22 | 186 |
-| *saṃskṛtika* "cultural" | සංස්කෘතික 14,680 | 7 | 0 |
-| *mṛdukāṃga* "software" | මෘදුකාංග 16,492 | 28 | 0 |
-| *ṛju* "direct" | සෘජු 7,013 | 6 | 0 |
-| "group" (English) | ගෲප් 937, ගෘප් 685 | 72 | 9 |
-| *śruti* | ශෘති 21 | 3 | **128** |
+| *krūra* "cruel" | කෲර 1,667 | 9 | 186 |
+| *saṃskṛtika* "cultural" | සංස්කෘතික 14,680 | 3 | 0 |
+| *mṛdukāṃga* "software" | මෘදුකාංග 16,492 | 3 | 0 |
+| *ṛju* "direct" | සෘජු 7,013 | 0 | 0 |
+| "group" (English) | ගෲප් 937, ගෘප් 685 | 11 | 4 |
+| *śruti* | ශෘති 21 | 3 | **124** |
 | *bhrūṇa* "embryo" | භෲණ 0 | 2 | **80** |
 
-Sinhala Wikipedia agrees (S18): කෲර on 98 pages, ක්‍රෑර on 19, ක්‍රූර on none. The last two
+Sinhala Wikipedia agrees (S18): කෲර in 126 articles, ක්‍රෑර in 24, ක්‍රූර in none (CC-16). The last two
 rows show the ැ/ෑ look-alike winning in a few learned words, which is why a lexicon, not a
 fixed rule, should choose the spelling of a given word.
 
@@ -626,10 +631,10 @@ Columns: a = inherent vowel; hal = ්; ru ruu ilu iluu = ෘ ෲ ෟ ෳ.
 The ෟ and ෳ columns are N for every row (VS-021), so they are omitted below.
 
 **Basis.** The table combines the hard rules (VS-019 to VS-028), the font observations (S16),
-and examples from general knowledge. Cells beyond the hard rules (N for ඞ signs, sannjaka hal,
+and illustrative examples that were not individually counted. Cells beyond the hard rules (N for ඞ signs, sannjaka hal,
 ෟ/ෳ; S cells) are **medium/low confidence and need corpus validation** (see §10).
 
-The ru and ruu columns were checked against S17 (October 2026). A cell was raised when the list
+The ru and ruu columns were checked against S17 (counts per consonant: CC-04). A cell was raised when the list
 has at least 150 tokens in at least 10 word types, after removing misspellings: ka ga tta dda pa
 ba + ෲ and tta dda fa + ෘ became V, and ta + ෲ became L (ශාස්තෲ). The ya and ra rows were left
 alone: their ෘ tokens are misspellings (ව්‍යෘපෘති, ද්‍රෘෂ්ටි).
@@ -759,11 +764,11 @@ or validating stored Sinhala text.
    vowel. The LGR excludes it ("usage unknown"). Unicode names it as the vocalic-l sign.
    Consensus: do not emit it alone in modern Sinhala.
 4. **ෲ usage.** SLS says ෲ "is used" (its example is garbled in the PDF; possibly කර්තෲ).
-   The LGR includes ෲ but excludes ඎ. In common usage the spelling may be කර්තෘ (with ෘ).
-   **[unverified]**: needs a corpus check.
+   The LGR includes ෲ but excludes ඎ. In common usage the spelling is කර්තෘ (with ෘ): NLPC has
+   කර්තෘ 2,938 tokens against කර්තෲ 15 (rare).
 5. **Two-part ai/o/au contextual forms.** An automated summary of Unicode ch. 13 claimed these
    signs have special two-part forms after ga, nya, ttha, nna, tha, dha and sha. That text is
-   **not** in the §13.2 extracted here, so it was rejected as a summarizer hallucination.
+   **not** in the §13.2 extracted here, so it was rejected as an error in a secondary summary.
    Noted so nobody re-imports it.
 6. **Al-lakuna shape classes** (VS-017). Unicode cites ච, SLS cites ට. The full set is
    font-dependent and was not found in any normative source.
