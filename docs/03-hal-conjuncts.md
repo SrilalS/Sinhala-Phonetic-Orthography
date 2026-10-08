@@ -332,7 +332,7 @@ Conventions used in this file:
 - **Sources:** S14, S13, S8.
 
 ### HC-043: තත්ත්වය vs තත්වය (and සත්ත්ව vs සත්ව)
-- **Statement:** The Sanskrit abstract suffix *-tva* is added to stems ending in *-t* (tat, sat). The prescriptive rule (S16) keeps both t's in tatsama words: තත්ත්වය `U+0DAD U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA`, සත්ත්වයා `U+0DC3 U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA U+0DCF`, තත්ත්වඥ. The reduced spellings තත්වය `U+0DAD U+0DAD U+0DCA U+0DC0 U+0DBA` and සත්වයා are common in contemporary writing and journalism.
+- **Statement:** The Sanskrit abstract suffix *-tva* is added to stems ending in *-t* (tat, sat). The prescriptive rule (S16) keeps both t's in tatsama words: තත්ත්වය `U+0DAD U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA`, සත්ත්වයා `U+0DC3 U+0DAD U+0DCA U+0DAD U+0DCA U+0DC0 U+0DBA U+0DCF`, තත්ත්වඥ. The reduced spellings තත්වය `U+0DAD U+0DAD U+0DCA U+0DC0 U+0DBA` and සත්වයා are the modern forms and are accepted as valid. Both spellings are frequent: තත්ත්වය NLPC 25,852 vs තත්වය 21,484, සත්ත්වයා 539 vs සත්වයා 1,451. The double-t form remains the grammatical (etymological) one; neither is a misspelling.
 - **Note:** The ත්ව part may also be drawn as the ligature ත්‍ව `U+0DAD U+0DCA U+200D U+0DC0` (Unicode Table 13-4). That gives a third and fourth spelling (තත්ත්‍වය). Treat all as equivalent for search.
 - **Confidence:** medium. S16 is a teaching note, not an official decree. No Official Languages Department or NIE ruling was found.
 - **Sources:** S16; Wiktionary lists Sanskrit तत्त्व as තත්ත්ව (lead only).
@@ -490,7 +490,7 @@ or validating and searching stored Sinhala text.
 4. **Ligated conjuncts are optional.** Whether *kṣ* is rendered ක්ෂ or ක්‍ෂ is a style decision, because both are common (HC-032). All other bændi akuru (ද්‍ධ, න්‍ද, ත්‍ව …) are classical: plain hal is the modern spelling, with ZWJ only for a deliberately classical style (HC-030).
 5. **Touching letters belong to Pali/classical text.** They are encoded `C ZWJ ්`, and most fonts below SLS Level 3 render them poorly (HC-031, HC-062).
 6. **ඥ needs its own romanization** (e.g. `GN`/`jny`). It is never composed as `ජ ් ZWJ ඤ` (HC-051).
-7. **Geminates:** a doubled consonant (`amma`, `akka`, `paththaraya`) → `C ් C`, no ZWJ (HC-042). For *-tva* words both තත්ත්වය and තත්වය occur; the prescriptive form is තත්ත්වය (HC-043).
+7. **Geminates:** a doubled consonant (`amma`, `akka`, `paththaraya`) → `C ් C`, no ZWJ (HC-042). For *-tva* words both තත්ත්වය and තත්වය are accepted: තත්ත්වය is the grammatical form, තත්වය the modern one (HC-043).
 8. **Prenasalized letters and ළ cannot take hal.** Romanized `nd` + consonant resolves to න්ද… (dental n + hal), not ඳ් (HC-014).
 9. **Word-final nasal ambiguity:** final `ng` could be ං, න් or ම් (HC-012). Resolving it needs a dictionary, not a fixed rule.
 10. **Vowel on clusters goes on the last consonant.** `kre` → ක්‍රෙ (ක ් ZWJ ර ෙ). `kyoo` → ක්‍යෝ. Use the precomposed vowel sign (ෝ U+0DDD etc.), never a split sequence (HC-060).
@@ -514,7 +514,7 @@ or validating and searching stored Sinhala text.
 4. **ඳ + hal conjuncts** (ඳ්‍ධ etc.) appear in si.wikipedia (S15). ICANN (S8) says sannaka letters never take hal. S15 is likely wrong or archaic.
 5. **Which ligatures count as "still used".** ICANN puts ක්‍ෂ, ක්‍ව, න්‍ද, න්‍ධ, න්‍ථ, ත්‍ථ in current use, but its text is garbled in the PDF. Harshula says modern writing has *no* strict ligation except r/y forms. No corpus frequency data for these ligatures has been compiled. Whether ඤ්‍ජ has a dedicated ligature (HC-053) is also open.
 6. **ක්ෂ vs ක්‍ෂ preference** in current NIE textbooks: unknown. The S16 notes use both.
-7. **තත්ත්වය vs තත්වය:** Only a teaching note (S16) supports the double-t form. No official ruling (Official Languages Dept / NIE "Sinhala Lekhana Rithiya", 1989) was available for consultation.
+7. **තත්ත්වය vs තත්වය:** Both are accepted (HC-043). Only a teaching note (S16) states the grammatical double-t form in writing, and no official ruling (Official Languages Dept / NIE "Sinhala Lekhana Rithiya", 1989) was available for consultation on whether the modern form is formally sanctioned.
 8. **Word-final න්/ම් → [ŋ]** (S14) is one lead source. Not checked against Gair/Karunatillake.
 9. **ම්‍ර, න්‍ර, ල්‍ර** (resolved). The corpus count (CC-10) gives ම්ර 46,496 vs ම්‍ර 383, න්ර 10,133 vs න්‍ර 269 and ල්ර 2,786 vs ල්‍ර 100 tokens. The joined forms are mostly ZWJ spellings of plain-hal words (දුම්‍රිය 82, හෙන්‍රි 36), and tatsama ම්‍ර words are rare (තාම්‍ර 3). See HC-052.
 10. **SLS Table 3 count:** it says "7" yansaya combinations but lists 8. It also omits u/uu with rakāransaya, while Unicode shows ක්‍රු/ක්‍රූ shapes. This may be an editorial slip in the draft.

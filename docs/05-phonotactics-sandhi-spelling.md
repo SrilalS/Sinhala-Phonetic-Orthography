@@ -499,12 +499,12 @@ Informal Latin-script Sinhala follows pronunciation. A word pronounced [kərən�
 - **Confidence:** high (that length is the top error); medium (the specific suffix rules).
 - **Sources:** SINSPELL 2021; WASALA-SPELL 2010.
 
-### SP-008: Gemination controversy: තත්ත්වය vs තත්වය
-- **Statement:** Etymologically the word is *tat + tva*, so the strict spelling is තත්ත්වය, with the same pattern in සත්ත්වයා. Prescriptive teachers and exam guides favour the triple-consonant form. Both spellings are in wide use: තත්ත්වය NLPC 25,852 vs තත්වය 21,484 (with endings 58,286 vs 54,239); සත්ත්වයා 539 vs සත්වයා 1,451. මහත්ත්වය (NLPC 1) and මහත්වය (NLPC 11) are both rare.
-- **Status:** no prescriptive ruling was found in the sources consulted `[open]`. A Glosbe dictionary entry uses තත්වය (https://glosbe.com/si/en/තත්වය).
+### SP-008: Two accepted spellings: තත්ත්වය (grammatical) and තත්වය (modern)
+- **Statement:** The word is the Sanskrit *tat + tva*, so the grammatically correct spelling is තත්ත්වය, with the same pattern in සත්ත්වයා. Teachers and exam guides keep the triple-consonant form. The reduced තත්වය is the modern spelling and is accepted as valid. Both spellings are in wide use: තත්ත්වය NLPC 25,852 vs තත්වය 21,484 (with endings 58,286 vs 54,239); සත්ත්වයා 539 vs සත්වයා 1,451. මහත්ත්වය (NLPC 1) and මහත්වය (NLPC 11) are both rare.
+- **Status:** both forms are accepted; neither is a misspelling. No official ruling was found in the sources consulted. A Glosbe dictionary entry uses තත්වය (https://glosbe.com/si/en/තත්වය).
 - **Applies to:** ta, va, hal.
-- **Confidence:** high that both spellings are common (NLPC); low on which one is prescribed.
-- **Recommendation:** Treat both spellings as acceptable; the conservative (etymological) form is a valid alternative.
+- **Confidence:** high that both spellings are common (NLPC); medium that the double-t form is the grammatical one (S16, Sanskrit *tattva*).
+- **Recommendation:** Accept both spellings and never correct one into the other. Where one form is required for grammatical writing, use තත්ත්වය.
 
 ### SP-009: ං vs hal nasal before a consonant
 - **Statement:**
@@ -731,7 +731,7 @@ Guidance for anyone converting between Latin-script romanizations and Sinhala sc
 |---|---|---|---|
 | 1 | Word-initial consonants (PH-005) | WWG-G2P quotes Disanayaka: all except /ŋ/ "and nasals". Read literally, this excludes ණ-initial words like ණය. Probably means prenasals. | Check Disanayaka 1995 in print |
 | 2 | ණ after ර (SP-003) | SI-WP-AV says "always" ණ in native words. WASALA-SPELL lists many න exceptions (verbs, compounds). | Treat as nouns-only tendency |
-| 3 | තත්ත්වය vs තත්වය (SP-008) | Etymological/prescriptive vs common usage. Both are frequent (NLPC තත්ත්වය 25,852, තත්වය 21,484). No prescriptive ruling was found. | Low confidence; accept both |
+| 3 | තත්ත්වය vs තත්වය (SP-008) | Grammatical (etymological) form vs modern form. Both are frequent (NLPC තත්ත්වය 25,852, තත්වය 21,484) and both are accepted. No official ruling was found. | Settled as two accepted spellings |
 | 4 | G2P Rule 2 and Rule 5 details | The PDF text of Rule 2(b)/(c) is contradictory. Two exception consonants in Rule 5 are illegible. | Needs the clean original paper or the UCSC LTRL implementation |
 | 5 | Glide after අ-final stems (SN-010) | Sources show ය/ව insertion after i/æ/u/ā. Behaviour after short අ (deletion vs ය) is an inference from the examples, not stated in the sources. | Open |
 | 6 | "යකාරාගම / වකාරාගම" terminology | Not found in the sources consulted. School grammar calls this "ආගම සන්ධිය". | Terminology open |

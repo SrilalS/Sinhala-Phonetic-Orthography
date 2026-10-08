@@ -79,7 +79,7 @@ Machine-readable companions:
 | G-HC-15 | **Other conjuncts (bandi akuru) are optional and mostly classical.** Still seen: ක්‍ෂ, ක්‍ව, න්‍ද, න්‍ධ, න්‍ථ, ත්‍ථ. Not contemporary: ද්‍ධ, ද්‍ව, ට්‍ඨ, ඤ්‍ච. Modern default is plain hal | STYLE | M | 03:HC-030, 03:§9b |
 | G-HC-16 | ක්ෂ and ක්‍ෂ are the same spelling of *kṣ*. Both are common | STYLE | H | 03:HC-032, 05:SP-011 |
 | G-HC-17 | Touching letters `C ZWJ ් C` are Pali/classical only. They need SLS Level 3 fonts, which barely exist | STYLE | H | 03:HC-031/062 |
-| G-HC-18 | Prefer තත්ත්වය / සත්ත්ව (prescriptive), but accept තත්වය / සත්ව. No official ruling exists | SOFT | L | 03:HC-043, 05:SP-008 |
+| G-HC-18 | **Two accepted spellings of *-tva* words.** තත්ත්වය / සත්ත්වයා is the grammatical form (Sanskrit *tat + tva*); the reduced තත්වය / සත්වයා is the modern form and is accepted as valid. Both are frequent. No official ruling exists | STYLE | M | 03:HC-043, 05:SP-008 |
 
 ---
 
