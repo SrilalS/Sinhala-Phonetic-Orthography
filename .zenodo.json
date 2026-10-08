@@ -1,0 +1,39 @@
+{
+  "title": "Sinhala Phonetic Orthography: a sourced rule set for Sinhala word construction and phonetic romanization",
+  "upload_type": "software",
+  "description": "<p>A sourced study of how Sinhala words are written, and a phonetic romanization whose output provably obeys the orthographic rules.</p><ul><li>Seven topic studies (letter inventory, vowel signs, hal and conjuncts, nasals and spelling distinctions, phonotactics and sandhi, romanization) merged into one rule set of 88 rules, each marked HARD, SOFT or STYLE and traced to its sources.</li><li>A validity status for all 923 Sinhala letter forms.</li><li>Measured evidence of how Sinhala is written and romanized, recomputed by one script from pinned public sources (the NLPC 2.1M-word frequency list, the Dakshina corpus and a dated Sinhala Wikipedia dump).</li><li>A reference romanization converter and frequency-based disambiguator in Python and TypeScript. Every letter form the rules allow can be produced (791/791), and no input of up to three sequences produces a forbidden form (0 violations over 3.98 million inputs, six option sets).</li></ul><p>English, with a Sinhala translation of every study.</p>",
+  "creators": [
+    {
+      "name": "Siriwardhana, Srilal"
+    }
+  ],
+  "license": "MIT",
+  "language": "eng",
+  "keywords": [
+    "Sinhala",
+    "orthography",
+    "phonetics",
+    "romanization",
+    "transliteration",
+    "Unicode",
+    "sandhi",
+    "low-resource languages"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://srilals.github.io/Sinhala-Phonetic-Orthography/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-other"
+    },
+    {
+      "identifier": "https://aclanthology.org/2021.icon-main.74",
+      "relation": "references",
+      "resource_type": "publication-conferencepaper"
+    },
+    {
+      "identifier": "https://aclanthology.org/2020.lrec-1.294",
+      "relation": "references",
+      "resource_type": "publication-conferencepaper"
+    }
+  ]
+}

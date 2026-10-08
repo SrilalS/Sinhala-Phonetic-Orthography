@@ -4,8 +4,8 @@ title: "Sinhala Phonetic Orthography: a sourced rule set for Sinhala word constr
 authors:
   - family-names: Siriwardhana
     given-names: Srilal
-version: 0.1.0
-date-released: 2026-10-03
+version: 0.2.0
+date-released: 2026-10-08
 license: MIT
 abstract: >-
   A sourced, consolidated rule set for how Sinhala words are written (88 rules over letter
