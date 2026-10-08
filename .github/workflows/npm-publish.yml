@@ -1,0 +1,33 @@
+name: Publish to npm
+
+# Publishes js/ as the npm package sinhala-orthography when a GitHub release is published.
+# Authenticates with npm trusted publishing (OIDC), so no token is stored, and adds a provenance
+# statement. The release tag must match js/package.json ("v0.3.0" for version 0.3.0).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - name: Release tag matches the package version
+        if: github.event_name == 'release'
+        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
+      - name: Publish (prepublishOnly builds and runs the tests)
+        run: npm publish --provenance --access public
