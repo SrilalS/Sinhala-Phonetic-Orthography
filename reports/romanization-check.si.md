@@ -17,6 +17,7 @@
 | classical | 643,538 | 0 |
 | archaic | 761,943 | 0 |
 | rakaransaya_u | 643,538 | 0 |
+| retroflex_d | 643,538 | 0 |
 
 තහනම් රටා:
 

@@ -128,7 +128,8 @@ def safety(settings):
 
 def main():
     configs = [("default", {}), ("repaya_zwj", {"repaya_zwj": True}), ("classical", {"classical": True}),
-               ("archaic", {"archaic": True}), ("rakaransaya_u", {"rakaransaya_u": True})]
+               ("archaic", {"archaic": True}), ("rakaransaya_u", {"rakaransaya_u": True}),
+               ("retroflex_d", {"retroflex_d": True})]
     cov = {name: coverage(o) for name, o in configs}
     result, gaps = [], []
     for r in LETTERS:

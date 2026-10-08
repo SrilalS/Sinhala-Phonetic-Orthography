@@ -43,6 +43,7 @@ to_sinhala("karma", repaya_zwj=True)    # 'කර්‍ම'
 | `repaya_zwj` | රේඵය සාමාන්‍ය ර් + C වෙනුවට ර්‍ + C ලෙස ලියයි | R-08 |
 | `classical` | සම්භාව්‍ය බැඳි අකුරු යුගල සඳහා ZWJ සංයුක්ත අකුරු යොදයි, සහ ම න ල ට පසු රකාරාංශය | R-07, R-10 |
 | `rakaransaya_u` | C + r + u/uu, සුලබ C + ෘ/ෲ (කෲර) වෙනුවට රකාරාංශය + ු/ූ (ක්‍රූර) ලෙස ලියයි | R-06 |
+| `retroflex_d` | `d` යතුරෙන් ඩ ද, `dh` යතුරෙන් ද ද ලියයි (`D` ඪ, `Dh` ධ). මෙය පැරණි යතුරුපුවරු සම්මුතියයි | R-01 |
 
 `transliterate()` යනු එම ශ්‍රිතයම, එහි මුල් නමින්ය. අනුක්‍රම වගු
 `src/sinhala_orthography/data/` හි (`consonants.json`, `vowels.json`, `specials.json`) ඇති අතර,
@@ -110,7 +111,7 @@ candidates(lex, "honda", { limit: 5 });
 
 | Python | JavaScript |
 |---|---|
-| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (`archaic`, `classical`, `rakaransayaU` ද) |
+| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (`archaic`, `classical`, `rakaransayaU`, `retroflexD` ද) |
 | `Lexicon(path)` | `new Lexicon(text)` හෝ `new Lexicon(pairs)`: ගොනු කියවන්නේ නැති නිසා බ්‍රවුසරයේද ක්‍රියා කරයි |
 | `candidates(lex, roman, limit=5, partial=False)` | `candidates(lex, roman, { limit, partial })` |
 | `sound_key`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` | `soundKey`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` |

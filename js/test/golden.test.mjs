@@ -16,6 +16,7 @@ const OPTIONS = {
   classical: { classical: true },
   archaic: { archaic: true },
   rakaransayaU: { rakaransayaU: true },
+  retroflexD: { retroflexD: true },
 };
 const ZWJ = "‍";
 

@@ -35,8 +35,10 @@ OPTION_SETS = {
     "classical": {"classical": True},
     "archaic": {"archaic": True},
     "rakaransayaU": {"rakaransaya_u": True},
+    "retroflexD": {"retroflex_d": True},
 }
-PY = {"repayaZwj": "repaya_zwj", "rakaransayaU": "rakaransaya_u", "archaic": "archaic", "classical": "classical"}
+PY = {"repayaZwj": "repaya_zwj", "rakaransayaU": "rakaransaya_u", "archaic": "archaic", "classical": "classical",
+      "retroflexD": "retroflex_d"}
 SENTENCES = [
     "shrii lankaava", "aayuboovan oyaata kohomada", "vidyaava saha karma kaarya", "lait kauda",
     "kruura mrudu gruup", "kazda saha kanda", "akShara siMhala", "mama gedhara yanavaa.",
@@ -110,7 +112,7 @@ def main():
             f.write(json.dumps([q[: max(1, len(q) - 2)], True, candidates(lex, q[: max(1, len(q) - 2)], limit=8, partial=True)],
                                ensure_ascii=False) + "\n")
     with open(OUT / "styled.jsonl", "w", encoding="utf-8", newline="\n") as f:
-        for name in ("repayaZwj", "classical", "rakaransayaU"):
+        for name in ("repayaZwj", "classical", "rakaransayaU", "retroflexD"):
             opts = OPTION_SETS[name]
             for w in words:
                 f.write(json.dumps(["R", name, w, restyle(w, **opts)], ensure_ascii=False) + "\n")

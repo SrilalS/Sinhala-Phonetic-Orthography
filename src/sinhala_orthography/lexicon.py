@@ -55,12 +55,13 @@ _REPAYA = re.compile(f"ර{HAL}(?!{ZWJ})(?=[{CONS}])")
 _CLUSTER = re.compile(f"([{CONS}]){HAL}(?!{ZWJ})(?=([{CONS}]))")
 
 
-def restyle(word, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False):
+def restyle(word, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False, retroflex_d=False):
     """Write a word in the style the converter options choose, as to_sinhala() would.
 
     rakaransaya_u: C + ෘ/ෲ → C ් ZWJ ර + ු/ූ (R-06), except after ර. repaya_zwj: ර ් + C →
     ර ් ZWJ + C (R-08). classical: the bandi akuru pairs get ZWJ (R-10). archaic changes
-    no spelling. With no options the word is returned unchanged.
+    no spelling, and neither does retroflex_d (it only changes which keys type ඩ and ද). With no
+    options the word is returned unchanged.
     """
     if rakaransaya_u:
         word = _GAETTA.sub(lambda m: m.group(0) if m.group(1) == "ර" else

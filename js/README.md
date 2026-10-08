@@ -36,6 +36,7 @@ over every input of up to three sequences.
 | `repayaZwj` | Write repaya as ර්‍ + C instead of plain ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for the classical bandi akuru pairs, and rakaransaya after ම න ල | R-07, R-10 |
 | `rakaransayaU` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර) | R-06 |
+| `retroflexD` | `d` types ඩ and `dh` types ද (`D` ඪ, `Dh` ධ), the older keyboard convention | R-01 |
 
 The romanization (sequence tables, conversion rules, conventions) is specified in
 [07 · Phonetic romanization](https://srilals.github.io/Sinhala-Phonetic-Orthography/research/phonetic-romanization).

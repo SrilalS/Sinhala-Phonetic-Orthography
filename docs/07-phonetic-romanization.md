@@ -162,6 +162,7 @@ The independent letter is used at the start of a word; after a consonant the vow
 | `classical` | ZWJ conjuncts for ක්‍ෂ ක්‍ව ග්‍ධ ට්‍ඨ ත්‍ථ ත්‍ව ද්‍ධ ද්‍ව න්‍ථ න්‍ද න්‍ධ න්‍ව ඤ්‍ච, and rakaransaya after ම න ල (ම්‍ර න්‍ර ල්‍ර) | R-10, G-HC-15, R-07 |
 | `archaic` | ඏ ඐ ෟ ෳ (`~l`, `~ll`), standalone ඎ (`RR`), ඁ (`~n`), ඦ (`zj`), touching letters (`+`) | R-14 |
 | `rakaransaya_u` | C + `r` + `u` / `uu` as rakaransaya + ු / ූ (ක්‍රු, ක්‍රූ) instead of C + ෘ / ෲ | R-06 |
+| `retroflex_d` | `d` ඩ · `dh` ද · `D` ඪ · `Dh` ධ · `zd` ඬ, the older keyboard convention (`dhh` ධ, `zdh` ඳ, `q` ද keep their letters) | R-01 |
 
 ---
 
@@ -235,7 +236,7 @@ frequency alone cannot always choose. Context from the previous word would help.
 
 | ID | Convention | Rationale |
 |---|---|---|
-| R-01 | `d` ද · `dh` ධ · `D` ඩ · `Dh` ඪ; sanyaka `zd` ඳ, `zD` ඬ; `q` = ද alias | Informal writing uses `d` for ද 99% of the time and `dh` for ධ (G-TY-02). Capitals mark retroflex letters, as with `N` ණ and `L` ළ |
+| R-01 | `d` ද · `dh` ධ · `D` ඩ · `Dh` ඪ; sanyaka `zd` ඳ, `zD` ඬ; `q` = ද alias | Informal writing uses `d` for ද 99% of the time and `dh` for ධ (G-TY-02). Capitals mark retroflex letters, as with `N` ණ and `L` ළ |. ද is also 5 times as frequent as ඩ in running text (75% vs 15% of d-letters), so the unmarked key goes to the common letter. Older keyboard schemes write `d` ඩ / `dh` ද, mirroring `t` ට / `th` ත (06:RS-030); `retroflex_d` offers that convention
 | R-02 | `ee` ඒ · `oo` ඕ · `ii` ඊ · `uu` ඌ | Consistent doubling for length. Informal `ee` = ී (G-TY-03) is recovered by the lexicon |
 | R-03 | `nd` / `mb` / `ng` + vowel are written as clusters; the lexicon chooses sanyaka (ඳ ඹ ඟ) or cluster | Sanyaka vs cluster is lexical (G-NS-08), and informal writing uses `nd`/`mb`/`ng` for both (G-TY-06) |
 | R-04 | `A` / `ae` ඇ · `Aa` / `AA` / `aee` ඈ | `ae` matches ISO 15919 7-bit; `A` keeps a one-letter form |

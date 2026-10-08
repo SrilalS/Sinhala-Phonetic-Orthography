@@ -10,6 +10,8 @@ Options (all off by default):
   archaic     allow ඏ ඐ ෟ ෳ ඎ ඁ ඦ and touching letters (R-14)
   repaya_zwj  write repaya as ර්‍ + C instead of plain ර් + C (R-08)
   classical   ZWJ conjuncts for the classical bandi akuru pairs (R-10), and rakaransaya after ම න ල (R-07)
+  rakaransaya_u  write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of ෘ/ෲ (කෲර) (R-06)
+  retroflex_d write d as ඩ and dh as ද, the older keyboard convention (R-01)
 """
 import json
 from pathlib import Path
@@ -29,6 +31,8 @@ GAETTA = {"u": "ෘ", "uu": "ෲ"}                 # R-06: C + r + u/uu is usual
 GAETTA_AFTER = {"u": set("කගඝජටඩතදධනපබභමවශසහෆ"), "uu": set("කගටඩතදපබම")}
 FRONT = {"i", "ii", "e", "ee", "ae", "aee", "ai"}
 BACK = {"u", "uu", "o", "oo", "au"}
+# R-01 retroflex_d: d ඩ · dh ද · D ඪ · Dh ධ · zd ඬ (q, dhh, zdh, zq and zD keep their letters)
+RETROFLEX_D = {"d": "ඩ", "dh": "ද", "D": "ඪ", "Dh": "ධ", "zd": "ඬ"}
 BANDI = {("ක", "ෂ"), ("ක", "ව"), ("ග", "ධ"), ("ට", "ඨ"), ("ත", "ථ"), ("ත", "ව"), ("ද", "ධ"),
          ("ද", "ව"), ("න", "ථ"), ("න", "ද"), ("න", "ධ"), ("න", "ව"), ("ඤ", "ච")}   # G-HC-15
 
@@ -86,8 +90,11 @@ def _glide(prev_vowel, vowel):
     return "ය" if vowel in FRONT else "ව"
 
 
-def transliterate(source, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False):
+def transliterate(source, archaic=False, repaya_zwj=False, classical=False, rakaransaya_u=False,
+                  retroflex_d=False):
     toks = tokenize(source, archaic)
+    if retroflex_d:
+        toks = [("C", RETROFLEX_D[t[2]], t[2]) if t[0] == "C" and t[2] in RETROFLEX_D else t for t in toks]
     out = []
     # state: None (word start), "V" (ends in a vowel; prev_vowel set), "ANUS", "HAL"
     state, prev_vowel = None, None

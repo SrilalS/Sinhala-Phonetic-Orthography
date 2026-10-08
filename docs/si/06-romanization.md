@@ -1,4 +1,4 @@
-<!-- translated from docs/06-romanization.md sha256:5276ba00cd24 -->
+<!-- translated from docs/06-romanization.md sha256:8e4058ff92eb -->
 
 # 06: සිංහල රෝමානුකරණය
 
@@ -284,6 +284,7 @@
 | RS-025 | විධිමත් ක්‍රම මූර්ධජ අකුරු යටින් තිතකින් සලකුණු කරයි (ṭ ḍ ṇ ḷ). නාසික සහ පාර්ශ්වික (lateral) අකුරු සඳහා අවිධිමත් ලිවීම කිසිසේත් වෙනසක් නොකරයි (ණ = `n` 100%, ළ = `l` 100%) | §1a, §2a | ඉහළ |
 | RS-026 | ISO හි මෙන්ම අවිධිමත් ලිවීමේද `ai` = ඓ සහ `au` = ඖ වේ (ai 94%, au 97%). ජාතික ක්‍රමය දැන් ඓ සඳහා ĩ යොදයි | §1a, §1b, §2a | ඉහළ |
 | RS-029 | විධිමත් ක්‍රම නාසික අකුරු ගැන එකිනෙක සමඟ එකඟ නොවේ. ISO: ං = ṁ, ඞ = ṅ. ශ්‍රී ලංකා 2018+: ං = ṅ, ඞ = ṁ. ALA-LC: ං වර්ගයේ නාසිකය ගනී | §1 | ඉහළ |
+| RS-030 | **`d` සම්බන්ධයෙන් යතුරුපුවරු ක්‍රම අවිධිමත් ලිවීමෙන් වෙනස් වේ.** Wikimedia ආදාන මෙවලම්වල විවෘත Singlish යතුරු සිතියම (si-singlish, 2012) `t` ට / `th` ත රටාවටම `d` ඩ, `dh` ද, `D` ඪ, `Dh` ධ ලෙස ලියයි. පැරණි යතුරුපුවරු ක්‍රමද එයම භාවිත කරයි. අවිධිමත් ලිවීම `d` ද ලෙස කියවයි (RS-002), ලිඛිත පාඨයේ ද, ඩ ට වඩා 5 ගුණයක් පමණ සුලබය. පරිවර්තකයක් පෙරනිමියෙන් `d` ද ලෙස ගෙන, යතුරුපුවරු සම්මුතිය විකල්පයක් ලෙස ලබා දිය යුතුය | §2a, මූලාශ්‍ර | ඉහළ |
 
 ---
 
@@ -333,3 +334,4 @@
 - Perera, Prabhath, Sumanathilaka & Anuradha, IndoNLP 2025: <https://aclanthology.org/2025.indonlp-1.16.pdf>
 - Perera & Sumanathilaka, RANLP 2025: <https://aclanthology.org/2025.ranlp-1.107.pdf>
 - Sumanathilaka et al., Swa-bhasha Resource Hub: <https://arxiv.org/abs/2507.09245>
+- Wikimedia jquery.ime, si-singlish keymap (2012): <https://github.com/wikimedia/jquery.ime/blob/master/rules/si/si-singlish.js>

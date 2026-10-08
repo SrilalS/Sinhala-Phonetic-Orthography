@@ -16,6 +16,8 @@ export interface Options {
   classical?: boolean;
   /** Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual ෘ/ෲ (කෲර) (R-06). */
   rakaransayaU?: boolean;
+  /** Write d as ඩ and dh as ද, the older keyboard convention (R-01). */
+  retroflexD?: boolean;
 }
 
 const HAL = "්";
@@ -26,6 +28,8 @@ const NO_HAL = new Set([...SANYAKA, "ළ"]); // G-HC-06, G-HC-07
 const NGA = "ඞ"; // G-HC-08: only as ඞ්
 const PLAIN: Record<string, string> = { ඟ: "ග", ඦ: "ජ", ඬ: "ඩ", ඳ: "ද", ඹ: "බ" }; // G-PH-01
 const PLAIN_BEFORE_RA = new Set("මනල"); // R-07: C ් ර after ම න ල is plain hal (දුම්රිය, හෙන්රි)
+// R-01 retroflexD: d ඩ · dh ද · D ඪ · Dh ධ · zd ඬ (q, dhh, zdh, zq and zD keep their letters)
+const RETROFLEX_D: Record<string, string> = { d: "ඩ", dh: "ද", D: "ඪ", Dh: "ධ", zd: "ඬ" };
 const VELARS = new Set("කඛගඝ"); // R-11: n + velar → ං
 const GAETTA: Record<string, string> = { u: "ෘ", uu: "ෲ" }; // R-06, G-VS-15
 // C-13: ෘ / ෲ only after the consonants where the form is attested (validity.json: valid, loan or rare)
@@ -94,8 +98,10 @@ function glide(prevVowel: string | null, vowel: string) {
 
 /** Convert a romanized word or text to Sinhala script. */
 export function toSinhala(source: string, options: Options = {}): string {
-  const { archaic = false, repayaZwj = false, classical = false, rakaransayaU = false } = options;
-  const toks = tokenize(source, archaic);
+  const { archaic = false, repayaZwj = false, classical = false, rakaransayaU = false, retroflexD = false } = options;
+  let toks = tokenize(source, archaic);
+  if (retroflexD)
+    toks = toks.map((t) => (t.kind === "C" && has(RETROFLEX_D, t.seq) ? { ...t, letter: RETROFLEX_D[t.seq] } : t));
   const out: string[] = [];
   // state: null (word start), "V" (ends in a vowel; prevVowel set), "ANUS", "HAL"
   let state: null | "V" | "ANUS" | "HAL" = null;

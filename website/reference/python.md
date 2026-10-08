@@ -43,6 +43,7 @@ Converts a romanized word or text to Sinhala script. Characters outside the sequ
 | `repaya_zwj` | Write repaya as ර්‍ + C instead of plain ර් + C | R-08 |
 | `classical` | ZWJ conjuncts for the classical bandi akuru pairs, and rakaransaya after ම න ල | R-07, R-10 |
 | `rakaransaya_u` | Write C + r + u/uu as rakaransaya + ු/ූ (ක්‍රූර) instead of the usual C + ෘ/ෲ (කෲර) | R-06 |
+| `retroflex_d` | `d` types ඩ and `dh` types ද (`D` ඪ, `Dh` ධ), the older keyboard convention | R-01 |
 
 `transliterate()` is the same function under its original name. The sequence tables live in
 `src/sinhala_orthography/data/` (`consonants.json`, `vowels.json`, `specials.json`), and the
@@ -111,7 +112,7 @@ candidates(lex, "honda", { limit: 5 });
 
 | Python | JavaScript |
 |---|---|
-| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (also `archaic`, `classical`, `rakaransayaU`) |
+| `to_sinhala(s, repaya_zwj=True)` | `toSinhala(s, { repayaZwj: true })` (also `archaic`, `classical`, `rakaransayaU`, `retroflexD`) |
 | `Lexicon(path)` | `new Lexicon(text)` or `new Lexicon(pairs)`: no file access, so it also runs in a browser |
 | `candidates(lex, roman, limit=5, partial=False)` | `candidates(lex, roman, { limit, partial })` |
 | `sound_key`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` | `soundKey`, `normalize`, `entries`, `VOWELS`, `CONSONANTS`, `SIGNS` |

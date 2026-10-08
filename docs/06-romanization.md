@@ -282,6 +282,7 @@ Notes on the columns:
 | RS-025 | The formal systems mark retroflex letters with an underdot (ṭ ḍ ṇ ḷ). Informal writing does not distinguish them at all for the nasal and lateral (ණ = `n` 100%, ළ = `l` 100%) | §1a, §2a | H |
 | RS-026 | `ai` = ඓ and `au` = ඖ in ISO, and in informal writing (ai 94%, au 97%). The national system now uses ĩ for ඓ | §1a, §1b, §2a | H |
 | RS-029 | The formal systems disagree with each other on the nasals. ISO: ං = ṁ, ඞ = ṅ. Sri Lanka 2018+: ං = ṅ, ඞ = ṁ. ALA-LC: ං takes the class nasal | §1 | H |
+| RS-030 | **Keyboard schemes split from informal writing on `d`.** The open Singlish keymap of the Wikimedia input tools (si-singlish, 2012) types `d` ඩ, `dh` ද, `D` ඪ, `Dh` ධ, the same pattern as `t` ට / `th` ත, and older keyboard schemes share it. Informal writing reads `d` as ද (RS-002), and ද is about 5 times as frequent as ඩ in running text. A converter should default to `d` ද and offer the keyboard convention as an option | §2a, Sources | H |
 
 ---
 
@@ -331,3 +332,4 @@ Removed: out of scope: RS-013, RS-015, RS-016, RS-021, RS-022, RS-023, RS-027, R
 - Perera, Prabhath, Sumanathilaka & Anuradha, IndoNLP 2025: <https://aclanthology.org/2025.indonlp-1.16.pdf>
 - Perera & Sumanathilaka, RANLP 2025: <https://aclanthology.org/2025.ranlp-1.107.pdf>
 - Sumanathilaka et al., Swa-bhasha Resource Hub: <https://arxiv.org/abs/2507.09245>
+- Wikimedia jquery.ime, si-singlish keymap (2012): <https://github.com/wikimedia/jquery.ime/blob/master/rules/si/si-singlish.js>
